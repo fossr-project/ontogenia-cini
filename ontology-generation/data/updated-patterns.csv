@@ -1,0 +1,1256 @@
+Name,Information,Pattern_owl
+agentrole,,"<?xml version=""1.0""?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl ""http://www.w3.org/2002/07/owl#"" >
+    <!ENTITY xsd ""http://www.w3.org/2001/XMLSchema#"" >
+    <!ENTITY rdfs ""http://www.w3.org/2000/01/rdf-schema#"" >
+    <!ENTITY rdf ""http://www.w3.org/1999/02/22-rdf-syntax-ns#"" >
+    <!ENTITY agentrole ""http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#"" >
+    <!ENTITY objectrole ""http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"" >
+    <!ENTITY cpannotationschema ""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"" >
+]>
+
+
+<rdf:RDF xmlns=""http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#""
+     xml:base=""http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl""
+     xmlns:agentrole=""http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#""
+     xmlns:rdfs=""http://www.w3.org/2000/01/rdf-schema#""
+     xmlns:cpannotationschema=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#""
+     xmlns:owl=""http://www.w3.org/2002/07/owl#""
+     xmlns:xsd=""http://www.w3.org/2001/XMLSchema#""
+     xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+     xmlns:objectrole=""http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#"">
+    <owl:Ontology rdf:about=""http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl"">
+        <rdfs:label rdf:datatype=""&rdf;PlainLiteral"">agent role</rdfs:label>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">Created by Aldo Gangemi and Valentina Presutti</owl:versionInfo>
+        <cpannotationschema:scenarios rdf:datatype=""&rdf;PlainLiteral"">She greeted us all in her various roles of mother, friend, and daughter.</cpannotationschema:scenarios>
+        <cpannotationschema:relatedCPs rdf:datatype=""&rdf;PlainLiteral"">The time indexed person role CP available at http://www.ontologydesignpatterns.org/cp/owl/timeiindexedpersonrole.owl allows to represent temporariness of roles played by persons. It can be generalized for including objects or, alternatively the n-ary classification CP avaliable at http://www.ontologydesignpatterns.org/cp/owl/naryclassification.owl can be specialized in order to obtain the same expressivity.</cpannotationschema:relatedCPs>
+        <cpannotationschema:hasConsequences rdf:datatype=""&rdf;PlainLiteral"">This CP allows designers to make assertions on roles played by agents without involving the agents that play that roles, and vice versa. It does not allow to express temporariness of roles.</cpannotationschema:hasConsequences>
+        <cpannotationschema:hasIntent rdf:datatype=""&rdf;PlainLiteral"">To represent agents and the roles they play.</cpannotationschema:hasIntent>
+        <cpannotationschema:isSpecializationOf rdf:datatype=""&rdf;PlainLiteral"">http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl</cpannotationschema:isSpecializationOf>
+        <cpannotationschema:extractedFrom rdf:datatype=""&rdf;PlainLiteral"">http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</cpannotationschema:extractedFrom>
+        <cpannotationschema:coversRequirements rdf:datatype=""&rdf;PlainLiteral"">which agent does play this role?
+what is the role that played by that agent?</cpannotationschema:coversRequirements>
+        <owl:imports rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl""/>
+        <owl:imports rdf:resource=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl""/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;isCloneOf""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasConsequences""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;scenarios""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;extractedFrom""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;coversRequirements""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasIntent""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;label""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;isSpecializationOf""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;comment""/>
+    <owl:AnnotationProperty rdf:about=""&owl;versionInfo""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;isDefinedBy""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;relatedCPs""/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl#Agent -->
+
+    <owl:Class rdf:about=""&agentrole;Agent"">
+        <rdfs:label xml:lang=""en"">Agent</rdfs:label>
+        <rdfs:label xml:lang=""it"">Agente</rdfs:label>
+        <rdfs:subClassOf rdf:resource=""&objectrole;Object""/>
+        <owl:disjointWith rdf:resource=""&objectrole;Role""/>
+        <cpannotationschema:isCloneOf>http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent</cpannotationschema:isCloneOf>
+        <rdfs:comment>Any agentive Object , either physical, or social.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/agentrole.owl""/>
+    </owl:Class>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Object -->
+
+    <owl:Class rdf:about=""&objectrole;Object""/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/objectrole.owl#Role -->
+
+    <owl:Class rdf:about=""&objectrole;Role""/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+",
+Classification,,"<?xml version=""1.0""?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl ""http://www.w3.org/2002/07/owl#"" >
+    <!ENTITY xsd ""http://www.w3.org/2001/XMLSchema#"" >
+    <!ENTITY rdfs ""http://www.w3.org/2000/01/rdf-schema#"" >
+    <!ENTITY rdf ""http://www.w3.org/1999/02/22-rdf-syntax-ns#"" >
+    <!ENTITY classification ""http://www.ontologydesignpatterns.org/cp/owl/classification.owl#"" >
+    <!ENTITY cpannotationschema ""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"" >
+]>
+
+
+<rdf:RDF xmlns=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl#""
+     xml:base=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl""
+     xmlns:rdfs=""http://www.w3.org/2000/01/rdf-schema#""
+     xmlns:cpannotationschema=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#""
+     xmlns:classification=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl#""
+     xmlns:owl=""http://www.w3.org/2002/07/owl#""
+     xmlns:xsd=""http://www.w3.org/2001/XMLSchema#""
+     xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#"">
+    <owl:Ontology rdf:about=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl"">
+        <rdfs:label rdf:datatype=""&rdf;PlainLiteral"">classification</rdfs:label>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">Created by Valentina Presutti</owl:versionInfo>
+        <cpannotationschema:hasConsequences rdf:datatype=""&xsd;string"">It is possible to make asser tions about e.g., categories, types, roles, which are typically considered at the meta-level of an ontology. Instances of Concept reify such elements, which are therefore put in the ordinary domain of an ontology. It is not possible to parametrize the classiﬁcation over different dimensions e.g., time, space, etc. </cpannotationschema:hasConsequences>
+        <cpannotationschema:scenarios rdf:datatype=""&xsd;string"">Mac OSX 10.5 is classiﬁed as an an operating system in the Fujitsu-Siemens product catalog.</cpannotationschema:scenarios>
+        <rdfs:comment rdf:datatype=""&rdf;PlainLiteral"">The classification content ontology design pattern. This CP represents the realtions between concepts e.g., roles, task, and entities to which concepts are assigned to e.g., person, activities. The CP is extracted form DOLCE Ultra Lite ontology.</rdfs:comment>
+        <cpannotationschema:hasIntent rdf:datatype=""&xsd;string"">To represent the relations between concepts (roles, task, parameters) and entities (person, events, values), which concepts can be assigned to. To formalize the application (e.g. tagging) of informal knowledge
+organization systems such as lexica, thesauri, subject directories, folksonomies, etc., where concepts are ﬁrst-order elements.</cpannotationschema:hasIntent>
+        <cpannotationschema:relatedCPs rdf:datatype=""&xsd;string"">Typically combined with descriptionandsituation. It is specialized by cat:objectrole. The n-ary classiﬁcation CP provides an alternative to this if classiﬁcation has to be qualiﬁed over different dimensions.</cpannotationschema:relatedCPs>
+        <cpannotationschema:coversRequirements rdf:datatype=""&xsd;string"">What concept is assigned to this entity? Which category does this entity belong to?</cpannotationschema:coversRequirements>
+        <cpannotationschema:extractedFrom rdf:datatype=""&rdf;PlainLiteral"">http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</cpannotationschema:extractedFrom>
+        <owl:imports rdf:resource=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl""/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about=""&owl;versionInfo""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasConsequences""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;scenarios""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;extractedFrom""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;isDefinedBy""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;coversRequirements""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasIntent""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;label""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;comment""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;relatedCPs""/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#classifies -->
+
+    <owl:ObjectProperty rdf:about=""&classification;classifies"">
+        <rdfs:label xml:lang=""en"">classifies</rdfs:label>
+        <rdfs:label xml:lang=""it"">classifica</rdfs:label>
+        <rdfs:comment rdf:datatype=""&xsd;string"">A relation between a Concept and an Entity, e.g. the Role &#39;student&#39; classifies a Person &#39;John&#39;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl""/>
+        <rdfs:domain rdf:resource=""&classification;Concept""/>
+        <owl:inverseOf rdf:resource=""&classification;isClassifiedBy""/>
+        <rdfs:range rdf:resource=""&owl;Thing""/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about=""&classification;isClassifiedBy"">
+        <rdfs:label xml:lang=""en"">is classified by</rdfs:label>
+        <rdfs:label xml:lang=""it"">è classificato da</rdfs:label>
+        <rdfs:comment>A relation between a Concept and an Entity, e.g. &#39;John is considered a typical rude man&#39;; your last concert constitutes the achievement of a lifetime; &#39;20-year-old means she&#39;s mature enough&#39;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl""/>
+        <rdfs:range rdf:resource=""&classification;Concept""/>
+        <rdfs:domain rdf:resource=""&owl;Thing""/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/classification.owl#Concept -->
+
+    <owl:Class rdf:about=""&classification;Concept"">
+        <rdfs:label xml:lang=""en"">Concept</rdfs:label>
+        <rdfs:label xml:lang=""it"">Concetto</rdfs:label>
+        <rdfs:comment rdf:datatype=""&xsd;string"">A concept is a Social Object.
+The classifies relation relates concepts to entities at some time, but time can only be expressed in the alternative pattern: timeindexedclassification.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/classification.owl""/>
+    </owl:Class>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about=""&owl;Thing""/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+",
+Collection Entity,,"<?xml version=""1.0""?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl ""http://www.w3.org/2002/07/owl#"" >
+    <!ENTITY xsd ""http://www.w3.org/2001/XMLSchema#"" >
+    <!ENTITY rdfs ""http://www.w3.org/2000/01/rdf-schema#"" >
+    <!ENTITY rdf ""http://www.w3.org/1999/02/22-rdf-syntax-ns#"" >
+    <!ENTITY collectionentity ""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"" >
+    <!ENTITY cpannotationschema ""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"" >
+]>
+
+
+<rdf:RDF xmlns=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#""
+     xml:base=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl""
+     xmlns:rdfs=""http://www.w3.org/2000/01/rdf-schema#""
+     xmlns:cpannotationschema=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#""
+     xmlns:owl=""http://www.w3.org/2002/07/owl#""
+     xmlns:xsd=""http://www.w3.org/2001/XMLSchema#""
+     xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#""
+     xmlns:collectionentity=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#"">
+    <owl:Ontology rdf:about=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl"">
+        <rdfs:label rdf:datatype=""&rdf;PlainLiteral"">collection entity</rdfs:label>
+        <rdfs:label rdf:datatype=""&rdf;PlainLiteral"">membership</rdfs:label>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
+        <cpannotationschema:hasAuthor rdf:datatype=""&rdf;PlainLiteral"">Aldo Gangemi</cpannotationschema:hasAuthor>
+        <cpannotationschema:hasConsequences rdf:datatype=""&rdf;PlainLiteral"">Collections and their members can be associated. Time-indexed membership cannot be represented though (you need a situation-based pattern).</cpannotationschema:hasConsequences>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">Created by Aldo Gangemi and Valentina Presutti</owl:versionInfo>
+        <cpannotationschema:scenarios rdf:datatype=""&rdf;PlainLiteral"">My saxophone collection includes a Mark VI tenor, a Balanced Action alto, and a Conn Transitional bari.</cpannotationschema:scenarios>
+        <rdfs:comment rdf:datatype=""&rdf;PlainLiteral"">The collection entity pattern.
+It is extracted from DOLCE-UltraLite by partial clone of elements.</rdfs:comment>
+        <cpannotationschema:relatedCPs rdf:datatype=""&rdf;PlainLiteral"">TimeIndexedMembership</cpannotationschema:relatedCPs>
+        <cpannotationschema:hasIntent rdf:datatype=""&rdf;PlainLiteral"">To represent domain (not set theory) membership.</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements rdf:datatype=""&rdf;PlainLiteral"">What things are contained in this collection (community, collective)? What collections this thing is member of?</cpannotationschema:coversRequirements>
+        <cpannotationschema:extractedFrom rdf:datatype=""&rdf;PlainLiteral"">http://www.ontologydesignpatterns.org/ont/dul/DUL.owl</cpannotationschema:extractedFrom>
+        <owl:imports rdf:resource=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl""/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about=""&owl;versionInfo""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasAuthor""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasConsequences""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;scenarios""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;extractedFrom""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;isDefinedBy""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;coversRequirements""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasIntent""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;label""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;comment""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;relatedCPs""/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#hasMember -->
+
+    <owl:ObjectProperty rdf:about=""&collectionentity;hasMember"">
+        <rdfs:label xml:lang=""en"">has member</rdfs:label>
+        <rdfs:comment>A relation between collections and entities, e.g. &#39;my collection of saxophones includes an old Adolphe Sax original alto&#39; (i.e. my collection has member an Adolphe Sax alto).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl""/>
+        <rdfs:domain rdf:resource=""&collectionentity;Collection""/>
+        <owl:inverseOf rdf:resource=""&collectionentity;isMemberOf""/>
+        <rdfs:range rdf:resource=""&owl;Thing""/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#isMemberOf -->
+
+    <owl:ObjectProperty rdf:about=""&collectionentity;isMemberOf"">
+        <rdfs:label xml:lang=""en"">is member of</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl""/>
+        <rdfs:range rdf:resource=""&collectionentity;Collection""/>
+        <rdfs:domain rdf:resource=""&owl;Thing""/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl#Collection -->
+
+    <owl:Class rdf:about=""&collectionentity;Collection"">
+        <rdfs:label xml:lang=""en"">Collection</rdfs:label>
+        <rdfs:comment>Any container for entities that share one or more common properties. E.g. &quot;stone objects&quot;, &quot;the nurses&quot;, &quot;the Louvre Aegyptian collection&quot;. A collection is not a logical class: a collection is a first-order entity, while a class is a second-order one.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/collectionentity.owl""/>
+    </owl:Class>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about=""&owl;Thing""/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+"
+Part Of,,"<?xml version=""1.0""?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl ""http://www.w3.org/2002/07/owl#"" >
+    <!ENTITY xsd ""http://www.w3.org/2001/XMLSchema#"" >
+    <!ENTITY rdfs ""http://www.w3.org/2000/01/rdf-schema#"" >
+    <!ENTITY rdf ""http://www.w3.org/1999/02/22-rdf-syntax-ns#"" >
+    <!ENTITY partof ""http://www.ontologydesignpatterns.org/cp/owl/partof.owl#"" >
+    <!ENTITY cpannotationschema ""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"" >
+]>
+
+
+<rdf:RDF xmlns=""http://www.ontologydesignpatterns.org/cp/owl/partof.owl#""
+     xml:base=""http://www.ontologydesignpatterns.org/cp/owl/partof.owl""
+     xmlns:rdfs=""http://www.w3.org/2000/01/rdf-schema#""
+     xmlns:cpannotationschema=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#""
+     xmlns:partof=""http://www.ontologydesignpatterns.org/cp/owl/partof.owl#""
+     xmlns:owl=""http://www.w3.org/2002/07/owl#""
+     xmlns:xsd=""http://www.w3.org/2001/XMLSchema#""
+     xmlns:rdf=""http://www.w3.org/1999/02/22-rdf-syntax-ns#"">
+    <owl:Ontology rdf:about=""http://www.ontologydesignpatterns.org/cp/owl/partof.owl"">
+        <rdfs:label rdf:datatype=""&rdf;PlainLiteral"">part of</rdfs:label>
+        <rdfs:label rdf:datatype=""&rdf;PlainLiteral"">part-whole</rdfs:label>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
+        <cpannotationschema:scenarios rdf:datatype=""&xsd;string"">Brain and heart are parts of the human body, substantia nigra is part of brain.</cpannotationschema:scenarios>
+        <owl:versionInfo rdf:datatype=""&xsd;string"">Created by Valentina Presutti</owl:versionInfo>
+        <cpannotationschema:relatedCPs rdf:datatype=""&xsd;string"">The time indexed part of is used as alternative when the temporal indexing has to be represented. Part of CP is specialized by componency. Sometimes this CP is wrongly used in order to model constituency and membership. These two modeling problems are addressed by constituency, and collection entity CPs, respectively.</cpannotationschema:relatedCPs>
+        <cpannotationschema:hasConsequences rdf:datatype=""&xsd;string"">This CP allows designers to represent entities and their parts i.e., part-whole relations, with transitivity. The temporal aspect of this relation cannot be expressed; in order to solve this issue the time indexed part of CP can be used.</cpannotationschema:hasConsequences>
+        <cpannotationschema:hasIntent rdf:datatype=""&xsd;string"">To represents entities and their parts.</cpannotationschema:hasIntent>
+        <cpannotationschema:coversRequirements rdf:datatype=""&xsd;string"">What is this entity part of? What are the parts of this entity?</cpannotationschema:coversRequirements>
+        <owl:imports rdf:resource=""http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl""/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about=""&owl;versionInfo""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasConsequences""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;scenarios""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;isDefinedBy""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;coversRequirements""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;hasIntent""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;label""/>
+    <owl:AnnotationProperty rdf:about=""&rdfs;comment""/>
+    <owl:AnnotationProperty rdf:about=""&cpannotationschema;relatedCPs""/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart -->
+
+    <owl:ObjectProperty rdf:about=""&partof;hasPart"">
+        <rdf:type rdf:resource=""&owl;TransitiveProperty""/>
+        <rdfs:label xml:lang=""en"">has part</rdfs:label>
+        <rdfs:comment>A transitive relation expressing parthood between any entities, e.g. &#39;the human body has a brain as part&#39;. When specializing this pattern, take care of restricting the domain and range appropriately, since it could be counterintuitive to use this relation arbitrarily, e.g. between animals and planets. For an intransitive partof pattern, see &#39;componency&#39;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/partof.owl""/>
+        <owl:inverseOf rdf:resource=""&partof;isPartOf""/>
+        <rdfs:range rdf:resource=""&owl;Thing""/>
+        <rdfs:domain rdf:resource=""&owl;Thing""/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/partof.owl#isPartOf -->
+
+    <owl:ObjectProperty rdf:about=""&partof;isPartOf"">
+        <rdf:type rdf:resource=""&owl;TransitiveProperty""/>
+        <rdfs:label xml:lang=""en"">is part of</rdfs:label>
+        <rdfs:comment>A transitive relation expressing parthood between any entities, e.g. &#39;brain is a part of the human body&#39;. When specializing this pattern, take care of restricting the domain and range appropriately, since it could be counterintuitive to use this relation arbitrarily, e.g. between animals and planets. For an intransitive partof pattern, see &#39;componency&#39;.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource=""http://www.ontologydesignpatterns.org/cp/owl/partof.owl""/>
+        <rdfs:domain rdf:resource=""&owl;Thing""/>
+        <rdfs:range rdf:resource=""&owl;Thing""/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about=""&owl;Thing""/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+",
+timeindexedsituation,,"<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY situation "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#" >
+    <!ENTITY timeinterval "http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+    <!ENTITY timeindexedsituation "http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"
+     xmlns:timeindexedsituation="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#"
+     xmlns:timeinterval="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:situation="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">1.0
+- Revised, and added annotations for ODP publishing
+0.1
+- Created by Aldo Gangemi</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&xsd;string">1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&rdf;PlainLiteral">A generic pattern usable for all situations that require a temporal indexing.</rdfs:comment>
+        <cpannotationschema:hasAuthor rdf:datatype="&rdf;PlainLiteral">Aldo Gangemi</cpannotationschema:hasAuthor>
+        <cpannotationschema:coversRequirements rdf:datatype="&rdf;PlainLiteral">At what time did a certain situation occur?,What situations occurred at a certain time?</cpannotationschema:coversRequirements>
+        <cpannotationschema:scenarios rdf:datatype="&rdf;PlainLiteral">Mustafa&#39;s address in 2005 was in Brussels</cpannotationschema:scenarios>
+        <cpannotationschema:hasUnitTest rdf:datatype="&rdf;PlainLiteral">SELECT ?x ?e ?t
+WHERE {
+?x :forEntity ?e .
+?x :atTime ?t }</cpannotationschema:hasUnitTest>
+        <cpannotationschema:isSpecializationOf rdf:datatype="&rdf;PlainLiteral">Situation</cpannotationschema:isSpecializationOf>
+        <cpannotationschema:relatedCPs rdf:datatype="&rdf;PlainLiteral">Time indexed participation,TimeIndexedClassification</cpannotationschema:relatedCPs>
+        <cpannotationschema:hasComponent rdf:datatype="&rdf;PlainLiteral">TimeInterval</cpannotationschema:hasComponent>
+        <cpannotationschema:hasIntent rdf:datatype="&rdf;PlainLiteral">To represent time indexed situations.</cpannotationschema:hasIntent>
+        <cpannotationschema:hasConsequences rdf:datatype="&rdf;PlainLiteral">We can represent situations that have an explicit time parameter.
+In principle, this can be done already with the Situation pattern, but this provides a handy composition with the TimeInterval pattern.</cpannotationschema:hasConsequences>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/situation.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasAuthor"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;scenarios"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasConsequences"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasUnitTest"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasComponent"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;coversRequirements"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasIntent"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;isSpecializationOf"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;relatedCPs"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/situation.owl#hasSetting -->
+
+    <owl:ObjectProperty rdf:about="&situation;hasSetting"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/situation.owl#isSettingFor -->
+
+    <owl:ObjectProperty rdf:about="&situation;isSettingFor"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;atTime">
+        <rdfs:label xml:lang="en">at time</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"/>
+        <rdfs:subPropertyOf rdf:resource="&situation;isSettingFor"/>
+        <rdfs:domain rdf:resource="&timeindexedsituation;TimeIndexedSituation"/>
+        <rdfs:range rdf:resource="&timeinterval;TimeInterval"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;forEntity">
+        <rdfs:label xml:lang="en">for entity</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"/>
+        <rdfs:subPropertyOf rdf:resource="&situation;isSettingFor"/>
+        <rdfs:domain rdf:resource="&timeindexedsituation;TimeIndexedSituation"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;hasTimeIndexedSetting">
+        <rdfs:label xml:lang="en">has time indexed setting</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"/>
+        <rdfs:subPropertyOf rdf:resource="&situation;hasSetting"/>
+        <rdfs:range rdf:resource="&timeindexedsituation;TimeIndexedSituation"/>
+        <owl:inverseOf rdf:resource="&timeindexedsituation;forEntity"/>
+        <rdfs:domain rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#isTimeIndexFor -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;isTimeIndexFor">
+        <rdfs:label xml:lang="en">is time index for</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"/>
+        <rdfs:subPropertyOf rdf:resource="&situation;hasSetting"/>
+        <rdfs:range rdf:resource="&timeindexedsituation;TimeIndexedSituation"/>
+        <owl:inverseOf rdf:resource="&timeindexedsituation;atTime"/>
+        <rdfs:domain rdf:resource="&timeinterval;TimeInterval"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation -->
+
+    <owl:Class rdf:about="&situation;Situation"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation -->
+
+    <owl:Class rdf:about="&timeindexedsituation;TimeIndexedSituation">
+        <rdfs:label xml:lang="en">Time indexed situation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&situation;Situation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&timeindexedsituation;atTime"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&timeindexedsituation;forEntity"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A Situation that is explicitly indexed at some time for at least one entity.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval -->
+
+    <owl:Class rdf:about="&timeinterval;TimeInterval"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+
+",
+timeindexedparticipation,,"<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY situation "http://www.ontologydesignpatterns.org/cp/owl/situation.owl#" >
+    <!ENTITY participation "http://www.ontologydesignpatterns.org/cp/owl/participation.owl#" >
+    <!ENTITY cpannotationschema "http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#" >
+    <!ENTITY timeindexedsituation "http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#" >
+    <!ENTITY timeindexedparticipation "http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl"
+     xmlns:timeindexedsituation="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:timeindexedparticipation="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:participation="http://www.ontologydesignpatterns.org/cp/owl/participation.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:situation="http://www.ontologydesignpatterns.org/cp/owl/situation.owl#">
+    <owl:Ontology rdf:about="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl">
+        <owl:versionInfo rdf:datatype="&xsd;string">1.0
+- Revised and annotated for ODP publishing
+0.2
+- Revised with specialization from timeindexedsituation.owl
+0.1
+- Created by Aldo Gangemi</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&xsd;string">1.1 added rdfs:isDefinedBy for all named entities</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&rdf;PlainLiteral">A time-indexed pattern for participation</rdfs:comment>
+        <cpannotationschema:hasAuthor rdf:datatype="&rdf;PlainLiteral">Aldo Gangemi</cpannotationschema:hasAuthor>
+        <cpannotationschema:hasComponent rdf:datatype="&rdf;PlainLiteral">Participation,Region</cpannotationschema:hasComponent>
+        <cpannotationschema:relatedCPs rdf:datatype="&rdf;PlainLiteral">Participation,Time indexed person role</cpannotationschema:relatedCPs>
+        <cpannotationschema:hasUnitTest rdf:datatype="&rdf;PlainLiteral">SELECT ?e ?o ?t
+WHERE {
+?x :includesEvent ?e .
+?x :includesObject ?o .
+?x :atTime ?t }</cpannotationschema:hasUnitTest>
+        <cpannotationschema:scenarios rdf:datatype="&rdf;PlainLiteral">This morning I&#39;ve prepared my coffee and had my fingers burnt,The football match lasted only ten minutes for Totti</cpannotationschema:scenarios>
+        <cpannotationschema:isSpecializationOf rdf:datatype="&rdf;PlainLiteral">TimeIndexedSituation</cpannotationschema:isSpecializationOf>
+        <cpannotationschema:hasIntent rdf:datatype="&rdf;PlainLiteral">To represent participants in events at some time,To represent participants in parts of events.</cpannotationschema:hasIntent>
+        <cpannotationschema:hasConsequences rdf:datatype="&rdf;PlainLiteral">We can represent participation relations with time. This enables participations at different times as well as partial participations in events.
+However, this pattern focuses on participation of one entity in one event. If complex events need to be represented (with subevents, more participants and times, etc.), a partonomic structure must be introduced, e.g. by creating a new pattern that composes TimeIndexedParticipation with PartOf.</cpannotationschema:hasConsequences>
+        <cpannotationschema:coversRequirements rdf:datatype="&rdf;PlainLiteral">When something participated in some event?,At what time an event had some participant?</cpannotationschema:coversRequirements>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/participation.owl"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl"/>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasAuthor"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;scenarios"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasConsequences"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasUnitTest"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasComponent"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;coversRequirements"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;hasIntent"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;isSpecializationOf"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;label"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;comment"/>
+    <owl:AnnotationProperty rdf:about="&owl;versionInfo"/>
+    <owl:AnnotationProperty rdf:about="&rdfs;isDefinedBy"/>
+    <owl:AnnotationProperty rdf:about="&cpannotationschema;relatedCPs"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#includesEvent -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedparticipation;includesEvent">
+        <rdfs:label xml:lang="en">includes event</rdfs:label>
+        <rdfs:label xml:lang="it">include l&#39;evento</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A relation between situations and events, e.g. &#39;this morning I&#39;ve prepared my coffee and had my fingers burnt&#39; (i.e.: the preparation of my coffee this morning included a burning of my fingers).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl"/>
+        <rdfs:range rdf:resource="&participation;Event"/>
+        <rdfs:domain rdf:resource="&timeindexedparticipation;TimeIndexedParticipation"/>
+        <owl:inverseOf rdf:resource="&timeindexedparticipation;isEventIncludedIn"/>
+        <rdfs:subPropertyOf rdf:resource="&timeindexedsituation;forEntity"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#includesObject -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedparticipation;includesObject">
+        <rdfs:label xml:lang="en">includes object</rdfs:label>
+        <rdfs:label xml:lang="it">include l&#39;oggetto</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string">A relation between situations and objects, e.g. &#39;this morning I&#39;ve prepared my coffee and had my fingers burnt&#39; (i.e.: the preparation of my coffee this morning included me).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl"/>
+        <rdfs:range rdf:resource="&participation;Object"/>
+        <rdfs:domain rdf:resource="&timeindexedparticipation;TimeIndexedParticipation"/>
+        <owl:inverseOf rdf:resource="&timeindexedparticipation;isObjectIncludedIn"/>
+        <rdfs:subPropertyOf rdf:resource="&timeindexedsituation;forEntity"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#isEventIncludedIn -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedparticipation;isEventIncludedIn">
+        <rdfs:label xml:lang="en">is event included in</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl"/>
+        <rdfs:domain rdf:resource="&participation;Event"/>
+        <rdfs:range rdf:resource="&situation;Situation"/>
+        <rdfs:subPropertyOf rdf:resource="&timeindexedsituation;hasTimeIndexedSetting"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#isObjectIncludedIn -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedparticipation;isObjectIncludedIn">
+        <rdfs:label xml:lang="en">is object included in</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl"/>
+        <rdfs:domain rdf:resource="&participation;Object"/>
+        <rdfs:range rdf:resource="&situation;Situation"/>
+        <rdfs:subPropertyOf rdf:resource="&timeindexedsituation;hasTimeIndexedSetting"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#atTime -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;atTime"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#forEntity -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;forEntity"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#hasTimeIndexedSetting -->
+
+    <owl:ObjectProperty rdf:about="&timeindexedsituation;hasTimeIndexedSetting"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Event -->
+
+    <owl:Class rdf:about="&participation;Event"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/participation.owl#Object -->
+
+    <owl:Class rdf:about="&participation;Object"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/situation.owl#Situation -->
+
+    <owl:Class rdf:about="&situation;Situation"/>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl#TimeIndexedParticipation -->
+
+    <owl:Class rdf:about="&timeindexedparticipation;TimeIndexedParticipation">
+        <rdfs:label xml:lang="en">Time indexed participation</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&timeindexedsituation;TimeIndexedSituation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&timeindexedparticipation;includesObject"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&timeindexedsituation;atTime"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&timeindexedsituation;forEntity"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&timeindexedparticipation;includesEvent"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A Situation that represents participation of Object(s) in Event(s) at some Time.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.ontologydesignpatterns.org/cp/owl/timeindexedparticipation.owl"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#TimeIndexedSituation -->
+
+    <owl:Class rdf:about="&timeindexedsituation;TimeIndexedSituation"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+
+",
+event,,"<?xml version="1.0"?>
+<rdf:RDF xmlns="http://w3id.org/daselab/onto/event#"
+     xml:base="http://w3id.org/daselab/onto/event"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:cpannotationschema="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:event="http://w3id.org/daselab/onto/event#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+    <owl:Ontology rdf:about="http://w3id.org/daselab/onto/event">
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/schemas/cpannotationschema.owl"/>
+        <cpannotationschema:hasIntent>The purpose of this pattern is to provide a minimalistic model of event where it is not always possible to separate its spatial and the temporal aspects, thus can model events that move or possess discontinuous temporal extent. Events according to this model has at least one participant, attached via a participant-role, and may have additional descriptive information through its information object.</cpannotationschema:hasIntent>
+        <dc:creator>Adila Krisnadhi, Pascal Hitzler</dc:creator>
+        <cpannotationschema:hasConsequences>This pattern can model moving events and events with discontinuous temporal extents, provided an appropriate spatiotemporal extent model is used. This pattern, however, does not facilitate modeling complex relationships between events, such as causality, provenance, or correlation</cpannotationschema:hasConsequences>
+        <cpannotationschema:coversRequirements>Where and when did the 1990 World Chess Championship Match take place?,
+Who were involved in the 1990 World Chess Championship Match?</cpannotationschema:coversRequirements>
+        <cpannotationschema:reengineeredFrom>Adila Krisnadhi; Pascal Hitzler : A Core Pattern for Events. Under review at WOP 2016</cpannotationschema:reengineeredFrom>
+        <cpannotationschema:relatedCPs>SpatioTemporalExtent, ParticipantRole, AgentRole, Objectrole, Information realization, InformationObjectsAndRepresentationLanguages, InformationObject, EventProcessing,</cpannotationschema:relatedCPs>
+        <cpannotationschema:scenarios>The 1990 World Chess Championship Match takes place in New York from October 8 to November 7, 1990, and in Lyons, France, from November 26 to December 30, 1990.</cpannotationschema:scenarios>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#DASE_RULE -->
+
+    <owl:AnnotationProperty rdf:about="http://w3id.org/daselab/onto/event#DASE_RULE">
+        <rdfs:comment>Attached to an axiom, this annotation property provides information on the original (SWRL) rule from which the axiom was obtained through translation.</rdfs:comment>
+    </owl:AnnotationProperty>
+
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+        <rdfs:label>Core Pattern for Event</rdfs:label>
+    </rdf:Description>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#freshProp1 -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#freshProp1">
+        <rdfs:comment>This property is artificially generated in order to express the following rule in OWL:  :Event(?x) ^ :providesParticipantRole(?x,?p) ^ :subEventOf(?x,?y) -&gt; :providesParticipantRole(?y,?p).
+The rule is translated into two axioms:
+1. :Event SubClassOf: :freshProp1 some Self
+2.  inverse (:subEventOf) o :freshProp1 o :providesParticipantRole SubPropertyOf: : :providesParticipantRole</rdfs:comment>
+        <rdfs:label>freshProp1</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#freshProp2 -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#freshProp2">
+        <rdfs:comment>This property is artificially generated in order to express the following rule in OWL:  :Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z).
+The rule is translated into two axioms:
+1. :Event SubClassOf: :freshProp2 some Self
+2. inverse (:hasSpatioTemporalExtent) o :freshProp2 o :subEventOf o :freshProp2 o :hasSpatioTemporalExtent SubPropertyOf: :subSpatioTemporalExtentOf</rdfs:comment>
+        <rdfs:label>freshProp2</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#hasInformationObject -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#hasInformationObject">
+        <rdfs:comment>Property relating Event to InformationObject in this pattern. The domain of this property is not restricted to Event  since it is possible that non-event to have an information object. The range is always InformationObject since it makes no sense to have a property named hasInformationObject to point to anything other than information object.</rdfs:comment>
+        <rdfs:label>hasInformationObject</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent">
+        <rdfs:comment>Property relating Event to SpatioTemporalExtent in this pattern. The range is always SpatioTemporalExtent (globally) since it makes no sense to have a property named hasSpatioTemporalExtent to point to anything other than spatiotemporal extent. Tthe domain is not set to Event as non-Event may also have spatiotemporal extent.</rdfs:comment>
+        <rdfs:label>hasSpatioTemporalExtent</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#providesParticipantRole -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#providesParticipantRole">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp1"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment>Property relating Event to ParticipantRole in this pattern. The range is always ParticipantRole since it makes no sense to have a property named as providesParticipantRole not to point to a participant role. The domain is not set to Event as non-Event may also provide a participant role.</rdfs:comment>
+        <rdfs:label>providesParticipantRole</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp1"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___:Event(?x) ^ :providesParticipantRole(?x,?p) ^ :subEventOf(?x,?y) -&gt; :providesParticipantRole(?y,?p)___</DASE_RULE>
+    </owl:Axiom>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#subEventOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#subEventOf">
+        <rdfs:comment>Property expressing partonomic relation between two events. Domain and range are always Event.</rdfs:comment>
+        <rdfs:label>subEventOf</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#subSpatioTemporalExtentOf -->
+
+    <owl:ObjectProperty rdf:about="http://w3id.org/daselab/onto/event#subSpatioTemporalExtentOf">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#subEventOf"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+        </owl:propertyChainAxiom>
+        <rdfs:comment>Property indicating partonomic relation between two spatiotemporal extents. The Event pattern only assumes that this is given by the spatiotemporal extent pattern actually used. Thus, domain and range are not explicitly stated and this property is included in axioms resulted by OWL translation of the following rule: :Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z)</rdfs:comment>
+        <rdfs:label>subSpatioTemporalExtentOf</rdfs:label>
+    </owl:ObjectProperty>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#subSpatioTemporalExtentOf"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2002/07/owl#propertyChainAxiom"/>
+        <owl:annotatedTarget rdf:parseType="Collection">
+            <rdf:Description>
+                <owl:inverseOf rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#subEventOf"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#freshProp2"/>
+            <rdf:Description rdf:about="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R2___:Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z)___</DASE_RULE>
+    </owl:Axiom>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#Event -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#Event">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#SpatioTemporalExtent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+                <owl:someValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#ParticipantRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp1"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp2"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Represents any kind of events. An event possesses a spatiotemporal extent, provides at least one participant-role, which is performed by some entity (agents or otherwise), and may be a sub-event of another event. An event may also have additional descriptive information, which is consolidated through an information object.</rdfs:comment>
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp1"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R1___:Event(?x) ^ :providesParticipantRole(?x,?p) ^ :subEventOf(?x,?y) -&gt; :providesParticipantRole(?y,?p)___</DASE_RULE>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#freshProp2"/>
+                <owl:hasSelf rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <DASE_RULE rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R2___:Event(?x) ^ :hasSpatioTemporalExtent(?x,?w) ^ :subEventOf(?x,?y) ^ :Event(?y) ^ :hasSpatioTemporalExtent(?y,?z) -&gt; :subSpatioTemporalExtentOf(?w,?z)___</DASE_RULE>
+    </owl:Axiom>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#InformationObject -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#InformationObject">
+        <rdfs:comment>An entity that encapsulates all descriptive or non-defining information of the corresponding event, e.g., names, additional identifiers, textual descriptions, etc. Should normally be aligned to a separate Information Object pattern.</rdfs:comment>
+        <rdfs:label>InformationObject</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#ParticipantRole -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#ParticipantRole">
+        <rdfs:comment>Every ParticipantRole represents a reified relationship between an event and one of its participants. Should normally be aligend to a separate Participant-Role pattern.</rdfs:comment>
+        <rdfs:label>ParticipantRole</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://w3id.org/daselab/onto/event#SpatioTemporalExtent -->
+
+    <owl:Class rdf:about="http://w3id.org/daselab/onto/event#SpatioTemporalExtent">
+        <rdfs:comment>Hook to a complex notion representing a unified spatial and temporal extent. Intended to cover non-static or discontinuous spatiotemporal extent. Should be aligned to a separate Spatiotemporal Extent pattern.</rdfs:comment>
+        <rdfs:label>SpatioTemporalExtent</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#hasInformationObject"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#InformationObject"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#hasSpatioTemporalExtent"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#SpatioTemporalExtent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#providesParticipantRole"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#ParticipantRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+                <owl:allValuesFrom rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Restriction>
+        <owl:onProperty rdf:resource="http://w3id.org/daselab/onto/event#subEventOf"/>
+        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/daselab/onto/event#Event"/>
+    </owl:Restriction>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+
+"
