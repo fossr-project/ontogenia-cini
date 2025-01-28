@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 import json
 
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='todo')
 
 def read_cqs_from_csv(file_path):
     try:
