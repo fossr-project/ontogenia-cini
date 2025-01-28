@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ontology Tools</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            margin: 20px;
+        }
+        .tab-content {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Ontology Tools</h1>
+
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="userStory-tab" data-bs-toggle="tab" data-bs-target="#userStory" type="button" role="tab">User Story Generation</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cqGeneration-tab" data-bs-toggle="tab" data-bs-target="#cqGeneration" type="button" role="tab">CQ Generation</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cqValidation-tab" data-bs-toggle="tab" data-bs-target="#cqValidation" type="button" role="tab">CQ Validation</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ontologyGeneration-tab" data-bs-toggle="tab" data-bs-target="#ontologyGeneration" type="button" role="tab">Ontology Generation</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="ontologyTesting-tab" data-bs-toggle="tab" data-bs-target="#ontologyTesting" type="button" role="tab">Ontology Testing</button>
+            </li>
+        </ul>
+
+        <!-- Tabs Content -->
+        <div class="tab-content" id="myTabContent">
+            <!-- User Story Generation -->
+            <div class="tab-pane fade show active" id="userStory" role="tabpanel">
+                <h3>User Story Generation</h3>
+                <textarea id="userStoryInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+                <button class="btn btn-primary" onclick="submitForm('/user-story', 'userStoryInput', 'userStoryResponse')">Submit</button>
+                <div class="mt-3">
+                    <strong>Response:</strong>
+                    <div class="input-group">
+                        <textarea id="userStoryResponse" class="form-control" rows="3" readonly></textarea>
+                        <button class="btn btn-secondary" onclick="copyToClipboard('userStoryResponse')">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CQ Generation -->
+            <div class="tab-pane fade" id="cqGeneration" role="tabpanel">
+                <h3>CQ Generation</h3>
+                <textarea id="cqGenerationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+                <button class="btn btn-primary" onclick="submitForm('/cq-generation', 'cqGenerationInput', 'cqGenerationResponse')">Submit</button>
+                <div class="mt-3">
+                    <strong>Response:</strong>
+                    <div class="input-group">
+                        <textarea id="cqGenerationResponse" class="form-control" rows="3" readonly></textarea>
+                        <button class="btn btn-secondary" onclick="copyToClipboard('cqGenerationResponse')">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CQ Validation -->
+            <div class="tab-pane fade" id="cqValidation" role="tabpanel">
+                <h3>CQ Validation</h3>
+                <textarea id="cqValidationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+                <button class="btn btn-primary" onclick="submitForm('/cq-validation', 'cqValidationInput', 'cqValidationResponse')">Submit</button>
+                <div class="mt-3">
+                    <strong>Response:</strong>
+                    <div class="input-group">
+                        <textarea id="cqValidationResponse" class="form-control" rows="3" readonly></textarea>
+                        <button class="btn btn-secondary" onclick="copyToClipboard('cqValidationResponse')">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ontology Generation -->
+            <div class="tab-pane fade" id="ontologyGeneration" role="tabpanel">
+                <h3>Ontology Generation</h3>
+                <textarea id="ontologyGenerationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+                <button class="btn btn-primary" onclick="submitForm('/ontology-generation', 'ontologyGenerationInput', 'ontologyGenerationResponse')">Submit</button>
+                <div class="mt-3">
+                    <strong>Response:</strong>
+                    <div class="input-group">
+                        <textarea id="ontologyGenerationResponse" class="form-control" rows="3" readonly></textarea>
+                        <button class="btn btn-secondary" onclick="copyToClipboard('ontologyGenerationResponse')">Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ontology Testing -->
+            <div class="tab-pane fade" id="ontologyTesting" role="tabpanel">
+                <h3>Ontology Testing</h3>
+                <textarea id="ontologyTestingInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+                <button class="btn btn-primary" onclick="submitForm('/ontology-testing', 'ontologyTestingInput', 'ontologyTestingResponse')">Submit</button>
+                <div class="mt-3">
+                    <strong>Response:</strong>
+                    <div class="input-group">
+                        <textarea id="ontologyTestingResponse" class="form-control" rows="3" readonly></textarea>
+                        <button class="btn btn-secondary" onclick="copyToClipboard('ontologyTestingResponse')">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript to Handle Submissions -->
+    <script>
+        async function submitForm(endpoint, inputId, responseId) {
+            const input = document.getElementById(inputId).value;
+            const responseElement = document.getElementById(responseId);
+            responseElement.value = "Loading...";
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: input })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    responseElement.value = data.response || "No response.";
+                } else {
+                    responseElement.value = data.error || "An error occurred.";
+                }
+            } catch (error) {
+                responseElement.value = "An error occurred: " + error.message;
+            }
+        }
+
+        function copyToClipboard(elementId) {
+            const textarea = document.getElementById(elementId);
+            textarea.select();
+            document.execCommand("copy");
+        }
+    </script>
+</body>
+</html>
