@@ -1,5 +1,5 @@
 """
-CQ Validation
+CQ Comparison
 """
 
 import openai
