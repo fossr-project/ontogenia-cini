@@ -14,7 +14,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # Configura la tua API key di OpenAI
-openai.api_key = "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"
+openai.api_key = "my_key"
 
 # Imposta il modello GPT da utilizzare
 GPT_MODEL = "gpt-4"
