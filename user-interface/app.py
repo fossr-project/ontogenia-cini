@@ -1,6 +1,6 @@
 from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
-from openai import OpenAI
+import openai
 from flask import Flask, request, jsonify, render_template
 
 # Initialize Flask app and API
@@ -12,8 +12,10 @@ api = Api(app)
 # Parser for input arguments
 parser = reqparse.RequestParser()
 parser.add_argument('message', type=str, required=True, help="Message is required.")
+parser.add_argument('dataset_description', type=str, required=True, help="Dataset description is required.")
+parser.add_argument('file_path', type=str, required=True, help="File path to CSV is required.")
 
-
+# User Story Generation
 class GPTResourceUserStory(Resource):
     def post(self):
         # Parse the incoming JSON data
@@ -82,7 +84,7 @@ class GPTResourceUserStory(Resource):
                 {"role": "user", "content": prompt}
             ]
 
-            response = client.chat.completions.create(
+            response = openai.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
                 temperature=0,
@@ -98,22 +100,77 @@ class GPTResourceUserStory(Resource):
 class CQGeneration(Resource):
     def post(self):
         args = parser.parse_args()
-        user_message = args['message']
+        dataset_description = args['dataset_description']
+        file_path = args['file_path']
+     
         try:
+            df = pd.read_csv(file_path)
+            dataset_sample = df.head().to_string(index=False)
 
-            prompt = f"Generate competency questions for: {user_message}"
-            messages = [
-                {"role": "system", "content": "You are an ontology engineer expert."},
-                {"role": "user", "content": prompt}
+            patterns = [
+                {"pattern": "Which [class expression 1][object property expression][class expression 2]?", "example": "Which pizzas contain pork?"},
+                {"pattern": "How much does [class expression][datatype property]?", "example": "How much does Margherita Pizza weigh?"},
+                {"pattern": "What type of [class expression] is [individual]?", "example": "What type of software (API, Desktop application etc.) is it?"},
+                {"pattern": "Is the [class expression 1][class expression 2]?", "example": "Is the software open source development?"},
+                {"pattern": "What [class expression] has the [numeric modifier][datatype property]?", "example": "What pizza has the lowest price?"},
+                {"pattern": "Which are [class expressions]?", "example": "Which are gluten-free bases?"},
             ]
-            response = client.chat.completions.create(
+
+            instructions = [
+                {
+                    "instruction": "Do not make explicit references to the dataset or its variables in the generated competency questions.",
+                    "example": {
+                        "incorrect": "How many cases of Salmonella were reported in Lombardy in 2020?",
+                        "correct": "How many cases of the disease were reported in the region in a given year?"
+                    }
+                },
+                {
+                    "instruction": "Keep the questions simple. Each competency question should not contain another simpler competency question within it.",
+                    "example": {
+                        "incorrect": "Who wrote The Hobbit and in what year was the book written?",
+                        "correct": ["Who wrote the book?", "In what year was the book written?"]
+                    }
+                },
+                {
+                    "instruction": "Do not include real entities; instead, abstract them into more generic concepts.",
+                    "example": {
+                        "incorrect": "Who is the author of 'Harry Potter'?",
+                        "correct": "Who is the author of the book?"
+                    }
+                }
+            ]
+
+            clustering_instructions = "Once the competency questions have been generated, they should be clustered into thematic areas. Each cluster represents an ontological module."
+
+            messages = [
+                {"role": "system", "content": "You are an ontology engineer. Generate a list of competency questions based on the dataset provided, following these patterns and instructions."},
+                {"role": "user", "content": f"Dataset description: {dataset_description}\n\nDataset sample: {dataset_sample}"},
+                {"role": "system", "content": f"Use the following competency question patterns:\n{json.dumps(patterns, indent=2)}"},
+                {"role": "system", "content": f"Follow these instructions when generating the competency questions:\n{json.dumps(instructions, indent=2)}"},
+                {"role": "system", "content": f"After generating the questions, cluster them into thematic areas according to these guidelines:\n{clustering_instructions}"}
+            ]
+            
+            response = openai.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
                 max_tokens=150,
                 temperature=0.7
             )
-            response_text = response.choices[0].message.content.strip()
-            return {'response': response_text}, 200
+
+            competency_questions = response.choices[0].message.content.strip()
+
+            thematic_area_dict = {}
+            current_area = None
+
+            for area in competency_questions.split("\n"):
+                if ":" in area:
+                    current_area = area.replace(":", "").strip()
+                    thematic_area_dict[current_area] = []
+                elif area.strip() and current_area:
+                    thematic_area_dict[current_area].append(area.strip())
+
+            return {'competency_questions': thematic_area_dict}, 200
+        
         except Exception as e:
             return {'error': str(e)}, 500
 
