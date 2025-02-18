@@ -1,13 +1,16 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify, render_template
 from flask_restful import Resource, Api, reqparse
 import openai
-from flask import Flask, request, jsonify, render_template
+import pandas as pd
+import os
+import json
 
 # Initialize Flask app and API
 app = Flask(__name__)
 api = Api(app)
 
 # Set your OpenAI API key
+openai.api_key = 'your-api-key-here'  # Make sure to replace this with your actual API key.
 
 # Parser for input arguments
 parser = reqparse.RequestParser()
@@ -22,8 +25,8 @@ class GPTResourceUserStory(Resource):
         args = parser.parse_args()
         user_message = args['message']
 
-        # Call GPT to process the message
         try:
+            # Prompt that defines the ontology engineer interview process for user story generation
             prompt = (
                 "Ontology construction involves creating structured frameworks to represent knowledge in a specific domain. "
                 "Ontology Requirements Engineering (ORE) ensures these frameworks align with user needs by having ontology engineers "
@@ -79,11 +82,13 @@ class GPTResourceUserStory(Resource):
                 "Provide the user story to the domain expert and ask one elicitation question for any further feedback or refinements. If needed, adjust the story based on their suggestions."
             )
 
+            # Define the messages sent to OpenAI
             messages = [
                 {"role": "system", "content": "You are an ontology engineer expert."},
                 {"role": "user", "content": prompt}
             ]
 
+            # Make the API call to OpenAI to get a response
             response = openai.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
@@ -91,22 +96,30 @@ class GPTResourceUserStory(Resource):
                 max_tokens=100,
             )
 
+            # Extract and return the generated response
             response_text = response.choices[0].message.content.strip()
             return {'response': response_text}, 200
         except Exception as e:
             return {'error': str(e)}, 500
 
-# CQ Generation
+# Competency Question (CQ) Generation
 class CQGeneration(Resource):
     def post(self):
+        # Parse the incoming JSON data
         args = parser.parse_args()
         dataset_description = args['dataset_description']
         file_path = args['file_path']
-     
+
         try:
+            # Check if the file exists before attempting to read it
+            if not os.path.exists(file_path):
+                return {'error': f"File at {file_path} not found."}, 400
+
+            # Read the dataset and get a sample from it
             df = pd.read_csv(file_path)
             dataset_sample = df.head().to_string(index=False)
 
+            # Define patterns for generating competency questions
             patterns = [
                 {"pattern": "Which [class expression 1][object property expression][class expression 2]?", "example": "Which pizzas contain pork?"},
                 {"pattern": "How much does [class expression][datatype property]?", "example": "How much does Margherita Pizza weigh?"},
@@ -116,6 +129,7 @@ class CQGeneration(Resource):
                 {"pattern": "Which are [class expressions]?", "example": "Which are gluten-free bases?"},
             ]
 
+            # Define instructions for generating competency questions
             instructions = [
                 {
                     "instruction": "Do not make explicit references to the dataset or its variables in the generated competency questions.",
@@ -140,8 +154,10 @@ class CQGeneration(Resource):
                 }
             ]
 
+            # Define instructions for clustering the competency questions into thematic areas
             clustering_instructions = "Once the competency questions have been generated, they should be clustered into thematic areas. Each cluster represents an ontological module."
 
+            # Define the messages sent to OpenAI for CQ generation
             messages = [
                 {"role": "system", "content": "You are an ontology engineer. Generate a list of competency questions based on the dataset provided, following these patterns and instructions."},
                 {"role": "user", "content": f"Dataset description: {dataset_description}\n\nDataset sample: {dataset_sample}"},
@@ -150,6 +166,7 @@ class CQGeneration(Resource):
                 {"role": "system", "content": f"After generating the questions, cluster them into thematic areas according to these guidelines:\n{clustering_instructions}"}
             ]
             
+            # Make the API call to OpenAI to get a response for the competency questions
             response = openai.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
@@ -157,6 +174,7 @@ class CQGeneration(Resource):
                 temperature=0.7
             )
 
+            # Extract the competency questions from the response and organize them into thematic areas
             competency_questions = response.choices[0].message.content.strip()
 
             thematic_area_dict = {}
@@ -169,6 +187,7 @@ class CQGeneration(Resource):
                 elif area.strip() and current_area:
                     thematic_area_dict[current_area].append(area.strip())
 
+            # Return the competency questions organized by thematic areas
             return {'competency_questions': thematic_area_dict}, 200
         
         except Exception as e:
