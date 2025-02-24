@@ -1,8 +1,10 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
-import openai
+from openai import OpenAI
+from flask import Flask, request, jsonify, render_template
 import pandas as pd
 import os
+import uuid
 import json
 
 # Initialize Flask app and API
@@ -10,122 +12,193 @@ app = Flask(__name__)
 api = Api(app)
 
 # Set your OpenAI API key
-openai.api_key = 'your-api-key-here'  # Make sure to replace this with your actual API key.
+client = OpenAI(api_key='key')
 
 # Parser for input arguments
 parser = reqparse.RequestParser()
 parser.add_argument('message', type=str, required=True, help="Message is required.")
-parser.add_argument('dataset_description', type=str, required=True, help="Dataset description is required.")
-parser.add_argument('file_path', type=str, required=True, help="File path to CSV is required.")
+app.config['UPLOAD_FOLDER'] = 'uploads'  # or some folder you prefer
 
-# User Story Generation
+# Make sure the folder exists
+os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
+
+
+@app.route('/upload-dataset', methods=['POST'])
+def upload_dataset():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file part in the request"}), 400
+
+    file = request.files['file']
+    model_selected = request.form.get('model_select', 'gpt-3.5')
+
+    if file.filename == '':
+        return jsonify({"error": "No file selected"}), 400
+
+    # Save the uploaded file
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+    file.save(file_path)
+
+    # Read the CSV
+    try:
+        df = pd.read_csv(file_path)
+        # Generate a preview (first 5 rows) as string
+        df_preview = df.head().to_string(index=False)
+
+    except Exception as e:
+        return jsonify({"error": f"Could not read CSV: {str(e)}"}), 400
+
+    # Check if "scenario" column is present (optional)
+    if "scenario" not in df.columns:
+        return jsonify({
+            "message": "Upload successful, but 'scenario' not found. Please proceed to User Story Generation.",
+            "model_selected": model_selected,
+            "file_path": file_path
+        }), 200
+
+    # If scenario is present:
+    return jsonify({
+        "message": "Upload successful. 'scenario' column found.",
+        "model_selected": model_selected,
+        "file_path": file_path,
+        "preview": df_preview
+    }), 200
+
+
 class GPTResourceUserStory(Resource):
     def post(self):
-        # Parse the incoming JSON data
-        args = parser.parse_args()
+        local_parser = reqparse.RequestParser()
+        local_parser.add_argument('message', type=str, required=True, help="Message is required.")
+        local_parser.add_argument('file_path', type=str, required=False, default=None)
+        args = local_parser.parse_args()
         user_message = args['message']
+        file_path = args['file_path']
 
+        # Step 1: Prepare partial dataset text (first 10 rows)
+        dataset_snippet = ""
+        if file_path and os.path.exists(file_path):
+            try:
+                df = pd.read_csv(file_path)
+                # Take the first 10 rows (or fewer if the file is shorter)
+                snippet_df = df.head(10)
+                dataset_snippet = snippet_df.to_string(index=False)
+                print(dataset_snippet)
+            except Exception as e:
+                dataset_snippet = "Could not read the dataset. " + str(e)
+        else:
+            dataset_snippet = "No valid dataset provided."
+
+        # Step 2: Build the prompt
+        prompt = (
+            f"Create a scenario based on the user's instructions.\n\n"
+            f"User Instructions: {user_message}\n\n"
+            f"Dataset (first 10 rows):\n{dataset_snippet}\n\n"
+            "Be concise."
+        )
+
+        # Step 3: Call GPT
         try:
-            # Prompt that defines the ontology engineer interview process for user story generation
-            prompt = (
-                "Ontology construction involves creating structured frameworks to represent knowledge in a specific domain. "
-                "Ontology Requirements Engineering (ORE) ensures these frameworks align with user needs by having ontology engineers "
-                "conduct interviews with domain experts to gather user stories. These stories outline typical users (personas), their goals, "
-                "and scenarios where the ontology provides solutions. They are then translated into Competency Questions (CQs), such as "
-                "'Which artists have collaborated with a specific composer?', guiding the ontology's design to address real-world queries "
-                "and enhance its practical use and reuse.\n\n"
-
-                "You are an ontology engineer conducting an interview with a domain expert to gather information for writing an ontology user story.\n"
-                "Ask elicitation questions one at a time, providing an example answer and the prompt template the user should use, while incorporating user feedback if needed.\n"
-                
-                "If all requirements for the current elicitation are fully addressed, always ask the user if this meets their expectations. "
-                "Do not ask the next question unless the user confirms the current one is satisfactory.\n"
-                "When a domain expert requests refinement, provide just one focused point in one sentence, directly aligned with their current answer.\n"
-                "The user can request to revisit any previously completed steps.\n"
-                "If the user's answer doesn't address the current question, gently remind them of the question and prompt them to respond accordingly.\n"
-                "If the user doesn't confirm the current result is satisfactory, their attempt to answer the next question should be rejected, and they should be asked to respond to the current one.\n"
-                "Do not answer any queries that are not related to this task.\n\n"
-
-                "1. Persona\n"
-                "Start by creating a persona that represents a typical user of your ontology.\n"
-                "[Persona]: Ask one elicitation question for details including [name], [age], [occupation], [skills], and [interests], "
-                "along with a brief example answer as guidance, and include the message 'Use template **[Create Persona]** to answer' as a reminder.\n"
-                "Once the expert provides this information, suggest possible improvements or clarifications. After all persona details are collected, move to the next section.\n\n"
-            
-                "2. Goal\n"
-                "[User goal description]: Ask one elicitation question to describe the [user goal description] that the user aims to achieve using this ontology, "
-                "along with a brief example answer as guidance, and include the message 'Use template **[Create User Goal]** to answer' as a reminder.\n"
-                "[Actions]: Ask one elicitation question for the specific [actions] the persona will take to accomplish the goal, along with a brief example answer as guidance, "
-                "and include the message 'Use template **[Create Actions]** to answer' as a reminder.\n"
-                "[Keywords]: Ask one elicitation question for gathering up to 5 relevant [keywords] that summarize the goal and actions, along with a brief example answer as guidance, "
-                "and include the message 'Use template **[Create Keywords]** to answer' as a reminder.\n"
-                "Once the expert has answered, offer suggestions for further refinement, then proceed to the next section.\n\n"
-
-                "3. Scenario\n"
-                "[Scenario before]: Ask one elicitation question for the expert to describe the [current methods] the persona uses to perform the actions, "
-                "along with a brief example answer as guidance, and include the message 'Use template **[Create Current Methods]** to answer' as a reminder.\n"
-                "[Challenges]: Ask one elicitation question for the [challenges] they face when performing current methods, making sure these align with the persona's occupation and skills, "
-                "along with a brief example answer as guidance, and include the message 'Use template **[Create Challenges]** to answer' as a reminder.\n"
-                "[Scenario during]: Ask one elicitation question for the expert to explain how their ontology introduces [new methods] to help them overcome these challenges, "
-                "along with a brief example answer as guidance, and include the message 'Use template **[Create New Methods]** to answer' as a reminder.\n"
-                "[Scenario after]: Ask one elicitation question for the expert to describe the [outcomes] after using the ontology and how it helps them achieve their goal, "
-                "along with a brief example answer as guidance, and include the message 'Use template **[Create Outcomes]** to answer' as a reminder.\n"
-                "Provide feedback on each scenario part and refine the answers if needed before moving on.\n\n"
-            
-                "4. Create User Story\n"
-                "Once you have completed sections 1 to 3, summarize the information into a full user story. Use the persona, goal, and scenario information to craft the user story in this format:\n\n"
-                "Persona: [name], [age], [occupation], [skills], [interests].\n"
-                "Goal: [user goal description], with actions such as [actions]. Keywords: [keywords].\n"
-                "Scenario Before: [current methods] the persona uses and the [challenges] they face.\n"
-                "Scenario During: How your ontology introduces [new methods] to overcome these challenges.\n"
-                "Scenario After: The [outcomes] achieved by using the ontology and how the persona's goal has been accomplished.\n\n"
-                "Provide the user story to the domain expert and ask one elicitation question for any further feedback or refinements. If needed, adjust the story based on their suggestions."
-            )
-
-            # Define the messages sent to OpenAI
             messages = [
                 {"role": "system", "content": "You are an ontology engineer expert."},
                 {"role": "user", "content": prompt}
             ]
 
-            # Make the API call to OpenAI to get a response
-            response = openai.chat.completions.create(
+            response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
                 temperature=0,
-                max_tokens=100,
+                max_tokens=200,
             )
 
-            # Extract and return the generated response
             response_text = response.choices[0].message.content.strip()
-            return {'response': response_text}, 200
+
+            # Step 4: Optionally store the scenario in the dataset
+            updated_file_path = None
+            if file_path and os.path.exists(file_path):
+                try:
+                    df = pd.read_csv(file_path)
+                    df['scenario'] = response_text  # set the same scenario for all rows, or modify logic as needed
+
+                    # Save to a new file, or overwrite. Here we'll create a new file with a unique name:
+                    base, ext = os.path.splitext(os.path.basename(file_path))
+                    new_filename = f"{base}_with_scenario_{uuid.uuid4().hex[:6]}{ext}"
+                    updated_file_path = os.path.join(app.config['UPLOAD_FOLDER'], new_filename)
+                    df.to_csv(updated_file_path, index=False)
+                except Exception as e:
+                    return {'error': f"Could not update dataset: {str(e)}"}, 500
+
+            # Step 5: Return scenario and download link (if we have an updated file)
+            download_url = None
+            if updated_file_path:
+                # We'll serve downloads from /download/<filename>, so we only return the filename here
+                filename_only = os.path.basename(updated_file_path)
+                download_url = f"/download-updated/{filename_only}"
+
+            return {
+                       'response': response_text,
+                       'download_url': download_url,
+                       'message': "User story generated. You can now proceed to CQ Generation."
+                   }, 200
+
         except Exception as e:
             return {'error': str(e)}, 500
 
-# Competency Question (CQ) Generation
+
+# CQ Generation
 class CQGeneration(Resource):
     def post(self):
-        # Parse the incoming JSON data
-        args = parser.parse_args()
-        dataset_description = args['dataset_description']
+        local_parser = reqparse.RequestParser()
+        local_parser.add_argument('file_path', type=str, required=True, help="File path is required.")
+        local_parser.add_argument('dataset_description', type=str, required=False, default="")
+        local_parser.add_argument('message', type=str, required=False, default="")
+        args = local_parser.parse_args()
+
         file_path = args['file_path']
+        dataset_description = args['dataset_description'] or ""
+        user_instructions = args['message']
+
+        # If user instructions are provided and not already in dataset_description, append them.
+        # Append user instructions if not already included
+        if user_instructions and user_instructions.strip().lower() not in dataset_description.strip().lower():
+            dataset_description += "\nUser Instructions: " + user_instructions.strip()
 
         try:
-            # Check if the file exists before attempting to read it
             if not os.path.exists(file_path):
                 return {'error': f"File at {file_path} not found."}, 400
 
-            # Read the dataset and get a sample from it
+            # Read the CSV from the provided file_path
             df = pd.read_csv(file_path)
-            dataset_sample = df.head().to_string(index=False)
+
+            # Get the first 5 rows as a preview
+            preview_df = df.head(5)
+            print(preview_df)
+
+            common_scenario = None
+            if "scenario" in preview_df.columns:
+                scenario_values = preview_df["scenario"].unique()
+                if len(scenario_values) == 1:
+                    common_scenario = scenario_values[0]
+                    preview_df = preview_df.drop("scenario", axis=1)
+
+            # Convert the preview dataframe to string without index
+            dataset_sample = preview_df.to_string(index=False)
+
+            # Append the common scenario only once if it exists
+            if common_scenario:
+                dataset_sample += f"\nScenario: {common_scenario}"
+                print(dataset_sample)
 
             # Define patterns for generating competency questions
             patterns = [
-                {"pattern": "Which [class expression 1][object property expression][class expression 2]?", "example": "Which pizzas contain pork?"},
-                {"pattern": "How much does [class expression][datatype property]?", "example": "How much does Margherita Pizza weigh?"},
-                {"pattern": "What type of [class expression] is [individual]?", "example": "What type of software (API, Desktop application etc.) is it?"},
-                {"pattern": "Is the [class expression 1][class expression 2]?", "example": "Is the software open source development?"},
-                {"pattern": "What [class expression] has the [numeric modifier][datatype property]?", "example": "What pizza has the lowest price?"},
+                {"pattern": "Which [class expression 1][object property expression][class expression 2]?",
+                 "example": "Which pizzas contain pork?"},
+                {"pattern": "How much does [class expression][datatype property]?",
+                 "example": "How much does Margherita Pizza weigh?"},
+                {"pattern": "What type of [class expression] is [individual]?",
+                 "example": "What type of software (API, Desktop application etc.) is it?"},
+                {"pattern": "Is the [class expression 1][class expression 2]?",
+                 "example": "Is the software open source development?"},
+                {"pattern": "What [class expression] has the [numeric modifier][datatype property]?",
+                 "example": "What pizza has the lowest price?"},
                 {"pattern": "Which are [class expressions]?", "example": "Which are gluten-free bases?"},
             ]
 
@@ -155,45 +228,34 @@ class CQGeneration(Resource):
             ]
 
             # Define instructions for clustering the competency questions into thematic areas
-            clustering_instructions = "Once the competency questions have been generated, they should be clustered into thematic areas. Each cluster represents an ontological module."
+            clustering_instructions = "Once the competency questions have been generated, they should be clustered into thematic areas. Each cluster represents an ontological module in the format: area : competency question and separated by ; . For example: Doctoral Theses Analysis : Which departments had new enrollments in a specific year?; Doctoral theses Analysis : How many unique departments are listed in the dataset?;"
 
             # Define the messages sent to OpenAI for CQ generation
             messages = [
-                {"role": "system", "content": "You are an ontology engineer. Generate a list of competency questions based on the dataset provided, following these patterns and instructions."},
-                {"role": "user", "content": f"Dataset description: {dataset_description}\n\nDataset sample: {dataset_sample}"},
-                {"role": "system", "content": f"Use the following competency question patterns:\n{json.dumps(patterns, indent=2)}"},
-                {"role": "system", "content": f"Follow these instructions when generating the competency questions:\n{json.dumps(instructions, indent=2)}"},
-                {"role": "system", "content": f"After generating the questions, cluster them into thematic areas according to these guidelines:\n{clustering_instructions}"}
+                {"role": "system",
+                 "content": f"You are an ontology engineer. Generate a list of competency questions based on the dataset provided, following these patterns and instructions.Use the following competency question patterns:\n{json.dumps(patterns)} \n\n Follow these instructions when generating the competency questions:\n{json.dumps(instructions, indent=2)} \n\n After generating the questions, cluster them into thematic areas according to these guidelines:\n{clustering_instructions}."},
+                {"role": "user",
+                 "content": f"Dataset description: {dataset_description}\n\nDataset sample: {dataset_sample}"},
+
             ]
-            
+            print(messages)
+
             # Make the API call to OpenAI to get a response for the competency questions
-            response = openai.chat.completions.create(
-                model="gpt-3.5-turbo",
+            response = client.chat.completions.create(
+                model="gpt-3.5",
                 messages=messages,
-                max_tokens=150,
-                temperature=0.7
+                max_tokens=4000,
+                temperature=0
             )
 
-            # Extract the competency questions from the response and organize them into thematic areas
-            competency_questions = response.choices[0].message.content.strip()
+            response = response.choices[0].message.content.strip()
+            print("llm response: ", response)
 
-            thematic_area_dict = {}
-            current_area = None
-
-            for area in competency_questions.split("\n"):
-                if ":" in area:
-                    current_area = area.replace(":", "").strip()
-                    thematic_area_dict[current_area] = []
-                elif area.strip() and current_area:
-                    thematic_area_dict[current_area].append(area.strip())
-
-            # Return the competency questions organized by thematic areas
-            return {'competency_questions': thematic_area_dict}, 200
-        
+            return {'response': response}, 200
         except Exception as e:
             return {'error': str(e)}, 500
 
-# CQ Validation
+#cqval
 class CQValidation(Resource):
     def post(self):
         args = parser.parse_args()
@@ -207,13 +269,14 @@ class CQValidation(Resource):
             response = client.chat.completions.create(
                 model="gpt-3.5-turbo",
                 messages=messages,
-                max_tokens=150,
+                max_tokens=200,
                 temperature=0.7
             )
             response_text = response.choices[0].message.content.strip()
             return {'response': response_text}, 200
         except Exception as e:
             return {'error': str(e)}, 500
+
 
 # Ontology Generation
 class OntologyGeneration(Resource):
@@ -237,6 +300,7 @@ class OntologyGeneration(Resource):
         except Exception as e:
             return {'error': str(e)}, 500
 
+
 # Ontology Testing
 class OntologyTesting(Resource):
     def post(self):
@@ -259,13 +323,14 @@ class OntologyTesting(Resource):
         except Exception as e:
             return {'error': str(e)}, 500
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
 
 # Add the resource to the API
-#api.add_resource(GPTResourceUserStory, '/process')
+# api.add_resource(GPTResourceUserStory, '/process')
 api.add_resource(GPTResourceUserStory, '/user-story')
 api.add_resource(CQGeneration, '/cq-generation')
 api.add_resource(CQValidation, '/cq-validation')
