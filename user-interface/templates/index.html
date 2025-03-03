@@ -1,150 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ontology Tools</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom Styles -->
-    <style>
-        body {
-            margin: 20px;
-        }
-        .tab-content {
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Ontology Tools</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 20px;
+    }
+    .tab-content {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center mb-4">Ontology Tools</h1>
+<div class="container">
+  <h1 class="text-center mb-4">Ontology Tools</h1>
 
-        <!-- Tabs Navigation -->
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="userStory-tab" data-bs-toggle="tab" data-bs-target="#userStory" type="button" role="tab">User Story Generation</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="cqGeneration-tab" data-bs-toggle="tab" data-bs-target="#cqGeneration" type="button" role="tab">CQ Generation</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="cqValidation-tab" data-bs-toggle="tab" data-bs-target="#cqValidation" type="button" role="tab">CQ Validation</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="ontologyGeneration-tab" data-bs-toggle="tab" data-bs-target="#ontologyGeneration" type="button" role="tab">Ontology Generation</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="ontologyTesting-tab" data-bs-toggle="tab" data-bs-target="#ontologyTesting" type="button" role="tab">Ontology Testing</button>
-            </li>
-        </ul>
+  <!-- Tabs Navigation -->
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <!-- Data Upload Tab -->
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="dataUpload-tab" data-bs-toggle="tab" data-bs-target="#dataUpload" type="button" role="tab">
+        Data Upload
+      </button>
+    </li>
 
-        <!-- Tabs Content -->
-        <div class="tab-content" id="myTabContent">
-            <!-- User Story Generation -->
-            <div class="tab-pane fade show active" id="userStory" role="tabpanel">
-                <h3>User Story Generation</h3>
-                <textarea id="userStoryInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
-                <button class="btn btn-primary" onclick="submitForm('/user-story', 'userStoryInput', 'userStoryResponse')">Submit</button>
-                <div class="mt-3">
-                    <strong>Response:</strong>
-                    <div class="input-group">
-                        <textarea id="userStoryResponse" class="form-control" rows="3" readonly></textarea>
-                        <button class="btn btn-secondary" onclick="copyToClipboard('userStoryResponse')">Copy</button>
-                    </div>
-                </div>
-            </div>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="userStory-tab" data-bs-toggle="tab" data-bs-target="#userStory" type="button" role="tab">
+        User Story Generation
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="cqGeneration-tab" data-bs-toggle="tab" data-bs-target="#cqGeneration" type="button" role="tab">
+        CQ Generation
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="cqValidation-tab" data-bs-toggle="tab" data-bs-target="#cqValidation" type="button" role="tab">
+        CQ Validation
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="ontologyGeneration-tab" data-bs-toggle="tab" data-bs-target="#ontologyGeneration" type="button" role="tab">
+        Ontology Generation
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="ontologyTesting-tab" data-bs-toggle="tab" data-bs-target="#ontologyTesting" type="button" role="tab">
+        Ontology Testing
+      </button>
+    </li>
+  </ul>
 
-            <!-- CQ Generation -->
-            <div class="tab-pane fade" id="cqGeneration" role="tabpanel">
-                <h3>CQ Generation</h3>
-                <textarea id="cqGenerationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
-                <button class="btn btn-primary" onclick="submitForm('/cq-generation', 'cqGenerationInput', 'cqGenerationResponse')">Submit</button>
-                <div class="mt-3">
-                    <strong>Response:</strong>
-                    <div class="input-group">
-                        <textarea id="cqGenerationResponse" class="form-control" rows="3" readonly></textarea>
-                        <button class="btn btn-secondary" onclick="copyToClipboard('cqGenerationResponse')">Copy</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CQ Validation -->
-            <div class="tab-pane fade" id="cqValidation" role="tabpanel">
-                <h3>CQ Validation</h3>
-                <textarea id="cqValidationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
-                <button class="btn btn-primary" onclick="submitForm('/cq-validation', 'cqValidationInput', 'cqValidationResponse')">Submit</button>
-                <div class="mt-3">
-                    <strong>Response:</strong>
-                    <div class="input-group">
-                        <textarea id="cqValidationResponse" class="form-control" rows="3" readonly></textarea>
-                        <button class="btn btn-secondary" onclick="copyToClipboard('cqValidationResponse')">Copy</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ontology Generation -->
-            <div class="tab-pane fade" id="ontologyGeneration" role="tabpanel">
-                <h3>Ontology Generation</h3>
-                <textarea id="ontologyGenerationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
-                <button class="btn btn-primary" onclick="submitForm('/ontology-generation', 'ontologyGenerationInput', 'ontologyGenerationResponse')">Submit</button>
-                <div class="mt-3">
-                    <strong>Response:</strong>
-                    <div class="input-group">
-                        <textarea id="ontologyGenerationResponse" class="form-control" rows="3" readonly></textarea>
-                        <button class="btn btn-secondary" onclick="copyToClipboard('ontologyGenerationResponse')">Copy</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Ontology Testing -->
-            <div class="tab-pane fade" id="ontologyTesting" role="tabpanel">
-                <h3>Ontology Testing</h3>
-                <textarea id="ontologyTestingInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
-                <button class="btn btn-primary" onclick="submitForm('/ontology-testing', 'ontologyTestingInput', 'ontologyTestingResponse')">Submit</button>
-                <div class="mt-3">
-                    <strong>Response:</strong>
-                    <div class="input-group">
-                        <textarea id="ontologyTestingResponse" class="form-control" rows="3" readonly></textarea>
-                        <button class="btn btn-secondary" onclick="copyToClipboard('ontologyTestingResponse')">Copy</button>
-                    </div>
-                </div>
-            </div>
+  <!-- Tabs Content -->
+  <div class="tab-content" id="myTabContent">
+    <!-- Data Upload Tab Content -->
+    <div class="tab-pane fade show active" id="dataUpload" role="tabpanel">
+      <h3>Data Upload</h3>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="fileInput" class="form-label">Upload CSV:</label>
+          <input type="file" id="fileInput" name="file" class="form-control" accept=".csv" required />
         </div>
+
+        <div class="mb-3">
+          <label for="modelSelect" class="form-label">Select Model:</label>
+          <select id="modelSelect" name="model_select" class="form-select">
+            <option value="gpt-3.5">GPT-3.5</option>
+            <!-- Add other models here if needed -->
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" onclick="uploadData()">Upload</button>
+      </form>
+
+      <div id="uploadResponse" class="mt-3"></div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- User Story Generation -->
+    <div class="tab-pane fade" id="userStory" role="tabpanel">
+      <h3>User Story Generation</h3>
+      <textarea id="userStoryInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+      <button
+  class="btn btn-primary"
+  onclick="submitForm('/user-story', 'userStoryInput', 'userStoryResponse')">
+  Submit
+</button>
 
-    <!-- JavaScript to Handle Submissions -->
-    <script>
-        async function submitForm(endpoint, inputId, responseId) {
-            const input = document.getElementById(inputId).value;
-            const responseElement = document.getElementById(responseId);
-            responseElement.value = "Loading...";
 
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: input })
-                });
-                const data = await response.json();
-                if (response.ok) {
-                    responseElement.value = data.response || "No response.";
-                } else {
-                    responseElement.value = data.error || "An error occurred.";
-                }
-            } catch (error) {
-                responseElement.value = "An error occurred: " + error.message;
-            }
+      <div class="mt-3">
+        <strong>Response:</strong>
+        <div class="input-group">
+          <textarea id="userStoryResponse" class="form-control" rows="3" readonly></textarea>
+          <button class="btn btn-secondary" onclick="copyToClipboard('userStoryResponse')">Copy</button>
+        </div>
+      </div>
+      <div id="userStoryDownloadLink" class="mt-3"></div>
+    </div>
+
+    <!-- CQ Generation -->
+    <div class="tab-pane fade" id="cqGeneration" role="tabpanel">
+      <h3>CQ Generation</h3>
+      <textarea id="cqGenerationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+      <button class="btn btn-primary" onclick="submitForm('/cq-generation', 'cqGenerationInput', 'cqGenerationResponse')">Submit</button>
+      <div class="mt-3">
+        <strong>Response:</strong>
+        <div class="input-group">
+          <textarea id="cqGenerationResponse" class="form-control" rows="3" readonly></textarea>
+          <button class="btn btn-secondary" onclick="copyToClipboard('cqGenerationResponse')">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CQ Validation -->
+    <!-- CQ Validation -->
+<div class="tab-pane fade" id="cqValidation" role="tabpanel">
+  <h3>CQ Validation</h3>
+  <textarea id="cqValidationInput" class="form-control mb-3" rows="5" placeholder="Validates competency questions (CQ) given input_text in the following format:
+
+Gold standard: cq1? cq2? cq3?
+Generated: cq1? cq2? cq3?"></textarea>
+  <button class="btn btn-primary" onclick="submitForm('/cq-validation', 'cqValidationInput', 'cqValidationResponse')">Submit</button>
+  <div class="mt-3">
+    <strong>Response:</strong>
+    <!-- Changed from textarea to a div for HTML rendering -->
+    <div id="cqValidationResponse" class="form-control" style="min-height:200px; overflow:auto;"></div>
+    <button class="btn btn-secondary mt-2" onclick="copyToClipboardDiv('cqValidationResponse')">Copy</button>
+  </div>
+</div>
+    </div>
+
+    <!-- Ontology Generation -->
+    <div class="tab-pane fade" id="ontologyGeneration" role="tabpanel">
+      <h3>Ontology Generation</h3>
+      <textarea id="ontologyGenerationInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+      <button class="btn btn-primary" onclick="submitForm('/ontology-generation', 'ontologyGenerationInput', 'ontologyGenerationResponse')">Submit</button>
+      <div class="mt-3">
+        <strong>Response:</strong>
+        <div class="input-group">
+          <textarea id="ontologyGenerationResponse" class="form-control" rows="3" readonly></textarea>
+          <button class="btn btn-secondary" onclick="copyToClipboard('ontologyGenerationResponse')">Copy</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ontology Testing -->
+    <div class="tab-pane fade" id="ontologyTesting" role="tabpanel">
+      <h3>Ontology Testing</h3>
+      <textarea id="ontologyTestingInput" class="form-control mb-3" rows="5" placeholder="Enter your instructions"></textarea>
+      <button class="btn btn-primary" onclick="submitForm('/ontology-testing', 'ontologyTestingInput', 'ontologyTestingResponse')">Submit</button>
+      <div class="mt-3">
+        <strong>Response:</strong>
+        <div class="input-group">
+          <textarea id="ontologyTestingResponse" class="form-control" rows="3" readonly></textarea>
+          <button class="btn btn-secondary" onclick="copyToClipboard('ontologyTestingResponse')">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (for tabs) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Reuse your existing "submitForm" and "copyToClipboard" logic:
+
+  async function submitForm(endpoint, inputId, responseId) {
+  const input = document.getElementById(inputId).value;
+  const filePath = localStorage.getItem('uploadedFilePath') || "";
+  const responseElement = document.getElementById(responseId);
+
+  // Display loading message appropriately (if responseElement is a textarea or div)
+  if(responseElement.tagName.toLowerCase() === "textarea"){
+    responseElement.value = "Loading...";
+  } else {
+    responseElement.innerHTML = "<p>Loading...</p>";
+  }
+
+  try {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: input, file_path: filePath })
+    });
+    const data = await response.json();
+    if (response.ok) {
+      // Render HTML for elements that support it.
+      if(responseElement.tagName.toLowerCase() === "textarea"){
+        responseElement.value = data.response || "No response.";
+      } else {
+        responseElement.innerHTML = data.response || "No response.";
+      }
+    } else {
+      if(responseElement.tagName.toLowerCase() === "textarea"){
+        responseElement.value = data.error || "An error occurred.";
+      } else {
+        responseElement.innerHTML = data.error || "An error occurred.";
+      }
+    }
+  } catch (error) {
+    if(responseElement.tagName.toLowerCase() === "textarea"){
+      responseElement.value = "An error occurred: " + error.message;
+    } else {
+      responseElement.innerHTML = "An error occurred: " + error.message;
+    }
+  }
+}
+
+
+  function copyToClipboard(elementId) {
+    const textarea = document.getElementById(elementId);
+    textarea.select();
+    document.execCommand("copy");
+  }
+
+
+  function copyToClipboardDiv(elementId) {
+  const element = document.getElementById(elementId);
+  const tempTextarea = document.createElement("textarea");
+  tempTextarea.value = element.innerText; // or element.textContent
+  document.body.appendChild(tempTextarea);
+  tempTextarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(tempTextarea);
+}
+
+
+  // NEW: Handle dataset upload without requiring CQID/CQ
+  async function uploadData() {
+    const fileInput = document.getElementById("fileInput");
+    const modelSelect = document.getElementById("modelSelect").value;
+    const uploadResponse = document.getElementById("uploadResponse");
+
+    // Clear any existing message
+    uploadResponse.innerHTML = "";
+
+    // Check if file is selected
+    if (!fileInput.files || fileInput.files.length === 0) {
+      uploadResponse.innerHTML = "<p class='text-danger'>Please select a CSV file.</p>";
+      return;
+    }
+
+    // Build FormData
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+    formData.append("model_select", modelSelect);
+
+    uploadResponse.innerHTML = "<p>Uploading...</p>";
+
+    try {
+    const filePath = localStorage.getItem('uploadedFilePath') || "";
+      const response = await fetch("/upload-dataset", {
+
+        method: "POST",
+        body: formData
+      });
+      const data = await response.json();
+
+      if (response.ok) {
+        // 1. Show success message
+        uploadResponse.innerHTML = `<p class='text-success'>${data.message}</p>`;
+
+        // 2. Show a preview if provided
+        if (data.preview) {
+          uploadResponse.innerHTML += `
+            <p><strong>Dataset Preview (first 5 rows):</strong></p>
+            <pre>${data.preview}</pre>
+          `;
         }
 
-        function copyToClipboard(elementId) {
-            const textarea = document.getElementById(elementId);
-            textarea.select();
-            document.execCommand("copy");
+        // 3. If file_path is present, store in localStorage
+        if (data.file_path) {
+          localStorage.setItem('uploadedFilePath', data.file_path);
         }
-    </script>
+
+        // 4. If scenario is missing, switch tab
+        if (data.message && data.message.includes("'scenario' not found")) {
+          const tabEl = document.querySelector('[data-bs-target="#userStory"]');
+          const tab = new bootstrap.Tab(tabEl);
+          tab.show();
+        }
+
+      } else {
+        // Show server error
+        uploadResponse.innerHTML = `<p class='text-danger'>Error: ${data.error}</p>`;
+      }
+    } catch (error) {
+      // Show network/JS error
+      uploadResponse.innerHTML = `<p class='text-danger'>An error occurred: ${error.message}</p>`;
+    }
+    console.log("uploadData() called");
+
+  }
+
+</script>
 </body>
 </html>

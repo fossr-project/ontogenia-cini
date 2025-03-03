@@ -12,7 +12,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # Set your OpenAI API key
-client = OpenAI(api_key='key')
+client = OpenAI(api_key='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')
 
 # Parser for input arguments
 parser = reqparse.RequestParser()
@@ -242,7 +242,7 @@ class CQGeneration(Resource):
 
             # Make the API call to OpenAI to get a response for the competency questions
             response = client.chat.completions.create(
-                model="gpt-3.5",
+                model="gpt-3.5-turbo",
                 messages=messages,
                 max_tokens=4000,
                 temperature=0
@@ -256,24 +256,20 @@ class CQGeneration(Resource):
             return {'error': str(e)}, 500
 
 #cqval
+from cq_verification import validate_cq
+
+parser = reqparse.RequestParser()
+parser.add_argument('message', type=str, required=True, help="Message is required.")
+
 class CQValidation(Resource):
+    #the response is expected in this format "Gold standard: cq1? cq2? cq3?  \n   Generated: cq1? cq2? cq3?"
     def post(self):
         args = parser.parse_args()
         user_message = args['message']
         try:
-            prompt = f"Validate the competency questions provided: {user_message}"
-            messages = [
-                {"role": "system", "content": "You are an ontology engineer expert."},
-                {"role": "user", "content": prompt}
-            ]
-            response = client.chat.completions.create(
-                model="gpt-3.5-turbo",
-                messages=messages,
-                max_tokens=200,
-                temperature=0.7
-            )
-            response_text = response.choices[0].message.content.strip()
-            return {'response': response_text}, 200
+            # Call the external function from cq_verification.py
+            analysis = validate_cq(user_message)
+            return {'response': analysis}, 200
         except Exception as e:
             return {'error': str(e)}, 500
 
@@ -293,7 +289,7 @@ class OntologyGeneration(Resource):
                 model="gpt-3.5-turbo",
                 messages=messages,
                 max_tokens=200,
-                temperature=0.7
+                temperature=0
             )
             response_text = response.choices[0].message.content.strip()
             return {'response': response_text}, 200
