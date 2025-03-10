@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 from cqver_rest_api import app  # Adjust this import if your app is in a different module
 
 client = TestClient(app)
-API_KEY = "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"
+API_KEY = ""
 
 # ----- Read and Filter CSV -----
 
