@@ -116,22 +116,22 @@ def validate_cq(input_text, mode="all", model='gpt-4', output_folder=None):
     selected_pairs = sorted_pairs.head(max_pairs)
 
     # Build the GPT prompt for analysis
-    prompt = "Analizza i due set di Competency Questions (CQ) generati e manuali.\n\n"
-    prompt += f"Statistiche:\n- Similarità coseno media: {avg_cosine:.2f}\n"
-    prompt += f"- Similarità coseno massima: {max_cosine:.2f}\n"
-    prompt += f"- Similarità Jaccard media: {avg_jaccard:.2f}\n\n"
-    prompt += "Coppie con maggiore similarità:\n"
+    prompt = "Analyze the two sets of Competency Questions (CQ) generated and manual.\n\n"
+    prompt += f"Statistics:\n- Average cosine similarity: {avg_cosine:.2f}\n"
+    prompt += f"- Maximum cosine similarity: {max_cosine:.2f}\n"
+    prompt += f"- Average Jaccard similarity: {avg_jaccard:.2f}\n\n"
+    prompt += "Pairs with highest similarity:\n"
     for _, row in selected_pairs.iterrows():
         prompt += (f"- Generated: \"{row['Generated CQ']}\"  |  Manual: \"{row['Manual CQ']}\" "
                    f"(Cosine: {row['Cosine Similarity']:.2f}, Jaccard: {row['Jaccard Similarity']:.2f})\n")
-    prompt += ("\nRispondi alle seguenti domande:\n"
-               "1. Quali sono le coppie di CQ con maggiore similarità?\n"
-               "2. Quali CQ essenziali e importanti mancano alla lista di CQ manuali?\n"
-               "Rispondi in modo chiaro e dettagliato.")
+    prompt += ("\nAnswer the following questions:\n"
+               "1. Which pairs of CQs have the highest similarity?\n"
+               "2. Which essential and important CQs are missing from the manual CQ list?\n"
+               "Answer clearly and in detail.")
 
     # Call GPT to get the analysis
     messages = [
-        {"role": "system", "content": "Sei un assistente esperto di semantica."},
+        {"role": "system", "content": "You are a semantics expert assistant."},
         {"role": "user", "content": prompt}
     ]
     response = openai.chat.completions.create(
