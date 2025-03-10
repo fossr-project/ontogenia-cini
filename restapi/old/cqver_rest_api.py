@@ -4,21 +4,12 @@ import pandas as pd
 import json
 import openai
 from io import StringIO
-from cq_verification import validate_cq  # Make sure you update validate_cq as needed.
+from cq_verification import validate_cq  # Make sure you update validate_cq as described above.
 from typing import Optional
-import matplotlib
 
+import matplotlib
 matplotlib.use("Agg")
 import re
-import logging
-
-logging.basicConfig(
-    level=logging.DEBUG,  # set to DEBUG for more detailed logs
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-)
-logger = logging.getLogger(__name__)
-
-
 
 def remove_html_tags(text: str) -> str:
     """Remove HTML tags from a string."""
@@ -31,48 +22,35 @@ app = FastAPI(
     version="1.0.0"
 )
 
-
 def generate_cq_from_df(
         df: pd.DataFrame,
-        dataset_description: str = "",
+        dataset_description: str,
         sample: Optional[str] = None,
         generation_mode: str = "dataset+description",
         user_stories: Optional[str] = None,
-        model: str = "gpt-4"
+        model: str = "gpt-4"  # New model parameter with default "gpt-4"
 ) -> str:
     """
     Generates competency questions from a DataFrame based on the selected scenario.
 
-    Supported modes:
-      - "user_stories": Uses user stories.
-      - "dataset": Uses dataset sample only.
-      - "dataset+description": Uses both dataset description and sample.
-      - "scenario": Uses the Scenario column when Description and Dataset are empty.
-    """
-    if generation_mode == "scenario":
-        # Check for the 'Scenario' column
-        if "Scenario" not in df.columns:
-            raise ValueError("CSV file must have a 'Scenario' column for scenario mode.")
-        # Ensure Description and Dataset columns are empty (or not present)
-        description_empty = ("Description" not in df.columns or
-                             df["Description"].dropna().apply(lambda x: str(x).strip() == "").all())
-        dataset_empty = ("Dataset" not in df.columns or
-                         df["Dataset"].dropna().apply(lambda x: str(x).strip() == "").all())
-        if not (description_empty and dataset_empty):
-            raise ValueError("For scenario mode, both 'Description' and 'Dataset' must be empty.")
-        # Extract non-empty scenarios
-        scenario_series = df["Scenario"].dropna().apply(lambda x: str(x).strip())
-        if scenario_series.empty:
-            raise ValueError("No scenario data available for scenario mode.")
-        unique_scenarios = scenario_series.unique()
-        scenario_prompt = "\n".join(unique_scenarios)
-        prompt_context = f"Scenario(s):\n{scenario_prompt}"
+    Parameters:
+      - dataset_description: description of the dataset.
+      - sample: Optional custom dataset sample; if not provided, the first 10 rows are used.
+      - generation_mode: One of:
+           "user_stories"         -> use user stories,
+           "dataset"              -> use dataset sample only,
+           "dataset+description"  -> use both dataset description and sample.
+      - user_stories: Only used when generation_mode is "user_stories".
+      - model: Optional model name for OpenAI API (default is "gpt-4").
 
-    elif generation_mode == "user_stories":
+    Returns:
+      The generated competency questions.
+    """
+    # Build prompt context based on the selected generation mode
+    if generation_mode == "user_stories":
         if not user_stories:
             raise ValueError("User stories must be provided for generation_mode 'user_stories'.")
         prompt_context = f"User stories: {user_stories}"
-
     elif generation_mode == "dataset":
         if sample:
             dataset_sample = sample
@@ -88,7 +66,6 @@ def generate_cq_from_df(
             if common_scenario:
                 dataset_sample += f"\nScenario: {common_scenario}"
         prompt_context = f"Dataset sample: {dataset_sample}"
-
     elif generation_mode == "dataset+description":
         if sample:
             dataset_sample = sample
@@ -104,13 +81,11 @@ def generate_cq_from_df(
             if common_scenario:
                 dataset_sample += f"\nScenario: {common_scenario}"
         prompt_context = f"Dataset description: {dataset_description}\n\nDataset sample: {dataset_sample}"
-
     else:
         raise ValueError(
-            "Invalid generation mode specified. Please choose from 'user_stories', 'dataset', 'dataset+description', or 'scenario'."
-        )
+            "Invalid generation mode specified. Please choose from 'user_stories', 'dataset', or 'dataset+description'.")
 
-    # Define patterns and instructions for generating competency questions.
+    # Define patterns and instructions (same for all scenarios)
     patterns = [
         {"pattern": "Which [class expression 1][object property expression][class expression 2]?",
          "example": "Which pizzas contain pork?"},
@@ -155,6 +130,7 @@ def generate_cq_from_df(
         "Doctoral Theses Analysis : How many unique departments are listed in the dataset?;"
     )
 
+    # Build the complete messages for OpenAI
     messages = [
         {"role": "system",
          "content": (
@@ -170,7 +146,7 @@ def generate_cq_from_df(
     ]
 
     response = openai.chat.completions.create(
-        model=model,
+        model=model,  # Use the provided model
         messages=messages,
         max_tokens=4000,
         temperature=0
@@ -187,15 +163,27 @@ async def generate_competency_questions(
         generation_mode: str = Form("dataset+description"),
         user_stories: Optional[str] = Form(None),
         api_key: Optional[str] = Form(None),
-        model: str = Form("gpt-4")
+        model: str = Form("gpt-4")  # New optional model parameter (default: "gpt-4")
 ):
     """
     Endpoint to generate competency questions.
-    Modes:
-      - "user_stories": Uses user stories.
-      - "dataset": Uses dataset sample.
-      - "dataset+description": Uses both description and dataset.
-      - "scenario": Uses Scenario column when Description and Dataset are empty.
+
+    Scenarios:
+      - If generation_mode is "user_stories", the 'user_stories' field is used.
+      - If generation_mode is "dataset", only a dataset sample (either auto-extracted or provided)
+        is used.
+      - If generation_mode is "dataset+description", both the dataset description and sample are used.
+
+    You can also specify an optional model name (default: "gpt-4").
+
+    Example cURL for user stories:
+
+    curl -X POST "http://127.0.0.1:8000/generate" \
+      -F "file=@/path/to/your/dataset.csv" \
+      -F "generation_mode=user_stories" \
+      -F "user_stories=User story 1. User story 2." \
+      -F "api_key=YOUR_OPENAI_API_KEY" \
+      -F "model=gpt-4"
     """
     if api_key:
         openai.api_key = api_key
@@ -213,7 +201,7 @@ async def generate_competency_questions(
             sample=dataset_sample,
             generation_mode=generation_mode,
             user_stories=user_stories,
-            model=model
+            model=model  # Pass the model parameter along
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating competency questions: {str(e)}")
@@ -227,11 +215,12 @@ async def validate_competency_questions(
         validation_mode: str = Form("all"),
         output_folder: str = Form("heatmaps"),
         api_key: Optional[str] = Form(None),
-        model: str = Form("gpt-4")
+        model: str = Form("gpt-4")  # New optional model parameter for validation (default: "gpt-4")
 ):
     """
     Endpoint to validate competency questions.
-    Expects a CSV file containing both 'gold standard' and 'generated' columns.
+    Expects a CSV file upload that contains both 'gold standard' and 'generated' columns.
+    You can optionally specify a model name.
     """
     if api_key:
         openai.api_key = api_key
@@ -252,7 +241,9 @@ async def validate_competency_questions(
     for idx, row in df.iterrows():
         input_text = f"Gold standard: {row['gold standard']}\nGenerated: {row['generated']}"
         try:
+            # Pass the model parameter to validate_cq
             result_text = validate_cq(input_text, mode=validation_mode, output_folder=output_folder, model=model)
+            # Remove HTML tags from the result_text before adding it to the response.
             clean_result = remove_html_tags(result_text)
             results.append({"row": idx, "result": clean_result})
         except Exception as e:
@@ -261,7 +252,43 @@ async def validate_competency_questions(
     return JSONResponse(content={"validation_results": results})
 
 
-if __name__ == "__main__":
-    import uvicorn
+'''
+Example of usage:
 
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+1. Generation from user stories:
+
+curl -X POST "http://127.0.0.1:8000/generate" \
+  -F "file=@/path/to/your/dataset.csv" \
+  -F "generation_mode=user_stories" \
+  -F "user_stories=User story 1. User story 2." \
+  -F "api_key=YOUR_OPENAI_API_KEY" \
+  -F "model=gpt-4"
+
+2. Generation from dataset only:
+
+curl -X POST "http://127.0.0.1:8000/generate" \
+  -F "file=@/path/to/your/dataset.csv" \
+  -F "generation_mode=dataset" \
+  -F "dataset_sample=Optional custom sample text" \
+  -F "api_key=YOUR_OPENAI_API_KEY" \
+  -F "model=gpt-4"
+
+3. Generation from dataset + description:
+
+curl -X POST "http://127.0.0.1:8000/generate" \
+  -F "file=@/path/to/your/dataset.csv" \
+  -F "dataset_description=This is a sample dataset description" \
+  -F "generation_mode=dataset+description" \
+  -F "dataset_sample=Optional custom sample text" \
+  -F "api_key=YOUR_OPENAI_API_KEY" \
+  -F "model=gpt-4"
+
+For validation:
+
+curl -X POST "http://127.0.0.1:8000/validate" \
+  -F "file=@/path/to/your/dataset.csv" \
+  -F "validation_mode=all" \
+  -F "output_folder=my_heatmaps" \
+  -F "api_key=YOUR_OPENAI_API_KEY" \
+  -F "model=gpt-4"
+'''
