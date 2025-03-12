@@ -12,7 +12,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # Set your OpenAI API key
-client = OpenAI(api_key='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')
+client = OpenAI(api_key='key')
 
 # Parser for input arguments
 parser = reqparse.RequestParser()
