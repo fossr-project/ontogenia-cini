@@ -106,6 +106,7 @@ def validate_cq(input_text, mode="all", model='gpt-4', output_folder=None):
             })
     sim_results_df = pd.DataFrame(similarity_results)
 
+    # Compute overall statistics and select the top 5 pairs by cosine similarity
     avg_cosine = sim_results_df['Cosine Similarity'].mean()
     max_cosine = sim_results_df['Cosine Similarity'].max()
     avg_jaccard = sim_results_df['Jaccard Similarity'].mean()
