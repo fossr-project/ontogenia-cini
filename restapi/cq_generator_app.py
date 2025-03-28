@@ -3,36 +3,28 @@ import pandas as pd
 import openai
 import logging
 from io import StringIO
+import os
 
-# Configure logging
+openai.api_key = "mykey"
+
+# Logging setup
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-openai.api_key = "key"
-
 app = FastAPI(
-    title="CQ Generation API",
-    description="An API that generates competency questions based on a provided CSV benchmark. "
-                "It expects a CSV with a gold standard column (either 'gold standard' or 'Competency Question') "
-                "and returns a CSV with an added 'generated' column.",
+    title="CQ Generator Service",
+    description="Standalone API to generate competency questions from a benchmark CSV.",
     version="1.0.0"
 )
 
-
-@app.post("/newapi")
+@app.post("/newapi/")
 async def generate_cqs_endpoint(file: UploadFile = File(...)):
-    """
-    External CQ Generation Service.
-
-    Expects a CSV file containing at least a 'gold standard' or 'Competency Question' column.
-    For each gold standard question, the endpoint calls the GPT API to generate a competency question.
-    Returns a CSV file with an added 'generated' column.
-    """
     try:
         contents = await file.read()
         df = pd.read_csv(StringIO(contents.decode("utf-8")))
-        df = df.head(5)
+        df = df.head(5)  #CHANGE IF YOU WANT TO MODIFY THE FULL DATASET
     except Exception as e:
+        logger.error(f"CSV read error: {e}")
         raise HTTPException(status_code=400, detail=f"Error reading CSV file: {e}")
 
     if "gold standard" in df.columns:
@@ -40,10 +32,7 @@ async def generate_cqs_endpoint(file: UploadFile = File(...)):
     elif "Competency Question" in df.columns:
         gold_col = "Competency Question"
     else:
-        raise HTTPException(
-            status_code=400,
-            detail="CSV file must contain a 'gold standard' or 'Competency Question' column."
-        )
+        raise HTTPException(status_code=400, detail="CSV must contain 'gold standard' or 'Competency Question' column.")
 
     generated_questions = []
     for question in df[gold_col]:
@@ -68,7 +57,9 @@ async def generate_cqs_endpoint(file: UploadFile = File(...)):
             )
             generated = response.choices[0].message.content.strip()
         except Exception as e:
+            logger.error(f"OpenAI error for question '{gold_question}': {e}")
             generated = f"Error generating CQ: {e}"
+
         generated_questions.append(generated)
 
     df["generated"] = generated_questions
@@ -78,5 +69,4 @@ async def generate_cqs_endpoint(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-
-    uvicorn.run(app, host="127.0.0.1", port=8001)
+    uvicorn.run("cq_generator_app:app", host="127.0.0.1", port=8001, reload=True)
