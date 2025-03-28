@@ -1,0 +1,3 @@
+# Prevent Python compiled files from being tracked
+__pycache__/
+*.pyc
