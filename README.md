@@ -27,6 +27,49 @@ CQs are natural language questions used by ontology engineers to define and vali
 | `.gitignore`             | Specifies intentionally untracked files to ignore. |
 | `cq_generator_app.py`    | Main entry point for the benchmark system application. |
 
+## Usage
 
+To evaluate a CQ Generation tool using **CQ-Verify**, follow the steps below:
+
+### 1. Setup
+
+Ensure you have Python ??? or higher installed. 
+
+### 2. Install Dependencies (???)
+
+Download the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Run the Benchmark App
+
+Launch the benchmarking application by running:
+```bash
+python cq_generator_app.py
+```
+
+This will start a FastAPI-based service that guides you through the evaluation process.
+
+### 3. Provide a CQ Generator Link
+Once the app is running, you will be prompted to provide the URL of the CQ generation tool you want to evaluate. This tool should expose an endpoint that returns generated CQs for a given ontology or prompt.
+
+### 4. Select Evaluation Data
+You can evaluate your generator against:
+
+1. The default gold standard dataset: benchmarkdataset.csv (provided in the repository)
+2. A custom CSV file of manually crafted Competency Questions (structure should match benchmarkdataset.csv)
+
+### 5. Review Results
+Evaluation results will be displayed (or saved???) in your terminal and/or served via the app's UI. Outputs include:
+
+1. Similarity scores per CQ
+2. Heatmaps for a visual comparison
+
+## Citation
+
+## Acknowledgment
+
+## License
 
 
