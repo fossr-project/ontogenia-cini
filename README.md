@@ -33,7 +33,7 @@ To evaluate a CQ Generation tool using **Bench4KE**, follow the steps below:
 
 ### 1. Setup
 
-Ensure you have Python ??? or higher installed. 
+Ensure you have Python 3.8 or higher installed. 
 
 ### 2. Install Dependencies (???)
 
