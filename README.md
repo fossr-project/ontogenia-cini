@@ -68,7 +68,7 @@ Evaluation results will be displayed (or saved???) in your terminal and/or serve
 
 ## Citation
 
-## Acknowledgment
+## Acknowledgement
 
 ## License
 
