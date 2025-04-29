@@ -75,5 +75,5 @@ Evaluation results will be saved in your terminal and/or served via the app's UI
 ## Acknowledgement
 
 ## License
-
+Licensed under the
 
