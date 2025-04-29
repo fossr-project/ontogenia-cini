@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./benchmarklogo.png" alt="Bench4KE Logo" width="500"/>
+</p>
+
 <h1 align="center">Bench4KE</h1>
 <h3 align="center"><i>A Benchmarking System for Evaluating LLM-based Competency Question Generation</i></h3>
 
