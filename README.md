@@ -39,7 +39,7 @@ To evaluate a CQ Generation tool using **Bench4KE**, follow the steps below:
 
 Ensure you have Python 3.8 or higher installed. 
 
-### 2. Install Dependencies (???)
+### 2. Install Dependencies 
 
 Download the required dependencies:
 ```bash
@@ -65,7 +65,7 @@ You can evaluate your generator against:
 2. A custom CSV file of manually crafted Competency Questions (structure should match benchmarkdataset.csv)
 
 ### 5. Review Results
-Evaluation results will be displayed (or saved???) in your terminal and/or served via the app's UI. Outputs include:
+Evaluation results will be saved in your terminal and/or served via the app's UI. Outputs include:
 
 1. Similarity scores per CQ
 2. Heatmaps for a visual comparison
