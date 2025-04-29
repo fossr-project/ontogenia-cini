@@ -71,6 +71,14 @@ Evaluation results will be saved in your terminal and/or served via the app's UI
 2. Heatmaps for a visual comparison
 
 ## Citation
+```
+@misc{bench4ke_2025,
+  title        = {{Bench4KE}: A Benchmarking System for Evaluating LLM-based Competency Question Generation},
+  howpublished = {\url{https://github.com/fossr-project/ontogenia-cini}},
+  note         = {Commit accessed 29~Apr~2025},
+  year         = {2025}
+}
+```
 
 ## Acknowledgement
 
