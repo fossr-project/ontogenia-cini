@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 Launch the benchmarking application by running:
 ```bash
-python cq_generator_app.py
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 This will start a FastAPI-based service that guides you through the evaluation process.
@@ -79,8 +79,6 @@ Evaluation results will be saved in your terminal and/or served via the app's UI
   year         = {2025}
 }
 ```
-
-## Acknowledgement
 
 ## License
 Licensed under the [Apache License](./LICENSE).
