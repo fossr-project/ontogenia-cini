@@ -11,7 +11,11 @@ WHERE {
 mdx:hasSpecialty ?specialty .
 ?specialty a mdx:Specialty
 }",
-,,,,mdx-2: What are the diagnoses suggested by healthcare professionals?,"PREFIX : <https://w3id.org/hacid/example-data/>
+,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+
+A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
+
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",mdx-2: What are the diagnoses suggested by healthcare professionals?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?diagnosis ?disorderDescr ?disorder
@@ -25,7 +29,11 @@ top:describes ?disorder .
 ?agent a mdx:HeatlhcareProfessional .
 ?disorder a mdx:Disorder
 }",
-,,,,"mdx-3: Which is the relevance order of a diagnosis provided by a certain healthcare
+,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+
+A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
+
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.","mdx-3: Which is the relevance order of a diagnosis provided by a certain healthcare
 professional?","PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/>
 PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
@@ -37,7 +45,11 @@ mdx:withRank ?rank ;
 mdx:ranks ?evaluation ;
 jdg:hasJudge :professional
 }",
-,,,,"mdx-4: What is the seniority, specialty, and organisation of a healthcare professional
+,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+
+A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
+
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.","mdx-4: What is the seniority, specialty, and organisation of a healthcare professional
 that performs a diagnosis?","PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/>
 PREFIX ar: <https://w3id.org/hacid/onto/core/agentrole/>
@@ -57,21 +69,33 @@ mdx:hasDiagnosis ?diagnosis .
 ?diagnosis a mdx:Diagnosis ;
 ^mdx:isInScopeOfDiagnosis/top:describes :viral-pneumonia
 }",
-,,,,mdx-5: What is the disorder a diagnosis targets?,"PREFIX : <https://w3id.org/hacid/example-data/>
+,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+
+A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
+
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",mdx-5: What is the disorder a diagnosis targets?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?diagnosis ?disorder
 WHERE {
 ?diagnosis a mdx:Diagnosis ;
 ^mdx:isInScopeOfDiagnosis/top:describes ?disorder
 }",
-,,,,mdx-6: What are the findings reported for a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
+,,,"""A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+
+A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
+
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.""",mdx-6: What are the findings reported for a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?case ?finding
 WHERE {
 ?case a mdx:ClinicalCase ;
 mdx:hasFinding ?finding
 }",
-,,,,mdx-7: What are the solutions of a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
+,,,"""A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+
+A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
+
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.""",mdx-7: What are the solutions of a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?case ?evaluation
 WHERE {
@@ -95,24 +119,24 @@ dcterms:spatial ?spatialScope;
 dcterms:temporal ?temporalScope;
 cs:assessmentType ?assessmentType.
 OPTIONAL {$case cs:hasAcceptedRiskLevel ?acceptedRiskLevel}
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 ,,,,cs-3: What are the relevant hazard types for a case?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?hazardType
 WHERE {
 $case cs:relevantHazardType ?hazardType.
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 ,,,,cs-4: What specific questions have been associated with a case?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?subRequest ?requestedAssessmentType
 WHERE {
 $case cs:hasSubRequest+ ?subRequest.
 ?subRequest cs:requiresAssessmentType ?requestedAssessmentType.
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 ,,,,cs-5: What answers have been given to a case or specific question?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?answer ?answerAssessmentType
 WHERE {
 ?answer cs:repliesTo $question;
 cs:assessmentType ?answerAssessmentType.
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 ,,,,"cs-6: What information does an answer provide in terms of identifying relevant
 projections (e.g., adopted model, available variable, specific projection, …)?","PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX cs: <https://w3id.org/hacid/onto/cs/>
@@ -137,7 +161,7 @@ sh:path (qb:structure qb:component qb:measure);
 sh:hasValue ?requiredVariable
 ]
 }
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 ,,,,cs-7: Which known projections are compatible with a given answer?,"PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?projection
@@ -153,12 +177,12 @@ sh:hasValue ?requiredVariable
 ]
 ?projection qb:structure/qb:component/qb:measure ?requiredVariable
 }
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 ,,,,cs-8: What are the known models (of a certain type)?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?model
 WHERE {
 ?model a $modelClass.
-}",
+}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
 WHOW,Infectious diseases,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Who monitors the hospitalisations for a disease in geographical area? ,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
 ,,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,How many distinct disease categories are there?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
 ,,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Which codes correspond to each disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
@@ -170,13 +194,13 @@ WHOW,Quality parameters of drinking waters ,"The dataset contains the results of
 SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
 
 The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,What are the contaminated sites in a geographical area recorded in time?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
-,,,,How are chemical and physical measurements distributed spatially across different areas?,,
-,,,,What are the units of measure of chemical measurements in water?,,
-,,,,What are the concentration values of chemical measurements in water?,,
-,,,,"What physical parameters have been recorded at each monitoring point, and how do these measurements vary over time?",,
-,,,,"For a specified water quality parameter, which monitoring sites registered the observation, and when were these measurements recorded?",,
-,,,,Who records the amount of microbiological substances in surface waters in time?,,
-,,,,What is a parameter that represents the quality of water bodies?,,
+,,,,How are chemical and physical measurements distributed spatially across different areas?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,What are the units of measure of chemical measurements in water?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,What are the concentration values of chemical measurements in water?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,"What physical parameters have been recorded at each monitoring point, and how do these measurements vary over time?",,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,"For a specified water quality parameter, which monitoring sites registered the observation, and when were these measurements recorded?",,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,Who records the amount of microbiological substances in surface waters in time?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,What is a parameter that represents the quality of water bodies?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
 WHOW,Water level of the lakes,The dataset contains measurements of lake water levels over time. ,,When is the level of a chemical substance recorded in a water body? ,,https://github.com/whow-project/datasets/raw/refs/heads/main/RML-RULES/hydrography/lakes/hydrography-lakes.tar.gz
 Polifonia,,,"Amy wants to assess the developments of organ builders. This research includes looking into which organs an organ builder worked on and how their projects developed over time. This development can range from an increase of the size of the organ, to locality of their projects, or to the type or prestige of the project. The history section of the 15-part organ encyclopaedia is mostly used for this as this specifies year and changes that are made to the organs, but this obviously takes a lot of time and effort to research.",Who built and/or renovated an organ?,,
 Polifonia,,,"During the project, Amy researches both artistic and technical trends surrounding organs in the Netherlands. Amy is interested in finding connections between different regions and time periods to see how the trends have developed. She also wants to put her findings in a historical and social context. Amy hopes that the knowledge graphs can help her identify initial trends. That way she knows where to dig deeper to understand the trends. In order to discover trends, comparisons similar to those needed by the organ advisor (Paul) are required. But besides the comparison of stops in organs made by the same organ builder, the comparisons can be related to almost every component of the organ. For example, the different arthistorical details on the fronts of the organs, or the wind supply system are interesting to compare.",What was the disposition of the organ at a specific point in time?,,
