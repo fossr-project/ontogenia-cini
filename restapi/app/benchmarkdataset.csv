@@ -160,17 +160,25 @@ WHERE {
 ?model a $modelClass.
 }",
 WHOW,Infectious diseases,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Who monitors the hospitalisations for a disease in geographical area? ,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
+,,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,How many distinct disease categories are there?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
+,,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Which codes correspond to each disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
 WHOW,Hospital accesses and stays,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,When is the rate of hospitalisation related to a disease registered? ,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
+,,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,Which hospital has the longest average length of stay for a particular disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
+,,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,How many admissions on average does each hospital report for a given diagnosis code?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
 WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
 
 SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
 
 The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,What are the contaminated sites in a geographical area recorded in time?,,https://github.com/whow-project/datasets/blob/main/RML-RULES/drinking-water-monitoring/beda-kb7b.csv.zip
+,,,,How are chemical and physical measurements distributed spatially across different areas?,,
+,,,,What are the units of measure of chemical measurements in water?,,
+,,,,What are the concentration values of chemical measurements in water?,,
+,,,,"What physical parameters have been recorded at each monitoring point, and how do these measurements vary over time?",,
+,,,,"For a specified water quality parameter, which monitoring sites registered the observation, and when were these measurements recorded?",,
 ,,,,Who records the amount of microbiological substances in surface waters in time?,,
 ,,,,What is a parameter that represents the quality of water bodies?,,
 WHOW,Water level of the lakes,The dataset contains measurements of lake water levels over time. ,,When is the level of a chemical substance recorded in a water body? ,,https://github.com/whow-project/datasets/raw/refs/heads/main/RML-RULES/hydrography/lakes/hydrography-lakes.tar.gz
-ArCo,,,,,,
-Polifonia,,,"This research includes looking into which organs an organ builder worked on and how their projects developed over time. This development can range from an increase of the size of the organ, to locality of their projects, or to the type or prestige of the project. The history section of the 15-part organ encyclopaedia is mostly used for this as this specifies year and changes that are made to the organs, but this obviously takes a lot of time and effort to research.",Who built and/or renovated an organ?,,
+Polifonia,,,"Amy wants to assess the developments of organ builders. This research includes looking into which organs an organ builder worked on and how their projects developed over time. This development can range from an increase of the size of the organ, to locality of their projects, or to the type or prestige of the project. The history section of the 15-part organ encyclopaedia is mostly used for this as this specifies year and changes that are made to the organs, but this obviously takes a lot of time and effort to research.",Who built and/or renovated an organ?,,
 Polifonia,,,"During the project, Amy researches both artistic and technical trends surrounding organs in the Netherlands. Amy is interested in finding connections between different regions and time periods to see how the trends have developed. She also wants to put her findings in a historical and social context. Amy hopes that the knowledge graphs can help her identify initial trends. That way she knows where to dig deeper to understand the trends. In order to discover trends, comparisons similar to those needed by the organ advisor (Paul) are required. But besides the comparison of stops in organs made by the same organ builder, the comparisons can be related to almost every component of the organ. For example, the different arthistorical details on the fronts of the organs, or the wind supply system are interesting to compare.",What was the disposition of the organ at a specific point in time?,,
 Polifonia,,,"Paul is hired to plan and supervise the restoration of an organ in a church. The church is from the sixteenth century. Paul would look up the organ in the Dutch organ encyclopaedia, which is ordered based on the year of production of the case of the organ. Because the organ is not necessarily made in the same year as the church, he first has to go through the indexes of the encyclopaedias in order to find the correct organ. Then, Paul searches for all organs that are made by the same organ builder. These organs are used as material for comparisons of the technical features. Finding and comparing the organs can be a tedious and time-consuming task. If this can be simplified and sped up by the use of the portal, Paul would save a lot of time and effort. As it turns out, the comparison of the disposition indicates that the organ up for restoration has been changed significantly during a previous restoration. This is indicated by a large difference in base stops that is used in all organs by the same organ builder. Paul now has to go visit some of the other organs and the church archives in order to verify whether some of those stops were the original stops or not.",What are the original parts of the organ?,,
 Polifonia,,,"Paul is hired to plan and supervise the restoration of an organ in a church. The church is from the sixteenth century. Paul would look up the organ in the Dutch organ encyclopaedia, which is ordered based on the year of production of the case of the organ. Because the organ is not necessarily made in the same year as the church, he first has to go through the indexes of the encyclopaedias in order to find the correct organ. Then, Paul searches for all organs that are made by the same organ builder. These organs are used as material for comparisons of the technical features. Finding and comparing the organs can be a tedious and time-consuming task. If this can be simplified and sped up by the use of the portal, Paul would save a lot of time and effort. As it turns out, the comparison of the disposition indicates that the organ up for restoration has been changed significantly during a previous restoration. This is indicated by a large difference in base stops that is used in all organs by the same organ builder. Paul now has to go visit some of the other organs and the church archives in order to verify whether some of those stops were the original stops or not.",Where are the original parts of an organ?,,
@@ -307,3 +315,2400 @@ Polifonia,,,"Jorge manages a digital library of scores. He aims at describing ea
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
     Tools to manage this organisation and search for relevant scores.","CQ6: Can I progressively explore the content of my library, adding criteria to refine large results ?",,
+ArCo,Accessory,,,What are accessories associated to the cultural property x?,SELECT DISTINCT ?accessory WHERE{ ?x a-dd:hasAccessory ?accessory. } limit 100,"<schede>
+<SMO version=""3.01_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo scheda"" >SMO</TSK>
+<LIR hint=""Livello ricerca"" >C</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >04</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00618140</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >D753</ESC>
+<ECP hint=""Ente competente"" >P021</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >organo</OGTD>
+<OGTT hint=""Tipologia"" >organo da muro</OGTT>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO -AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Trentino-Alto Adige</PVCR>
+<PVCP hint=""Provincia"" >BZ</PVCP>
+<PVCC hint=""Comune"" >Marebbe</PVCC>
+</PVC>
+<PVE hint=""Diocesi"" >Bolzano - Bressanone, Bozen - Brixen</PVE>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >chiesa</LDCT>
+<LDCQ hint=""Qualificazione"" >parrocchiale</LDCQ>
+<LDCN hint=""Denominazione attuale"" >Pfarrkirche Maria von guten Rat</LDCN>
+<LDCU hint=""Indirizzo"" >Str. la Pli, 39030 Pieve di Marebbe BZ</LDCU>
+<LDCO hint=""Collocazione originaria"" >SI</LDCO>
+</LDC>
+</LC>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Fascia cronologica di riferimento"" >sec. XVII</DTZG>
+<DTZS hint=""Frazione cronologica"" >metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1853</DTSI>
+<DTSF hint=""A"" >1853</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >documentazione</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<AUT hint=""AUTORE/ RESPONSABILITA'"" >
+<AUTR hint=""Ruolo"" >costruttore</AUTR>
+<AUTN hint=""Autore nome scelto"" >Josef Aigner</AUTN>
+<AUTA hint=""Dati anagrafici Periodo di attività"" >1855</AUTA>
+<AUTH hint=""Sigla per citazione"" >00000001</AUTH>
+<AUTM hint=""Motivazione dell'attribuzione"" >marchio</AUTM>
+<AUTS hint=""Riferimento all'autore"" >laboratorio</AUTS>
+</AUT>
+</AU>
+<CN hint=""PROSPETTO"" >
+<CNR hint=""MORFOLOGIA"" >
+<CNRN hint=""Numero di canne"" >68</CNRN>
+<CNRU hint=""Numero e foggia campate"" >3 (12+30+12; ali / 1 (14) cuspide</CNRU>
+<CNRO hint=""Ordini"" >2</CNRO>
+<CNRE hint=""Epoca"" >2020 / 1853</CNRE>
+<CNRB hint=""Posizione bocche"" >allineate / non allineate</CNRB>
+<CNRF hint=""Forma labbro superiore"" >scudo</CNRF>
+<CNRM hint=""Materiale"" >stagno</CNRM>
+</CNR>
+<CNS hint=""ATTINENZA"" >
+<CNSN hint=""Nota e registro canna maggiore"" >Do1: Principal 8'</CNSN>
+<CNSR hint=""Registro di appartenenza"" >Principal 8'</CNSR>
+<CNSC hint=""Canne non suonanti"" >II ordine, tutte</CNSC>
+</CNS>
+<CNN hint=""Specifiche e note"" >ordine delle canne da sin.: 23 21 19 17 15 13 11 9 7 5 3 1 // 25 27 29 31 33 335 37 39 41 43 45 47 49 51 53 52 50 48 46 44 42 40 3 836 34 32 30 28 26 // 2 4 6 8 10 12 14 16 18 20 22 24</CNN>
+</CN>
+<TA hint=""TASTIERE"" >
+<TST hint=""TASTIERA"" >
+<TSTP hint=""Posizione"" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""Epoca"" >1853</TSTE>
+<TSTC hint=""Corrispondenza ai corpi"" >positivo</TSTC>
+</TST>
+<TSA hint=""TASTI"" >
+<TSAN hint=""Numero tasti"" >54</TSAN>
+<TSAE hint=""Estensione"" >Do1-Fa5</TSAE>
+<TSAR hint=""Rivestimento tasti diatonici"" >ebano</TSAR>
+<TSAI hint=""Rivestimento tasti cromatici"" >osso</TSAI>
+</TSA>
+<TAT hint=""TRASMISSIONI"" >
+<TATT hint=""Tipologia"" >meccanica</TATT>
+</TAT>
+</TA>
+<TA hint=""TASTIERE"" >
+<TST hint=""TASTIERA"" >
+<TSTP hint=""Posizione"" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""Epoca"" >1853</TSTE>
+<TSTC hint=""Corrispondenza ai corpi"" >Grand'organo</TSTC>
+</TST>
+<TSA hint=""TASTI"" >
+<TSAN hint=""Numero tasti"" >54</TSAN>
+<TSAE hint=""Estensione"" >Do1-Fa5</TSAE>
+<TSAR hint=""Rivestimento tasti diatonici"" >Ebano</TSAR>
+<TSAI hint=""Rivestimento tasti cromatici"" >osso</TSAI>
+</TSA>
+<TAT hint=""TRASMISSIONI"" >
+<TATT hint=""Tipologia"" >meccanica</TATT>
+</TAT>
+</TA>
+<PE hint=""PEDALIERE"" >
+<PED hint=""PEDALIERA"" >
+<PEDE hint=""Epoca"" >2020</PEDE>
+<PEDT hint=""Tipologia"" >Orrizzontale</PEDT>
+<PEDC hint=""Collegamento tastiera"" >collegabile mediante pedaletto</PEDC>
+</PED>
+<TSI hint=""TASTI"" >
+<TSIN hint=""Numero tasti"" >27</TSIN>
+<TSIE hint=""Estensione"" >Do1-Re3</TSIE>
+</TSI>
+</PE>
+<RG hint=""REGISTRI"" >
+<COM hint=""COMANDI"" >
+<COMT hint=""Tipologia"" >Tiranti a pomello</COMT>
+<COMD hint=""Disposizione"" >2 file, verticali</COMD>
+<COMU hint=""Ubicazione"" >a destra e sinistra dei manuali</COMU>
+<COME hint=""Epoca"" >2020</COME>
+</COM>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >1</RGPO>
+<RGPN hint=""Nome"" >Octav 2'</RGPN>
+<RGPR hint=""Registro corrispondente"" >XV</RGPR>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >2</RGPO>
+<RGPN hint=""Nome"" >Spitzflöte 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >3</RGPO>
+<RGPN hint=""Nome"" >Dulciana 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >4</RGPO>
+<RGPN hint=""Nome"" >Mixtur 3fach 1'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >5</RGPO>
+<RGPN hint=""Nome"" >Cornett 4fach 2'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >6</RGPO>
+<RGPN hint=""Nome"" >Superoctav 2'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >7</RGPO>
+<RGPN hint=""Nome"" >Quint 3'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >8</RGPO>
+<RGPN hint=""Nome"" >Spitzdulcian 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >9</RGPO>
+<RGPN hint=""Nome"" >Octav 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >10</RGPO>
+<RGPN hint=""Nome"" >Flöte 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >11</RGPO>
+<RGPN hint=""Nome"" >Coppel 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >12</RGPO>
+<RGPN hint=""Nome"" >Principal 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >1</RGPO>
+<RGPN hint=""Nome"" >Gedeckt 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >2</RGPO>
+<RGPN hint=""Nome"" >Geigenprincipal 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >3</RGPO>
+<RGPN hint=""Nome"" >Gamba 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >4</RGPO>
+<RGPN hint=""Nome"" >Principal piano 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >5</RGPO>
+<RGPN hint=""Nome"" >Viola 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >6</RGPO>
+<RGPN hint=""Nome"" >Bordun 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >7</RGPO>
+<RGPN hint=""Nome"" >Octavbass 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >8</RGPO>
+<RGPN hint=""Nome"" >Violonbass 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >9</RGPO>
+<RGPN hint=""Nome"" >Subbass 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >10</RGPO>
+<RGPN hint=""Nome"" >Quintbass 6'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >11</RGPO>
+<RGPN hint=""Nome"" >Posaune 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >12</RGPO>
+<RGPN hint=""Nome"" >Symetrie (=vacat)</RGPN>
+</RGP>
+<DIV hint=""Divisione bassi/ soprani"" >/</DIV>
+<RIT hint=""RITORNELLI"" >
+<RITR hint=""Registro"" >Mixtur 3fach 1'</RITR>
+<RITT hint=""Tasti corrispondenti"" >Do2, Do3, Do4</RITT>
+</RIT>
+<RIT hint=""RITORNELLI"" >
+<RITR hint=""Registro"" >Cornett 4fach 2'</RITR>
+<RITT hint=""Tasti corrispondenti"" >Fa#2, Fa#3, Do4</RITT>
+</RIT>
+</RG>
+<AS hint=""ACCESSORI ED EFFETTI"" >
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione manuali</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione II al Ped</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione I al Ped</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASN hint=""Specifiche e note"" >incastro fino corsa a sinistra</ASN>
+</AS>
+<MA hint=""MANTICERIA"" >
+<SIS hint=""SISTEMA DI AZIONAMENTO"" >
+<SIST hint=""Tipologia"" >elettroventilatore</SIST>
+<SISP hint=""Posizione"" >fuori cassa lato destro</SISP>
+<SISE hint=""Epoca"" >2020</SISE>
+</SIS>
+<MNT hint=""MANTICI"" >
+<MNTT hint=""Tipologia"" >a lanterna</MNTT>
+<MNTU hint=""Ubicazione"" >fuori cassa lato destro</MNTU>
+<MNTE hint=""Epoca"" >1961</MNTE>
+</MNT>
+<MNP hint=""PRESSIONE"" >
+<MNPV hint=""Valore"" >63 mm</MNPV>
+<MNPD hint=""Data rilievo"" >Dicembre 2020</MNPD>
+</MNP>
+</MA>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >maestro</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >grand'organo</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >entro la cassa, dietro il prospetto</SORU>
+</SOR>
+<SOM hint=""MISURE SOMIERI"" >
+<SOML hint=""Larghezza"" >2561</SOML>
+<SOMP hint=""Profondità"" >1421</SOMP>
+</SOM>
+<CRI hint=""CRIVELLO"" >
+<CRIM hint=""Materiale"" >abete</CRIM>
+<CRIP hint=""Posizione bocche delle canne"" >sopra il crivello</CRIP>
+</CRI>
+<CIT hint=""CORISTA E TEMPERAMENTO"" >
+<CITC hint=""Corista"" >442,7 Hz a 15° C</CITC>
+<CITT hint=""Temperamento"" >Neidhardt ""für die kleine Stadt""</CITT>
+</CIT>
+</SO>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >maestro</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >positivo</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >In alto sopra il Grand'Organo</SORU>
+</SOR>
+<SOM hint=""MISURE SOMIERI"" >
+<SOML hint=""Larghezza"" >1401</SOML>
+<SOMP hint=""Profondità"" >700</SOMP>
+</SOM>
+</SO>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >supplementare</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >pedale</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >Fondo cassa</SORU>
+</SOR>
+</SO>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+<STS hint=""Stato di efficienza complessivo"" >efficiente</STS>
+</CO>
+<RS hint=""RESTAURI"" >
+<RST hint=""RESTAURI"" >
+<RSTP hint=""Riferimento intero bene/ parte"" >intero bene</RSTP>
+<RSTD hint=""Data"" >2020</RSTD>
+<RSTT hint=""Descrizione dell'intervento"" >restauro conservativo</RSTT>
+<RSTE hint=""Ente responsabile"" >Soprintendenza provinciale ai beni culturali</RSTE>
+<RSTN hint=""Nome operatore"" >Kaufmann, Osvald</RSTN>
+</RST>
+</RS>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQD hint=""Data acquisizione"" >1853</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Ente religioso cattolico</CDGG>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAN hint=""Codice identificativo"" >Kau0001</FTAN>
+</FTA>
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+</FTA>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >2</ADSP>
+<ADSM hint=""Motivazione"" >scheda di bene di proprietà privata</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2022</CMPD>
+<CMPN hint=""Nome"" >Delama, Paolo</CMPN>
+</CMP>
+<FUR hint=""Funzionario responsabile"" >Stillhard, Walter</FUR>
+</CM>
+</SMO>
+<harvesting>
+<enteCompetente>P021</enteCompetente>
+<idProgetto>ICCD1065088</idProgetto>
+</harvesting>
+</schede>"
+,Acquisition,,,Who was the transferor of the cultural property?,SELECT DISTINCT ?transferor WHERE{ ?entity a-cd:hasAcquisition ?acq. ?acq core:hasAgentRole ?agentrole. ?agentrole core:hasAgent ?transferor; core:hasRole https://w3id.org/arco/resource/Role/Transferor . },"<schede>
+<OA version=""3.00_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo Scheda"" >OA</TSK>
+<LIR hint=""Livello ricerca"" >P</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >01</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00410061</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >M270</ESC>
+<ECP hint=""Ente competente"" >M270</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >vaso</OGTD>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Piemonte</PVCR>
+<PVCP hint=""Provincia"" >TO</PVCP>
+<PVCC hint=""Comune"" >Agliè</PVCC>
+<PVCL hint=""Località"" >AGLIE'</PVCL>
+</PVC>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >castello</LDCT>
+<LDCN hint=""Denominazione attuale"" >Castello di Agliè</LDCN>
+<LDCU hint=""Indirizzo"" >Piazza Castello, 2</LDCU>
+<LDCS hint=""Specifiche"" >piano nobile, galleria verde</LDCS>
+</LDC>
+</LC>
+<UB hint=""UBICAZIONE E DATI PATRIMONIALI"" >
+<INV hint=""INVENTARIO DI MUSEO O SOPRINTENDENZA"" >
+<INVN hint=""Numero"" >S.N</INVN>
+<INVD hint=""Data"" >1964</INVD>
+</INV>
+</UB>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Secolo"" >XIX</DTZG>
+<DTZS hint=""Frazione di secolo"" >seconda metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1850</DTSI>
+<DTSF hint=""A"" >1899</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >analisi stilistica</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<ATB hint=""AMBITO CULTURALE"" >
+<ATBD hint=""Denominazione"" >ambito giapponese</ATBD>
+<ATBM hint=""Motivazione dell'attribuzione"" >analisi stilistica</ATBM>
+</ATB>
+</AU>
+<MT hint=""DATI TECNICI"" >
+<MTC hint=""Materia e tecnica"" >ceramica/ pittura</MTC>
+<MTC hint=""Materia e tecnica"" >ceramica/ smaltatura</MTC>
+<MIS hint=""MISURE"" >
+<MISU hint=""Unità"" >cm</MISU>
+<MISA hint=""Altezza"" >23,5</MISA>
+<MISD hint=""Diametro"" >33</MISD>
+</MIS>
+</MT>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+</CO>
+<DA hint=""DATI ANALITICI"" >
+<DES hint=""DESCRIZIONE"" >
+<DESO hint=""Indicazioni sull'oggetto"" >Vaso da giardino (yoki) a sezione circolare in ceramica dipinta; tesa piatta con decorazioni a foglie bianche. Poggia su tre piedini. All'esterno presenta una decorazione a fasce verticali di diverso spessore alternate blu e bianche, queste ultime lavorate a rilievo con motivi a fusto di bambù</DESO>
+<DESI hint=""Codifica Iconclass"" >48C35 : 48A981 : 48A9831</DESI>
+<DESS hint=""Indicazioni sul soggetto"" >Suppellettili. Elementi decorativi: motivi vegetali stilizzati; motivi geometrici</DESS>
+</DES>
+<NSC hint=""Notizie storico-critiche"" >Questa particolare tipologia di vasi è tipica delle fornaci della provincia di Owari nella seconda metà del XIX secolo. Non abbiamo notizie certe riguardo al loro ingresso nelle Collezioni del Castello di Agliè anche se è possibile fossero inclusi in quel nucleo di ""29 vasi bianchi e bleu per fiori (piante/giapponesi: 22 bucati. 7 non)"" che furono spediti ad Agliè nel corso del 1883. Questo nucleo di oggetti si può dividere in tre gruppi: i due vasi cilindrici (hanaike); i vasi a sezione circolare con tesa piatta e tre piedini da giardino (yoki) con biscotto interno in evidenza; vasi da giardino di forme e dimensioni diverse decorate anche internamente. Il vaso in questione appartiene alla seconda categoria</NSC>
+</DA>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQN hint=""Nome"" >Stato italiano</ACQN>
+<ACQD hint=""Data acquisizione"" >1939</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Stato</CDGG>
+<CDGS hint=""Indicazione specifica"" >MiBACT</CDGS>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAA hint=""Autore"" >Robino, Paolo</FTAA>
+<FTAD hint=""Data"" >2016/00/00</FTAD>
+<FTAE hint=""Ente proprietario"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FTAE>
+<FTAN hint=""Codice identificativo"" >CDA_DIG03276</FTAN>
+<FTAF hint=""Formato"" >jpg</FTAF>
+</FTA>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >relazione di ricerca</FNTP>
+<FNTA hint=""Autore"" >Vergagni, Roberta</FNTA>
+<FNTT hint=""Denominazione"" >Riscontro inventariale della collezione orientale del Castello di Agliè. Relazione finale</FNTT>
+<FNTD hint=""Data"" >2017</FNTD>
+<FNTN hint=""Nome archivio"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FNTN>
+<FNTI hint=""Codice identificativo"" >FN000012</FNTI>
+</FNT>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >trascrizione archivistica</FNTP>
+<FNTT hint=""Denominazione"" >Oggetti spediti al Castello di Agliè dal 1877 al 1887</FNTT>
+<FNTN hint=""Nome archivio"" >Torino, ASTo, Sezioni Riunite</FNTN>
+<FNTS hint=""Posizione"" >Duca di Genova, Agliè, mazzo 63</FNTS>
+<FNTI hint=""Codice identificativo"" >FN000014</FNTI>
+</FNT>
+<BIB hint=""BIBLIOGRAFIA"" >
+<BIBX hint=""Genere"" >bibliografia di corredo</BIBX>
+<BIBA hint=""Autore"" >Caterina, Lucia</BIBA>
+<BIBD hint=""Anno di edizione"" >2001</BIBD>
+<BIBH hint=""Sigla per citazione"" >BI000100</BIBH>
+<BIBN hint=""V., pp., nn."" >pp. 115-121</BIBN>
+</BIB>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >1</ADSP>
+<ADSM hint=""Motivazione"" >scheda contenente dati liberamente accessibili</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2020</CMPD>
+<CMPN hint=""Nome"" >Lucidi, David</CMPN>
+</CMP>
+<RSR hint=""Referente scientifico"" >Berretti, Luisa</RSR>
+<FUR hint=""Funzionario responsabile"" >Berretti, Luisa</FUR>
+</CM>
+</OA>
+<harvesting>
+<enteCompetente>M270</enteCompetente>
+<idProgetto>ICCD1038112</idProgetto>
+</harvesting>
+</schede>"
+,ClassificationInTime,,,When cultural property x was classified by agent Y?,select ?time where { ?x core:hasClassificationInTime ?class . ?class https://w3id.org/italia/onto/TI/hasTemporalEntity ?time ; core:involvesAgent ?agent . },"<schede>
+<OA version=""3.00_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo Scheda"" >OA</TSK>
+<LIR hint=""Livello ricerca"" >P</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >01</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00410061</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >M270</ESC>
+<ECP hint=""Ente competente"" >M270</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >vaso</OGTD>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Piemonte</PVCR>
+<PVCP hint=""Provincia"" >TO</PVCP>
+<PVCC hint=""Comune"" >Agliè</PVCC>
+<PVCL hint=""Località"" >AGLIE'</PVCL>
+</PVC>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >castello</LDCT>
+<LDCN hint=""Denominazione attuale"" >Castello di Agliè</LDCN>
+<LDCU hint=""Indirizzo"" >Piazza Castello, 2</LDCU>
+<LDCS hint=""Specifiche"" >piano nobile, galleria verde</LDCS>
+</LDC>
+</LC>
+<UB hint=""UBICAZIONE E DATI PATRIMONIALI"" >
+<INV hint=""INVENTARIO DI MUSEO O SOPRINTENDENZA"" >
+<INVN hint=""Numero"" >S.N</INVN>
+<INVD hint=""Data"" >1964</INVD>
+</INV>
+</UB>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Secolo"" >XIX</DTZG>
+<DTZS hint=""Frazione di secolo"" >seconda metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1850</DTSI>
+<DTSF hint=""A"" >1899</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >analisi stilistica</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<ATB hint=""AMBITO CULTURALE"" >
+<ATBD hint=""Denominazione"" >ambito giapponese</ATBD>
+<ATBM hint=""Motivazione dell'attribuzione"" >analisi stilistica</ATBM>
+</ATB>
+</AU>
+<MT hint=""DATI TECNICI"" >
+<MTC hint=""Materia e tecnica"" >ceramica/ pittura</MTC>
+<MTC hint=""Materia e tecnica"" >ceramica/ smaltatura</MTC>
+<MIS hint=""MISURE"" >
+<MISU hint=""Unità"" >cm</MISU>
+<MISA hint=""Altezza"" >23,5</MISA>
+<MISD hint=""Diametro"" >33</MISD>
+</MIS>
+</MT>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+</CO>
+<DA hint=""DATI ANALITICI"" >
+<DES hint=""DESCRIZIONE"" >
+<DESO hint=""Indicazioni sull'oggetto"" >Vaso da giardino (yoki) a sezione circolare in ceramica dipinta; tesa piatta con decorazioni a foglie bianche. Poggia su tre piedini. All'esterno presenta una decorazione a fasce verticali di diverso spessore alternate blu e bianche, queste ultime lavorate a rilievo con motivi a fusto di bambù</DESO>
+<DESI hint=""Codifica Iconclass"" >48C35 : 48A981 : 48A9831</DESI>
+<DESS hint=""Indicazioni sul soggetto"" >Suppellettili. Elementi decorativi: motivi vegetali stilizzati; motivi geometrici</DESS>
+</DES>
+<NSC hint=""Notizie storico-critiche"" >Questa particolare tipologia di vasi è tipica delle fornaci della provincia di Owari nella seconda metà del XIX secolo. Non abbiamo notizie certe riguardo al loro ingresso nelle Collezioni del Castello di Agliè anche se è possibile fossero inclusi in quel nucleo di ""29 vasi bianchi e bleu per fiori (piante/giapponesi: 22 bucati. 7 non)"" che furono spediti ad Agliè nel corso del 1883. Questo nucleo di oggetti si può dividere in tre gruppi: i due vasi cilindrici (hanaike); i vasi a sezione circolare con tesa piatta e tre piedini da giardino (yoki) con biscotto interno in evidenza; vasi da giardino di forme e dimensioni diverse decorate anche internamente. Il vaso in questione appartiene alla seconda categoria</NSC>
+</DA>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQN hint=""Nome"" >Stato italiano</ACQN>
+<ACQD hint=""Data acquisizione"" >1939</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Stato</CDGG>
+<CDGS hint=""Indicazione specifica"" >MiBACT</CDGS>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAA hint=""Autore"" >Robino, Paolo</FTAA>
+<FTAD hint=""Data"" >2016/00/00</FTAD>
+<FTAE hint=""Ente proprietario"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FTAE>
+<FTAN hint=""Codice identificativo"" >CDA_DIG03276</FTAN>
+<FTAF hint=""Formato"" >jpg</FTAF>
+</FTA>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >relazione di ricerca</FNTP>
+<FNTA hint=""Autore"" >Vergagni, Roberta</FNTA>
+<FNTT hint=""Denominazione"" >Riscontro inventariale della collezione orientale del Castello di Agliè. Relazione finale</FNTT>
+<FNTD hint=""Data"" >2017</FNTD>
+<FNTN hint=""Nome archivio"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FNTN>
+<FNTI hint=""Codice identificativo"" >FN000012</FNTI>
+</FNT>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >trascrizione archivistica</FNTP>
+<FNTT hint=""Denominazione"" >Oggetti spediti al Castello di Agliè dal 1877 al 1887</FNTT>
+<FNTN hint=""Nome archivio"" >Torino, ASTo, Sezioni Riunite</FNTN>
+<FNTS hint=""Posizione"" >Duca di Genova, Agliè, mazzo 63</FNTS>
+<FNTI hint=""Codice identificativo"" >FN000014</FNTI>
+</FNT>
+<BIB hint=""BIBLIOGRAFIA"" >
+<BIBX hint=""Genere"" >bibliografia di corredo</BIBX>
+<BIBA hint=""Autore"" >Caterina, Lucia</BIBA>
+<BIBD hint=""Anno di edizione"" >2001</BIBD>
+<BIBH hint=""Sigla per citazione"" >BI000100</BIBH>
+<BIBN hint=""V., pp., nn."" >pp. 115-121</BIBN>
+</BIB>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >1</ADSP>
+<ADSM hint=""Motivazione"" >scheda contenente dati liberamente accessibili</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2020</CMPD>
+<CMPN hint=""Nome"" >Lucidi, David</CMPN>
+</CMP>
+<RSR hint=""Referente scientifico"" >Berretti, Luisa</RSR>
+<FUR hint=""Funzionario responsabile"" >Berretti, Luisa</FUR>
+</CM>
+</OA>
+<harvesting>
+<enteCompetente>M270</enteCompetente>
+<idProgetto>ICCD1038112</idProgetto>
+</harvesting>
+</schede>"
+,,,,According to which classification system was cultural property x classified?,select ?time ?syst where { ?x core:hasClassificationInTime ?class . ?class core:hasConcept ?concept . ?concept core:isDefinedByClassificationSystem ?syst . },"<schede>
+<OA version=""3.00_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo Scheda"" >OA</TSK>
+<LIR hint=""Livello ricerca"" >P</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >01</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00410061</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >M270</ESC>
+<ECP hint=""Ente competente"" >M270</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >vaso</OGTD>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Piemonte</PVCR>
+<PVCP hint=""Provincia"" >TO</PVCP>
+<PVCC hint=""Comune"" >Agliè</PVCC>
+<PVCL hint=""Località"" >AGLIE'</PVCL>
+</PVC>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >castello</LDCT>
+<LDCN hint=""Denominazione attuale"" >Castello di Agliè</LDCN>
+<LDCU hint=""Indirizzo"" >Piazza Castello, 2</LDCU>
+<LDCS hint=""Specifiche"" >piano nobile, galleria verde</LDCS>
+</LDC>
+</LC>
+<UB hint=""UBICAZIONE E DATI PATRIMONIALI"" >
+<INV hint=""INVENTARIO DI MUSEO O SOPRINTENDENZA"" >
+<INVN hint=""Numero"" >S.N</INVN>
+<INVD hint=""Data"" >1964</INVD>
+</INV>
+</UB>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Secolo"" >XIX</DTZG>
+<DTZS hint=""Frazione di secolo"" >seconda metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1850</DTSI>
+<DTSF hint=""A"" >1899</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >analisi stilistica</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<ATB hint=""AMBITO CULTURALE"" >
+<ATBD hint=""Denominazione"" >ambito giapponese</ATBD>
+<ATBM hint=""Motivazione dell'attribuzione"" >analisi stilistica</ATBM>
+</ATB>
+</AU>
+<MT hint=""DATI TECNICI"" >
+<MTC hint=""Materia e tecnica"" >ceramica/ pittura</MTC>
+<MTC hint=""Materia e tecnica"" >ceramica/ smaltatura</MTC>
+<MIS hint=""MISURE"" >
+<MISU hint=""Unità"" >cm</MISU>
+<MISA hint=""Altezza"" >23,5</MISA>
+<MISD hint=""Diametro"" >33</MISD>
+</MIS>
+</MT>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+</CO>
+<DA hint=""DATI ANALITICI"" >
+<DES hint=""DESCRIZIONE"" >
+<DESO hint=""Indicazioni sull'oggetto"" >Vaso da giardino (yoki) a sezione circolare in ceramica dipinta; tesa piatta con decorazioni a foglie bianche. Poggia su tre piedini. All'esterno presenta una decorazione a fasce verticali di diverso spessore alternate blu e bianche, queste ultime lavorate a rilievo con motivi a fusto di bambù</DESO>
+<DESI hint=""Codifica Iconclass"" >48C35 : 48A981 : 48A9831</DESI>
+<DESS hint=""Indicazioni sul soggetto"" >Suppellettili. Elementi decorativi: motivi vegetali stilizzati; motivi geometrici</DESS>
+</DES>
+<NSC hint=""Notizie storico-critiche"" >Questa particolare tipologia di vasi è tipica delle fornaci della provincia di Owari nella seconda metà del XIX secolo. Non abbiamo notizie certe riguardo al loro ingresso nelle Collezioni del Castello di Agliè anche se è possibile fossero inclusi in quel nucleo di ""29 vasi bianchi e bleu per fiori (piante/giapponesi: 22 bucati. 7 non)"" che furono spediti ad Agliè nel corso del 1883. Questo nucleo di oggetti si può dividere in tre gruppi: i due vasi cilindrici (hanaike); i vasi a sezione circolare con tesa piatta e tre piedini da giardino (yoki) con biscotto interno in evidenza; vasi da giardino di forme e dimensioni diverse decorate anche internamente. Il vaso in questione appartiene alla seconda categoria</NSC>
+</DA>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQN hint=""Nome"" >Stato italiano</ACQN>
+<ACQD hint=""Data acquisizione"" >1939</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Stato</CDGG>
+<CDGS hint=""Indicazione specifica"" >MiBACT</CDGS>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAA hint=""Autore"" >Robino, Paolo</FTAA>
+<FTAD hint=""Data"" >2016/00/00</FTAD>
+<FTAE hint=""Ente proprietario"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FTAE>
+<FTAN hint=""Codice identificativo"" >CDA_DIG03276</FTAN>
+<FTAF hint=""Formato"" >jpg</FTAF>
+</FTA>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >relazione di ricerca</FNTP>
+<FNTA hint=""Autore"" >Vergagni, Roberta</FNTA>
+<FNTT hint=""Denominazione"" >Riscontro inventariale della collezione orientale del Castello di Agliè. Relazione finale</FNTT>
+<FNTD hint=""Data"" >2017</FNTD>
+<FNTN hint=""Nome archivio"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FNTN>
+<FNTI hint=""Codice identificativo"" >FN000012</FNTI>
+</FNT>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >trascrizione archivistica</FNTP>
+<FNTT hint=""Denominazione"" >Oggetti spediti al Castello di Agliè dal 1877 al 1887</FNTT>
+<FNTN hint=""Nome archivio"" >Torino, ASTo, Sezioni Riunite</FNTN>
+<FNTS hint=""Posizione"" >Duca di Genova, Agliè, mazzo 63</FNTS>
+<FNTI hint=""Codice identificativo"" >FN000014</FNTI>
+</FNT>
+<BIB hint=""BIBLIOGRAFIA"" >
+<BIBX hint=""Genere"" >bibliografia di corredo</BIBX>
+<BIBA hint=""Autore"" >Caterina, Lucia</BIBA>
+<BIBD hint=""Anno di edizione"" >2001</BIBD>
+<BIBH hint=""Sigla per citazione"" >BI000100</BIBH>
+<BIBN hint=""V., pp., nn."" >pp. 115-121</BIBN>
+</BIB>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >1</ADSP>
+<ADSM hint=""Motivazione"" >scheda contenente dati liberamente accessibili</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2020</CMPD>
+<CMPN hint=""Nome"" >Lucidi, David</CMPN>
+</CMP>
+<RSR hint=""Referente scientifico"" >Berretti, Luisa</RSR>
+<FUR hint=""Funzionario responsabile"" >Berretti, Luisa</FUR>
+</CM>
+</OA>
+<harvesting>
+<enteCompetente>M270</enteCompetente>
+<idProgetto>ICCD1038112</idProgetto>
+</harvesting>
+</schede>"
+,Documentation,,,What’s the documentation file format of cultural property y?,SELECT DISTINCT ?format where { ?x a-cd:hasDocumentation ?doc . ?doc a-dd:hasFormat ?format . } LIMIT 100,"<schede>
+<OA version=""3.00_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo Scheda"" >OA</TSK>
+<LIR hint=""Livello ricerca"" >P</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >01</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00410061</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >M270</ESC>
+<ECP hint=""Ente competente"" >M270</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >vaso</OGTD>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Piemonte</PVCR>
+<PVCP hint=""Provincia"" >TO</PVCP>
+<PVCC hint=""Comune"" >Agliè</PVCC>
+<PVCL hint=""Località"" >AGLIE'</PVCL>
+</PVC>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >castello</LDCT>
+<LDCN hint=""Denominazione attuale"" >Castello di Agliè</LDCN>
+<LDCU hint=""Indirizzo"" >Piazza Castello, 2</LDCU>
+<LDCS hint=""Specifiche"" >piano nobile, galleria verde</LDCS>
+</LDC>
+</LC>
+<UB hint=""UBICAZIONE E DATI PATRIMONIALI"" >
+<INV hint=""INVENTARIO DI MUSEO O SOPRINTENDENZA"" >
+<INVN hint=""Numero"" >S.N</INVN>
+<INVD hint=""Data"" >1964</INVD>
+</INV>
+</UB>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Secolo"" >XIX</DTZG>
+<DTZS hint=""Frazione di secolo"" >seconda metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1850</DTSI>
+<DTSF hint=""A"" >1899</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >analisi stilistica</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<ATB hint=""AMBITO CULTURALE"" >
+<ATBD hint=""Denominazione"" >ambito giapponese</ATBD>
+<ATBM hint=""Motivazione dell'attribuzione"" >analisi stilistica</ATBM>
+</ATB>
+</AU>
+<MT hint=""DATI TECNICI"" >
+<MTC hint=""Materia e tecnica"" >ceramica/ pittura</MTC>
+<MTC hint=""Materia e tecnica"" >ceramica/ smaltatura</MTC>
+<MIS hint=""MISURE"" >
+<MISU hint=""Unità"" >cm</MISU>
+<MISA hint=""Altezza"" >23,5</MISA>
+<MISD hint=""Diametro"" >33</MISD>
+</MIS>
+</MT>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+</CO>
+<DA hint=""DATI ANALITICI"" >
+<DES hint=""DESCRIZIONE"" >
+<DESO hint=""Indicazioni sull'oggetto"" >Vaso da giardino (yoki) a sezione circolare in ceramica dipinta; tesa piatta con decorazioni a foglie bianche. Poggia su tre piedini. All'esterno presenta una decorazione a fasce verticali di diverso spessore alternate blu e bianche, queste ultime lavorate a rilievo con motivi a fusto di bambù</DESO>
+<DESI hint=""Codifica Iconclass"" >48C35 : 48A981 : 48A9831</DESI>
+<DESS hint=""Indicazioni sul soggetto"" >Suppellettili. Elementi decorativi: motivi vegetali stilizzati; motivi geometrici</DESS>
+</DES>
+<NSC hint=""Notizie storico-critiche"" >Questa particolare tipologia di vasi è tipica delle fornaci della provincia di Owari nella seconda metà del XIX secolo. Non abbiamo notizie certe riguardo al loro ingresso nelle Collezioni del Castello di Agliè anche se è possibile fossero inclusi in quel nucleo di ""29 vasi bianchi e bleu per fiori (piante/giapponesi: 22 bucati. 7 non)"" che furono spediti ad Agliè nel corso del 1883. Questo nucleo di oggetti si può dividere in tre gruppi: i due vasi cilindrici (hanaike); i vasi a sezione circolare con tesa piatta e tre piedini da giardino (yoki) con biscotto interno in evidenza; vasi da giardino di forme e dimensioni diverse decorate anche internamente. Il vaso in questione appartiene alla seconda categoria</NSC>
+</DA>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQN hint=""Nome"" >Stato italiano</ACQN>
+<ACQD hint=""Data acquisizione"" >1939</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Stato</CDGG>
+<CDGS hint=""Indicazione specifica"" >MiBACT</CDGS>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAA hint=""Autore"" >Robino, Paolo</FTAA>
+<FTAD hint=""Data"" >2016/00/00</FTAD>
+<FTAE hint=""Ente proprietario"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FTAE>
+<FTAN hint=""Codice identificativo"" >CDA_DIG03276</FTAN>
+<FTAF hint=""Formato"" >jpg</FTAF>
+</FTA>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >relazione di ricerca</FNTP>
+<FNTA hint=""Autore"" >Vergagni, Roberta</FNTA>
+<FNTT hint=""Denominazione"" >Riscontro inventariale della collezione orientale del Castello di Agliè. Relazione finale</FNTT>
+<FNTD hint=""Data"" >2017</FNTD>
+<FNTN hint=""Nome archivio"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FNTN>
+<FNTI hint=""Codice identificativo"" >FN000012</FNTI>
+</FNT>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >trascrizione archivistica</FNTP>
+<FNTT hint=""Denominazione"" >Oggetti spediti al Castello di Agliè dal 1877 al 1887</FNTT>
+<FNTN hint=""Nome archivio"" >Torino, ASTo, Sezioni Riunite</FNTN>
+<FNTS hint=""Posizione"" >Duca di Genova, Agliè, mazzo 63</FNTS>
+<FNTI hint=""Codice identificativo"" >FN000014</FNTI>
+</FNT>
+<BIB hint=""BIBLIOGRAFIA"" >
+<BIBX hint=""Genere"" >bibliografia di corredo</BIBX>
+<BIBA hint=""Autore"" >Caterina, Lucia</BIBA>
+<BIBD hint=""Anno di edizione"" >2001</BIBD>
+<BIBH hint=""Sigla per citazione"" >BI000100</BIBH>
+<BIBN hint=""V., pp., nn."" >pp. 115-121</BIBN>
+</BIB>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >1</ADSP>
+<ADSM hint=""Motivazione"" >scheda contenente dati liberamente accessibili</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2020</CMPD>
+<CMPN hint=""Nome"" >Lucidi, David</CMPN>
+</CMP>
+<RSR hint=""Referente scientifico"" >Berretti, Luisa</RSR>
+<FUR hint=""Funzionario responsabile"" >Berretti, Luisa</FUR>
+</CM>
+</OA>
+<harvesting>
+<enteCompetente>M270</enteCompetente>
+<idProgetto>ICCD1038112</idProgetto>
+</harvesting>
+</schede>"
+,Identifier,,,Which identifier type is connected to cultural property x?,"""select ?id ?type { ?x core:hasIdentifier ?id . ?id core:hasType ?type }
+
+limit 100""","<schede>
+<OA version=""3.00_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo Scheda"" >OA</TSK>
+<LIR hint=""Livello ricerca"" >P</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >01</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00410061</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >M270</ESC>
+<ECP hint=""Ente competente"" >M270</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >vaso</OGTD>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Piemonte</PVCR>
+<PVCP hint=""Provincia"" >TO</PVCP>
+<PVCC hint=""Comune"" >Agliè</PVCC>
+<PVCL hint=""Località"" >AGLIE'</PVCL>
+</PVC>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >castello</LDCT>
+<LDCN hint=""Denominazione attuale"" >Castello di Agliè</LDCN>
+<LDCU hint=""Indirizzo"" >Piazza Castello, 2</LDCU>
+<LDCS hint=""Specifiche"" >piano nobile, galleria verde</LDCS>
+</LDC>
+</LC>
+<UB hint=""UBICAZIONE E DATI PATRIMONIALI"" >
+<INV hint=""INVENTARIO DI MUSEO O SOPRINTENDENZA"" >
+<INVN hint=""Numero"" >S.N</INVN>
+<INVD hint=""Data"" >1964</INVD>
+</INV>
+</UB>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Secolo"" >XIX</DTZG>
+<DTZS hint=""Frazione di secolo"" >seconda metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1850</DTSI>
+<DTSF hint=""A"" >1899</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >analisi stilistica</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<ATB hint=""AMBITO CULTURALE"" >
+<ATBD hint=""Denominazione"" >ambito giapponese</ATBD>
+<ATBM hint=""Motivazione dell'attribuzione"" >analisi stilistica</ATBM>
+</ATB>
+</AU>
+<MT hint=""DATI TECNICI"" >
+<MTC hint=""Materia e tecnica"" >ceramica/ pittura</MTC>
+<MTC hint=""Materia e tecnica"" >ceramica/ smaltatura</MTC>
+<MIS hint=""MISURE"" >
+<MISU hint=""Unità"" >cm</MISU>
+<MISA hint=""Altezza"" >23,5</MISA>
+<MISD hint=""Diametro"" >33</MISD>
+</MIS>
+</MT>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+</CO>
+<DA hint=""DATI ANALITICI"" >
+<DES hint=""DESCRIZIONE"" >
+<DESO hint=""Indicazioni sull'oggetto"" >Vaso da giardino (yoki) a sezione circolare in ceramica dipinta; tesa piatta con decorazioni a foglie bianche. Poggia su tre piedini. All'esterno presenta una decorazione a fasce verticali di diverso spessore alternate blu e bianche, queste ultime lavorate a rilievo con motivi a fusto di bambù</DESO>
+<DESI hint=""Codifica Iconclass"" >48C35 : 48A981 : 48A9831</DESI>
+<DESS hint=""Indicazioni sul soggetto"" >Suppellettili. Elementi decorativi: motivi vegetali stilizzati; motivi geometrici</DESS>
+</DES>
+<NSC hint=""Notizie storico-critiche"" >Questa particolare tipologia di vasi è tipica delle fornaci della provincia di Owari nella seconda metà del XIX secolo. Non abbiamo notizie certe riguardo al loro ingresso nelle Collezioni del Castello di Agliè anche se è possibile fossero inclusi in quel nucleo di ""29 vasi bianchi e bleu per fiori (piante/giapponesi: 22 bucati. 7 non)"" che furono spediti ad Agliè nel corso del 1883. Questo nucleo di oggetti si può dividere in tre gruppi: i due vasi cilindrici (hanaike); i vasi a sezione circolare con tesa piatta e tre piedini da giardino (yoki) con biscotto interno in evidenza; vasi da giardino di forme e dimensioni diverse decorate anche internamente. Il vaso in questione appartiene alla seconda categoria</NSC>
+</DA>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQN hint=""Nome"" >Stato italiano</ACQN>
+<ACQD hint=""Data acquisizione"" >1939</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Stato</CDGG>
+<CDGS hint=""Indicazione specifica"" >MiBACT</CDGS>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAA hint=""Autore"" >Robino, Paolo</FTAA>
+<FTAD hint=""Data"" >2016/00/00</FTAD>
+<FTAE hint=""Ente proprietario"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FTAE>
+<FTAN hint=""Codice identificativo"" >CDA_DIG03276</FTAN>
+<FTAF hint=""Formato"" >jpg</FTAF>
+</FTA>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >relazione di ricerca</FNTP>
+<FNTA hint=""Autore"" >Vergagni, Roberta</FNTA>
+<FNTT hint=""Denominazione"" >Riscontro inventariale della collezione orientale del Castello di Agliè. Relazione finale</FNTT>
+<FNTD hint=""Data"" >2017</FNTD>
+<FNTN hint=""Nome archivio"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FNTN>
+<FNTI hint=""Codice identificativo"" >FN000012</FNTI>
+</FNT>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >trascrizione archivistica</FNTP>
+<FNTT hint=""Denominazione"" >Oggetti spediti al Castello di Agliè dal 1877 al 1887</FNTT>
+<FNTN hint=""Nome archivio"" >Torino, ASTo, Sezioni Riunite</FNTN>
+<FNTS hint=""Posizione"" >Duca di Genova, Agliè, mazzo 63</FNTS>
+<FNTI hint=""Codice identificativo"" >FN000014</FNTI>
+</FNT>
+<BIB hint=""BIBLIOGRAFIA"" >
+<BIBX hint=""Genere"" >bibliografia di corredo</BIBX>
+<BIBA hint=""Autore"" >Caterina, Lucia</BIBA>
+<BIBD hint=""Anno di edizione"" >2001</BIBD>
+<BIBH hint=""Sigla per citazione"" >BI000100</BIBH>
+<BIBN hint=""V., pp., nn."" >pp. 115-121</BIBN>
+</BIB>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >1</ADSP>
+<ADSM hint=""Motivazione"" >scheda contenente dati liberamente accessibili</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2020</CMPD>
+<CMPN hint=""Nome"" >Lucidi, David</CMPN>
+</CMP>
+<RSR hint=""Referente scientifico"" >Berretti, Luisa</RSR>
+<FUR hint=""Funzionario responsabile"" >Berretti, Luisa</FUR>
+</CM>
+</OA>
+<harvesting>
+<enteCompetente>M270</enteCompetente>
+<idProgetto>ICCD1038112</idProgetto>
+</harvesting>
+</schede>"
+,,,,Which organization has issued the cpX identifier?,"""select ?org { ?x core:hasIdentifier ?id . ?id core:issuedBy ?org . }
+""","""<schede>
+<SMO version=""""3.01_ICCD0"""" >
+<CD hint=""""CODICI"""" >
+<TSK hint=""""Tipo scheda"""" >SMO</TSK>
+<LIR hint=""""Livello ricerca"""" >C</LIR>
+<NCT hint=""""CODICE UNIVOCO"""" >
+<NCTR hint=""""Codice regione"""" >04</NCTR>
+<NCTN hint=""""Numero catalogo generale"""" >00618140</NCTN>
+</NCT>
+<ESC hint=""""Ente schedatore"""" >D753</ESC>
+<ECP hint=""""Ente competente"""" >P021</ECP>
+</CD>
+<OG hint=""""OGGETTO"""" >
+<OGT hint=""""OGGETTO"""" >
+<OGTD hint=""""Definizione"""" >organo</OGTD>
+<OGTT hint=""""Tipologia"""" >organo da muro</OGTT>
+</OGT>
+</OG>
+<LC hint=""""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"""" >
+<PVC hint=""""LOCALIZZAZIONE GEOGRAFICO -AMMINISTRATIVA ATTUALE"""" >
+<PVCS hint=""""Stato"""" >ITALIA</PVCS>
+<PVCR hint=""""Regione"""" >Trentino-Alto Adige</PVCR>
+<PVCP hint=""""Provincia"""" >BZ</PVCP>
+<PVCC hint=""""Comune"""" >Marebbe</PVCC>
+</PVC>
+<PVE hint=""""Diocesi"""" >Bolzano - Bressanone, Bozen - Brixen</PVE>
+<LDC hint=""""COLLOCAZIONE SPECIFICA"""" >
+<LDCT hint=""""Tipologia"""" >chiesa</LDCT>
+<LDCQ hint=""""Qualificazione"""" >parrocchiale</LDCQ>
+<LDCN hint=""""Denominazione attuale"""" >Pfarrkirche Maria von guten Rat</LDCN>
+<LDCU hint=""""Indirizzo"""" >Str. la Pli, 39030 Pieve di Marebbe BZ</LDCU>
+<LDCO hint=""""Collocazione originaria"""" >SI</LDCO>
+</LDC>
+</LC>
+<DT hint=""""CRONOLOGIA"""" >
+<DTZ hint=""""CRONOLOGIA GENERICA"""" >
+<DTZG hint=""""Fascia cronologica di riferimento"""" >sec. XVII</DTZG>
+<DTZS hint=""""Frazione cronologica"""" >metà</DTZS>
+</DTZ>
+<DTS hint=""""CRONOLOGIA SPECIFICA"""" >
+<DTSI hint=""""Da"""" >1853</DTSI>
+<DTSF hint=""""A"""" >1853</DTSF>
+</DTS>
+<DTM hint=""""Motivazione cronologia"""" >documentazione</DTM>
+</DT>
+<AU hint=""""DEFINIZIONE CULTURALE"""" >
+<AUT hint=""""AUTORE/ RESPONSABILITA'"""" >
+<AUTR hint=""""Ruolo"""" >costruttore</AUTR>
+<AUTN hint=""""Autore nome scelto"""" >Josef Aigner</AUTN>
+<AUTA hint=""""Dati anagrafici Periodo di attività"""" >1855</AUTA>
+<AUTH hint=""""Sigla per citazione"""" >00000001</AUTH>
+<AUTM hint=""""Motivazione dell'attribuzione"""" >marchio</AUTM>
+<AUTS hint=""""Riferimento all'autore"""" >laboratorio</AUTS>
+</AUT>
+</AU>
+<CN hint=""""PROSPETTO"""" >
+<CNR hint=""""MORFOLOGIA"""" >
+<CNRN hint=""""Numero di canne"""" >68</CNRN>
+<CNRU hint=""""Numero e foggia campate"""" >3 (12+30+12; ali / 1 (14) cuspide</CNRU>
+<CNRO hint=""""Ordini"""" >2</CNRO>
+<CNRE hint=""""Epoca"""" >2020 / 1853</CNRE>
+<CNRB hint=""""Posizione bocche"""" >allineate / non allineate</CNRB>
+<CNRF hint=""""Forma labbro superiore"""" >scudo</CNRF>
+<CNRM hint=""""Materiale"""" >stagno</CNRM>
+</CNR>
+<CNS hint=""""ATTINENZA"""" >
+<CNSN hint=""""Nota e registro canna maggiore"""" >Do1: Principal 8'</CNSN>
+<CNSR hint=""""Registro di appartenenza"""" >Principal 8'</CNSR>
+<CNSC hint=""""Canne non suonanti"""" >II ordine, tutte</CNSC>
+</CNS>
+<CNN hint=""""Specifiche e note"""" >ordine delle canne da sin.: 23 21 19 17 15 13 11 9 7 5 3 1 // 25 27 29 31 33 335 37 39 41 43 45 47 49 51 53 52 50 48 46 44 42 40 3 836 34 32 30 28 26 // 2 4 6 8 10 12 14 16 18 20 22 24</CNN>
+</CN>
+<TA hint=""""TASTIERE"""" >
+<TST hint=""""TASTIERA"""" >
+<TSTP hint=""""Posizione"""" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""""Epoca"""" >1853</TSTE>
+<TSTC hint=""""Corrispondenza ai corpi"""" >positivo</TSTC>
+</TST>
+<TSA hint=""""TASTI"""" >
+<TSAN hint=""""Numero tasti"""" >54</TSAN>
+<TSAE hint=""""Estensione"""" >Do1-Fa5</TSAE>
+<TSAR hint=""""Rivestimento tasti diatonici"""" >ebano</TSAR>
+<TSAI hint=""""Rivestimento tasti cromatici"""" >osso</TSAI>
+</TSA>
+<TAT hint=""""TRASMISSIONI"""" >
+<TATT hint=""""Tipologia"""" >meccanica</TATT>
+</TAT>
+</TA>
+<TA hint=""""TASTIERE"""" >
+<TST hint=""""TASTIERA"""" >
+<TSTP hint=""""Posizione"""" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""""Epoca"""" >1853</TSTE>
+<TSTC hint=""""Corrispondenza ai corpi"""" >Grand'organo</TSTC>
+</TST>
+<TSA hint=""""TASTI"""" >
+<TSAN hint=""""Numero tasti"""" >54</TSAN>
+<TSAE hint=""""Estensione"""" >Do1-Fa5</TSAE>
+<TSAR hint=""""Rivestimento tasti diatonici"""" >Ebano</TSAR>
+<TSAI hint=""""Rivestimento tasti cromatici"""" >osso</TSAI>
+</TSA>
+<TAT hint=""""TRASMISSIONI"""" >
+<TATT hint=""""Tipologia"""" >meccanica</TATT>
+</TAT>
+</TA>
+<PE hint=""""PEDALIERE"""" >
+<PED hint=""""PEDALIERA"""" >
+<PEDE hint=""""Epoca"""" >2020</PEDE>
+<PEDT hint=""""Tipologia"""" >Orrizzontale</PEDT>
+<PEDC hint=""""Collegamento tastiera"""" >collegabile mediante pedaletto</PEDC>
+</PED>
+<TSI hint=""""TASTI"""" >
+<TSIN hint=""""Numero tasti"""" >27</TSIN>
+<TSIE hint=""""Estensione"""" >Do1-Re3</TSIE>
+</TSI>
+</PE>
+<RG hint=""""REGISTRI"""" >
+<COM hint=""""COMANDI"""" >
+<COMT hint=""""Tipologia"""" >Tiranti a pomello</COMT>
+<COMD hint=""""Disposizione"""" >2 file, verticali</COMD>
+<COMU hint=""""Ubicazione"""" >a destra e sinistra dei manuali</COMU>
+<COME hint=""""Epoca"""" >2020</COME>
+</COM>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >1</RGPO>
+<RGPN hint=""""Nome"""" >Octav 2'</RGPN>
+<RGPR hint=""""Registro corrispondente"""" >XV</RGPR>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >2</RGPO>
+<RGPN hint=""""Nome"""" >Spitzflöte 4'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >3</RGPO>
+<RGPN hint=""""Nome"""" >Dulciana 4'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >4</RGPO>
+<RGPN hint=""""Nome"""" >Mixtur 3fach 1'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >5</RGPO>
+<RGPN hint=""""Nome"""" >Cornett 4fach 2'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >6</RGPO>
+<RGPN hint=""""Nome"""" >Superoctav 2'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >7</RGPO>
+<RGPN hint=""""Nome"""" >Quint 3'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >8</RGPO>
+<RGPN hint=""""Nome"""" >Spitzdulcian 4'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >9</RGPO>
+<RGPN hint=""""Nome"""" >Octav 4'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >10</RGPO>
+<RGPN hint=""""Nome"""" >Flöte 4'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >11</RGPO>
+<RGPN hint=""""Nome"""" >Coppel 8'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >12</RGPO>
+<RGPN hint=""""Nome"""" >Principal 8'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >1</RGPO>
+<RGPN hint=""""Nome"""" >Gedeckt 8´</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >2</RGPO>
+<RGPN hint=""""Nome"""" >Geigenprincipal 8´</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >3</RGPO>
+<RGPN hint=""""Nome"""" >Gamba 8´</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >4</RGPO>
+<RGPN hint=""""Nome"""" >Principal piano 8'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >5</RGPO>
+<RGPN hint=""""Nome"""" >Viola 8'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >6</RGPO>
+<RGPN hint=""""Nome"""" >Bordun 16'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >7</RGPO>
+<RGPN hint=""""Nome"""" >Octavbass 8'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >8</RGPO>
+<RGPN hint=""""Nome"""" >Violonbass 16'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >9</RGPO>
+<RGPN hint=""""Nome"""" >Subbass 16'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >10</RGPO>
+<RGPN hint=""""Nome"""" >Quintbass 6'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >11</RGPO>
+<RGPN hint=""""Nome"""" >Posaune 8'</RGPN>
+</RGP>
+<RGP hint=""""ELENCO REGISTRI"""" >
+<RGPT hint=""""Riferimento"""" >fila destra; alto basso</RGPT>
+<RGPO hint=""""Numero d'ordine"""" >12</RGPO>
+<RGPN hint=""""Nome"""" >Symetrie (=vacat)</RGPN>
+</RGP>
+<DIV hint=""""Divisione bassi/ soprani"""" >/</DIV>
+<RIT hint=""""RITORNELLI"""" >
+<RITR hint=""""Registro"""" >Mixtur 3fach 1'</RITR>
+<RITT hint=""""Tasti corrispondenti"""" >Do2, Do3, Do4</RITT>
+</RIT>
+<RIT hint=""""RITORNELLI"""" >
+<RITR hint=""""Registro"""" >Cornett 4fach 2'</RITR>
+<RITT hint=""""Tasti corrispondenti"""" >Fa#2, Fa#3, Do4</RITT>
+</RIT>
+</RG>
+<AS hint=""""ACCESSORI ED EFFETTI"""" >
+<ASC hint=""""ACCESSORI"""" >
+<ASCD hint=""""Denominazione"""" >Unione manuali</ASCD>
+<ASCA hint=""""Azionamento (comando)"""" >Pedaletto</ASCA>
+<ASCP hint=""""Posizione"""" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""""ACCESSORI"""" >
+<ASCD hint=""""Denominazione"""" >Unione II al Ped</ASCD>
+<ASCA hint=""""Azionamento (comando)"""" >Pedaletto</ASCA>
+<ASCP hint=""""Posizione"""" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""""ACCESSORI"""" >
+<ASCD hint=""""Denominazione"""" >Unione I al Ped</ASCD>
+<ASCA hint=""""Azionamento (comando)"""" >Pedaletto</ASCA>
+<ASCP hint=""""Posizione"""" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASN hint=""""Specifiche e note"""" >incastro fino corsa a sinistra</ASN>
+</AS>
+<MA hint=""""MANTICERIA"""" >
+<SIS hint=""""SISTEMA DI AZIONAMENTO"""" >
+<SIST hint=""""Tipologia"""" >elettroventilatore</SIST>
+<SISP hint=""""Posizione"""" >fuori cassa lato destro</SISP>
+<SISE hint=""""Epoca"""" >2020</SISE>
+</SIS>
+<MNT hint=""""MANTICI"""" >
+<MNTT hint=""""Tipologia"""" >a lanterna</MNTT>
+<MNTU hint=""""Ubicazione"""" >fuori cassa lato destro</MNTU>
+<MNTE hint=""""Epoca"""" >1961</MNTE>
+</MNT>
+<MNP hint=""""PRESSIONE"""" >
+<MNPV hint=""""Valore"""" >63 mm</MNPV>
+<MNPD hint=""""Data rilievo"""" >Dicembre 2020</MNPD>
+</MNP>
+</MA>
+<SO hint=""""SOMIERI E CANNE INTERNE"""" >
+<SOR hint=""""MORFOLOGIA"""" >
+<SORD hint=""""Definizione"""" >maestro</SORD>
+<SORQ hint=""""Tipologia"""" >meccanico</SORQ>
+<SORI hint=""""Specifiche"""" >a tiro</SORI>
+<SORC hint=""""Corrispondenza al corpo"""" >grand'organo</SORC>
+<SORE hint=""""Epoca"""" >1853</SORE>
+<SORU hint=""""Ubicazione"""" >entro la cassa, dietro il prospetto</SORU>
+</SOR>
+<SOM hint=""""MISURE SOMIERI"""" >
+<SOML hint=""""Larghezza"""" >2561</SOML>
+<SOMP hint=""""Profondità"""" >1421</SOMP>
+</SOM>
+<CRI hint=""""CRIVELLO"""" >
+<CRIM hint=""""Materiale"""" >abete</CRIM>
+<CRIP hint=""""Posizione bocche delle canne"""" >sopra il crivello</CRIP>
+</CRI>
+<CIT hint=""""CORISTA E TEMPERAMENTO"""" >
+<CITC hint=""""Corista"""" >442,7 Hz a 15° C</CITC>
+<CITT hint=""""Temperamento"""" >Neidhardt """"für die kleine Stadt""""</CITT>
+</CIT>
+</SO>
+<SO hint=""""SOMIERI E CANNE INTERNE"""" >
+<SOR hint=""""MORFOLOGIA"""" >
+<SORD hint=""""Definizione"""" >maestro</SORD>
+<SORQ hint=""""Tipologia"""" >meccanico</SORQ>
+<SORI hint=""""Specifiche"""" >a tiro</SORI>
+<SORC hint=""""Corrispondenza al corpo"""" >positivo</SORC>
+<SORE hint=""""Epoca"""" >1853</SORE>
+<SORU hint=""""Ubicazione"""" >In alto sopra il Grand'Organo</SORU>
+</SOR>
+<SOM hint=""""MISURE SOMIERI"""" >
+<SOML hint=""""Larghezza"""" >1401</SOML>
+<SOMP hint=""""Profondità"""" >700</SOMP>
+</SOM>
+</SO>
+<SO hint=""""SOMIERI E CANNE INTERNE"""" >
+<SOR hint=""""MORFOLOGIA"""" >
+<SORD hint=""""Definizione"""" >supplementare</SORD>
+<SORQ hint=""""Tipologia"""" >meccanico</SORQ>
+<SORI hint=""""Specifiche"""" >a tiro</SORI>
+<SORC hint=""""Corrispondenza al corpo"""" >pedale</SORC>
+<SORE hint=""""Epoca"""" >1853</SORE>
+<SORU hint=""""Ubicazione"""" >Fondo cassa</SORU>
+</SOR>
+</SO>
+<CO hint=""""CONSERVAZIONE"""" >
+<STC hint=""""STATO DI CONSERVAZIONE"""" >
+<STCC hint=""""Stato di conservazione"""" >buono</STCC>
+</STC>
+<STS hint=""""Stato di efficienza complessivo"""" >efficiente</STS>
+</CO>
+<RS hint=""""RESTAURI"""" >
+<RST hint=""""RESTAURI"""" >
+<RSTP hint=""""Riferimento intero bene/ parte"""" >intero bene</RSTP>
+<RSTD hint=""""Data"""" >2020</RSTD>
+<RSTT hint=""""Descrizione dell'intervento"""" >restauro conservativo</RSTT>
+<RSTE hint=""""Ente responsabile"""" >Soprintendenza provinciale ai beni culturali</RSTE>
+<RSTN hint=""""Nome operatore"""" >Kaufmann, Osvald</RSTN>
+</RST>
+</RS>
+<TU hint=""""CONDIZIONE GIURIDICA E VINCOLI"""" >
+<ACQ hint=""""ACQUISIZIONE"""" >
+<ACQT hint=""""Tipo acquisizione"""" >acquisto</ACQT>
+<ACQD hint=""""Data acquisizione"""" >1853</ACQD>
+</ACQ>
+<CDG hint=""""CONDIZIONE GIURIDICA"""" >
+<CDGG hint=""""Indicazione generica"""" >proprietà Ente religioso cattolico</CDGG>
+</CDG>
+</TU>
+<DO hint=""""FONTI E DOCUMENTI DI RIFERIMENTO"""" >
+<FTA hint=""""DOCUMENTAZIONE FOTOGRAFICA"""" >
+<FTAX hint=""""Genere"""" >documentazione allegata</FTAX>
+<FTAP hint=""""Tipo"""" >fotografia digitale (file)</FTAP>
+<FTAN hint=""""Codice identificativo"""" >Kau0001</FTAN>
+</FTA>
+<FTA hint=""""DOCUMENTAZIONE FOTOGRAFICA"""" >
+<FTAX hint=""""Genere"""" >documentazione allegata</FTAX>
+<FTAP hint=""""Tipo"""" >fotografia digitale (file)</FTAP>
+</FTA>
+</DO>
+<AD hint=""""ACCESSO AI DATI"""" >
+<ADS hint=""""SPECIFICHE DI ACCESSO AI DATI"""" >
+<ADSP hint=""""Profilo di accesso"""" >2</ADSP>
+<ADSM hint=""""Motivazione"""" >scheda di bene di proprietà privata</ADSM>
+</ADS>
+</AD>
+<CM hint=""""COMPILAZIONE"""" >
+<CMP hint=""""COMPILAZIONE"""" >
+<CMPD hint=""""Data"""" >2022</CMPD>
+<CMPN hint=""""Nome"""" >Delama, Paolo</CMPN>
+</CMP>
+<FUR hint=""""Funzionario responsabile"""" >Stillhard, Walter</FUR>
+</CM>
+</SMO>
+<harvesting>
+<enteCompetente>P021</enteCompetente>
+<idProgetto>ICCD1065088</idProgetto>
+</harvesting>
+</schede>"""
+,Responsibility,,,Who is the author of cultural property x?,"select distinct ?cp ?aut where { ?cp a-cd:hasResponsibility ?resp. ?resp a-cd:hasInterventionRole ?role ; a-cd:hasAgentWithResponsibility ?aut . FILTER regex(?role, “autore”, “i”) }","<schede>
+<SMO version=""3.01_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo scheda"" >SMO</TSK>
+<LIR hint=""Livello ricerca"" >C</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >04</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00618140</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >D753</ESC>
+<ECP hint=""Ente competente"" >P021</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >organo</OGTD>
+<OGTT hint=""Tipologia"" >organo da muro</OGTT>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO -AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Trentino-Alto Adige</PVCR>
+<PVCP hint=""Provincia"" >BZ</PVCP>
+<PVCC hint=""Comune"" >Marebbe</PVCC>
+</PVC>
+<PVE hint=""Diocesi"" >Bolzano - Bressanone, Bozen - Brixen</PVE>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >chiesa</LDCT>
+<LDCQ hint=""Qualificazione"" >parrocchiale</LDCQ>
+<LDCN hint=""Denominazione attuale"" >Pfarrkirche Maria von guten Rat</LDCN>
+<LDCU hint=""Indirizzo"" >Str. la Pli, 39030 Pieve di Marebbe BZ</LDCU>
+<LDCO hint=""Collocazione originaria"" >SI</LDCO>
+</LDC>
+</LC>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Fascia cronologica di riferimento"" >sec. XVII</DTZG>
+<DTZS hint=""Frazione cronologica"" >metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1853</DTSI>
+<DTSF hint=""A"" >1853</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >documentazione</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<AUT hint=""AUTORE/ RESPONSABILITA'"" >
+<AUTR hint=""Ruolo"" >costruttore</AUTR>
+<AUTN hint=""Autore nome scelto"" >Josef Aigner</AUTN>
+<AUTA hint=""Dati anagrafici Periodo di attività"" >1855</AUTA>
+<AUTH hint=""Sigla per citazione"" >00000001</AUTH>
+<AUTM hint=""Motivazione dell'attribuzione"" >marchio</AUTM>
+<AUTS hint=""Riferimento all'autore"" >laboratorio</AUTS>
+</AUT>
+</AU>
+<CN hint=""PROSPETTO"" >
+<CNR hint=""MORFOLOGIA"" >
+<CNRN hint=""Numero di canne"" >68</CNRN>
+<CNRU hint=""Numero e foggia campate"" >3 (12+30+12; ali / 1 (14) cuspide</CNRU>
+<CNRO hint=""Ordini"" >2</CNRO>
+<CNRE hint=""Epoca"" >2020 / 1853</CNRE>
+<CNRB hint=""Posizione bocche"" >allineate / non allineate</CNRB>
+<CNRF hint=""Forma labbro superiore"" >scudo</CNRF>
+<CNRM hint=""Materiale"" >stagno</CNRM>
+</CNR>
+<CNS hint=""ATTINENZA"" >
+<CNSN hint=""Nota e registro canna maggiore"" >Do1: Principal 8'</CNSN>
+<CNSR hint=""Registro di appartenenza"" >Principal 8'</CNSR>
+<CNSC hint=""Canne non suonanti"" >II ordine, tutte</CNSC>
+</CNS>
+<CNN hint=""Specifiche e note"" >ordine delle canne da sin.: 23 21 19 17 15 13 11 9 7 5 3 1 // 25 27 29 31 33 335 37 39 41 43 45 47 49 51 53 52 50 48 46 44 42 40 3 836 34 32 30 28 26 // 2 4 6 8 10 12 14 16 18 20 22 24</CNN>
+</CN>
+<TA hint=""TASTIERE"" >
+<TST hint=""TASTIERA"" >
+<TSTP hint=""Posizione"" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""Epoca"" >1853</TSTE>
+<TSTC hint=""Corrispondenza ai corpi"" >positivo</TSTC>
+</TST>
+<TSA hint=""TASTI"" >
+<TSAN hint=""Numero tasti"" >54</TSAN>
+<TSAE hint=""Estensione"" >Do1-Fa5</TSAE>
+<TSAR hint=""Rivestimento tasti diatonici"" >ebano</TSAR>
+<TSAI hint=""Rivestimento tasti cromatici"" >osso</TSAI>
+</TSA>
+<TAT hint=""TRASMISSIONI"" >
+<TATT hint=""Tipologia"" >meccanica</TATT>
+</TAT>
+</TA>
+<TA hint=""TASTIERE"" >
+<TST hint=""TASTIERA"" >
+<TSTP hint=""Posizione"" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""Epoca"" >1853</TSTE>
+<TSTC hint=""Corrispondenza ai corpi"" >Grand'organo</TSTC>
+</TST>
+<TSA hint=""TASTI"" >
+<TSAN hint=""Numero tasti"" >54</TSAN>
+<TSAE hint=""Estensione"" >Do1-Fa5</TSAE>
+<TSAR hint=""Rivestimento tasti diatonici"" >Ebano</TSAR>
+<TSAI hint=""Rivestimento tasti cromatici"" >osso</TSAI>
+</TSA>
+<TAT hint=""TRASMISSIONI"" >
+<TATT hint=""Tipologia"" >meccanica</TATT>
+</TAT>
+</TA>
+<PE hint=""PEDALIERE"" >
+<PED hint=""PEDALIERA"" >
+<PEDE hint=""Epoca"" >2020</PEDE>
+<PEDT hint=""Tipologia"" >Orrizzontale</PEDT>
+<PEDC hint=""Collegamento tastiera"" >collegabile mediante pedaletto</PEDC>
+</PED>
+<TSI hint=""TASTI"" >
+<TSIN hint=""Numero tasti"" >27</TSIN>
+<TSIE hint=""Estensione"" >Do1-Re3</TSIE>
+</TSI>
+</PE>
+<RG hint=""REGISTRI"" >
+<COM hint=""COMANDI"" >
+<COMT hint=""Tipologia"" >Tiranti a pomello</COMT>
+<COMD hint=""Disposizione"" >2 file, verticali</COMD>
+<COMU hint=""Ubicazione"" >a destra e sinistra dei manuali</COMU>
+<COME hint=""Epoca"" >2020</COME>
+</COM>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >1</RGPO>
+<RGPN hint=""Nome"" >Octav 2'</RGPN>
+<RGPR hint=""Registro corrispondente"" >XV</RGPR>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >2</RGPO>
+<RGPN hint=""Nome"" >Spitzflöte 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >3</RGPO>
+<RGPN hint=""Nome"" >Dulciana 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >4</RGPO>
+<RGPN hint=""Nome"" >Mixtur 3fach 1'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >5</RGPO>
+<RGPN hint=""Nome"" >Cornett 4fach 2'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >6</RGPO>
+<RGPN hint=""Nome"" >Superoctav 2'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >7</RGPO>
+<RGPN hint=""Nome"" >Quint 3'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >8</RGPO>
+<RGPN hint=""Nome"" >Spitzdulcian 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >9</RGPO>
+<RGPN hint=""Nome"" >Octav 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >10</RGPO>
+<RGPN hint=""Nome"" >Flöte 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >11</RGPO>
+<RGPN hint=""Nome"" >Coppel 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >12</RGPO>
+<RGPN hint=""Nome"" >Principal 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >1</RGPO>
+<RGPN hint=""Nome"" >Gedeckt 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >2</RGPO>
+<RGPN hint=""Nome"" >Geigenprincipal 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >3</RGPO>
+<RGPN hint=""Nome"" >Gamba 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >4</RGPO>
+<RGPN hint=""Nome"" >Principal piano 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >5</RGPO>
+<RGPN hint=""Nome"" >Viola 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >6</RGPO>
+<RGPN hint=""Nome"" >Bordun 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >7</RGPO>
+<RGPN hint=""Nome"" >Octavbass 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >8</RGPO>
+<RGPN hint=""Nome"" >Violonbass 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >9</RGPO>
+<RGPN hint=""Nome"" >Subbass 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >10</RGPO>
+<RGPN hint=""Nome"" >Quintbass 6'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >11</RGPO>
+<RGPN hint=""Nome"" >Posaune 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >12</RGPO>
+<RGPN hint=""Nome"" >Symetrie (=vacat)</RGPN>
+</RGP>
+<DIV hint=""Divisione bassi/ soprani"" >/</DIV>
+<RIT hint=""RITORNELLI"" >
+<RITR hint=""Registro"" >Mixtur 3fach 1'</RITR>
+<RITT hint=""Tasti corrispondenti"" >Do2, Do3, Do4</RITT>
+</RIT>
+<RIT hint=""RITORNELLI"" >
+<RITR hint=""Registro"" >Cornett 4fach 2'</RITR>
+<RITT hint=""Tasti corrispondenti"" >Fa#2, Fa#3, Do4</RITT>
+</RIT>
+</RG>
+<AS hint=""ACCESSORI ED EFFETTI"" >
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione manuali</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione II al Ped</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione I al Ped</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASN hint=""Specifiche e note"" >incastro fino corsa a sinistra</ASN>
+</AS>
+<MA hint=""MANTICERIA"" >
+<SIS hint=""SISTEMA DI AZIONAMENTO"" >
+<SIST hint=""Tipologia"" >elettroventilatore</SIST>
+<SISP hint=""Posizione"" >fuori cassa lato destro</SISP>
+<SISE hint=""Epoca"" >2020</SISE>
+</SIS>
+<MNT hint=""MANTICI"" >
+<MNTT hint=""Tipologia"" >a lanterna</MNTT>
+<MNTU hint=""Ubicazione"" >fuori cassa lato destro</MNTU>
+<MNTE hint=""Epoca"" >1961</MNTE>
+</MNT>
+<MNP hint=""PRESSIONE"" >
+<MNPV hint=""Valore"" >63 mm</MNPV>
+<MNPD hint=""Data rilievo"" >Dicembre 2020</MNPD>
+</MNP>
+</MA>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >maestro</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >grand'organo</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >entro la cassa, dietro il prospetto</SORU>
+</SOR>
+<SOM hint=""MISURE SOMIERI"" >
+<SOML hint=""Larghezza"" >2561</SOML>
+<SOMP hint=""Profondità"" >1421</SOMP>
+</SOM>
+<CRI hint=""CRIVELLO"" >
+<CRIM hint=""Materiale"" >abete</CRIM>
+<CRIP hint=""Posizione bocche delle canne"" >sopra il crivello</CRIP>
+</CRI>
+<CIT hint=""CORISTA E TEMPERAMENTO"" >
+<CITC hint=""Corista"" >442,7 Hz a 15° C</CITC>
+<CITT hint=""Temperamento"" >Neidhardt ""für die kleine Stadt""</CITT>
+</CIT>
+</SO>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >maestro</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >positivo</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >In alto sopra il Grand'Organo</SORU>
+</SOR>
+<SOM hint=""MISURE SOMIERI"" >
+<SOML hint=""Larghezza"" >1401</SOML>
+<SOMP hint=""Profondità"" >700</SOMP>
+</SOM>
+</SO>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >supplementare</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >pedale</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >Fondo cassa</SORU>
+</SOR>
+</SO>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+<STS hint=""Stato di efficienza complessivo"" >efficiente</STS>
+</CO>
+<RS hint=""RESTAURI"" >
+<RST hint=""RESTAURI"" >
+<RSTP hint=""Riferimento intero bene/ parte"" >intero bene</RSTP>
+<RSTD hint=""Data"" >2020</RSTD>
+<RSTT hint=""Descrizione dell'intervento"" >restauro conservativo</RSTT>
+<RSTE hint=""Ente responsabile"" >Soprintendenza provinciale ai beni culturali</RSTE>
+<RSTN hint=""Nome operatore"" >Kaufmann, Osvald</RSTN>
+</RST>
+</RS>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQD hint=""Data acquisizione"" >1853</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Ente religioso cattolico</CDGG>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAN hint=""Codice identificativo"" >Kau0001</FTAN>
+</FTA>
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+</FTA>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >2</ADSP>
+<ADSM hint=""Motivazione"" >scheda di bene di proprietà privata</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2022</CMPD>
+<CMPN hint=""Nome"" >Delama, Paolo</CMPN>
+</CMP>
+<FUR hint=""Funzionario responsabile"" >Stillhard, Walter</FUR>
+</CM>
+</SMO>
+<harvesting>
+<enteCompetente>P021</enteCompetente>
+<idProgetto>ICCD1065088</idProgetto>
+</harvesting>
+</schede>"
+,,,,What role did Y play in the realization of work x?,select distinct ?role where { ?x a-cd:hasResponsibility ?resp. ?resp a-cd:hasAgentWithResponsibility ?y; a-cd:hasInterventionRole ?role },"<schede>
+<SMO version=""3.01_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo scheda"" >SMO</TSK>
+<LIR hint=""Livello ricerca"" >C</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >04</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00618140</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >D753</ESC>
+<ECP hint=""Ente competente"" >P021</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >organo</OGTD>
+<OGTT hint=""Tipologia"" >organo da muro</OGTT>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO -AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Trentino-Alto Adige</PVCR>
+<PVCP hint=""Provincia"" >BZ</PVCP>
+<PVCC hint=""Comune"" >Marebbe</PVCC>
+</PVC>
+<PVE hint=""Diocesi"" >Bolzano - Bressanone, Bozen - Brixen</PVE>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >chiesa</LDCT>
+<LDCQ hint=""Qualificazione"" >parrocchiale</LDCQ>
+<LDCN hint=""Denominazione attuale"" >Pfarrkirche Maria von guten Rat</LDCN>
+<LDCU hint=""Indirizzo"" >Str. la Pli, 39030 Pieve di Marebbe BZ</LDCU>
+<LDCO hint=""Collocazione originaria"" >SI</LDCO>
+</LDC>
+</LC>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Fascia cronologica di riferimento"" >sec. XVII</DTZG>
+<DTZS hint=""Frazione cronologica"" >metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1853</DTSI>
+<DTSF hint=""A"" >1853</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >documentazione</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<AUT hint=""AUTORE/ RESPONSABILITA'"" >
+<AUTR hint=""Ruolo"" >costruttore</AUTR>
+<AUTN hint=""Autore nome scelto"" >Josef Aigner</AUTN>
+<AUTA hint=""Dati anagrafici Periodo di attività"" >1855</AUTA>
+<AUTH hint=""Sigla per citazione"" >00000001</AUTH>
+<AUTM hint=""Motivazione dell'attribuzione"" >marchio</AUTM>
+<AUTS hint=""Riferimento all'autore"" >laboratorio</AUTS>
+</AUT>
+</AU>
+<CN hint=""PROSPETTO"" >
+<CNR hint=""MORFOLOGIA"" >
+<CNRN hint=""Numero di canne"" >68</CNRN>
+<CNRU hint=""Numero e foggia campate"" >3 (12+30+12; ali / 1 (14) cuspide</CNRU>
+<CNRO hint=""Ordini"" >2</CNRO>
+<CNRE hint=""Epoca"" >2020 / 1853</CNRE>
+<CNRB hint=""Posizione bocche"" >allineate / non allineate</CNRB>
+<CNRF hint=""Forma labbro superiore"" >scudo</CNRF>
+<CNRM hint=""Materiale"" >stagno</CNRM>
+</CNR>
+<CNS hint=""ATTINENZA"" >
+<CNSN hint=""Nota e registro canna maggiore"" >Do1: Principal 8'</CNSN>
+<CNSR hint=""Registro di appartenenza"" >Principal 8'</CNSR>
+<CNSC hint=""Canne non suonanti"" >II ordine, tutte</CNSC>
+</CNS>
+<CNN hint=""Specifiche e note"" >ordine delle canne da sin.: 23 21 19 17 15 13 11 9 7 5 3 1 // 25 27 29 31 33 335 37 39 41 43 45 47 49 51 53 52 50 48 46 44 42 40 3 836 34 32 30 28 26 // 2 4 6 8 10 12 14 16 18 20 22 24</CNN>
+</CN>
+<TA hint=""TASTIERE"" >
+<TST hint=""TASTIERA"" >
+<TSTP hint=""Posizione"" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""Epoca"" >1853</TSTE>
+<TSTC hint=""Corrispondenza ai corpi"" >positivo</TSTC>
+</TST>
+<TSA hint=""TASTI"" >
+<TSAN hint=""Numero tasti"" >54</TSAN>
+<TSAE hint=""Estensione"" >Do1-Fa5</TSAE>
+<TSAR hint=""Rivestimento tasti diatonici"" >ebano</TSAR>
+<TSAI hint=""Rivestimento tasti cromatici"" >osso</TSAI>
+</TSA>
+<TAT hint=""TRASMISSIONI"" >
+<TATT hint=""Tipologia"" >meccanica</TATT>
+</TAT>
+</TA>
+<TA hint=""TASTIERE"" >
+<TST hint=""TASTIERA"" >
+<TSTP hint=""Posizione"" >incorporata nella cassa 'a finestra'</TSTP>
+<TSTE hint=""Epoca"" >1853</TSTE>
+<TSTC hint=""Corrispondenza ai corpi"" >Grand'organo</TSTC>
+</TST>
+<TSA hint=""TASTI"" >
+<TSAN hint=""Numero tasti"" >54</TSAN>
+<TSAE hint=""Estensione"" >Do1-Fa5</TSAE>
+<TSAR hint=""Rivestimento tasti diatonici"" >Ebano</TSAR>
+<TSAI hint=""Rivestimento tasti cromatici"" >osso</TSAI>
+</TSA>
+<TAT hint=""TRASMISSIONI"" >
+<TATT hint=""Tipologia"" >meccanica</TATT>
+</TAT>
+</TA>
+<PE hint=""PEDALIERE"" >
+<PED hint=""PEDALIERA"" >
+<PEDE hint=""Epoca"" >2020</PEDE>
+<PEDT hint=""Tipologia"" >Orrizzontale</PEDT>
+<PEDC hint=""Collegamento tastiera"" >collegabile mediante pedaletto</PEDC>
+</PED>
+<TSI hint=""TASTI"" >
+<TSIN hint=""Numero tasti"" >27</TSIN>
+<TSIE hint=""Estensione"" >Do1-Re3</TSIE>
+</TSI>
+</PE>
+<RG hint=""REGISTRI"" >
+<COM hint=""COMANDI"" >
+<COMT hint=""Tipologia"" >Tiranti a pomello</COMT>
+<COMD hint=""Disposizione"" >2 file, verticali</COMD>
+<COMU hint=""Ubicazione"" >a destra e sinistra dei manuali</COMU>
+<COME hint=""Epoca"" >2020</COME>
+</COM>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >1</RGPO>
+<RGPN hint=""Nome"" >Octav 2'</RGPN>
+<RGPR hint=""Registro corrispondente"" >XV</RGPR>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >2</RGPO>
+<RGPN hint=""Nome"" >Spitzflöte 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >3</RGPO>
+<RGPN hint=""Nome"" >Dulciana 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >4</RGPO>
+<RGPN hint=""Nome"" >Mixtur 3fach 1'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >5</RGPO>
+<RGPN hint=""Nome"" >Cornett 4fach 2'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >6</RGPO>
+<RGPN hint=""Nome"" >Superoctav 2'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >7</RGPO>
+<RGPN hint=""Nome"" >Quint 3'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >8</RGPO>
+<RGPN hint=""Nome"" >Spitzdulcian 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >9</RGPO>
+<RGPN hint=""Nome"" >Octav 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >10</RGPO>
+<RGPN hint=""Nome"" >Flöte 4'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >11</RGPO>
+<RGPN hint=""Nome"" >Coppel 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila sinistra; alto-basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >12</RGPO>
+<RGPN hint=""Nome"" >Principal 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >1</RGPO>
+<RGPN hint=""Nome"" >Gedeckt 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >2</RGPO>
+<RGPN hint=""Nome"" >Geigenprincipal 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >3</RGPO>
+<RGPN hint=""Nome"" >Gamba 8´</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >4</RGPO>
+<RGPN hint=""Nome"" >Principal piano 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >5</RGPO>
+<RGPN hint=""Nome"" >Viola 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >6</RGPO>
+<RGPN hint=""Nome"" >Bordun 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >7</RGPO>
+<RGPN hint=""Nome"" >Octavbass 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >8</RGPO>
+<RGPN hint=""Nome"" >Violonbass 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >9</RGPO>
+<RGPN hint=""Nome"" >Subbass 16'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >10</RGPO>
+<RGPN hint=""Nome"" >Quintbass 6'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >11</RGPO>
+<RGPN hint=""Nome"" >Posaune 8'</RGPN>
+</RGP>
+<RGP hint=""ELENCO REGISTRI"" >
+<RGPT hint=""Riferimento"" >fila destra; alto basso</RGPT>
+<RGPO hint=""Numero d'ordine"" >12</RGPO>
+<RGPN hint=""Nome"" >Symetrie (=vacat)</RGPN>
+</RGP>
+<DIV hint=""Divisione bassi/ soprani"" >/</DIV>
+<RIT hint=""RITORNELLI"" >
+<RITR hint=""Registro"" >Mixtur 3fach 1'</RITR>
+<RITT hint=""Tasti corrispondenti"" >Do2, Do3, Do4</RITT>
+</RIT>
+<RIT hint=""RITORNELLI"" >
+<RITR hint=""Registro"" >Cornett 4fach 2'</RITR>
+<RITT hint=""Tasti corrispondenti"" >Fa#2, Fa#3, Do4</RITT>
+</RIT>
+</RG>
+<AS hint=""ACCESSORI ED EFFETTI"" >
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione manuali</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione II al Ped</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASC hint=""ACCESSORI"" >
+<ASCD hint=""Denominazione"" >Unione I al Ped</ASCD>
+<ASCA hint=""Azionamento (comando)"" >Pedaletto</ASCA>
+<ASCP hint=""Posizione"" >sopra la pedaliera a sinistra</ASCP>
+</ASC>
+<ASN hint=""Specifiche e note"" >incastro fino corsa a sinistra</ASN>
+</AS>
+<MA hint=""MANTICERIA"" >
+<SIS hint=""SISTEMA DI AZIONAMENTO"" >
+<SIST hint=""Tipologia"" >elettroventilatore</SIST>
+<SISP hint=""Posizione"" >fuori cassa lato destro</SISP>
+<SISE hint=""Epoca"" >2020</SISE>
+</SIS>
+<MNT hint=""MANTICI"" >
+<MNTT hint=""Tipologia"" >a lanterna</MNTT>
+<MNTU hint=""Ubicazione"" >fuori cassa lato destro</MNTU>
+<MNTE hint=""Epoca"" >1961</MNTE>
+</MNT>
+<MNP hint=""PRESSIONE"" >
+<MNPV hint=""Valore"" >63 mm</MNPV>
+<MNPD hint=""Data rilievo"" >Dicembre 2020</MNPD>
+</MNP>
+</MA>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >maestro</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >grand'organo</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >entro la cassa, dietro il prospetto</SORU>
+</SOR>
+<SOM hint=""MISURE SOMIERI"" >
+<SOML hint=""Larghezza"" >2561</SOML>
+<SOMP hint=""Profondità"" >1421</SOMP>
+</SOM>
+<CRI hint=""CRIVELLO"" >
+<CRIM hint=""Materiale"" >abete</CRIM>
+<CRIP hint=""Posizione bocche delle canne"" >sopra il crivello</CRIP>
+</CRI>
+<CIT hint=""CORISTA E TEMPERAMENTO"" >
+<CITC hint=""Corista"" >442,7 Hz a 15° C</CITC>
+<CITT hint=""Temperamento"" >Neidhardt ""für die kleine Stadt""</CITT>
+</CIT>
+</SO>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >maestro</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >positivo</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >In alto sopra il Grand'Organo</SORU>
+</SOR>
+<SOM hint=""MISURE SOMIERI"" >
+<SOML hint=""Larghezza"" >1401</SOML>
+<SOMP hint=""Profondità"" >700</SOMP>
+</SOM>
+</SO>
+<SO hint=""SOMIERI E CANNE INTERNE"" >
+<SOR hint=""MORFOLOGIA"" >
+<SORD hint=""Definizione"" >supplementare</SORD>
+<SORQ hint=""Tipologia"" >meccanico</SORQ>
+<SORI hint=""Specifiche"" >a tiro</SORI>
+<SORC hint=""Corrispondenza al corpo"" >pedale</SORC>
+<SORE hint=""Epoca"" >1853</SORE>
+<SORU hint=""Ubicazione"" >Fondo cassa</SORU>
+</SOR>
+</SO>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+<STS hint=""Stato di efficienza complessivo"" >efficiente</STS>
+</CO>
+<RS hint=""RESTAURI"" >
+<RST hint=""RESTAURI"" >
+<RSTP hint=""Riferimento intero bene/ parte"" >intero bene</RSTP>
+<RSTD hint=""Data"" >2020</RSTD>
+<RSTT hint=""Descrizione dell'intervento"" >restauro conservativo</RSTT>
+<RSTE hint=""Ente responsabile"" >Soprintendenza provinciale ai beni culturali</RSTE>
+<RSTN hint=""Nome operatore"" >Kaufmann, Osvald</RSTN>
+</RST>
+</RS>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQD hint=""Data acquisizione"" >1853</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Ente religioso cattolico</CDGG>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAN hint=""Codice identificativo"" >Kau0001</FTAN>
+</FTA>
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+</FTA>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >2</ADSP>
+<ADSM hint=""Motivazione"" >scheda di bene di proprietà privata</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2022</CMPD>
+<CMPN hint=""Nome"" >Delama, Paolo</CMPN>
+</CMP>
+<FUR hint=""Funzionario responsabile"" >Stillhard, Walter</FUR>
+</CM>
+</SMO>
+<harvesting>
+<enteCompetente>P021</enteCompetente>
+<idProgetto>ICCD1065088</idProgetto>
+</harvesting>
+</schede>"
+,Subject,,,What are the descriptive information of the cultural property x subject?,,"<schede>
+<OA version=""3.00_ICCD0"" >
+<CD hint=""CODICI"" >
+<TSK hint=""Tipo Scheda"" >OA</TSK>
+<LIR hint=""Livello ricerca"" >P</LIR>
+<NCT hint=""CODICE UNIVOCO"" >
+<NCTR hint=""Codice regione"" >01</NCTR>
+<NCTN hint=""Numero catalogo generale"" >00410061</NCTN>
+</NCT>
+<ESC hint=""Ente schedatore"" >M270</ESC>
+<ECP hint=""Ente competente"" >M270</ECP>
+</CD>
+<OG hint=""OGGETTO"" >
+<OGT hint=""OGGETTO"" >
+<OGTD hint=""Definizione"" >vaso</OGTD>
+</OGT>
+</OG>
+<LC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA"" >
+<PVC hint=""LOCALIZZAZIONE GEOGRAFICO-AMMINISTRATIVA ATTUALE"" >
+<PVCS hint=""Stato"" >ITALIA</PVCS>
+<PVCR hint=""Regione"" >Piemonte</PVCR>
+<PVCP hint=""Provincia"" >TO</PVCP>
+<PVCC hint=""Comune"" >Agliè</PVCC>
+<PVCL hint=""Località"" >AGLIE'</PVCL>
+</PVC>
+<LDC hint=""COLLOCAZIONE SPECIFICA"" >
+<LDCT hint=""Tipologia"" >castello</LDCT>
+<LDCN hint=""Denominazione attuale"" >Castello di Agliè</LDCN>
+<LDCU hint=""Indirizzo"" >Piazza Castello, 2</LDCU>
+<LDCS hint=""Specifiche"" >piano nobile, galleria verde</LDCS>
+</LDC>
+</LC>
+<UB hint=""UBICAZIONE E DATI PATRIMONIALI"" >
+<INV hint=""INVENTARIO DI MUSEO O SOPRINTENDENZA"" >
+<INVN hint=""Numero"" >S.N</INVN>
+<INVD hint=""Data"" >1964</INVD>
+</INV>
+</UB>
+<DT hint=""CRONOLOGIA"" >
+<DTZ hint=""CRONOLOGIA GENERICA"" >
+<DTZG hint=""Secolo"" >XIX</DTZG>
+<DTZS hint=""Frazione di secolo"" >seconda metà</DTZS>
+</DTZ>
+<DTS hint=""CRONOLOGIA SPECIFICA"" >
+<DTSI hint=""Da"" >1850</DTSI>
+<DTSF hint=""A"" >1899</DTSF>
+</DTS>
+<DTM hint=""Motivazione cronologia"" >analisi stilistica</DTM>
+</DT>
+<AU hint=""DEFINIZIONE CULTURALE"" >
+<ATB hint=""AMBITO CULTURALE"" >
+<ATBD hint=""Denominazione"" >ambito giapponese</ATBD>
+<ATBM hint=""Motivazione dell'attribuzione"" >analisi stilistica</ATBM>
+</ATB>
+</AU>
+<MT hint=""DATI TECNICI"" >
+<MTC hint=""Materia e tecnica"" >ceramica/ pittura</MTC>
+<MTC hint=""Materia e tecnica"" >ceramica/ smaltatura</MTC>
+<MIS hint=""MISURE"" >
+<MISU hint=""Unità"" >cm</MISU>
+<MISA hint=""Altezza"" >23,5</MISA>
+<MISD hint=""Diametro"" >33</MISD>
+</MIS>
+</MT>
+<CO hint=""CONSERVAZIONE"" >
+<STC hint=""STATO DI CONSERVAZIONE"" >
+<STCC hint=""Stato di conservazione"" >buono</STCC>
+</STC>
+</CO>
+<DA hint=""DATI ANALITICI"" >
+<DES hint=""DESCRIZIONE"" >
+<DESO hint=""Indicazioni sull'oggetto"" >Vaso da giardino (yoki) a sezione circolare in ceramica dipinta; tesa piatta con decorazioni a foglie bianche. Poggia su tre piedini. All'esterno presenta una decorazione a fasce verticali di diverso spessore alternate blu e bianche, queste ultime lavorate a rilievo con motivi a fusto di bambù</DESO>
+<DESI hint=""Codifica Iconclass"" >48C35 : 48A981 : 48A9831</DESI>
+<DESS hint=""Indicazioni sul soggetto"" >Suppellettili. Elementi decorativi: motivi vegetali stilizzati; motivi geometrici</DESS>
+</DES>
+<NSC hint=""Notizie storico-critiche"" >Questa particolare tipologia di vasi è tipica delle fornaci della provincia di Owari nella seconda metà del XIX secolo. Non abbiamo notizie certe riguardo al loro ingresso nelle Collezioni del Castello di Agliè anche se è possibile fossero inclusi in quel nucleo di ""29 vasi bianchi e bleu per fiori (piante/giapponesi: 22 bucati. 7 non)"" che furono spediti ad Agliè nel corso del 1883. Questo nucleo di oggetti si può dividere in tre gruppi: i due vasi cilindrici (hanaike); i vasi a sezione circolare con tesa piatta e tre piedini da giardino (yoki) con biscotto interno in evidenza; vasi da giardino di forme e dimensioni diverse decorate anche internamente. Il vaso in questione appartiene alla seconda categoria</NSC>
+</DA>
+<TU hint=""CONDIZIONE GIURIDICA E VINCOLI"" >
+<ACQ hint=""ACQUISIZIONE"" >
+<ACQT hint=""Tipo acquisizione"" >acquisto</ACQT>
+<ACQN hint=""Nome"" >Stato italiano</ACQN>
+<ACQD hint=""Data acquisizione"" >1939</ACQD>
+</ACQ>
+<CDG hint=""CONDIZIONE GIURIDICA"" >
+<CDGG hint=""Indicazione generica"" >proprietà Stato</CDGG>
+<CDGS hint=""Indicazione specifica"" >MiBACT</CDGS>
+</CDG>
+</TU>
+<DO hint=""FONTI E DOCUMENTI DI RIFERIMENTO"" >
+<FTA hint=""DOCUMENTAZIONE FOTOGRAFICA"" >
+<FTAX hint=""Genere"" >documentazione allegata</FTAX>
+<FTAP hint=""Tipo"" >fotografia digitale (file)</FTAP>
+<FTAA hint=""Autore"" >Robino, Paolo</FTAA>
+<FTAD hint=""Data"" >2016/00/00</FTAD>
+<FTAE hint=""Ente proprietario"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FTAE>
+<FTAN hint=""Codice identificativo"" >CDA_DIG03276</FTAN>
+<FTAF hint=""Formato"" >jpg</FTAF>
+</FTA>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >relazione di ricerca</FNTP>
+<FNTA hint=""Autore"" >Vergagni, Roberta</FNTA>
+<FNTT hint=""Denominazione"" >Riscontro inventariale della collezione orientale del Castello di Agliè. Relazione finale</FNTT>
+<FNTD hint=""Data"" >2017</FNTD>
+<FNTN hint=""Nome archivio"" >Complesso Monumentale del Castello Ducale, Giardino e Parco d'Agliè</FNTN>
+<FNTI hint=""Codice identificativo"" >FN000012</FNTI>
+</FNT>
+<FNT hint=""FONTI E DOCUMENTI"" >
+<FNTP hint=""Tipo"" >trascrizione archivistica</FNTP>
+<FNTT hint=""Denominazione"" >Oggetti spediti al Castello di Agliè dal 1877 al 1887</FNTT>
+<FNTN hint=""Nome archivio"" >Torino, ASTo, Sezioni Riunite</FNTN>
+<FNTS hint=""Posizione"" >Duca di Genova, Agliè, mazzo 63</FNTS>
+<FNTI hint=""Codice identificativo"" >FN000014</FNTI>
+</FNT>
+<BIB hint=""BIBLIOGRAFIA"" >
+<BIBX hint=""Genere"" >bibliografia di corredo</BIBX>
+<BIBA hint=""Autore"" >Caterina, Lucia</BIBA>
+<BIBD hint=""Anno di edizione"" >2001</BIBD>
+<BIBH hint=""Sigla per citazione"" >BI000100</BIBH>
+<BIBN hint=""V., pp., nn."" >pp. 115-121</BIBN>
+</BIB>
+</DO>
+<AD hint=""ACCESSO AI DATI"" >
+<ADS hint=""SPECIFICHE DI ACCESSO AI DATI"" >
+<ADSP hint=""Profilo di accesso"" >1</ADSP>
+<ADSM hint=""Motivazione"" >scheda contenente dati liberamente accessibili</ADSM>
+</ADS>
+</AD>
+<CM hint=""COMPILAZIONE"" >
+<CMP hint=""COMPILAZIONE"" >
+<CMPD hint=""Data"" >2020</CMPD>
+<CMPN hint=""Nome"" >Lucidi, David</CMPN>
+</CMP>
+<RSR hint=""Referente scientifico"" >Berretti, Luisa</RSR>
+<FUR hint=""Funzionario responsabile"" >Berretti, Luisa</FUR>
+</CM>
+</OA>
+<harvesting>
+<enteCompetente>M270</enteCompetente>
+<idProgetto>ICCD1038112</idProgetto>
+</harvesting>
+</schede>"
