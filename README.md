@@ -6,9 +6,9 @@
 <h3 align="center"><i>A Benchmarking System for Evaluating Knowledge Engineering Automation Tasks</i></h3>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/website-Bench4KE-blue?style=plastic" alt="Website"></a>
+  <a href="https://github.com/fossr-project/ontogenia-cini"><img src="https://img.shields.io/badge/website-Bench4KE-blue?style=plastic" alt="Website"></a>
   <a href="https://github.com/fossr-project/ontogenia-cini/blob/main/restapi/tutorial/Bench4KE%20Tutorial.pdf"><img src="https://img.shields.io/badge/doc-API_Tutorial-dodgerblue?style=plastic" alt="API"></a>
-  <a href="#"><img src="https://img.shields.io/badge/link-Evaluation_Questionnaire-deepskyblue?style=plastic" alt="Questionnaire"></a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpYHGzA2r0wKCq0xEVIkPBKKol6umiKn1URAc17f709DKMKg/viewform?usp=header"><img src="https://img.shields.io/badge/link-Evaluation_Questionnaire-deepskyblue?style=plastic" alt="Questionnaire"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-APACHE-00BCD4?style=plastic" alt="License"></a>
 </p>
 
