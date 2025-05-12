@@ -1,0 +1,182 @@
+Average Cosine Similarity,LLM Analysis,Error,Max Cosine Similarity,Average Jaccard Similarity,Cosine Heatmap,Gold Standard,Jaccard Heatmap,Generated
+0.4285714285714285,"1. The pair of Competency Questions (CQs) that have the highest similarity are the generated question ""What is a single case of internal medicine?"" and the manual question ""What are the specialties of a clinical case?"" The similarity between these two questions is measured by two metrics: cosine similarity and Jaccard similarity. The cosine similarity is 0.43, indicating a moderate level of similarity in terms of the angle between the two vectors in a multi-dimensional space. The Jaccard similarity is 0.23, indicating that approximately 23% of the total unique words are shared between the two questions.
+
+2. Without the actual list of manual CQs, it's challenging to identify which essential and important CQs are missing. However, generally speaking, in the context of internal medicine, some potential missing CQs could be:
+   - ""What are the common diseases treated in internal medicine?""
+   - ""What are the diagnostic procedures used in internal medicine?""
+   - ""What are the treatment methods in internal medicine?""
+   - ""What is the role of an internal medicine doctor in patient care?""
+   - ""What are the sub-specialties within internal medicine?""
+
+These questions are essential as they cover the basic knowledge about internal medicine, including the diseases, diagnostic procedures, treatment methods, roles of doctors, and sub-specialties, which are all crucial for understanding the field.",,0.4285714285714285,0.23076923076923078,heatmaps\cosine_heatmap_8101181800396701040.png,What are the specialties of a clinical case?,heatmaps\jaccard_heatmap_8101181800396701040.png,What is a single case of internal medicine?
+0.13363062095621217,"1. The pair of Competency Questions (CQs) that have the highest similarity are the generated question ""What is a single case of internal medicine?"" and the manual question ""What are the diagnoses suggested by healthcare professionals?"" The similarity metrics for these questions are 0.13 for cosine similarity and 0.07 for Jaccard similarity.
+
+2. Without knowing the exact context or the complete list of generated and manual CQs, it's challenging to identify which essential and important CQs are missing from the manual CQ list. However, generally speaking, in the context of internal medicine, some potential missing CQs could be:
+
+   - ""What are the common treatments for a specific disease?""
+   - ""What are the risk factors associated with a particular medical condition?""
+   - ""What are the preventative measures for a specific disease?""
+   - ""What are the common symptoms of a specific medical condition?""
+   
+These questions are crucial as they cover the fundamental aspects of internal medicine, including diagnosis, treatment, prevention, and understanding of diseases. If these questions are not present in the manual CQ list, it might be a significant gap that needs to be addressed.",,0.13363062095621217,0.06666666666666667,heatmaps\cosine_heatmap_2294293605968497678.png,What are the diagnoses suggested by healthcare professionals?,heatmaps\jaccard_heatmap_2294293605968497678.png,What is a single case of internal medicine?
+,,'float' object has no attribute 'split',,,,"Which is the relevance order of a diagnosis provided by a certain healthcare
+professional?",,nan
+,,'float' object has no attribute 'split',,,,"What is the seniority, specialty, and organisation of a healthcare professional
+that performs a diagnosis?",,nan
+,,'float' object has no attribute 'split',,,,What is the disorder a diagnosis targets?,,nan
+,,'float' object has no attribute 'split',,,,What are the findings reported for a case?,,nan
+,,'float' object has no attribute 'split',,,,What are the solutions of a case?,,nan
+0.0,"From the provided data, the pairs of Competency Questions (CQs) with the highest similarity are:
+
+1. Generated: ""What is the purpose of the part organ encyclopedia?"" | Manual: ""Which known projections are compatible with a given answer?"" (Cosine: 0.00, Jaccard: 0.00)
+2. Generated: ""; What is the purpose of the book?"" | Manual: ""Which known projections are compatible with a given answer?"" (Cosine: 0.00, Jaccard: 0.00)
+3. Generated: ""; What is the purpose of the study?"" | Manual: ""Which known projections are compatible with a given answer?"" (Cosine: 0.00, Jaccard: 0.00)
+
+However, it's important to note that the similarity scores are 0.00, which indicates that these pairs are not similar at all. The cosine and Jaccard similarity measures range from 0 to 1, where 1 indicates perfect similarity and 0 indicates no similarity.
+
+As for the second question, without knowing the specific context or domain of the CQs, it's challenging to identify which essential and important CQs are missing from the manual CQ list. However, generally, a comprehensive set of CQs should cover all aspects of the domain, including the properties, relationships, constraints, and behaviors of the entities involved. For example, if the domain is about books, the CQs should cover aspects like the author, publication date, genre, etc. If the domain is a study or research, the CQs should cover the research question, methodology, findings, implications, etc.",,0.0,0.0,heatmaps\cosine_heatmap_5492517683194522278.png,Which known projections are compatible with a given answer?,heatmaps\jaccard_heatmap_5492517683194522278.png,What is the purpose of the part organ encyclopedia? ; What is the purpose of the book? ; What is the purpose of the study?
+,,'float' object has no attribute 'split',,,,What are the known models (of a certain type)?,,nan
+,,'float' object has no attribute 'split',,,,Who monitors the hospitalisations for a disease in geographical area? ,,nan
+0.0,"Based on the provided statistics, the pair of Competency Questions (CQs) with the highest similarity is:
+
+- Generated: ""What does Patrizia start her investigation from?""  
+- Manual: ""How many distinct disease categories are there?"" 
+
+However, it's important to note that the cosine and Jaccard similarity scores for this pair are both 0.00, indicating that these questions are not similar at all in terms of their semantic content.
+
+As for the second question, without the full list of generated and manual CQs, it's impossible to determine which essential and important CQs are missing from the manual list. The missing CQs would depend on the specific domain or topic that these questions are supposed to cover. For example, if the topic is medical research, important CQs might include questions about the methodology of the research, the sample size, the results, etc. If any of these types of questions are missing from the manual list, they could be considered essential and important missing CQs.",,0.0,0.0,heatmaps\cosine_heatmap_4231255864142473307.png,How many distinct disease categories are there?,heatmaps\jaccard_heatmap_4231255864142473307.png,What does Patrizia start her investigation from?
+0.0,"Based on the provided statistics, the pair of Competency Questions (CQs) with the highest similarity is:
+
+- Generated: ""What is an interest in the events and facts?""  
+- Manual: ""Which codes correspond to each disease category?"" 
+
+However, it's important to note that the cosine and Jaccard similarity scores are both 0.00, indicating that these questions are not similar at all. Cosine similarity measures the cosine of the angle between two vectors, and a score of 0.00 suggests the vectors are orthogonal or disjoint. Jaccard similarity measures the intersection over the union of two sets, and a score of 0.00 suggests there is no overlap between the sets.
+
+Without knowing the specific context or domain, it's challenging to identify which essential and important CQs are missing from the manual CQ list. However, generally speaking, a comprehensive set of CQs should cover all key aspects of the domain, including definitions, relationships, attributes, and operations. For example, if the domain is healthcare, important CQs might include ""What are the symptoms of each disease?"" or ""What treatments are available for each disease?"" If these types of questions are missing from the manual CQ list, it would be a significant gap.",,0.0,0.0,heatmaps\cosine_heatmap_7532593287356822099.png,Which codes correspond to each disease category?,heatmaps\jaccard_heatmap_7532593287356822099.png,What is an interest in the events and facts?
+0.0,"Based on the provided statistics, the pair of Competency Questions (CQs) with the highest similarity is:
+
+- Generated: ""What will David do for several years?""  
+- Manual: ""When is the rate of hospitalisation related to a disease registered?"" 
+
+However, it's important to note that the cosine and Jaccard similarity scores are both 0.00, indicating that these questions are not similar at all in terms of their semantic content.
+
+As for the second question, it's difficult to answer without knowing the specific context or domain these CQs are intended for. However, generally speaking, essential and important CQs often include those that address the key functions or operations of the system, the main entities involved, and their relationships. 
+
+For example, if the domain is healthcare, important CQs might include ""What are the most common diseases in a specific population?"", ""What are the main treatments for a specific disease?"", or ""What factors influence the rate of hospitalization for a specific disease?"". If these types of questions are missing from the manual CQ list, they could be considered essential and important omissions. 
+
+To provide a more accurate answer, I would need more information about the specific context or domain these CQs are intended for.",,0.0,0.0,heatmaps\cosine_heatmap_272306775875752921.png,When is the rate of hospitalisation related to a disease registered? ,heatmaps\jaccard_heatmap_272306775875752921.png,What will David do for several years?
+0.10902809354332571,"1. The pairs of Competency Questions (CQs) that have the highest similarity are:
+   - Generated: ""; What is one of Sophia's projects?"" and Manual: ""Which hospital has the longest average length of stay for a particular disease category?"" (Cosine: 0.11, Jaccard: 0.05)
+   - Generated: ""What is one of her current projects?"" and Manual: ""Which hospital has the longest average length of stay for a particular disease category?"" (Cosine: 0.10, Jaccard: 0.05)
+
+2. Without knowing the specific context or domain of the CQs, it's challenging to identify which essential and important CQs are missing from the manual CQ list. However, based on the provided pairs, it seems like the manual CQs are focused on healthcare or hospital-related data, while the generated CQs are more about individual projects. 
+
+   If the context is healthcare, the manual CQs might be missing questions related to patient demographics, treatment effectiveness, or healthcare costs. For example:
+   - ""What is the average cost of treatment for a particular disease category?""
+   - ""What is the demographic profile of patients with the longest average length of stay?""
+   - ""Which treatment has shown the highest effectiveness for a particular disease category?""
+
+   If the context is project management or individual performance, the generated CQs might be missing questions related to project outcomes, timelines, or team performance. For example:
+   - ""What was the outcome of Sophia's project?""
+   - ""What is the timeline for her current projects?""
+   - ""Who are the team members involved in Sophia's projects?"" 
+
+   These are just examples and the actual missing CQs would depend on the specific context or domain of the CQs.",,0.11322770341445959,0.05,heatmaps\cosine_heatmap_8317210824253397854.png,Which hospital has the longest average length of stay for a particular disease category?,heatmaps\jaccard_heatmap_8317210824253397854.png,What is one of her current projects? ; What is one of Sophias projects?
+,,'float' object has no attribute 'split',,,,How many admissions on average does each hospital report for a given diagnosis code?,,nan
+,,'float' object has no attribute 'split',,,,What are the contaminated sites in a geographical area recorded in time?,,nan
+0.0,"Based on the provided statistics, the pair of Competency Questions (CQs) with the highest similarity is:
+
+- Generated: ""What did Sophia learn about the instrumentation of a musical composition?""  
+- Manual: ""How are chemical and physical measurements distributed spatially across different areas?"" 
+
+However, it's important to note that the cosine and Jaccard similarity scores for this pair are both 0.00, indicating that these questions are not similar at all. The cosine similarity measures the cosine of the angle between two vectors, and a score of 0 means the vectors are orthogonal or disjoint. The Jaccard similarity measures the intersection divided by the union of two sets, and a score of 0 means there is no overlap between the two sets.
+
+Without the full list of CQs, it's impossible to definitively say which essential and important CQs are missing from the manual CQ list. However, based on the provided highest similarity pair, it seems that the manual CQs might be lacking questions related to the understanding of musical compositions, such as ""What instruments are used in a particular musical composition?"" or ""What is the structure of a specific musical composition?"". 
+
+Please provide more information or the full list of CQs for a more accurate analysis.",,0.0,0.0,heatmaps\cosine_heatmap_4249626926059327454.png,How are chemical and physical measurements distributed spatially across different areas?,heatmaps\jaccard_heatmap_4249626926059327454.png,What did Sophia learn about the instrumentation of a musical composition?
+,,'float' object has no attribute 'split',,,,What are the units of measure of chemical measurements in water?,,nan
+,,'float' object has no attribute 'split',,,,What are the concentration values of chemical measurements in water?,,nan
+,,'float' object has no attribute 'split',,,,"What physical parameters have been recorded at each monitoring point, and how do these measurements vary over time?",,nan
+,,'float' object has no attribute 'split',,,,"For a specified water quality parameter, which monitoring sites registered the observation, and when were these measurements recorded?",,nan
+0.0944911182523068,"1. The pair of Competency Questions (CQs) that have the highest similarity are the generated question ""What is a good example of a commonsense NCTN hint?"" and the manual question ""Who records the amount of microbiological substances in surface waters in time?"" with a cosine similarity of 0.09 and a Jaccard similarity of 0.05. 
+
+2. Without the actual list of manual CQs, it's impossible to determine which essential and important CQs are missing. However, in general, a comprehensive list of CQs should cover all aspects of the domain in question. For instance, if the domain is about environmental data, the CQs should cover aspects like the sources of data, the types of data collected, the methods of data collection, the frequency of data collection, the geographical coverage of the data, the accuracy and reliability of the data, etc. If any of these aspects are not covered in the manual CQs, then those would be considered missing.",,0.0944911182523068,0.05263157894736842,heatmaps\cosine_heatmap_8333810220791799980.png,Who records the amount of microbiological substances in surface waters in time?,heatmaps\jaccard_heatmap_8333810220791799980.png,What is a good example of a commonsense NCTN hint?
+,,'float' object has no attribute 'split',,,,What is a parameter that represents the quality of water bodies?,,nan
+,,'float' object has no attribute 'split',,,,When is the level of a chemical substance recorded in a water body? ,,nan
+,,'float' object has no attribute 'split',,,,Who built and/or renovated an organ?,,nan
+,,'float' object has no attribute 'split',,,,What was the disposition of the organ at a specific point in time?,,nan
+,,'float' object has no attribute 'split',,,,What are the original parts of the organ?,,nan
+,,'float' object has no attribute 'split',,,,Where are the original parts of an organ?,,nan
+,,'float' object has no attribute 'split',,,,Where is an organ located originally?,,nan
+,,'float' object has no attribute 'split',,,,When is an organ moved to another location?,,nan
+,,'float' object has no attribute 'split',,,,Why is an organ moved to another location?,,nan
+,,'float' object has no attribute 'split',,,,Where is the building/church/bell tower?,,nan
+,,'float' object has no attribute 'split',,,,When (what year) was the building built?,,nan
+,,'float' object has no attribute 'split',,,,"In which context is the building located (urban, periurban...)?",,nan
+,,'float' object has no attribute 'split',,,,Are there bells in the church/bell tower? How many bells are in the church/bell tower?,,nan
+,,'float' object has no attribute 'split',,,,Is there a single bell or a poliorganic instrument (a set of bells) in a church/bell tower?,,nan
+,,'float' object has no attribute 'split',,,,By whom (by which foundry) were they cast?,,nan
+,,'float' object has no attribute 'split',,,,When were they cast?,,nan
+,,'float' object has no attribute 'split',,,,Which is the material of the bell?,,nan
+,,'float' object has no attribute 'split',,,,Which is the weight of the bell?,,nan
+,,'float' object has no attribute 'split',,,,Which are the measures of the bell?,,nan
+,,'float' object has no attribute 'split',,,,Which is the extension of the whole set of bells in a bell tower?,,nan
+,,'float' object has no attribute 'split',,,,What places did musician Z visited in her career?,,nan
+,,'float' object has no attribute 'split',,,,Where did she perform?,,nan
+,,'float' object has no attribute 'split',,,,Where did she live?,,nan
+,,'float' object has no attribute 'split',,,,"Did musician X and performer Y ever meet? Where, when, and why?",,nan
+,,'float' object has no attribute 'split',,,,In what context the meeting happened?,,nan
+,,'float' object has no attribute 'split',,,,What is the nature of the event?,,nan
+,,'float' object has no attribute 'split',,,,"Was it a celebration, a festival, a private event?",,nan
+,,'float' object has no attribute 'split',,,,Was it a religious or a secular event?,,nan
+,,'float' object has no attribute 'split',,,,Who paid to support the event?,,nan
+,,'float' object has no attribute 'split',,,,What is the provenance of the event attendees? What and how they happened to be there?,,nan
+,,'float' object has no attribute 'split',,,,Did they travel to reach the place?,,nan
+,,'float' object has no attribute 'split',,,,Were they invited? Was the meeting accidental?,,nan
+,,'float' object has no attribute 'split',,,,How can we characterize the relation among the participants?,,nan
+,,'float' object has no attribute 'split',,,,"Was there a power relation? (e.g., Patreon / Musician)",,nan
+,,'float' object has no attribute 'split',,,,Where were the places (in which they played)?,,nan
+,,'float' object has no attribute 'split',,,,Where were the musicians coming from?,,nan
+,,'float' object has no attribute 'split',,,,"What is the time relationship between different musicians, e.g., who was working at the same time?",,nan
+,,'float' object has no attribute 'split',,,,"What was the composer’s network (patrons, institutions …)?",,nan
+,,'float' object has no attribute 'split',,,,Has composition X been identified as variant in a tune family?,,nan
+,,'float' object has no attribute 'split',,,,Which tune family does composition X belong to?,,nan
+,,'float' object has no attribute 'split',,,,Who assigned composition X to tune family Y?,,nan
+,,'float' object has no attribute 'split',,,,With what level of confidence is composition X a variant in tune family Y?,,nan
+,,'float' object has no attribute 'split',,,,What are all compositions in tune family X?,,nan
+,,'float' object has no attribute 'split',,,,What are the similarities / differences of all compositions in tune family X according to measure Y?,,nan
+,,'float' object has no attribute 'split',,,,"To what tune families is tune family X related, given similarity measure Y?",,nan
+,,'float' object has no attribute 'split',,,,Which is the subject of a source?,,nan
+,,'float' object has no attribute 'split',,,,Which is the credibility of a source?,,nan
+,,'float' object has no attribute 'split',,,,Which is the goal of a source?,,nan
+,,'float' object has no attribute 'split',,,,Which is the type of a source?,,nan
+,,'float' object has no attribute 'split',,,,Which is the context of production of a source?,,nan
+,,'float' object has no attribute 'split',,,,Which is the context of usage of a source?,,nan
+,,'float' object has no attribute 'split',,,,Which is the physical realization of an instrument?,,nan
+,,'float' object has no attribute 'split',,,,Which are the parts of an instrument?,,nan
+,,'float' object has no attribute 'split',,,,Who invented an instrument?,,nan
+,,'float' object has no attribute 'split',,,,When was an instrument invented?,,nan
+,,'float' object has no attribute 'split',,,,When was an instrument realization built?,,nan
+,,'float' object has no attribute 'split',,,,Where was an instrument realization built?,,nan
+,,'float' object has no attribute 'split',,,,Who built an instrument realization?,,nan
+,,'float' object has no attribute 'split',,,,What is the rhythm of the bassline?,,nan
+,,'float' object has no attribute 'split',,,,What is the rhythm of the electronic drum kit?,,nan
+,,'float' object has no attribute 'split',,,,What is the difference between the ‘official’ perception of the role of music and how music is experienced?,,nan
+,,'float' object has no attribute 'split',,,,How is music used to teach children about identity and heritage?,,nan
+,,'float' object has no attribute 'split',,,,What is the adult perception of the role of music in children’s education?,,nan
+,,'float' object has no attribute 'split',,,,"Is there a digital space to represent and describe the concept of “Opus”, and store digital scores related to an opus?",,nan
+,,'float' object has no attribute 'split',,,,"Is my collections and subcollections organisation based on clear concepts (e.g., genre, composer, period…) to gather Opuses?",,nan
+,,'float' object has no attribute 'split',,,,"Am I able to nagivate, search and visualize my collections and opus?",,nan
+,,'float' object has no attribute 'split',,,,"Can I examine features extracted from digital scores (e.g., tonality, when relevant, number of parts, etc.)?",,nan
+,,'float' object has no attribute 'split',,,,"Identify the dimensions and/or features that are relevant to support an on-the-fly reorganization of the digital library, whenever the standard organization does not meet the user’s expectations?",,nan
+,,'float' object has no attribute 'split',,,,"Can I progressively explore the content of my library, adding criteria to refine large results?",,nan
+,,'float' object has no attribute 'split',,,,What are accessories associated to the cultural property x?,,nan
+,,'float' object has no attribute 'split',,,,Who was the transferor of the cultural property?,,nan
+,,'float' object has no attribute 'split',,,,When cultural property x was classified by agent Y?,,nan
+,,'float' object has no attribute 'split',,,,According to which classification system was cultural property x classified?,,nan
+,,'float' object has no attribute 'split',,,,What’s the documentation file format of cultural property y?,,nan
+,,'float' object has no attribute 'split',,,,Which identifier type is connected to cultural property x?,,nan
+,,'float' object has no attribute 'split',,,,Which organization has issued the cpX identifier?,,nan
+,,'float' object has no attribute 'split',,,,Who is the author of cultural property x?,,nan
+,,'float' object has no attribute 'split',,,,What role did Y play in the realization of work x?,,nan
+,,'float' object has no attribute 'split',,,,What are the descriptive information of the cultural property x subject?,,nan
