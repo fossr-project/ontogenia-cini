@@ -29,7 +29,7 @@ CQs are natural language questions used by ontology engineers to define and vali
   - sBERT
   - LLM-based semantic analysis (via OpenAI's GPT-4 model)
 - Visual heatmaps for comparing generated and manually crafted CQs
-- Modular and extensible architecture to support the upload of a custom dataset and additional KE tasks in the future
+- Modular and extensible architecture to support the upload of a custom dataset, additional KE tasks and other evaluation metrics in the future
 
 ## Directory Contents
 
