@@ -1,0 +1,47 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://w3id.org/hacid/dataset/bench4ke>
+  a dcat:Dataset ;
+  dct:title "Benchmarking Dataset for Competency Questions with Bench4KE"@en ;
+  dct:description """A benchmarking dataset supporting evaluation and generation of competency questions for knowledge engineering tasks. It includes four thematic domains: clinical/medical diagnostics, music, water and health, and cultural heritage. Designed for use with Bench4KE."""@en ;
+  dct:creator [
+    a foaf:Organization ;
+    foaf:name "University of Bologna" ;
+  ] ;
+  dct:publisher [
+    a foaf:Agent ;
+    foaf:name "Anna Sofia Lippolis" ;
+  ] ;
+  dct:issued "2025-05-12"^^xsd:date ;
+  dct:language "en" ;
+  dct:identifier "https://doi.org/10.5281/zenodo.15302361" ;
+  dct:theme <http://eurovoc.europa.eu/2479> ,  # Health policy
+              <http://eurovoc.europa.eu/100215>, #Health 
+             <http://eurovoc.europa.eu/2278> ,   # Cultural heritage
+             <http://eurovoc.europa.eu/2023> , # Music
+             <http://eurovoc.europa.eu/100159> ; # Water
+  dcat:keyword "competency questions", "benchmark", "semantic web", "linked data", "knowledge graphs", "Bench4KE" ;
+  dcat:landingPage <https://doi.org/10.5281/zenodo.15302361> ;
+  dcat:distribution <https://github.com/fossr-project/ontogenia-cini/blob/main/restapi/app/benchmarkdataset.csv> , <https://doi.org/10.5281/zenodo.15302361> ;
+  dcat:contactPoint [
+    a vcard:Individual ;
+    vcard:fn "Anna Sofia Lippolis" ;
+    vcard:hasEmail <mailto:annasofia.lippolis2@unibo.it> ;
+  ] .
+
+<https://w3id.org/hacid/distribution/github>
+  a dcat:Distribution ;
+  dct:title "GitHub Repository Distribution"@en ;
+  dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+  dcat:downloadURL <https://github.com/fossr-project/ontogenia-cini/blob/main/restapi/app/benchmarkdataset.csv> .
+
+<https://w3id.org/hacid/distribution/zenodo>
+  a dcat:Distribution ;
+  dct:title "Zenodo Distribution"@en ;
+  dct:format <http://publications.europa.eu/resource/authority/file-type/CSV> ;
+  dcat:downloadURL <https://doi.org/10.5281/zenodo.15302361> .
