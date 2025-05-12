@@ -3,7 +3,7 @@ HACID,Medical diagnostics,,"A case of internal medicine reports about a patient 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",mdx-1: What are the specialties of a clinical case?,"PREFIX : <https://w3id.org/hacid/example-data/>
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",What are the specialties of a clinical case?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?specialty
 WHERE {
@@ -11,11 +11,11 @@ WHERE {
 mdx:hasSpecialty ?specialty .
 ?specialty a mdx:Specialty
 }",
-,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+HACID,Medical diagnostics,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",mdx-2: What are the diagnoses suggested by healthcare professionals?,"PREFIX : <https://w3id.org/hacid/example-data/>
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",What are the diagnoses suggested by healthcare professionals?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?diagnosis ?disorderDescr ?disorder
@@ -29,11 +29,11 @@ top:describes ?disorder .
 ?agent a mdx:HeatlhcareProfessional .
 ?disorder a mdx:Disorder
 }",
-,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+HACID,Medical diagnostics,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.","mdx-3: Which is the relevance order of a diagnosis provided by a certain healthcare
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.","Which is the relevance order of a diagnosis provided by a certain healthcare
 professional?","PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/>
 PREFIX jdg: <https://w3id.org/hacid/onto/core/judgement/>
@@ -45,11 +45,11 @@ mdx:withRank ?rank ;
 mdx:ranks ?evaluation ;
 jdg:hasJudge :professional
 }",
-,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+HACID,Medical diagnostics,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.","mdx-4: What is the seniority, specialty, and organisation of a healthcare professional
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.","What is the seniority, specialty, and organisation of a healthcare professional
 that performs a diagnosis?","PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX top: <https://w3id.org/hacid/onto/top-level/>
 PREFIX ar: <https://w3id.org/hacid/onto/core/agentrole/>
@@ -69,33 +69,33 @@ mdx:hasDiagnosis ?diagnosis .
 ?diagnosis a mdx:Diagnosis ;
 ^mdx:isInScopeOfDiagnosis/top:describes :viral-pneumonia
 }",
-,,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+HACID,Medical diagnostics,,"A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",mdx-5: What is the disorder a diagnosis targets?,"PREFIX : <https://w3id.org/hacid/example-data/>
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.",What is the disorder a diagnosis targets?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?diagnosis ?disorder
 WHERE {
 ?diagnosis a mdx:Diagnosis ;
 ^mdx:isInScopeOfDiagnosis/top:describes ?disorder
 }",
-,,,"""A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+HACID,Medical diagnostics,,"""A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.""",mdx-6: What are the findings reported for a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.""",What are the findings reported for a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?case ?finding
 WHERE {
 ?case a mdx:ClinicalCase ;
 mdx:hasFinding ?finding
 }",
-,,,"""A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
+HACID,Medical diagnostics,,"""A case of internal medicine reports about a patient that is found with painless jaundice, pruritus perceived as debilitating, weight loss of 15 pounds over 3 months with associated fatigue and anorexia. Additionally, the patient is affected by type 2 diabetes mellitus with difficulty controlling insulin, and hyperbilirubinemia. 
 
 A single case can be associated with a list of solutions provided by the creator of the case. If more than one solution is provided by the creator, then one must be identified as primary and other as secondary. The case is evaluated by 5 healthcare professionals who formulated their diagnoses by taking into account the findings. Each healthcare professional provides a collection of ordered diagnoses. The ordering is based on relevance. 
 
-Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.""",mdx-7: What are the solutions of a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
+Additionally, each healthcare professional is associated with personal details about specialty, seniority, country, and organisation of affiliation.""",What are the solutions of a case?,"PREFIX : <https://w3id.org/hacid/example-data/>
 PREFIX mdx: <https://w3id.org/hacid/onto/medical-dx/>
 SELECT ?case ?evaluation
 WHERE {
@@ -103,66 +103,7 @@ WHERE {
 ?evaluation a mdx:ClinicalEvaluation ;
 mdx:forClinicalCase ?case
 }",
-HACID,Climate services,,,What are the climate cases represented in the knowledge graph?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
-SELECT ?case
-WHERE {
-?case a cs:ClimateCase
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,"What is a specific case about (description, relevant time/space scope, type of
-assessment required, optionally accepted risk level)?","PREFIX cs: <https://w3id.org/hacid/onto/cs/>
-46
-PREFIX dcterms: <http://purl.org/dc/terms/>
-SELECT ?description ?spaceDomain ?temporalDomain ?assessmentType
-WHERE {
-$case dcterms:description ?description;
-dcterms:spatial ?spatialScope;
-dcterms:temporal ?temporalScope;
-cs:assessmentType ?assessmentType.
-OPTIONAL {$case cs:hasAcceptedRiskLevel ?acceptedRiskLevel}
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,What are the relevant hazard types for a case?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
-SELECT ?hazardType
-WHERE {
-$case cs:relevantHazardType ?hazardType.
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,What specific questions have been associated with a case?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
-SELECT ?subRequest ?requestedAssessmentType
-WHERE {
-$case cs:hasSubRequest+ ?subRequest.
-?subRequest cs:requiresAssessmentType ?requestedAssessmentType.
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,What answers have been given to a case or specific question?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
-SELECT ?answer ?answerAssessmentType
-WHERE {
-?answer cs:repliesTo $question;
-cs:assessmentType ?answerAssessmentType.
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,"What information does an answer provide in terms of identifying relevant
-projections (e.g., adopted model, available variable, specific projection, …)?","PREFIX sh: <http://www.w3.org/ns/shacl#>
-PREFIX cs: <https://w3id.org/hacid/onto/cs/>
-SELECT ?constraint ?requiredProjection ?requiredModel ?requiredVariable
-WHERE {
-$answer cs:containsJudgement ?constrJudgement;
-?constrJudgement a cs:ProjectionConstraintJudgement;
-cs:hasResultingConstraint ?constraint.
-OPTIONAL {?constraint sh:hasValue ?requiredProjection}
-OPTIONAL {
-?constraint sh:property [
-sh:path (
-[sh:inversePath cs:generatedClimateProjection]
-cs:adoptedModel
-);
-sh:hasValue ?requiredModel
-]
-}
-OPTIONAL {
-?constraint sh:property [
-sh:path (qb:structure qb:component qb:measure);
-sh:hasValue ?requiredVariable
-]
-}
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,Which known projections are compatible with a given answer?,"PREFIX sh: <http://www.w3.org/ns/shacl#>
+HACID,Climate services,,,Which known projections are compatible with a given answer?,"PREFIX sh: <http://www.w3.org/ns/shacl#>
 PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?projection
 WHERE {
@@ -177,18 +118,18 @@ sh:hasValue ?requiredVariable
 ]
 ?projection qb:structure/qb:component/qb:measure ?requiredVariable
 }
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
-,,,,What are the known models (of a certain type)?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
+}",https://raw.githubusercontent.com/hacid-project/climate-services-kg/refs/heads/main/data-sources/cordex-domains/data/CORDEX-CMIP5.csv
+HACID,Climate services,,,What are the known models (of a certain type)?,"PREFIX cs: <https://w3id.org/hacid/onto/cs/>
 SELECT ?model
 WHERE {
 ?model a $modelClass.
-}",https://github.com/hacid-project/knowledge-graph/tree/main/data/climate-services
+}",https://raw.githubusercontent.com/hacid-project/climate-services-kg/refs/heads/main/data-sources/cordex-domains/data/CORDEX-CMIP5.csv
 WHOW,Infectious diseases,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Who monitors the hospitalisations for a disease in geographical area? ,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
-,,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,How many distinct disease categories are there?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
-,,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Which codes correspond to each disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
+WHOW,Infectious diseases,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,How many distinct disease categories are there?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
+WHOW,Infectious diseases,"This epidemiological dataset from the Lombardy region captures detailed information about gastrointestinal and foodborne illnesses, with a specific focus on infectious diseases reported from 2018 to 2021. The dataset encompasses demographic variables including age groups and gender, alongside key epidemiological metrics such as case counts, resident population figures, and various incidence rates calculated per 100,000 population at both age-sex specific and regional levels. Additionally, it includes fields for vaccination status and disease classification.",,Which codes correspond to each disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/diseases/infectious_diseases.csv
 WHOW,Hospital accesses and stays,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,When is the rate of hospitalisation related to a disease registered? ,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
-,,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,Which hospital has the longest average length of stay for a particular disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
-,,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,How many admissions on average does each hospital report for a given diagnosis code?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
+WHOW,Hospital accesses and stays,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,Which hospital has the longest average length of stay for a particular disease category?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
+WHOW,Hospital accesses and stays,"This dataset from Lombardy Region encompassess total hospital stays according to disease, ATS (health structure) and diagnosis code, from a period range from 2012 to 2018.",,How many admissions on average does each hospital report for a given diagnosis code?,,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULES/hospitalisation-monitoring/rzni-6n8h.csv
 WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
 
 SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
@@ -216,7 +157,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,How are chemical and physical measurements distributed spatially across different areas?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,How are chemical and physical measurements distributed spatially across different areas?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -239,7 +184,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,What are the units of measure of chemical measurements in water?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,What are the units of measure of chemical measurements in water?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -262,7 +211,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,What are the concentration values of chemical measurements in water?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,What are the concentration values of chemical measurements in water?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -285,7 +238,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,"What physical parameters have been recorded at each monitoring point, and how do these measurements vary over time?",,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,"What physical parameters have been recorded at each monitoring point, and how do these measurements vary over time?",,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -308,7 +265,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,"For a specified water quality parameter, which monitoring sites registered the observation, and when were these measurements recorded?",,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,"For a specified water quality parameter, which monitoring sites registered the observation, and when were these measurements recorded?",,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -331,7 +292,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,Who records the amount of microbiological substances in surface waters in time?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,Who records the amount of microbiological substances in surface waters in time?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -354,7 +319,11 @@ The frequency of water sampling and the parameters to be monitored are establish
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE015230XUR072,Punti rete,FIUME TRATT.,VAPRIO D'ADDA,015230,MILANO,45.57672,9.52941,POINT (9.52941 45.57672),202002645-001,Chimico,Anioni,nitrati,Normato,,20.0,mg/l,Conforme,2020-03-04,2020,FIUME TRATT.,,20,milligrammi per litro,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM186,Punti rete,Via Giolitti,CINISELLO BALSAMO,015077,MILANO,45.5731,9.21631,POINT (9.21631 45.5731),202014698-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-10-19,2020,VIA GIOVANNI GIOLITTI,,< 0.05,milligrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0152099UM125,Punti rete,Via Garibaldi,SESTO SAN GIOVANNI,015209,MILANO,45.53546,9.2346,POINT (9.2346 45.53546),202007454-001,Chimico,Metalli,cromo,Normato,,6.0,µg/l,Conforme,2020-07-02,2020,VIA GIUSEPPE GARIBALDI,,6,microgrammi per litro,"
-,,,,What is a parameter that represents the quality of water bodies?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
+WHOW,Quality parameters of drinking waters ,"The dataset contains the results of periodic checks carried out on water intended for human consumption by the ATS through the SIAN (Food Hygiene and Nutrition Service) facilities.
+
+SIAN is responsible for monitoring and supervising the hygienic and sanitary quality of food and beverages, including drinking and mineral waters, at all stages.
+
+The frequency of water sampling and the parameters to be monitored are established by Legislative Decree 31/2001.",,What is a parameter that represents the quality of water bodies?,,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_punto_prelievo,comune_punto_prelievo,codice_comune,provincia_punto_prelievo,latitudine,longitudine,location,id_campione,macro_categoria_parametro,categoria_parametro,parametro,tipo_parametro,codice_parametro,risultato,unit_misura,esito,data_referto,anno_referto,indirizzo_di_georeferenziazione,frazione_punto_prelievo,valore_testuale,unita_di_misura_testuale,segno
 030326,ATS DI BRESCIA,RE017120XU0004,Punti rete,,NUVOLERA,017120,BRESCIA,45.53332,10.37711,POINT (10.37711 45.53332),POT72160,Chimico,Solventi alogenati,bromoformio,Indicatore,,0.5,µg/l,Conforme,2020-11-10,2020,,,< 0.5,microgrammi per litro,<
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0980319UC035,Punti rete,""Frazione Riolo, Lodi"",LODI,098031,LODI,45.33583,9.52028999,POINT (9.52028999 45.33583),202005892-001,Fisico,durezza,durezza,Indicatore,20001,27.0,fH,Conforme,2020-05-25,2020,""FRAZIONE RIOLO,LODI"",,27,gradi,
 030321,ATS DELLA CITTA' METROPOLITANA DI MILANO,RE0150779UM104,Punti rete,Via Canzio,CINISELLO BALSAMO,015077,MILANO,45.5462927,9.2187177,POINT (9.2187177 45.5462927),202009115-001,Chimico,Anioni,nitrito,Normato,,0.05,mg/l,Conforme,2020-07-17,2020,VIA STEFANO CANZIO,,< 0.05,milligrammi per litro,<
@@ -449,10 +418,10 @@ Polifonia,,,"Sophia’s original qualifications, and her Ph.D., were in music an
 Polifonia,,,"Sophia’s original qualifications, and her Ph.D., were in music and she is also a practising musician. She is a musicologist working in the music department of a university. She has a particular interest in late 16th to 18th century music, specifically that of a particular composer living and working in Rome, Wien (Haydn, Mozart, Beethoven) London and Paris. As musician and historian, Sophia needs to study the instrumentation of a musical composition of the 18th century in order to organize a music festival that compares philological and modern performances and that proposes music compositions of that time with a completely new orchestration. To do this, she needs detailed informations about musical instruments, ancient and modern: how they were used in the original compositions and in the 18th century, to which instrument family each instrument belongs, in which instruments combination they have been used in musical compositions from any era. For each instrument Sophia will have to take into account these important properties: the timbre or range of timbres; the range of pitches; the dynamic range. Sophia is also interested to know the instrument's notation.",Who built an instrument realization?,,
 Polifonia,,,"Anna, who became hearing impaired in later life, attends a concert by The Blockheads at the Stables music venue with a friend Ben who is deaf from birth, and her hearing friend Caroline. In order to enhance their experience of the concert, they decide to use the haptic bracelets offered by the venue. Anna is a big fan of the bass player Norman Watt Roy, whereas her friend is interested in the drums played by John Roberts. For tonight’s performance, the Stables are offering a live automatic haptic transcription of the bass part. The Stables have also hired a musical interpreter for the hearing impaired who will be communicating the overall performance using an electronic drum kit from which a haptic feed is available. As a third option, a chest-worn transducer is available that takes the audio feed and turns the wearer’s chest cavity into a bass woofer. Anna used the bass transcription. Ben opted for the live interpretation. During ‘Hit me with your rhythm stick’ Anna grabs the hand of her hearing friend Caroline in excitement and puts it on her wrist to feel the bass rhythm. Anna and Ben sign to each other during the first two songs, and decide to swap feeds for the third.
 
-When they hand the equipment back in at the end of the gig, the Stables staff point out that there is a summer workshop being run for hearing impared beginner drummers using a full drum kit and bracelets on all four limbs.",CQ1: What is the rhythm of the bassline?,,
+When they hand the equipment back in at the end of the gig, the Stables staff point out that there is a summer workshop being run for hearing impared beginner drummers using a full drum kit and bracelets on all four limbs.",What is the rhythm of the bassline?,,
 Polifonia,,,"Anna, who became hearing impaired in later life, attends a concert by The Blockheads at the Stables music venue with a friend Ben who is deaf from birth, and her hearing friend Caroline. In order to enhance their experience of the concert, they decide to use the haptic bracelets offered by the venue. Anna is a big fan of the bass player Norman Watt Roy, whereas her friend is interested in the drums played by John Roberts. For tonight’s performance, the Stables are offering a live automatic haptic transcription of the bass part. The Stables have also hired a musical interpreter for the hearing impaired who will be communicating the overall performance using an electronic drum kit from which a haptic feed is available. As a third option, a chest-worn transducer is available that takes the audio feed and turns the wearer’s chest cavity into a bass woofer. Anna used the bass transcription. Ben opted for the live interpretation. During ‘Hit me with your rhythm stick’ Anna grabs the hand of her hearing friend Caroline in excitement and puts it on her wrist to feel the bass rhythm. Anna and Ben sign to each other during the first two songs, and decide to swap feeds for the third.
 
-When they hand the equipment back in at the end of the gig, the Stables staff point out that there is a summer workshop being run for hearing impared beginner drummers using a full drum kit and bracelets on all four limbs.",CQ2: What is the rhythm of the electronic drum kit?,,
+When they hand the equipment back in at the end of the gig, the Stables staff point out that there is a summer workshop being run for hearing impared beginner drummers using a full drum kit and bracelets on all four limbs.",What is the rhythm of the electronic drum kit?,,
 Polifonia,,,"Persona
 
 Ortenz is a Music historian with a background in art history and literature.
@@ -463,7 +432,7 @@ Scenario
 
 Ortenz wants to characterize children’s experience of music as witnessed in bibliographic and artistic sources. She is looking for primary sources (e.g. Personal journals, literary texts) wherein to find evidence of listening experiences.
 
-She needs to collect and analyze large corpora of texts and images recording or depicting children’s experience with music. Documents include official sources (e.g. newspaper articles, reviews of concerts, paintings) and sources produced by “ordinary people”. She prefers the latter as they provide more reliable feedback, and she looks at the context of production of such sources (where, when, who created the source, the goal, which related events exist), contents (recurring motifs and themes), and elicited emotional responses. She collects sources belonging to different historical periods so as to characterize the development of identified phenomena.",CQ1. What is the difference between the ‘official’ perception of the role of music and how music is experienced?,,
+She needs to collect and analyze large corpora of texts and images recording or depicting children’s experience with music. Documents include official sources (e.g. newspaper articles, reviews of concerts, paintings) and sources produced by “ordinary people”. She prefers the latter as they provide more reliable feedback, and she looks at the context of production of such sources (where, when, who created the source, the goal, which related events exist), contents (recurring motifs and themes), and elicited emotional responses. She collects sources belonging to different historical periods so as to characterize the development of identified phenomena.",What is the difference between the ‘official’ perception of the role of music and how music is experienced?,,
 Polifonia,,,"Persona
 
 Ortenz is a Music historian with a background in art history and literature.
@@ -474,7 +443,7 @@ Scenario
 
 Ortenz wants to characterize children’s experience of music as witnessed in bibliographic and artistic sources. She is looking for primary sources (e.g. Personal journals, literary texts) wherein to find evidence of listening experiences.
 
-She needs to collect and analyze large corpora of texts and images recording or depicting children’s experience with music. Documents include official sources (e.g. newspaper articles, reviews of concerts, paintings) and sources produced by “ordinary people”. She prefers the latter as they provide more reliable feedback, and she looks at the context of production of such sources (where, when, who created the source, the goal, which related events exist), contents (recurring motifs and themes), and elicited emotional responses. She collects sources belonging to different historical periods so as to characterize the development of identified phenomena.",CQ2. How is music used to teach children about identity and heritage?,,
+She needs to collect and analyze large corpora of texts and images recording or depicting children’s experience with music. Documents include official sources (e.g. newspaper articles, reviews of concerts, paintings) and sources produced by “ordinary people”. She prefers the latter as they provide more reliable feedback, and she looks at the context of production of such sources (where, when, who created the source, the goal, which related events exist), contents (recurring motifs and themes), and elicited emotional responses. She collects sources belonging to different historical periods so as to characterize the development of identified phenomena.",How is music used to teach children about identity and heritage?,,
 Polifonia,,,"Persona
 
 Ortenz is a Music historian with a background in art history and literature.
@@ -485,49 +454,49 @@ Scenario
 
 Ortenz wants to characterize children’s experience of music as witnessed in bibliographic and artistic sources. She is looking for primary sources (e.g. Personal journals, literary texts) wherein to find evidence of listening experiences.
 
-She needs to collect and analyze large corpora of texts and images recording or depicting children’s experience with music. Documents include official sources (e.g. newspaper articles, reviews of concerts, paintings) and sources produced by “ordinary people”. She prefers the latter as they provide more reliable feedback, and she looks at the context of production of such sources (where, when, who created the source, the goal, which related events exist), contents (recurring motifs and themes), and elicited emotional responses. She collects sources belonging to different historical periods so as to characterize the development of identified phenomena.",CQ3. What is the adult perception of the role of music in children’s education?,,
+She needs to collect and analyze large corpora of texts and images recording or depicting children’s experience with music. Documents include official sources (e.g. newspaper articles, reviews of concerts, paintings) and sources produced by “ordinary people”. She prefers the latter as they provide more reliable feedback, and she looks at the context of production of such sources (where, when, who created the source, the goal, which related events exist), contents (recurring motifs and themes), and elicited emotional responses. She collects sources belonging to different historical periods so as to characterize the development of identified phenomena.",What is the adult perception of the role of music in children’s education?,,
 Polifonia,,,"Jorge manages a digital library of scores. He aims at describing each score with a rich set of contextual information, although a comprehensive descritpion is often not possible. Among these information, one finds
 
     The musical work (or ‘Opus’) this score belongs to. A score can cover a whole Opus (e.g., a symphony) or only a part of it (e.g., the third movement). Additionally, it can contain only some parts, all the parts, a trasnscription for non-original instruments, etc. Jorge wants to preserve each score at the appropriate level, with an adequate referencing (e.g., the official Opus number in a standard catalogue exists, K234.a, of BWV192, etc.)
     Licence and copyright information
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
-    Tools to manage this organisation and search for relevant scores.","CQ1: Is there a digital space to represent and describe the concept of “Opus”, and store digital scores related to an opus ?",,
+    Tools to manage this organisation and search for relevant scores.","Is there a digital space to represent and describe the concept of “Opus”, and store digital scores related to an opus?",,
 Polifonia,,,"Jorge manages a digital library of scores. He aims at describing each score with a rich set of contextual information, although a comprehensive descritpion is often not possible. Among these information, one finds
 
     The musical work (or ‘Opus’) this score belongs to. A score can cover a whole Opus (e.g., a symphony) or only a part of it (e.g., the third movement). Additionally, it can contain only some parts, all the parts, a trasnscription for non-original instruments, etc. Jorge wants to preserve each score at the appropriate level, with an adequate referencing (e.g., the official Opus number in a standard catalogue exists, K234.a, of BWV192, etc.)
     Licence and copyright information
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
-    Tools to manage this organisation and search for relevant scores.","CQ2: Is my collections and subcollections organisation based on clear concepts (e.g., genre, composer, period…) to gather Opuses ?",,
+    Tools to manage this organisation and search for relevant scores.","Is my collections and subcollections organisation based on clear concepts (e.g., genre, composer, period…) to gather Opuses?",,
 Polifonia,,,"Jorge manages a digital library of scores. He aims at describing each score with a rich set of contextual information, although a comprehensive descritpion is often not possible. Among these information, one finds
 
     The musical work (or ‘Opus’) this score belongs to. A score can cover a whole Opus (e.g., a symphony) or only a part of it (e.g., the third movement). Additionally, it can contain only some parts, all the parts, a trasnscription for non-original instruments, etc. Jorge wants to preserve each score at the appropriate level, with an adequate referencing (e.g., the official Opus number in a standard catalogue exists, K234.a, of BWV192, etc.)
     Licence and copyright information
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
-    Tools to manage this organisation and search for relevant scores.","CQ3: Am I able to nagivate, search and visualize my collections and opus ?",,
+    Tools to manage this organisation and search for relevant scores.","Am I able to nagivate, search and visualize my collections and opus?",,
 Polifonia,,,"Jorge manages a digital library of scores. He aims at describing each score with a rich set of contextual information, although a comprehensive descritpion is often not possible. Among these information, one finds
 
     The musical work (or ‘Opus’) this score belongs to. A score can cover a whole Opus (e.g., a symphony) or only a part of it (e.g., the third movement). Additionally, it can contain only some parts, all the parts, a trasnscription for non-original instruments, etc. Jorge wants to preserve each score at the appropriate level, with an adequate referencing (e.g., the official Opus number in a standard catalogue exists, K234.a, of BWV192, etc.)
     Licence and copyright information
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
-    Tools to manage this organisation and search for relevant scores.","CQ4: Can I examine features extracted from digital scores (e.g., tonality, when relevant, number of parts, etc.) ?",,
+    Tools to manage this organisation and search for relevant scores.","Can I examine features extracted from digital scores (e.g., tonality, when relevant, number of parts, etc.)?",,
 Polifonia,,,"Jorge manages a digital library of scores. He aims at describing each score with a rich set of contextual information, although a comprehensive descritpion is often not possible. Among these information, one finds
 
     The musical work (or ‘Opus’) this score belongs to. A score can cover a whole Opus (e.g., a symphony) or only a part of it (e.g., the third movement). Additionally, it can contain only some parts, all the parts, a trasnscription for non-original instruments, etc. Jorge wants to preserve each score at the appropriate level, with an adequate referencing (e.g., the official Opus number in a standard catalogue exists, K234.a, of BWV192, etc.)
     Licence and copyright information
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
-    Tools to manage this organisation and search for relevant scores.","CQ5: Identify the dimensions and/or features that are relevant to support an on-the-fly reorganization of the digital library, whenever the standard organization does not meet the user’s expectations",,
+    Tools to manage this organisation and search for relevant scores.","Identify the dimensions and/or features that are relevant to support an on-the-fly reorganization of the digital library, whenever the standard organization does not meet the user’s expectations?",,
 Polifonia,,,"Jorge manages a digital library of scores. He aims at describing each score with a rich set of contextual information, although a comprehensive descritpion is often not possible. Among these information, one finds
 
     The musical work (or ‘Opus’) this score belongs to. A score can cover a whole Opus (e.g., a symphony) or only a part of it (e.g., the third movement). Additionally, it can contain only some parts, all the parts, a trasnscription for non-original instruments, etc. Jorge wants to preserve each score at the appropriate level, with an adequate referencing (e.g., the official Opus number in a standard catalogue exists, K234.a, of BWV192, etc.)
     Licence and copyright information
     Relations to standard external resources to refer to, e.g., composers or other kind of authorships
     An organisation in collections, clear and flexible
-    Tools to manage this organisation and search for relevant scores.","CQ6: Can I progressively explore the content of my library, adding criteria to refine large results ?",,
+    Tools to manage this organisation and search for relevant scores.","Can I progressively explore the content of my library, adding criteria to refine large results?",,
 ArCo,Accessory,,,What are accessories associated to the cultural property x?,SELECT DISTINCT ?accessory WHERE{ ?x a-dd:hasAccessory ?accessory. } limit 100,"<schede>
 <SMO version=""3.01_ICCD0"" >
 <CD hint=""CODICI"" >
@@ -915,7 +884,7 @@ ArCo,Accessory,,,What are accessories associated to the cultural property x?,SEL
 <idProgetto>ICCD1065088</idProgetto>
 </harvesting>
 </schede>"
-,Acquisition,,,Who was the transferor of the cultural property?,SELECT DISTINCT ?transferor WHERE{ ?entity a-cd:hasAcquisition ?acq. ?acq core:hasAgentRole ?agentrole. ?agentrole core:hasAgent ?transferor; core:hasRole https://w3id.org/arco/resource/Role/Transferor . },"<schede>
+ArCo,Acquisition,,,Who was the transferor of the cultural property?,SELECT DISTINCT ?transferor WHERE{ ?entity a-cd:hasAcquisition ?acq. ?acq core:hasAgentRole ?agentrole. ?agentrole core:hasAgent ?transferor; core:hasRole https://w3id.org/arco/resource/Role/Transferor . },"<schede>
 <OA version=""3.00_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo Scheda"" >OA</TSK>
@@ -1056,7 +1025,7 @@ ArCo,Accessory,,,What are accessories associated to the cultural property x?,SEL
 <idProgetto>ICCD1038112</idProgetto>
 </harvesting>
 </schede>"
-,ClassificationInTime,,,When cultural property x was classified by agent Y?,select ?time where { ?x core:hasClassificationInTime ?class . ?class https://w3id.org/italia/onto/TI/hasTemporalEntity ?time ; core:involvesAgent ?agent . },"<schede>
+ArCo,ClassificationInTime,,,When cultural property x was classified by agent Y?,select ?time where { ?x core:hasClassificationInTime ?class . ?class https://w3id.org/italia/onto/TI/hasTemporalEntity ?time ; core:involvesAgent ?agent . },"<schede>
 <OA version=""3.00_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo Scheda"" >OA</TSK>
@@ -1197,7 +1166,7 @@ ArCo,Accessory,,,What are accessories associated to the cultural property x?,SEL
 <idProgetto>ICCD1038112</idProgetto>
 </harvesting>
 </schede>"
-,,,,According to which classification system was cultural property x classified?,select ?time ?syst where { ?x core:hasClassificationInTime ?class . ?class core:hasConcept ?concept . ?concept core:isDefinedByClassificationSystem ?syst . },"<schede>
+ArCo,ClassificationInTime,,,According to which classification system was cultural property x classified?,select ?time ?syst where { ?x core:hasClassificationInTime ?class . ?class core:hasConcept ?concept . ?concept core:isDefinedByClassificationSystem ?syst . },"<schede>
 <OA version=""3.00_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo Scheda"" >OA</TSK>
@@ -1338,7 +1307,7 @@ ArCo,Accessory,,,What are accessories associated to the cultural property x?,SEL
 <idProgetto>ICCD1038112</idProgetto>
 </harvesting>
 </schede>"
-,Documentation,,,What’s the documentation file format of cultural property y?,SELECT DISTINCT ?format where { ?x a-cd:hasDocumentation ?doc . ?doc a-dd:hasFormat ?format . } LIMIT 100,"<schede>
+ArCo,Documentation,,,What’s the documentation file format of cultural property y?,SELECT DISTINCT ?format where { ?x a-cd:hasDocumentation ?doc . ?doc a-dd:hasFormat ?format . } LIMIT 100,"<schede>
 <OA version=""3.00_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo Scheda"" >OA</TSK>
@@ -1479,7 +1448,7 @@ ArCo,Accessory,,,What are accessories associated to the cultural property x?,SEL
 <idProgetto>ICCD1038112</idProgetto>
 </harvesting>
 </schede>"
-,Identifier,,,Which identifier type is connected to cultural property x?,"""select ?id ?type { ?x core:hasIdentifier ?id . ?id core:hasType ?type }
+ArCo,Identifier,,,Which identifier type is connected to cultural property x?,"""select ?id ?type { ?x core:hasIdentifier ?id . ?id core:hasType ?type }
 
 limit 100""","<schede>
 <OA version=""3.00_ICCD0"" >
@@ -1622,7 +1591,7 @@ limit 100""","<schede>
 <idProgetto>ICCD1038112</idProgetto>
 </harvesting>
 </schede>"
-,,,,Which organization has issued the cpX identifier?,"""select ?org { ?x core:hasIdentifier ?id . ?id core:issuedBy ?org . }
+ArCo,Identifier,,,Which organization has issued the cpX identifier?,"""select ?org { ?x core:hasIdentifier ?id . ?id core:issuedBy ?org . }
 ""","""<schede>
 <SMO version=""""3.01_ICCD0"""" >
 <CD hint=""""CODICI"""" >
@@ -2010,7 +1979,7 @@ limit 100""","<schede>
 <idProgetto>ICCD1065088</idProgetto>
 </harvesting>
 </schede>"""
-,Responsibility,,,Who is the author of cultural property x?,"select distinct ?cp ?aut where { ?cp a-cd:hasResponsibility ?resp. ?resp a-cd:hasInterventionRole ?role ; a-cd:hasAgentWithResponsibility ?aut . FILTER regex(?role, “autore”, “i”) }","<schede>
+ArCo,Responsibility,,,Who is the author of cultural property x?,"select distinct ?cp ?aut where { ?cp a-cd:hasResponsibility ?resp. ?resp a-cd:hasInterventionRole ?role ; a-cd:hasAgentWithResponsibility ?aut . FILTER regex(?role, “autore”, “i”) }","<schede>
 <SMO version=""3.01_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo scheda"" >SMO</TSK>
@@ -2397,7 +2366,7 @@ limit 100""","<schede>
 <idProgetto>ICCD1065088</idProgetto>
 </harvesting>
 </schede>"
-,,,,What role did Y play in the realization of work x?,select distinct ?role where { ?x a-cd:hasResponsibility ?resp. ?resp a-cd:hasAgentWithResponsibility ?y; a-cd:hasInterventionRole ?role },"<schede>
+ArCo,Responsibility,,,What role did Y play in the realization of work x?,select distinct ?role where { ?x a-cd:hasResponsibility ?resp. ?resp a-cd:hasAgentWithResponsibility ?y; a-cd:hasInterventionRole ?role },"<schede>
 <SMO version=""3.01_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo scheda"" >SMO</TSK>
@@ -2784,7 +2753,7 @@ limit 100""","<schede>
 <idProgetto>ICCD1065088</idProgetto>
 </harvesting>
 </schede>"
-,Subject,,,What are the descriptive information of the cultural property x subject?,,"<schede>
+ArCo,Subject,,,What are the descriptive information of the cultural property x subject?,,"<schede>
 <OA version=""3.00_ICCD0"" >
 <CD hint=""CODICI"" >
 <TSK hint=""Tipo Scheda"" >OA</TSK>
