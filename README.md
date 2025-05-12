@@ -25,7 +25,7 @@ CQs are natural language questions used by ontology engineers to define and vali
   - Cosine Similarity
   - Jaccard Similarity
   - BLEU
-  - ROUGE
+  - ROUGE-L
   - sBERT
   - LLM-based semantic analysis (via OpenAI's GPT-4 model)
 - Visual heatmaps for comparing generated and manually crafted CQs
