@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, Response
+from fastapi import FastAPI, File, UploadFile, HTTPException, Response, Form
 import pandas as pd
 import openai
 import logging
@@ -15,6 +15,84 @@ app = FastAPI(
     description="Standalone API to generate competency questions from an input CSV with scenario/dataset/description.",
     version="1.0.0"
 )
+
+def generate_with_llm(
+    prompt: str,
+    provider: str = "openai",
+    temperature: float = 0.5,
+    max_tokens: int = 100,
+    presence_penalty: float = 0.0
+) -> str:
+    if provider == "openai":
+        try:
+            import openai
+            openai.api_key = os.getenv("OPENAI_API_KEY", "")
+            response = openai.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "You are a competency question generation assistant."},
+                    {"role": "user", "content": prompt}
+                ],
+                temperature=0.5,
+                max_tokens=100
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            logger.error(f"OpenAI error: {e}")
+            return f"Error generating CQ with OpenAI: {e}"
+
+    elif provider == "together":
+        try:
+            together_api_key = os.getenv("TOGETHER_API_KEY", "")
+            headers = {
+                "Authorization": f"Bearer {together_api_key}",
+                "Content-Type": "application/json"
+            }
+            body = {
+                "model": "mistralai/Mistral-7B-Instruct-v0.1",
+                "messages": [
+                    {"role": "system", "content": "You are a competency question generation assistant."},
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": temperature,
+                "max_tokens": max_tokens
+            }
+            response = requests.post("https://api.together.xyz/v1/chat/completions", headers=headers, json=body)
+            data = response.json()
+            return data["choices"][0]["message"]["content"].strip()
+        except Exception as e:
+            logger.error(f"Together.ai error: {e}")
+            return f"Error generating CQ with Together.ai: {e}"
+
+    elif provider == "claude":
+        try:
+            anthropic_api_key = os.getenv("ANTHROPIC_API_KEY", "")
+            headers = {
+                "x-api-key": anthropic_api_key,
+                "anthropic-version": "2023-06-01",
+                "Content-Type": "application/json"
+            }
+            body = {
+                "model": "claude-3-opus-20240229",
+                "max_tokens": 100,
+                "temperature": 0.5,
+                "system": "You are a competency question generation assistant.",
+                "messages": [
+                    {"role": "user", "content": prompt}
+                ]
+            }
+            response = requests.post("https://api.anthropic.com/v1/messages", headers=headers, json=body)
+            data = response.json()
+            if "content" not in data or not data["content"]:
+                logger.error(f"[Claude] Full response: {data}")
+                return f"Claude error: {data.get('error', data)}"
+            return data["content"][0]["text"].strip()
+        except Exception as e:
+            logger.error(f"Claude error: {e}")
+            return f"Error generating CQ with Claude: {e}"
+
+    else:
+        return f"Unknown LLM provider: {provider}"
 
 def get_dataset_bytes(path: str) -> bytes:
     """
@@ -40,7 +118,11 @@ def get_dataset_bytes(path: str) -> bytes:
 
 @app.post("/newapi/")
 async def generate_cqs_endpoint(
-    file: UploadFile = File(...)
+    file: UploadFile = File(...),
+    llm_provider: str = Form("openai"),  # default is OpenAI
+    temperature: float = Form(0.5),
+    max_tokens: int = Form(100),
+    presence_penalty: float = Form(0.0)
 ):
     try:
         contents = await file.read()
@@ -99,20 +181,13 @@ async def generate_cqs_endpoint(
             else:
                 prompt = f"Generate a competency question based on the dataset located at: {dpath}"
 
-        try:
-            resp = openai.chat.completions.create(
-                model="gpt-4",
-                messages=[
-                    {"role": "system", "content": "You are a competency question generation assistant."},
-                    {"role": "user", "content": prompt}
-                ],
-                max_tokens=60,
-                temperature=0.5
-            )
-            gen = resp.choices[0].message.content.strip()
-        except Exception as e:
-            logger.error(f"OpenAI error at row {idx}: {e}")
-            gen = f"Error generating CQ: {e}"
+        gen = generate_with_llm(
+            prompt,
+            provider=llm_provider,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            presence_penalty=presence_penalty
+        )
 
         gold_list.append(gold)
         generated_list.append(gen)
