@@ -23,10 +23,11 @@ CQs are natural language questions used by ontology engineers to define and vali
 - A gold standard dataset derived from real-world ontology engineering projecs  
 - Multiple evaluation metrics:
   - Cosine Similarity
+  - BERTScore-F1
   - Jaccard Similarity
   - BLEU
   - ROUGE-L
-  - sBERT
+  - Hit Rate
   - LLM-based semantic analysis (via OpenAI's GPT-4 model)
 - Visual heatmaps for comparing generated and manually crafted CQs
 - Modular and extensible architecture to support the upload of a custom dataset, additional KE tasks and other evaluation metrics in the future
