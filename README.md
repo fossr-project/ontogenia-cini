@@ -32,16 +32,20 @@ CQs are natural language questions used by ontology engineers to define and vali
 - Visual heatmaps for comparing generated and manually crafted CQs
 - Modular and extensible architecture to support the upload of a custom dataset, additional KE tasks and other evaluation metrics in the future
 
+
 ## Directory Contents
 
-| File / Folder             | Description |
-|--------------------------|-------------|
-| `app/`                   | Contains the FastAPI application modules and related components. |
-| `benchmarkdataset.csv`   | This is the gold standard dataset of manually crafted CQs used for evaluation. |
-| `tests/`                 | Directory for test cases and testing utilities. |
-| `tutorial/`              | Tutorial materials to use the API. |
-| `cq_generator_app.py`    | Example of a CQ generation application that is compatible with the API. |
-| `bench4ke-validate-ui.py`| Web interface built on the API. |
+| File / Folder | Description |
+| :--- | :--- |
+| [**`restapi/`**](./restapi) | **Core directory containing the service and logic.** |
+| ↳ [`app/`](./restapi/app) | Contains the FastAPI application modules and related components. |
+| &nbsp;&nbsp; ↳ [`benchmarkdataset.csv`](./restapi/app/benchmarkdataset.csv) | The gold standard dataset of manually crafted CQs used for evaluation. |
+| ↳ [`tests/`](./restapi/tests) | Directory for test cases and testing utilities. |
+| ↳ [`tutorial/`](./restapi/tutorial) | Tutorial materials to use the API. |
+| ↳ [`bench4ke-validate-ui.py`](./restapi/bench4ke-validate-ui.py) | Web interface built on the API. |
+| ↳ [`cq_generator_app.py`](./restapi/cq_generator_app.py) | Example of a CQ generation application compatible with the API. |
+| ↳ [`kg-generator.py`](./restapi/kg-generator.py) | Tool for Knowledge Graph generation based on the analysis. |
+| [**`experimental-results/`**](./experimental-results) | Collection of output data and evaluation results. |
 
 
 ## Usage
