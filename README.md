@@ -36,6 +36,17 @@ CQs are natural language questions used by ontology engineers to define and vali
   - LLM-based evaluation (OE-Assist prompt with yes/no + SPARQL)
 - Modular and extensible architecture to support the upload of a custom dataset, additional KE tasks and other evaluation metrics in the future
 
+## Directory Contents
+
+| File / Folder             | Description |
+|--------------------------|-------------|
+| `app/`                   | Contains the FastAPI application modules and related components. |
+| `benchmarkdataset.csv`   | This is the gold standard dataset of manually crafted CQs used for evaluation. |
+| `tests/`                 | Directory for test cases and testing utilities. |
+| `tutorial/`              | Tutorial materials to use the API. |
+| `cq_generator_app.py`    | Example of a CQ generation application that is compatible with the API. |
+| `bench4ke-validate-ui.py`| Web interface built on the API. |
+
 ## Configuration (.env)
 
 Create a `.env` file in the repo root by copying the example:
@@ -48,7 +59,7 @@ Then edit the values you need (see comments inside `.env.example`).
 
 Essentials:
 - `OPENAI_API_KEY` (required for any real run)
-- `OOPS_API_URL` is required only if you want OOPS enabled; leave empty to skip it
+- `OOPS_API_URL` is required only if you want OOPS enabled; leave empty to skip it. For local Docker use `http://localhost:8080/OOPS/rest`.
 
 Optional with defaults:
 - `OPENAI_MODEL` defaults to `gpt-4o-mini`
@@ -64,6 +75,24 @@ source .env
 
 Most services also load `.env` automatically via `python-dotenv`, but exporting it explicitly keeps CLI runs consistent.
 
+### OOPS (local Docker + WordNet)
+OOPS requires WordNet to be mounted in the container at:
+`/usr/local/tomcat/WordNet/WordNet-3.0/dict/index.sense`.
+
+Ensure your repo has:
+```
+WordNet/WordNet-3.0/dict/index.sense
+```
+
+Run OOPS locally:
+```bash
+docker run --rm -v "$PWD/WordNet:/usr/local/tomcat/WordNet" -p 8080:8080 mpovedavillalon/oops:v1
+```
+
+Set the endpoint for the benchmark:
+```
+OOPS_API_URL=http://localhost:8080/OOPS/rest
+```
 
 ## Usage
 

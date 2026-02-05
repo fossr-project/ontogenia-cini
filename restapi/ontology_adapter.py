@@ -478,7 +478,68 @@ def _prefix_bare_identifiers(text: str) -> str:
 def _normalize_turtle(text: str) -> str:
     cleaned = _clean_turtle(text)
     normalized = _prefix_bare_identifiers(cleaned)
-    return normalized
+    return _ensure_prefixes(normalized)
+
+
+def _prefix_declared(text: str, prefix: str) -> bool:
+    if prefix == ":":
+        pattern = r"(?im)^(?:@prefix|prefix)\s*:\s*<[^>]+>\s*\.?"
+    else:
+        pattern = rf"(?im)^(?:@prefix|prefix)\s+{re.escape(prefix)}:\s*<[^>]+>\s*\.?"
+    return re.search(pattern, text) is not None
+
+
+def _prefix_in_use(text: str, prefix: str) -> bool:
+    if prefix == ":":
+        return re.search(r"(?m)(^|[\s\[\(\{;,.])(:[A-Za-z_][\w-]*)", text) is not None
+    return re.search(rf"\b{re.escape(prefix)}:", text) is not None
+
+
+def _extract_base_iri(text: str) -> str:
+    base_match = re.search(r"(?im)^@base\s*<([^>]+)>", text)
+    if not base_match:
+        base_match = re.search(r"(?im)^base\s*<([^>]+)>", text)
+    if not base_match:
+        base_match = re.search(r"<([^>]+)>\s+a\s+owl:Ontology", text)
+    if not base_match:
+        base_match = re.search(
+            r"<([^>]+)>\s+a\s+<http://www\.w3\.org/2002/07/owl#Ontology>",
+            text,
+        )
+    iri = base_match.group(1) if base_match else "http://example.org/ontology#"
+    if not iri.endswith(("#", "/")):
+        iri = iri.rstrip("/") + "#"
+    return iri
+
+
+def _ensure_prefixes(text: str) -> str:
+    if not text:
+        return text
+    prefix_map = {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+    }
+    base_iri = _extract_base_iri(text)
+    prefix_lines = []
+    if _prefix_in_use(text, ":") and not _prefix_declared(text, ":"):
+        prefix_lines.append(f"@prefix : <{base_iri}> .")
+    for prefix, iri in prefix_map.items():
+        if _prefix_in_use(text, prefix) and not _prefix_declared(text, prefix):
+            prefix_lines.append(f"@prefix {prefix}: <{iri}> .")
+    if not prefix_lines:
+        return text
+    lines = text.splitlines()
+    insert_idx = 0
+    while insert_idx < len(lines):
+        stripped = lines[insert_idx].strip()
+        if stripped.startswith(("@prefix", "PREFIX", "@base", "BASE")):
+            insert_idx += 1
+            continue
+        break
+    new_lines = lines[:insert_idx] + prefix_lines + lines[insert_idx:]
+    return "\n".join(new_lines).strip()
 
 
 @app.post("/generate_ontology", response_model=OntologyGenerationResponse)

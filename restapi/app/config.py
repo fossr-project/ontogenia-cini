@@ -39,7 +39,7 @@ EXTERNAL_ONTOLOGY_SERVICE_URL = os.getenv(
 )
 ONTOLOGY_EXTERNAL_TIMEOUT = float(os.getenv("ONTOLOGY_EXTERNAL_TIMEOUT", "300"))
 OOPS_API_URL = os.getenv("OOPS_API_URL", "")
-OOPS_API_MODE = os.getenv("OOPS_API_MODE", "text")  # text|file|url
+OOPS_API_MODE = os.getenv("OOPS_API_MODE", "text")  # text|file|url|xml
 OOPS_API_TIMEOUT = float(os.getenv("OOPS_API_TIMEOUT", "60"))
 ONTOLOGY_LLM_EVAL_PROMPT_PATH = os.getenv(
     "ONTOLOGY_LLM_EVAL_PROMPT_PATH",
