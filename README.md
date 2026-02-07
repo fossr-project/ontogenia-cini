@@ -53,7 +53,7 @@ CQs are natural language questions used by ontology engineers to define and vali
 | `restapi/cq_generator_app.py`    | Example CQ generation application compatible with the API. |
 | `restapi/bench4ke-validate-ui.py`| Web UI for CQ validation and ontology generation/benchmarking. |
 | `WordNet/`                       | WordNet files required by the OOPS! Docker image. |
-| `HermiT/`                        | Optional local HermiT JAR for NeOn consistency checks. |
+| `HermiT/`                        | Optional local HermiT JAR for NeOn consistency checks (not bundled; download separately). |
 | `restapi/tests/`                 | Tests for the API and utilities. |
 | `restapi/tutorial/`              | Tutorial materials to use the API. |
 
@@ -82,6 +82,17 @@ Optional with defaults:
 Optional (NeOn pipelines):
 - `HERMIT_AUTO=true` enables best-effort local HermiT checks if a JAR is found in `HermiT/`
 - `HERMIT_STRIP_REMOTE_IMPORTS=1` (default) strips remote `owl:imports` before invoking HermiT to avoid network-dependent failures
+
+### HermiT (optional)
+NeOn-GPT pipelines can optionally run a logical consistency check with the HermiT reasoner. This repository does not bundle HermiT binaries.
+
+To enable local checks:
+1. Download the HermiT ZIP from `http://www.hermit-reasoner.com/`.
+2. Extract the JAR (e.g. `HermiT.jar` or `org.semanticweb.HermiT.jar`).
+3. Create a folder `HermiT/` at the repo root and place the JAR inside it.
+4. Set `HERMIT_AUTO=true` (and optionally keep `HERMIT_STRIP_REMOTE_IMPORTS=1`).
+
+If HermiT is not installed, consistency checks are skipped (generation and the other metrics still run).
 
 Activate the `.env` before running services:
 
