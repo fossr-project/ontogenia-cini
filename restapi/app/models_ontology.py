@@ -22,7 +22,7 @@ class OntologyGenerationItem(BaseModel):
 
 
 class OntologyBenchmarkRequest(BaseModel):
-    system: Optional[str] = Field(default=None, description="ontogenia|domain-ontogen|neon-gpt|all")
+    system: Optional[str] = Field(default=None, description="ontogenia|ontogenia-mp|domain-ontogen|neon-gpt|neon-gpt-llms4life|all")
     use_default_dataset: bool = False
     dataset_path: Optional[str] = None
     items: Optional[List[OntologyGenerationItem]] = None
@@ -30,6 +30,10 @@ class OntologyBenchmarkRequest(BaseModel):
     model: Optional[str] = None
     evaluation_mode: str = Field(default="all", description="all|ontometrics|oops|llm or comma-separated")
     llm_eval_model: Optional[str] = None
+    domain_ontogen_mode: str = Field(
+        default="per_item",
+        description="How to handle Domain-OntoGen items with multiple CQs: per_item (merge) or per_cq (independent ontology per CQ, paper-style).",
+    )
     max_items: int = 0
     save_results: bool = True
 

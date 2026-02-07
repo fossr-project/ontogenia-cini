@@ -20,7 +20,7 @@ CQs are natural language questions used by ontology engineers to define and vali
 
 ## Key Features
 
-- A gold standard dataset derived from real-world ontology engineering projecs  
+- A gold standard dataset derived from real-world ontology engineering projects  
 - Multiple evaluation metrics:
   - Cosine Similarity
   - BERTScore-F1
@@ -31,6 +31,12 @@ CQs are natural language questions used by ontology engineers to define and vali
   - LLM-based semantic analysis (via OpenAI models)
 - Visual heatmaps for comparing generated and manually crafted CQs
 - Ontology generation benchmarking:
+  - Multiple ontology-generation systems exposed via a stable API contract:
+    - `ontogenia` (Memoryless CQ-by-CQ)
+    - `ontogenia-mp` (incremental prompting / Ontogenia-style)
+    - `domain-ontogen` (Domain-OntoGen)
+    - `neon-gpt` (NeOn-GPT with tool-driven repair loops)
+    - `neon-gpt-llms4life` (NeOn-GPT Extended / LLMs4Life paper pipeline)
   - OntoMetrics-style structural metrics
   - OOPS! pitfall detection
   - LLM-based evaluation (OE-Assist prompt with yes/no + SPARQL)
@@ -40,12 +46,16 @@ CQs are natural language questions used by ontology engineers to define and vali
 
 | File / Folder             | Description |
 |--------------------------|-------------|
-| `app/`                   | Contains the FastAPI application modules and related components. |
-| `benchmarkdataset.csv`   | This is the gold standard dataset of manually crafted CQs used for evaluation. |
-| `tests/`                 | Directory for test cases and testing utilities. |
-| `tutorial/`              | Tutorial materials to use the API. |
-| `cq_generator_app.py`    | Example of a CQ generation application that is compatible with the API. |
-| `bench4ke-validate-ui.py`| Web interface built on the API. |
+| `restapi/app/`                   | FastAPI application (CQ validation + ontology benchmark runner). |
+| `restapi/app/benchmarkdataset.csv` | Gold standard dataset of manually crafted CQs used for evaluation. |
+| `datasets/ontology_generation/`  | Ontology-generation datasets (normalized JSONL) + prompts. |
+| `restapi/ontology_adapter.py`    | Ontology generation adapter (implements the five systems listed above). |
+| `restapi/cq_generator_app.py`    | Example CQ generation application compatible with the API. |
+| `restapi/bench4ke-validate-ui.py`| Web UI for CQ validation and ontology generation/benchmarking. |
+| `WordNet/`                       | WordNet files required by the OOPS! Docker image. |
+| `HermiT/`                        | Optional local HermiT JAR for NeOn consistency checks. |
+| `restapi/tests/`                 | Tests for the API and utilities. |
+| `restapi/tutorial/`              | Tutorial materials to use the API. |
 
 ## Configuration (.env)
 
@@ -66,6 +76,12 @@ Optional with defaults:
 - `EXTERNAL_CQ_GENERATION_URL` defaults to `http://127.0.0.1:8001/newapi`
 - `EXTERNAL_ONTOLOGY_SERVICE_URL` defaults to `http://127.0.0.1:8020/generate_ontology`
 - `ONTOLOGY_SYSTEM` defaults to `ontogenia`
+- `ONTOLOGY_EXTERNAL_TIMEOUT` defaults to `300` seconds
+- `OOPS_AFFECTED_ELEMENTS_MAX` defaults to `50` (caps affected-element samples in parsed OOPS output)
+
+Optional (NeOn pipelines):
+- `HERMIT_AUTO=true` enables best-effort local HermiT checks if a JAR is found in `HermiT/`
+- `HERMIT_STRIP_REMOTE_IMPORTS=1` (default) strips remote `owl:imports` before invoking HermiT to avoid network-dependent failures
 
 Activate the `.env` before running services:
 
@@ -114,19 +130,33 @@ pip install -r requirements.txt
 Start the Bench4KE API:
 ```bash
 cd restapi
-python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+python3 -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
 Start the CQ generator service (for CQ validation):
 ```bash
 cd restapi
-python cq_generator_app.py
+python3 cq_generator_app.py
 ```
 
 Start the ontology adapter (for ontology benchmarking):
 ```bash
 cd restapi
-python ontology_adapter.py
+python3 ontology_adapter.py
+```
+
+### 3b. (Optional) Direct ontology generation (adapter API)
+You can call the adapter directly (useful for quick smoke tests without running metrics):
+```bash
+curl -s -X POST http://127.0.0.1:8020/generate_ontology \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "system": "ontogenia",
+    "dataset_id": "smoke-ui-1",
+    "scenario": "Wine domain.",
+    "competency_questions": ["Which grape varieties are used in a specific wine?"],
+    "metadata": {"model":"gpt-4o-mini"}
+  }' | python3 -m json.tool
 ```
 
 ### 4. CQ Validation
@@ -153,9 +183,13 @@ curl -X POST http://127.0.0.1:8000/ontology/run \
   -H "Content-Type: application/json" \
   -d '{
     "use_default_dataset": true,
+    "system": "ontogenia",
+    "max_items": 5,
     "evaluation_mode": "all",
     "external_service_url": "http://127.0.0.1:8020/generate_ontology",
-    "save_results": true
+    "save_results": true,
+    "model": "gpt-4o-mini",
+    "llm_eval_model": "gpt-4o-mini"
   }'
 ```
 
@@ -164,13 +198,48 @@ Results are saved under:
 restapi/outputs/ontology_benchmark/
 ```
 
+Paper-faithful Domain-OntoGen mode (one ontology per CQ):
+```bash
+curl -X POST http://127.0.0.1:8000/ontology/run \
+  -H "Content-Type: application/json" \
+  -d '{
+    "use_default_dataset": true,
+    "system": "domain-ontogen",
+    "domain_ontogen_mode": "per_cq",
+    "max_items": 1,
+    "evaluation_mode": "all",
+    "external_service_url": "http://127.0.0.1:8020/generate_ontology",
+    "save_results": true,
+    "model": "gpt-4o-mini",
+    "llm_eval_model": "gpt-4o-mini"
+  }'
+```
+
 ### 6. Web UI
 Launch the UI:
 ```bash
 cd restapi
-python bench4ke-validate-ui.py
+python3 bench4ke-validate-ui.py
 ```
-Open `http://127.0.0.1:5000` and use the CQ Validation or Ontology Benchmark tabs.
+Open `http://127.0.0.1:5000` and use the tabs:
+- **CQ Validation**: validates external CQ generators against the default dataset
+- **Ontology Generate**: calls the ontology adapter directly with a custom payload
+- **Ontology Benchmark**: runs the full benchmark (generation + metrics) and saves artifacts
+
+In the **Ontology Benchmark** tab:
+- **Dataset path (optional)**: point to a single normalized `.jsonl` (e.g. `datasets/ontology_generation/normalized/ontogenia.jsonl`) or to a directory containing multiple `.jsonl` files. If empty, the API uses `ONTOLOGY_DATASET_DIR`.
+- **Inline items (JSON, optional)**: run a custom list of items without touching the on-disk datasets. Example:
+
+    ```json
+    [
+      {
+        "system": "ontogenia",
+        "dataset_id": "ui-smoke-1",
+        "scenario": "Wine domain.",
+        "competency_questions": ["Which grape varieties are used in a specific wine?"]
+      }
+    ]
+    ```
 
 ## Citation
 ```

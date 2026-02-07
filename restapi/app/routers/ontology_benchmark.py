@@ -2,6 +2,7 @@ import json
 import re
 import time
 import uuid
+from collections import defaultdict
 from pathlib import Path
 from typing import Optional
 
@@ -89,6 +90,43 @@ def run_ontology_benchmark(
     if not items:
         raise HTTPException(status_code=400, detail="No dataset items to process.")
 
+    # Domain-OntoGen paper uses an "Independent Ontology Generation" protocol (one ontology per CQ).
+    # Our default benchmark item format is one story/scenario with multiple CQs. When requested, we
+    # expand Domain-OntoGen items into per-CQ items (paper-style) while keeping the external API
+    # contract unchanged.
+    domain_ontogen_mode = (req.domain_ontogen_mode or "per_item").strip().lower()
+    if domain_ontogen_mode not in {"per_item", "per_cq"}:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid domain_ontogen_mode. Use 'per_item' or 'per_cq'.",
+        )
+
+    if domain_ontogen_mode == "per_cq":
+        expanded = []
+        for item in items:
+            if (item.system or "").strip().lower() != "domain-ontogen":
+                expanded.append(item)
+                continue
+            if len(item.competency_questions) <= 1:
+                expanded.append(item)
+                continue
+            base_id = item.dataset_id or item.scenario_id or "item"
+            for cq_idx, cq in enumerate(item.competency_questions, start=1):
+                # Keep the story, but generate an ontology per CQ (independent).
+                md = dict(item.metadata or {})
+                md.setdefault("domain_ontogen_cq_index", cq_idx)
+                md.setdefault("domain_ontogen_cq_text", cq)
+                expanded.append(
+                    item.copy(
+                        update={
+                            "dataset_id": f"{base_id}__cq{cq_idx}",
+                            "competency_questions": [cq],
+                            "metadata": md,
+                        }
+                    )
+                )
+        items = expanded
+
     external_url = req.external_service_url or EXTERNAL_ONTOLOGY_SERVICE_URL
 
     run_dir = None
@@ -109,6 +147,11 @@ def run_ontology_benchmark(
 
     llm_aggregate_yes = 0
     llm_aggregate_total = 0
+    # Aggregation required by the project spec: percentage of yes/no per dataset/system/model.
+    # We track both generator model (ontology generation) and eval model (OE-Assist).
+    llm_aggregate_by_group: dict[
+        tuple[str, str, str, str], dict[str, int]
+    ] = defaultdict(lambda: {"yes": 0, "no": 0, "total": 0, "items": 0})
 
     results = []
     for idx, item in enumerate(items, start=1):
@@ -130,6 +173,7 @@ def run_ontology_benchmark(
             ontology = response.get("ontology") or {}
             content = ontology.get("content") or ""
             ontology_format = (ontology.get("format") or "ttl").lstrip(".")
+            response_metadata = response.get("metadata") or {}
 
             ontology_file = None
             if req.save_results and run_dir:
@@ -209,6 +253,26 @@ def run_ontology_benchmark(
                     if llm_eval_summary:
                         llm_aggregate_yes += llm_eval_summary.get("yes", 0)
                         llm_aggregate_total += llm_eval_summary.get("total", 0)
+                        # Group aggregation: dataset_name/system/generator_model/eval_model.
+                        dataset_name = "inline"
+                        if item.metadata and item.metadata.get("dataset_name"):
+                            dataset_name = str(item.metadata.get("dataset_name"))
+                        generator_model = (
+                            str(response_metadata.get("model"))
+                            if response_metadata.get("model")
+                            else str((payload.get("metadata") or {}).get("model") or req.model or "unknown")
+                        )
+                        group_key = (
+                            dataset_name,
+                            str(item_system or "unknown"),
+                            generator_model,
+                            str(llm_model or "unknown"),
+                        )
+                        g = llm_aggregate_by_group[group_key]
+                        g["yes"] += int(llm_eval_summary.get("yes", 0))
+                        g["no"] += int(llm_eval_summary.get("no", 0))
+                        g["total"] += int(llm_eval_summary.get("total", 0))
+                        g["items"] += 1
 
             results.append(
                 OntologyRunItemResult(
@@ -241,6 +305,7 @@ def run_ontology_benchmark(
             "model_override": req.model,
             "evaluation_mode": req.evaluation_mode,
             "llm_eval_model": req.llm_eval_model or ONTOLOGY_LLM_EVAL_MODEL,
+            "domain_ontogen_mode": domain_ontogen_mode,
             "oops_api_url": OOPS_API_URL or None,
         }
         (run_dir / "run_metadata.json").write_text(
@@ -256,9 +321,29 @@ def run_ontology_benchmark(
                 "yes_ratio": llm_aggregate_yes / llm_aggregate_total,
             }
 
+        llm_aggregate_by_dataset_system_model = []
+        for (dataset_name, system_name, generator_model, eval_model), counts in sorted(
+            llm_aggregate_by_group.items()
+        ):
+            total = counts["total"]
+            llm_aggregate_by_dataset_system_model.append(
+                {
+                    "dataset_name": dataset_name,
+                    "system": system_name,
+                    "generator_model": generator_model,
+                    "eval_model": eval_model,
+                    "yes": counts["yes"],
+                    "no": counts["no"],
+                    "total": total,
+                    "yes_ratio": (counts["yes"] / total) if total else 0.0,
+                    "items": counts["items"],
+                }
+            )
+
         summary = {
             "results": [r.dict() for r in results],
             "llm_eval_aggregate": llm_aggregate,
+            "llm_eval_aggregate_by_dataset_system_model": llm_aggregate_by_dataset_system_model,
         }
         results_file = run_dir / "summary.json"
         results_file.write_text(json.dumps(summary, indent=2), encoding="utf-8")

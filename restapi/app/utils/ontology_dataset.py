@@ -34,6 +34,11 @@ def _load_jsonl_file(path: Path) -> List[OntologyGenerationItem]:
             except json.JSONDecodeError as exc:
                 raise ValueError(f"Invalid JSON on line {line_no} in {path}: {exc}") from exc
             item_payload = _normalize_payload(payload)
+            # Preserve dataset provenance so the benchmark can aggregate results
+            # by dataset/system/model (as required by the project spec).
+            metadata = dict(item_payload.get("metadata") or {})
+            metadata.setdefault("dataset_name", path.name)
+            item_payload["metadata"] = metadata
             try:
                 items.append(OntologyGenerationItem(**item_payload))
             except Exception as exc:

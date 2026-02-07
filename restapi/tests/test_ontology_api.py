@@ -407,6 +407,62 @@ def test_ontology_run_oops_skipped_when_no_url(monkeypatch, tmp_path):
     assert oops_data.get("skipped") is True
 
 
+def test_ontology_run_domain_ontogen_per_cq_expands_items(monkeypatch, tmp_path):
+    import app.routers.ontology_benchmark as ontology_benchmark
+
+    ttl = (
+        "@prefix : <http://example.org/> .\n"
+        "@prefix owl: <http://www.w3.org/2002/07/owl#> .\n"
+        ":Test a owl:Class .\n"
+    )
+
+    calls = {"n": 0, "payloads": []}
+
+    def stub_external_service(payload, external_url, timeout):
+        calls["n"] += 1
+        calls["payloads"].append(payload)
+        return {"ontology": {"format": "ttl", "content": ttl}, "metadata": {"model": "stub"}}
+
+    def stub_llm_eval(**kwargs):
+        results = [{"label": "yes", "sparql": "SELECT * WHERE { ?s ?p ?o }"}]
+        summary = {"yes": 1, "no": 0, "total": 1, "yes_ratio": 1.0}
+        return results, summary
+
+    monkeypatch.setattr(
+        ontology_benchmark, "call_external_ontology_service", stub_external_service
+    )
+    monkeypatch.setattr(ontology_benchmark, "evaluate_ontology_with_llm", stub_llm_eval)
+    monkeypatch.setattr(ontology_benchmark, "ONTOLOGY_RUNS_DIR", str(tmp_path))
+
+    payload = {
+        "items": [
+            {
+                "dataset_id": "item-1",
+                "system": "domain-ontogen",
+                "scenario": "Story",
+                "competency_questions": ["CQ1", "CQ2", "CQ3"],
+            }
+        ],
+        "domain_ontogen_mode": "per_cq",
+        "evaluation_mode": "llm",
+        "save_results": True,
+    }
+
+    response = client.post("/ontology/run", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+
+    assert calls["n"] == 3
+    assert len(data["results"]) == 3
+    for p in calls["payloads"]:
+        assert p["system"] == "domain-ontogen"
+        assert len(p["competency_questions"]) == 1
+
+    with open(data["results_saved_to"], "r", encoding="utf-8") as handle:
+        summary = json.load(handle)
+    assert summary["llm_eval_aggregate"]["total"] == 3
+
+
 def test_ontology_run_external_error(monkeypatch, tmp_path):
     import app.routers.ontology_benchmark as ontology_benchmark
 
