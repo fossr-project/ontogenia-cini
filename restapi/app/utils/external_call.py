@@ -2,16 +2,22 @@ import pandas as pd
 import requests
 from io import StringIO
 
-def call_external_cq_generation_service(df: pd.DataFrame, external_service_url: str) -> pd.DataFrame:
+def call_external_cq_generation_service(
+    df: pd.DataFrame,
+    external_service_url: str,
+    llm_provider: str = "openai",
+    model: str = None,
+) -> pd.DataFrame:
     """
     Calls an external CQ generation service to add a 'generated' column to the dataframe.
     """
     csv_data = df.to_csv(index=False)
-    files = {
-        "file": ("benchmarkdataset.csv", csv_data, "text/csv")
-    }
+    files = {"file": ("benchmarkdataset.csv", csv_data, "text/csv")}
+    data = {"llm_provider": llm_provider}
+    if model:
+        data["model"] = model
     try:
-        response = requests.post(external_service_url, files=files)
+        response = requests.post(external_service_url, files=files, data=data)
     except Exception as e:
         raise Exception(f"Error calling external CQ generation service: {e}")
 

@@ -40,6 +40,10 @@ CQs are natural language questions used by ontology engineers to define and vali
 | [**`restapi/`**](./restapi) | *Core directory containing the service and logic.* |
 | ↳ [`app/`](./restapi/app) | Contains the FastAPI application modules and related components. |
 | &nbsp;&nbsp; ↳ [`benchmarkdataset.csv`](./restapi/app/benchmarkdataset.csv) | The gold standard dataset of manually crafted CQs used for evaluation. |
+| &nbsp;&nbsp; ↳ [`services/hit_rate_evaluator.py`](./restapi/app/services/hit_rate_evaluator.py) | Service for computing hit rate coverage of generated CQs. |
+| &nbsp;&nbsp; ↳ [`utils/llm_clients.py`](./restapi/app/utils/llm_clients.py) | Unified LLM client utilities supporting multiple providers. |
+| ↳ [`ontology_sources.py`](./restapi/ontology_sources.py) | Definitions of ontology source configurations. |
+| ↳ [`ontology_triple_provider.py`](./restapi/ontology_triple_provider.py) | Retrieves and provides triples from ontology sources. |
 | ↳ [`tests/`](./restapi/tests) | Directory for test cases and testing utilities. |
 | ↳ [`tutorial/`](./restapi/tutorial) | Tutorial materials to use the API. |
 | ↳ [`bench4ke-validate-ui.py`](./restapi/bench4ke-validate-ui.py) | Web interface built on the API. |

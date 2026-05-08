@@ -11,3 +11,7 @@ openai==1.76.2
 python-dotenv==1.1.0
 scikit_learn==1.6.1
 uvicorn==0.34.2
+sentence-transformers==3.4.1
+bert-score==0.3.13
+rouge-score==0.1.2
+nltk==3.9.1

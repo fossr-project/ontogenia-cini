@@ -1,3 +1,12 @@
 # Prevent Python compiled files from being tracked
 __pycache__/
 *.pyc
+
+# Environment variables
+.env
+
+# Generated results
+results/
+
+# macOS
+.DS_Store
