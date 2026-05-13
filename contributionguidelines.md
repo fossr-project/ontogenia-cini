@@ -4,6 +4,7 @@ Welcome to **Bench4KE**!
 
 Thank you for your interest in contributing. Whether you are a developer, researcher, or practitioner in Knowledge Engineering, your contributions are highly valued. Before you start, please take a moment to read these guidelines to help keep contributions consistent and easy to review.
 
+If you’d like to contribute or help us organize a challenge, please fill out this form: [Contribution Form](https://forms.gle/WvhxJtaGzxzjbHnY8)
 ---
 
 ## 1. How to Contribute?
