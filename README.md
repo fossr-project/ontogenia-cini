@@ -32,6 +32,8 @@ CQs are natural language questions used by ontology engineers to define and vali
 - Visual heatmaps for comparing generated and manually crafted CQs
 - Modular and extensible architecture to support the upload of a custom dataset, additional KE tasks and other evaluation metrics in the future
 
+If you’d like to contribute or help us organize a challenge, please fill out this form: [Contribution Form](https://forms.gle/WvhxJtaGzxzjbHnY8)
+
 
 ## Directory Contents
 
