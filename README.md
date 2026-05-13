@@ -94,11 +94,19 @@ Evaluation results will be saved in your terminal and/or served via the app's UI
 
 ## Citation
 ```
-@misc{bench4ke_2025,
-  title        = {{Bench4KE}: A Benchmarking System for Evaluating LLM-based Competency Question Generation},
-  howpublished = {\url{https://github.com/fossr-project/ontogenia-cini}},
-  note         = {Commit accessed 29~Apr~2025},
-  year         = {2025}
+@inproceedings{ciancarini2026bench4ke,
+  author    = {Ciancarini, Paolo and Lippolis, Anna Sofia and Nuzzolese, Andrea Giovanni and Presutti, Valentina and Ragagni, Minh Davide},
+  title     = {{Bench4KE}: Benchmarking Automated Competency Question Generation},
+  booktitle = {The Semantic Web},
+  editor    = {Acosta, Maribel and van Erp, Marieke and Rudolph, Sebastian and Hartig, Olaf and Spahiu, Blerina and Rula, Anisa and Garijo, Daniel and Osborne, Francesco},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {16550},
+  pages     = {212--231},
+  publisher = {Springer},
+  address   = {Cham},
+  year      = {2026},
+  doi       = {10.1007/978-3-032-25159-6_12},
+  isbn      = {978-3-032-25159-6}
 }
 ```
 
