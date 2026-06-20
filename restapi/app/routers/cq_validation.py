@@ -46,6 +46,9 @@ def _run_validation_pipeline(
     evaluator_llm: str,
     tool_llm: str,
 ) -> dict:
+
+    logger.info("Running validation pipeline")
+
     validator = CQValidator(output_folder=output_folder, model=model, validation_mode=validation_mode)
     results = []
     save_interval = save_every if save_every and save_every > 0 else None
@@ -56,6 +59,8 @@ def _run_validation_pipeline(
     if save_results:
         os.makedirs(RESULTS_DIR, exist_ok=True)
         results_file = os.path.join(RESULTS_DIR, f"validation_results_{timestamp}.csv")
+
+    logger.info(">>> CQ Validation <<<")
 
     project_col = "Project Name" if "Project Name" in df.columns else None
 
@@ -124,6 +129,8 @@ def _run_validation_pipeline(
         except Exception as e:
             logger.warning("Aggregate metrics failed: %s", e)
 
+    logger.info(">>> Hit Rate Metric <<<")
+
     # Hit Rate metric
     hit_rate_result = {}
     try:
@@ -139,6 +146,8 @@ def _run_validation_pipeline(
         scenario_context = " ".join(
             str(df[col].dropna().iloc[0]) for col in context_cols if not df[col].dropna().empty
         ) or "No scenario context provided."
+
+        logger.info("\t~ HitRateEvaluator.compute() ~")
 
         hit_rate_result = HitRateEvaluator(threshold=0.6, k=3).compute(
             bench_cqs=bench_cqs,
@@ -160,6 +169,10 @@ def _run_validation_pipeline(
             logger.info("Hit rate saved to %s", hit_rate_path)
         except Exception as e:
             logger.warning("Could not save hit rate to disk: %s", e)
+
+    logger.info(">>> Returning results <<<")
+    logger.info(f"\t Results saved to: {results_file if save_results else 'Not saved'}")
+    logger.info(f"\t Hit rate saved to: {hit_rate_path if save_results else 'Not saved'}")
 
     return {
         "message": "Processing complete",
@@ -188,6 +201,9 @@ async def validate_competency_questions(
     generated_csv_path: str = Form(None),
 ):
     """Validate competency questions against a gold standard benchmark."""
+    
+    logger.info("Received request")
+
     if file is not None:
         try:
             contents = await file.read()
@@ -219,11 +235,17 @@ async def validate_competency_questions(
                 raise HTTPException(status_code=400, detail=f"Error loading generated_csv_path: {e}")
         else:
             try:
+
+                logger.info("Calling external CQ generation service")
+
                 df = call_external_cq_generation_service(
                     df, external_service_url,
                     llm_provider=generator_llm_provider,
                     model=generator_model,
                 )
+
+                logger.info("CQ generation completed")
+
             except Exception as e:
                 raise HTTPException(status_code=500, detail=f"Error calling external CQ generation service: {e}")
 

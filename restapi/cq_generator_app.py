@@ -7,6 +7,11 @@ from io import StringIO, BytesIO
 import os
 import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
+import dotenv
+
+
+dotenv.load_dotenv()
+
 
 openai.api_key = os.getenv("OPENAI_API_KEY", "yourkey")
 
@@ -356,6 +361,29 @@ def generate_with_llm(
             logger.error(f"Ollama error: {e}")
             return f"Error generating CQ with Ollama: {e}"
 
+    elif provider == "openrouter":
+        try:
+            from openai import OpenAI as _OAI
+            openrouter_key = os.getenv("OPENROUTER_KEY", "")
+            client = _OAI(
+                base_url="https://openrouter.ai/api/v1",
+                api_key=openrouter_key,
+            )
+            response = client.chat.completions.create(
+                extra_headers={
+                    "HTTP-Referer": "ke.project.cq_generator_app.unibo.it",
+                    "X-OpenRouter-Title": "CQ-Generator-app",
+                },
+                model=model or "mistralai/mistral-nemo",
+                messages=messages,
+                temperature=0,
+                max_tokens=2000,
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            logger.error(f"OpenRouter error: {e}")
+            return f"Error generating CQ with OpenRouter: {e}"
+
     else:
         return f"Unknown LLM provider: {provider}"
 
@@ -366,6 +394,7 @@ def generate_with_llm(
 def extract_questions(raw: str) -> str:
     """Extract all questions from the structured JSON response into a single string."""
     try:
+        import re
         # Strip markdown code fences if present (e.g. ```json ... ```)
         cleaned = raw.strip()
         if cleaned.startswith("```"):

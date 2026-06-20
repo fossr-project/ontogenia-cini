@@ -1,6 +1,17 @@
 # app/main.py
 from fastapi import FastAPI
 from app.routers import cq_validation
+import dotenv
+import logging
+
+
+dotenv.load_dotenv()
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s | %(name)s | %(levelname)s | %(message)s",
+)
+
 
 app = FastAPI(
     title="CQ Verification and Generation API",

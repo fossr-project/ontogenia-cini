@@ -13,6 +13,11 @@ from fastapi import FastAPI, File, UploadFile, Form, HTTPException, Response
 from fastapi.responses import StreamingResponse
 from io import StringIO, BytesIO
 import openai
+import dotenv
+
+
+dotenv.load_dotenv()
+
 
 # -----------------------------------------------------------------------------
 # Config & logging
@@ -200,6 +205,34 @@ def call_llm(
             logger.exception("Claude error")
             raise HTTPException(status_code=500, detail=f"Claude error: {e}")
 
+    if provider == "openrouter":
+        try:
+            from openai import OpenAI as _OAI
+            openrouter_key = os.getenv("OPENROUTER_KEY", "")
+            client = _OAI(
+                base_url="https://openrouter.ai/api/v1",
+                # base_url=kwargs.get("base_url") or os.getenv("base_url", "https://openrouter.ai/api/v1"),
+                api_key=openrouter_key,
+            )
+            model= os.getenv("OPENROUTER_MODEL", "mistralai/mistral-nemo")
+            resp = client.chat.completions.create(
+                extra_headers={
+                    "HTTP-Referer": "ke.project.kg_generator.unibo.it",
+                    "X-OpenRouter-Title": "KG-Generator",
+                },
+                model=model,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
+            return resp.choices[0].message.content.strip()
+        except Exception as e:
+            logger.error(f"OpenRouter error: {e}")
+            return f"Error generating KG with OpenRouter: {e}"
+
     raise HTTPException(status_code=400, detail=f"Unknown LLM provider: {provider}")
 
 # -----------------------------------------------------------------------------
@@ -277,7 +310,7 @@ def extract_artifacts(text: str) -> Tuple[str, str]:
 @app.post("/kg/generate")
 def generate_kg(
     ontology_uri: str = Form(..., description="HTTP(S) URI of the ontology (TTL/RDF/XML/RDFS/OWL)."),
-    provider: str = Form("openai", description="LLM provider: openai | together | claude"),
+    provider: str = Form("openai", description="LLM provider: openai | together | claude | openrouter"),
     temperature: float = Form(0.2),
     max_tokens: int = Form(2000),
     dataset_url: Optional[str] = Form(None, description="Optional URL to the dataset file."),
@@ -357,7 +390,7 @@ def root():
             "POST /kg/generate": {
                 "form fields": [
                     "ontology_uri (str, required)",
-                    "provider (openai|together|claude, default=openai)",
+                    "provider (openai|together|claude|openrouter, default=openai)",
                     "temperature (float, default=0.2)",
                     "max_tokens (int, default=2000)",
                     "dataset_url (str, optional)",

@@ -65,6 +65,28 @@ def _call_llm(prompt: str, evaluator_llm: str) -> str:
         data = resp.json()
         return data["content"][0]["text"].strip()
 
+    elif evaluator_llm.startswith("meta-llama") or evaluator_llm.startswith("mistralai"):  # Openrouter handler
+        from openai import OpenAI as _OAI
+        client = _OAI(
+            base_url="https://openrouter.ai/api/v1",  # base_url=kwargs.get("base_url") or os.getenv("base_url", "https://openrouter.ai/api/v1"),
+            # base_url=os.getenv("base_url", "https://openrouter.ai/api/v1"),  # "https://openrouter.ai/api/v1",
+            api_key=os.getenv("OPENROUTER_KEY", ""),  # openrouter_key,
+        )
+        response = client.chat.completions.create(
+            extra_headers={
+                "HTTP-Referer": "ke.project.hit_rate_evaluator.unibo.it",
+                "X-OpenRouter-Title": "Hit-Rate-Evaluator",
+            },
+            model=evaluator_llm,
+            messages=[
+                {"role": "system", "content": "You are an ontology engineering expert specialising in competency questions."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.7,
+            max_tokens=600,
+        )
+        return response.choices[0].message.content.strip()
+
     elif evaluator_llm.startswith("ollama/"):
         # Ollama local/remote — model string format: "ollama/<model_name>"
         model_name = evaluator_llm[len("ollama/"):]
@@ -173,6 +195,18 @@ class HitRateEvaluator:
         evaluator_llm: str,
         tool_llm: str = None,
     ) -> dict:
+        
+
+        logger.info(f"")
+        logger.info(f"parameters:")
+        logger.info(f"  - threshold: {self.threshold}")
+        logger.info(f"  - k: {self.k}")
+        logger.info(f"  - bench_cqs: {len(bench_cqs)}")
+        logger.info(f"  - tool_cqs: {len(tool_cqs)}")
+        logger.info(f"  - scenario_context: {scenario_context}")
+        logger.info(f"  - evaluator_llm: {evaluator_llm}")
+        logger.info(f"  - tool_llm: {tool_llm}")
+
         if not bench_cqs:
             raise ValueError("bench_cqs cannot be empty.")
         if not tool_cqs:

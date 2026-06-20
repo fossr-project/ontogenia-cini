@@ -40,6 +40,35 @@ class OpenAIAdapter(BaseLLMClient):
         except Exception:
             return getattr(resp, "text", str(resp))
 
+class OpenrouterAdapter(BaseLLMClient):
+    def __init__(self, api_key: Optional[str] = None, base_url: Optional[str] = None):
+        try:
+            from openai import OpenAI
+        except Exception as e:
+            raise RuntimeError("OpenAI SDK not available (install `openai`).") from e
+        kwargs = {}
+        if api_key:
+            kwargs["api_key"] = api_key
+        if base_url:
+            kwargs["base_url"] = base_url
+        self.client = OpenAI(**kwargs) if kwargs else OpenAI()
+
+    def chat_completion(self, messages, model: str, max_tokens: int = 3000, temperature: float = 0) -> str:
+        resp = self.client.chat.completions.create(
+            extra_headers={
+                "HTTP-Referer": "ke.project.utils.llm_clients.unibo.it",
+                "X-OpenRouter-Title": "LLM-Clients",
+            },
+            model=model,
+            messages=messages,
+            max_tokens=max_tokens,
+            temperature=temperature,
+        )
+        try:
+            return resp.choices[0].message.content.strip()
+        except Exception:
+            return getattr(resp, "text", str(resp))
+
 
 class TogetherAIAdapter(BaseLLMClient):
     """Together.ai via its OpenAI-compatible endpoint."""
@@ -155,6 +184,12 @@ def get_llm_client(provider: Optional[str] = None, **kwargs) -> BaseLLMClient:
         return OpenAIAdapter(
             api_key=kwargs.get("api_key") or os.getenv("OPENAI_API_KEY"),
             base_url=kwargs.get("base_url"),
+        )
+    if provider == "openrouter":
+        return OpenrouterAdapter(
+            api_key=kwargs.get("api_key") or os.getenv("OPENROUTER_KEY"),
+            base_url="https://openrouter.ai/api/v1",
+            # base_url=kwargs.get("base_url") or os.getenv("base_url", "https://openrouter.ai/api/v1"),
         )
     if provider in ("together", "togetherai", "together.ai"):
         return TogetherAIAdapter(api_key=kwargs.get("api_key") or os.getenv("TOGETHER_API_KEY"))
