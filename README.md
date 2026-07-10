@@ -32,8 +32,21 @@ CQs are natural language questions used by ontology engineers to define and vali
 - Visual heatmaps for comparing generated and manually crafted CQs
 - Modular and extensible architecture to support the upload of a custom dataset, additional KE tasks and other evaluation metrics in the future
 
-If you’d like to contribute or help us organize a challenge, please fill out this form: [Contribution Form](https://forms.gle/WvhxJtaGzxzjbHnY8)
+## Knowledge Engineering Automation Challenge
 
+For the KEAC CQ Challenge, the metrics and overall scoring function are derived from AskCQ and the Bench4KE hitrate. We refer to the reference below for a detailed discussion of the metrics and their rationale.
+
+Reference:
+Alharbi, R., Tamma, V., Payne, T.R., de Berardinis, J. (2026). A Comparative Study  of Competency Question Elicitation Methods from Ontology Requirements. In: Acosta, M., 
+et al. The Semantic Web. ESWC 2026. Lecture Notes in Computer Science, vol 16549.  Springer, Cham. https://doi.org/10.1007/978-3-032-25156-5_4
+
+Functions included:
+- Sentence-BERT Embedding Generation
+- Coverage (Cov) / Hit Rate
+- Mean Maximum Similarity (Prec_MMS)
+- Average Centroid Distance (ACD)
+- Verbosity Penalty (VP)
+- Final Ranking Score (S)
 
 ## Directory Contents
 
