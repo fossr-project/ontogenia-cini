@@ -1,0 +1,80 @@
+gold standard,generated
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)
+,"{
+  ""clusters"": [
+    {
+      ""label"": ""Wine Production & Grape Varieties"",
+      ""rationale"": ""Questions about how wines are made and which grape varieties are used."",
+      ""questions"": [
+        {
+          ""id"": ""CQ1"",
+          ""question"": ""Which wines are made from Pinot Noir?"",
+          ""pattern"": ""Relational"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the madeFromGrape property.""
+        },
+        {
+          ""id"": ""CQ2"",
+          ""question"": ""Which wines are produced by a winery?"",
+          ""pattern"": ""Relational"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Relates wines to their makers.""
+        },
+        {
+          ""id"": ""CQ23"",
+          ""question"": ""Which grape varieties are used in Bordeaux wines?"",
+          ""pattern"": ""Relational"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Combines region and grape variety.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Characteristics"",
+      ""rationale"": ""Questions about sensory and compositional attributes of wines."",
+      ""questions"": [
+        {
+          ""id"": ""CQ3"",
+          ""question"": ""How much sugar does a wine contain?"",
+          ""pattern"": ""Aggregation"",
+          ""expected_answer_type"": ""value"",
+          ""notes"": ""Retrieves the sugar measurement.""
+        },
+        {
+          ""id"": ""CQ4"",
+          ""question"": ""What wine has the lowest sugar content?"",
+          ""pattern"": ""Aggregation"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Identifies the minimum sugar value.""
+        },
+        {
+          ""id"": ""CQ5"",
+          ""question"": ""Which wines have a full body?"",
+          ""pattern"": ""Classification"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Filters by body descriptor.""
+        },
+        {
+          ""id"": ""CQ6"",
+          ""question"": ""Which wines are dry?"",
+          ""pattern"": ""Classification"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Filters by dryness.""
+        },
+        {
+          ""id"": ""CQ7"",
+          ""question"": ""Which wines are sweet?"",
+          ""pattern"": ""Classification"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Filters by sweetness.""
+        },
+        {
+          ""id"": ""CQ8"",
+          ""question"": ""Which wines have a specific flavor?"",
+          ""pattern"": ""Relational"",
+          ""expected_answer_type"":"
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)

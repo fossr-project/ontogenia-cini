@@ -1,0 +1,64 @@
+gold standard,generated
+,What type of wine is a Margaux? Is a RedBordeaux a type of wine? Is a wine made from the Semillon grape? What is the flavor of a wine made from the CabernetSauvignon grape? Is the Bordeaux region a wine-producing region? What type of wine is produced in the Loire region? What is the sugar level of a wine?
+,What type of wine is Margaux? Is Anjou a type of wine? What types of wine are produced in Bordeaux? What is the flavor of RedBordeaux? What is the color of PetiteSyrah? What is the sugar level of SweetRiesling? Which wine is made from CabernetSauvignon? What wine is produced in Burgundy? What wine is produced in Bordeaux? What region produces Merlot? What region produces Chardonnay? What region produces PinotNoir? What is the body of a wine?
+,What type of wine is a Margaux? Is a RedBordeaux a type of wine? What types of wines are classified as DryWine? What flavor does a CabernetSauvignon have? What color is a RedWine? Where is a Merlot produced? What region produces a Chianti? What is the body of a wine?
+,"Based on the provided ontology, I will generate competency questions that reflect relevant conceptual and informational needs. I will use the patterns and instructions provided earlier to ensure clarity, abstraction, and generality.
+
+**Cluster 1: Wine Classification**
+
+* Label: Wine Classification
+* Rationale: This cluster focuses on the classification of wines based on their characteristics, origin, and type.
+* Questions:
+	+ CQ1: Which wines are classified as RedBordeaux?
+		- Pattern: Which [class expression 1][class expression 2]?
+		- Expected answer type: entity_list
+	+ CQ2: What type of wine is Merlot?
+		- Pattern: What type of [class expression] is [individual]?
+		- Expected answer type: classification
+	+ CQ3: Which wines are classified as DryWine?
+		- Pattern: Which [class expressions]?
+		- Expected answer type: entity_list
+
+**Cluster 2: Wine Characteristics**
+
+* Label: Wine Characteristics
+* Rationale: This cluster focuses on the characteristics of wines, such as their flavor, body, and sugar content.
+* Questions:
+	+ CQ4: What flavor does a Margaux wine have?
+		- Pattern: What [class expression] has the [numeric modifier][datatype property]?
+		- Expected answer type: value
+	+ CQ5: What is the body of a RedBurgundy wine?
+		- Pattern: What [class expression] has the [numeric modifier][datatype property]?
+		- Expected answer type: value
+	+ CQ6: Which wines have a high sugar content?
+		- Pattern: What [class expression] has the [numeric modifier][datatype property]?
+		- Expected answer type: entity_list
+
+**Cluster 3: Wine Origin**
+
+* Label: Wine Origin
+* Rationale: This cluster focuses on the origin of wines, including their region, country, and producer.
+* Questions:
+	+ CQ7: Which wines are produced in the Bordeaux region?
+		- Pattern: Which [class expression 1][class expression 2]?
+		- Expected answer type: entity_list
+	+ CQ8: What is the origin of a Chardonnay wine?
+		- Pattern: What type of [class expression] is [individual]?
+		- Expected answer type: classification
+	+ CQ9: Which wines are produced by a specific winery?
+		- Pattern: Which [class expression 1][class expression 2]?
+		- Expected answer type: entity_list
+
+**Unassigned Questions**
+
+* CQ10: What is the vintage year of a specific wine?
+	+ Pattern: What [class expression] has the [numeric modifier][datatype property]?
+	+ Expected answer type: value
+* CQ11: Which wines are classified as DessertWine?
+	+ Pattern: Which [class expressions]?
+	+ Expected answer type: entity_list
+
+Note that some questions may belong to multiple clusters or may not fit into any cluster. The unassigned questions are those that do not fit into any of the above clusters."
+,What type of wine is Margaux? Is Anjou a type of wine? What types of wine are produced in Bordeaux? What flavor does Margaux have? What wine has a dry body? What wine has a sweet taste? Where is the wine produced? What wine is produced in Burgundy? What wine is made from Cabernet Sauvignon? What is the vintage year of a wine?
+,What type of wine is a Margaux? Is a RedBordeaux a type of wine? What is the flavor of a Merlot? Does a CabernetSauvignon have a specific body? Where is a Margaux located? Is a Bordeaux a type of wine from a specific region? What is the sugar level of a Riesling?
+,Is a Margaux wine? Is a wine a RedBordeaux? Is a wine a DryWine? What is the flavor of a wine? What is the color of a wine? What is the sugar level of a wine? Is a wine made from a specific grape? Is a wine produced in a specific region? What is the vintage year of a wine? Is a wine from the Bordeaux region? Is a wine from the Burgundy region? Is a wine from the Loire region? Is a wine a dessert wine?

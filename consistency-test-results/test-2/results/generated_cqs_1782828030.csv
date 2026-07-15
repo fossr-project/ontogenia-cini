@@ -1,0 +1,448 @@
+gold standard,generated
+,Which wines are produced in Bordeaux? Which regions are adjacent to Burgundy? Which wines are classified as FrenchWine? Is Anjou a subregion of Loire? Which wines are produced in the Loire region? Which wines are made from Cabernet Sauvignon? Which wines are made from Semillon? Which wines are classified as WhiteBordeaux? Which wines are made from Riesling? Which wines are made from Pinot Noir? Which wines are classified as RedWine? Which wines are classified as WhiteWine? Which wines are classified as SweetWine? Which wines are classified as DryWine? Which wines are classified as DessertWine? Which wines have high sugar content? Which wines are classified as FullBodiedWine? Which wines are classified as DryRedWine? Which wines have a fruity flavor? Which wines are classified as IceWine? Which wines are classified as LateHarvest? Which wines have a vintage year of 2010? Which wines are made by a winery located in Bordeaux? Which wines are classified as Vintage? Which wines are made by a winery in California? Which wines are classified as TableWine? Which wines are classified as RedTableWine? Which wines are classified as WhiteTableWine? Which wines are classified as Port? Which wines are classified as Chianti? Which wines have a body classified as light? Which wines are made from grapes harvested in the Loire Valley? Which wines are made from grapes harvested in the Burgundy region? Which wines are made from grapes harvested in the Alsace region? Which wines are made from grapes harvested in the Texas region?
+,Which wines are classified as red Bordeaux? Which wines are produced in the Anjou region? Which wines are made from Cabernet Sauvignon grapes? Which wines belong to the Burgundy region? Which wines are classified as full-bodied? Which wines are made from Semillon grapes? Which wines are classified as dry white wines? Which wines are produced in the Loire Valley? Which wines are classified as dessert wines? Which wines are made from Riesling grapes? What wines have a high body? Which wines have a sweet flavor? Which wines are made from grapes with high sugar content? Which wines have a fruity flavor? Which wines are classified as dry? Which wines have a floral flavor? Which wines are made from grapes with low sugar content? What wines have a high acidity level? Which wines were produced in the vintage year 2015? Which wines are made by a winery located in California? Which wines are made from grapes harvested in the early harvest? Which wines are made from grapes harvested in the late harvest? Which wines are made from grapes harvested in the vintage year 2020? Which wines are made from grapes harvested in the vintage year 2010? Which wines are made from grapes harvested in the vintage year 2018? Which regions are adjacent to Bordeaux? Which regions are adjacent to Burgundy? Which regions are adjacent to the Loire Valley? Which regions are adjacent to Anjou? Which wines are made from Pinot Noir grapes? Which wines are made from Chardonnay grapes? Which wines are made from Gamay grapes? Which wines are made from Sauvignon Blanc grapes? Which wines are made from Chenin Blanc grapes? Which wines are made from Cabernet Franc grapes? Which wines are classified as red table wines? Which wines are classified as white table wines? Which wines are classified as rose wines? Which wines are classified as dry red wines? Which wines are classified as white non-sweet wines? Which wines are made by wineries located in France? Which wines have the highest body level? Which wines have the lowest sugar content? Which wines are made from grapes harvested in the same vintage year as the 2015 vintage? Which wines are made from grapes harvested in regions adjacent to Bordeaux? Which wines are made from grapes harvested in regions adjacent to Burgundy?
+,"```json
+{
+  ""clusters"": [
+    {
+      ""label"": ""Wine Classification by Region and Origin"",
+      ""rationale"": ""Questions about wine categorization based on geographic origin, regional classification, and country-specific wine types."",
+      ""questions"": [
+        {
+          ""id"": ""CQ1"",
+          ""question"": ""Which wines are produced in Bordeaux?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Focuses on regional classification (Bordeaux as a broader category).""
+        },
+        {
+          ""id"": ""CQ2"",
+          ""question"": ""Which wines belong to the Burgundy region?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets Burgundy as a distinct regional classification.""
+        },
+        {
+          ""id"": ""CQ3"",
+          ""question"": ""Which wines are classified as French wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Covers country-level classification.""
+        },
+        {
+          ""id"": ""CQ4"",
+          ""question"": ""Which wines are produced in the Loire Valley?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets a specific sub-region within France.""
+        },
+        {
+          ""id"": ""CQ5"",
+          ""question"": ""Which wines are produced in California?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets a non-European wine-producing region.""
+        },
+        {
+          ""id"": ""CQ6"",
+          ""question"": ""Which wines are classified as American wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Covers broader regional classification (e.g., USA).""
+        },
+        {
+          ""id"": ""CQ7"",
+          ""question"": ""Which wines are produced in the Medoc region?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets a sub-region within Bordeaux.""
+        },
+        {
+          ""id"": ""CQ8"",
+          ""question"": ""Which wines are produced in the Anjou region?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets a sub-region within Loire.""
+        },
+        {
+          ""id"": ""CQ9"",
+          ""question"": ""Which wines are produced in the Cotes d'Or?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets a Burgundy sub-region.""
+        },
+        {
+          ""id"": ""CQ10"",
+          ""question"": ""Which wines are produced in the Sancerre region?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets a specific Loire sub-region.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Classification by Grape Variety"",
+      ""rationale"": ""Questions about wine classification based on grape varieties used in production."",
+      ""questions"": [
+        {
+          ""id"": ""CQ11"",
+          ""question"": ""Which wines are made from Cabernet Sauvignon?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific red grape variety.""
+        },
+        {
+          ""id"": ""CQ12"",
+          ""question"": ""Which wines are made from Merlot?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific red grape variety.""
+        },
+        {
+          ""id"": ""CQ13"",
+          ""question"": ""Which wines are made from Chardonnay?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific white grape variety.""
+        },
+        {
+          ""id"": ""CQ14"",
+          ""question"": ""Which wines are made from Sauvignon Blanc?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific white grape variety.""
+        },
+        {
+          ""id"": ""CQ15"",
+          ""question"": ""Which wines are made from Semillon?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific white grape variety.""
+        },
+        {
+          ""id"": ""CQ16"",
+          ""question"": ""Which wines are made from Pinot Noir?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific red grape variety.""
+        },
+        {
+          ""id"": ""CQ17"",
+          ""question"": ""Which wines are made from Gamay?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific red grape variety.""
+        },
+        {
+          ""id"": ""CQ18"",
+          ""question"": ""Which wines are made from Riesling?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific white grape variety.""
+        },
+        {
+          ""id"": ""CQ19"",
+          ""question"": ""Which wines are made from Chenin Blanc?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines produced from a specific white grape variety.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Classification by Color and Style"",
+      ""rationale"": ""Questions about wine classification based on color, body, sweetness, and table wine categories."",
+      ""questions"": [
+        {
+          ""id"": ""CQ20"",
+          ""question"": ""Which wines are red wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on color classification.""
+        },
+        {
+          ""id"": ""CQ21"",
+          ""question"": ""Which wines are white wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on color classification.""
+        },
+        {
+          ""id"": ""CQ22"",
+          ""question"": ""Which wines are rose wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on color classification.""
+        },
+        {
+          ""id"": ""CQ23"",
+          ""question"": ""Which wines are dry wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on sweetness classification.""
+        },
+        {
+          ""id"": ""CQ24"",
+          ""question"": ""Which wines are sweet wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on sweetness classification.""
+        },
+        {
+          ""id"": ""CQ25"",
+          ""question"": ""Which wines are full-bodied wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on body classification.""
+        },
+        {
+          ""id"": ""CQ26"",
+          ""question"": ""Which wines are table wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on intended consumption classification.""
+        },
+        {
+          ""id"": ""CQ27"",
+          ""question"": ""Which wines are dessert wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on intended consumption classification.""
+        },
+        {
+          ""id"": ""CQ28"",
+          ""question"": ""Which wines are dry red wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on color and sweetness classification.""
+        },
+        {
+          ""id"": ""CQ29"",
+          ""question"": ""Which wines are dry white wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on color and sweetness classification.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Classification by Sugar Content and Vintage"",
+      ""rationale"": ""Questions about wine classification based on sugar content, vintage year, and harvest timing."",
+      ""questions"": [
+        {
+          ""id"": ""CQ30"",
+          ""question"": ""Which wines have high sugar content?"",
+          ""pattern"": ""Which wines have the [numeric modifier] [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on sugar content classification.""
+        },
+        {
+          ""id"": ""CQ31"",
+          ""question"": ""Which wines have low sugar content?"",
+          ""pattern"": ""Which wines have the [numeric modifier] [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on sugar content classification.""
+        },
+        {
+          ""id"": ""CQ32"",
+          ""question"": ""Which wines are early harvest wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on harvest timing classification.""
+        },
+        {
+          ""id"": ""CQ33"",
+          ""question"": ""Which wines are late harvest wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on harvest timing classification.""
+        },
+        {
+          ""id"": ""CQ34"",
+          ""question"": ""Which wines are ice wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on harvest timing classification.""
+        },
+        {
+          ""id"": ""CQ35"",
+          ""question"": ""Which wines are from the vintage year 2020?"",
+          ""pattern"": ""Which wines have the [numeric modifier] [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on vintage year classification.""
+        },
+        {
+          ""id"": ""CQ36"",
+          ""question"": ""Which wines are from the vintage year 2015?"",
+          ""pattern"": ""Which wines have the [numeric modifier] [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on vintage year classification.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Characteristics and Descriptors"",
+      ""rationale"": ""Questions about wine attributes such as flavor, body, and taste descriptors."",
+      ""questions"": [
+        {
+          ""id"": ""CQ37"",
+          ""question"": ""Which wines have a fruity flavor?"",
+          ""pattern"": ""Which wines have the [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on flavor descriptors.""
+        },
+        {
+          ""id"": ""CQ38"",
+          ""question"": ""Which wines have a full body?"",
+          ""pattern"": ""Which wines have the [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on body descriptors.""
+        },
+        {
+          ""id"": ""CQ39"",
+          ""question"": ""Which wines have a light body?"",
+          ""pattern"": ""Which wines have the [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on body descriptors.""
+        },
+        {
+          ""id"": ""CQ40"",
+          ""question"": ""Which wines have a high acidity level?"",
+          ""pattern"": ""Which wines have the [numeric modifier] [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on taste descriptors.""
+        },
+        {
+          ""id"": ""CQ41"",
+          ""question"": ""Which wines have a low acidity level?"",
+          ""pattern"": ""Which wines have the [numeric modifier] [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on taste descriptors.""
+        },
+        {
+          ""id"": ""CQ42"",
+          ""question"": ""Which wines are associated with the flavor of blackberry?"",
+          ""pattern"": ""Which wines have the [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on specific flavor descriptors.""
+        },
+        {
+          ""id"": ""CQ43"",
+          ""question"": ""Which wines are associated with the flavor of vanilla?"",
+          ""pattern"": ""Which wines have the [datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on specific flavor descriptors.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Producers and Winery Relationships"",
+      ""rationale"": ""Questions about wineries, producers, and their relationships to wines."",
+      ""questions"": [
+        {
+          ""id"": ""CQ44"",
+          ""question"": ""Which wines are produced by a winery located in Bordeaux?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        },
+        {
+          ""id"": ""CQ45"",
+          ""question"": ""Which wines are produced by a winery located in Burgundy?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        },
+        {
+          ""id"": ""CQ46"",
+          ""question"": ""Which wines are produced by a winery in California?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        },
+        {
+          ""id"": ""CQ47"",
+          ""question"": ""Which wines are produced by a winery in Italy?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        },
+        {
+          ""id"": ""CQ48"",
+          ""question"": ""Which wines are produced by a winery in the Loire Valley?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        },
+        {
+          ""id"": ""CQ49"",
+          ""question"": ""Which wines are produced by a winery in Texas?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        },
+        {
+          ""id"": ""CQ50"",
+          ""question"": ""Which wines are produced by a winery in Alsace?"",
+          ""pattern"": ""Which wines are [produced by] [location]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines based on winery location.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Regional Adjacency and Geographic Relationships"",
+      ""rationale"": ""Questions about geographic relationships between wine-producing regions."",
+      ""questions"": [
+        {
+          ""id"": ""CQ51"",
+          ""question"": ""Which regions are adjacent to Bordeaux?"",
+          ""pattern"": ""Spatial"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets regions adjacent to Bordeaux.""
+        },
+        {
+          ""id"": ""CQ52"",
+          ""question"": ""Which regions are adjacent to Burgundy?"",
+          ""pattern"": ""Spatial"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets regions adjacent to Burgundy.""
+        },
+        {
+          ""id"": ""CQ53"",
+          ""question"": ""Which regions are adjacent to the Loire Valley?"",
+          ""pattern"": ""Spatial"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets regions adjacent to Loire.""
+        },
+        {
+          ""id"": ""CQ54"",
+          ""question"": ""Which regions are adjacent to the Medoc region?"",
+          ""pattern"": ""Spatial"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets regions adjacent to Medoc.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Vintage and Year-Based Analysis"",
+      ""rationale"": ""Questions about wine vintages and their characteristics over time."",
+      ""questions"": [
+        {
+          ""id"": ""CQ55"",
+          ""question"": ""Which wines from the vintage year 2020 have high sugar content?"",
+          ""pattern"": ""Aggregation"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines from a specific vintage with a specific attribute.""
+        },
+        {
+          ""id"": ""CQ56"",
+          ""question"": ""Which wines from the vintage year 2015 have a full body?"",
+          ""pattern"": ""Aggregation"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines from a specific vintage with a specific attribute.""
+        },"
+,Which wines are classified under the Bordeaux region? Which wines belong to the Burgundy region? What types of wines are produced in the Loire region? Which wines are categorized as red wines? Which wines are classified as white wines? Which wines are categorized as dessert wines? Is the wine from Margaux a red wine? What type of wine is Sancerre? Which wines have a full body? Which wines are dry? Which wines are sweet? Which wines have a vintage year of 2010? What wines are made from the Cabernet Sauvignon grape? Which wines have a flavor descriptor of 'berry'? Is the wine from St-Émilion a full-bodied wine? Which regions are adjacent to Bordeaux? Which wineries produce wines from the Loire region? Which wines are located in the Alsace region? Which wines are made by a winery in California? Is the wine from Pauillac located in the Bordeaux region? Which wines are from the early harvest? Which wines are from the late harvest? Which wines have a vintage year earlier than 2000? What is the earliest vintage year for wines from Burgundy? How many wines are classified as red wines? Which wines have the highest sugar content? Which wines have the lowest body rating? What is the most common grape used in wines from Bordeaux? Which wines are made from grapes classified as Pinot Noir? Which wines are associated with the flavor of vanilla? Is the wine from Meursault a white wine?
+,Which wines are classified as red? Which wines are classified as dry? Which wines are classified as sweet? Which wines are classified as full-bodied? Which wines are classified as white? Which wines are classified as dessert wines? What type of wine is Sauternes? Is Riesling a sweet wine? Which wines are made from Cabernet Sauvignon grapes? Which wines are made from Semillon grapes? Which wines are located in Bordeaux? Which wines are located in Burgundy? Which regions are adjacent to Bordeaux? Which wines are located in the Loire Valley? Which wines are located in California? Which wines are located in Italy? Which wines have a full body? Which wines have a high sugar content? Which wines have a fruity flavor? Which wines have a floral taste? What wines have a vintage year of 2020? Which wines are early harvest? Which wineries produce Bordeaux wines? Which grapes are made into Sauternes? Which wineries are located in the Loire Valley? Which wines are made by a winery in Burgundy? Which wines have a vintage year of 2010? Which wines are from the vintage 2015? Which wines are from the earliest vintage year in the dataset? Which wines are from the latest vintage year in the dataset? Which wines are classified as rosé? Which wines are classified as table wines? Which wines are classified as ice wines? Which wines are classified as port? Which wines are made from Pinot Noir grapes? Which wines are made from Chardonnay grapes?
+,Which wines are classified under Bordeaux? Which wines belong to the category of red wines? Which wines are produced in the Loire region? What type of wine is Sauternes? Is Margaux a red wine? Which wines are made from the grape variety Cabernet Sauvignon? Which wines are classified as dry wines? Which wines have a full body? What flavors are associated with Riesling? Which wines have a high sugar content? Which wines are classified as sweet wines? Which wines are made from grapes harvested in the early harvest? Which wines are produced by a winery located in Burgundy? Which wines have a vintage year of 2010? Which wines are produced by wineries in California? Which wines are associated with the vintage year 2020? Which wines are produced by wineries in Italy? Which regions are adjacent to Bordeaux? Which regions are located near the Loire Valley? Which regions are adjacent to Burgundy? Which wines have the highest sugar content? Which wines have the lowest body level? Which wines are classified as the most full-bodied? Which wines are made from grapes harvested in the late harvest? Which wines are classified as table wines? Which wines are made from the grape variety Sauvignon Blanc? Which wines are classified as dessert wines?
+,Which wines are classified as red table wines? Which wines are made from the Cabernet Sauvignon grape? What types of wines are produced in Bordeaux? Which wines belong to the Burgundy region? Is Sauternes a sweet wine? Which wines are classified as full-bodied? What types of wines are produced in the Loire region? Which wines are made from the Gamay grape? Are wines from the Anjou region typically dry? Which wines are classified as white table wines? What flavors are typically associated with Cabernet Sauvignon? How much sugar does a typical Sauternes wine have? Which wines have a dry Riesling profile? What body type is characteristic of Bordeaux wines? Which wines are known for having a full body? What flavors are commonly found in Alsatian wines? Which wines are classified as dessert wines? What is the typical sugar level of Ice Wine? Which wines are made from grapes harvested in an early harvest? Which wineries produce wines from the Medoc region? What wines are produced by wineries in California? Which wines are from the vintage year 2010? Which wines are made from grapes harvested in a late harvest? What is the earliest vintage year recorded for wines from the Bordeaux region? Which wines are produced by wineries located in the Loire Valley? Which wines are made from grapes harvested in a vintage year classified as early harvest? Which regions are adjacent to Bordeaux? Which regions are located within Burgundy? Which regions are classified as part of the Loire Valley? Which regions are adjacent to the Anjou region? Which wines are made from grapes harvested in the same vintage year as a specific wine? What is the most common grape variety used in wines from the Burgundy region? Which wines have the highest sugar content among dessert wines? Which wines are made by wineries that also produce wines from the Bordeaux region?

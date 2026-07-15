@@ -1,0 +1,129 @@
+gold standard,generated
+,What type of wine is Margaux? Is Anjou a type of wine? What types of wine are produced in Bordeaux? What flavor does Margaux have? What color is RedBordeaux? What is the body of Merlot? Which grape is used to make Meritage? What wine is made from Semillon? Where is the winery located? What is the vintage year of a wine?
+,What type of wine is Margaux? Is Anjou a type of red wine? What is the flavor of a RedBordeaux? Does a DryWine have a high sugar content? Is a Merlot made from the Merlot grape? Does a Winery produce wine? What is the region where a Pauillac is located?
+,What type of wine is Margaux? Is Anjou a type of wine? What types of wine are produced in Bordeaux? What flavor does Margaux have? What color is RedBordeaux? What is the sugar level of SweetRiesling? Which grape is used to make CabernetSauvignon? What region produces Merlot? What is the vintage year of a specific wine? What is the body of a wine?
+,"Based on the provided ontology, I will generate competency questions that reflect relevant conceptual and informational needs. Here are some competency questions:
+
+**General Wine Information**
+
+1. What are the different types of wine?
+2. What are the characteristics of a wine?
+3. What are the different wine colors?
+4. What are the different wine bodies?
+
+**Wine Classification**
+
+1. What are the different types of red wines?
+2. What are the different types of white wines?
+3. What are the different types of dessert wines?
+4. What are the different types of table wines?
+
+**Wine Regions**
+
+1. What are the different wine regions in France?
+2. What are the different wine regions in the United States?
+3. What are the different wine regions in Italy?
+4. What are the different wine regions in Germany?
+
+**Wine Production**
+
+1. What grapes are used to make wine?
+2. What are the different wine-making processes?
+3. What are the different wine production methods?
+4. What are the different wine styles?
+
+**Wine Characteristics**
+
+1. What are the different wine flavors?
+2. What are the different wine colors?
+3. What are the different wine bodies?
+4. What are the different wine sweetness levels?
+
+**Wine and Region**
+
+1. Which wine regions produce red wines?
+2. Which wine regions produce white wines?
+3. Which wine regions produce dessert wines?
+4. Which wine regions produce table wines?
+
+**Wine and Grape**
+
+1. Which grapes are used to make red wines?
+2. Which grapes are used to make white wines?
+3. Which grapes are used to make dessert wines?
+4. Which grapes are used to make table wines?
+
+**Wine and Vintage**
+
+1. What are the different vintage years for a particular wine?
+2. How do vintage years affect the taste of wine?
+3. What are the characteristics of a particular vintage year?
+4. How do vintage years impact the production of wine?
+
+**Wine and Winery**
+
+1. Which wineries produce a particular type of wine?
+2. What are the different wineries in a particular region?
+3. What are the characteristics of a particular winery?
+4. How do wineries impact the production of wine?
+
+These competency questions cover various aspects of the wine domain, including wine classification, wine regions, wine production, wine characteristics, wine and region, wine and grape, wine and vintage, and wine and winery. They are designed to reflect the conceptual and informational needs of the ontology and can be used to guide the development of the ontology."
+,What type of wine is a Margaux? Is a RedBordeaux a type of wine? What types of wines are classified as DryWine? What flavor does a CabernetSauvignon have? What color does a WhiteBurgundy have? Where is a Merlot produced? What region produces a Chianti? What is the body of a wine?
+,What type of wine is a Margaux? Is a RedBordeaux a type of wine? Is a wine made from a specific grape? What grape is used to make a Merlot? What is the flavor of a CabernetSauvignon? Is a wine dry? What is the region where a wine is produced?
+,"Based on the provided ontology, I will generate competency questions that reflect relevant conceptual and informational needs. I will use the patterns and instructions provided earlier to ensure clarity, abstraction, and generality.
+
+**Cluster 1: Wine Classification and Characteristics**
+
+* Label: Wine Classification and Characteristics
+* Rationale: This cluster focuses on the classification and characteristics of wines, including their color, body, flavor, and sugar content.
+* Questions:
+	+ CQ1: Which wines are classified as RedBordeaux?
+		- Pattern: Which [class expression 1][object property expression][class expression 2]?
+		- Expected answer type: entity_list
+	+ CQ2: What type of wine has a high sugar content?
+		- Pattern: What type of [class expression] is [individual]?
+		- Expected answer type: classification
+	+ CQ3: Which wines are classified as DryWine?
+		- Pattern: Which [class expressions]?
+		- Expected answer type: entity_list
+
+**Cluster 2: Wine Production and Region**
+
+* Label: Wine Production and Region
+* Rationale: This cluster focuses on the production and region of wines, including the winery, region, and vintage year.
+* Questions:
+	+ CQ4: Which winery produces the wine?
+		- Pattern: Which [class expression 1][object property expression][class expression 2]?
+		- Expected answer type: entity_list
+	+ CQ5: What is the region where the wine is produced?
+		- Pattern: What is the [class expression] of [individual]?
+		- Expected answer type: classification
+	+ CQ6: Which wines are produced in the Bordeaux region?
+		- Pattern: Which [class expressions]?
+		- Expected answer type: entity_list
+
+**Cluster 3: Wine Grape and Flavor**
+
+* Label: Wine Grape and Flavor
+* Rationale: This cluster focuses on the wine grape and flavor, including the grape variety, flavor, and taste.
+* Questions:
+	+ CQ7: Which grape variety is used to produce the wine?
+		- Pattern: Which [class expression 1][object property expression][class expression 2]?
+		- Expected answer type: entity_list
+	+ CQ8: What is the flavor of the wine?
+		- Pattern: What is the [class expression] of [individual]?
+		- Expected answer type: classification
+	+ CQ9: Which wines have a fruity flavor?
+		- Pattern: Which [class expressions]?
+		- Expected answer type: entity_list
+
+**Unassigned Questions**
+
+* CQ10: What is the body of the wine?
+	+ Pattern: What [class expression] has the [numeric modifier][datatype property]?
+	+ Expected answer type: value
+* CQ11: Which wines are classified as DessertWine?
+	+ Pattern: Which [class expressions]?
+	+ Expected answer type: entity_list
+
+Note that the unassigned questions may be assigned to a cluster in the future if a more suitable label and rationale are found."

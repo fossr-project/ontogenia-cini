@@ -1,6 +1,6 @@
 # app/main.py
 from fastapi import FastAPI
-from app.routers import cq_validation
+from app.routers import cq_validation, consistency
 
 app = FastAPI(
     title="CQ Verification and Generation API",
@@ -10,6 +10,7 @@ app = FastAPI(
 
 # Include routers with prefixes and tags
 app.include_router(cq_validation.router, prefix="/validate", tags=["CQ Validation"])
+app.include_router(consistency.router, prefix="/consistency", tags=["Consistency Evaluation"])
 
 if __name__ == "__main__":
     import uvicorn

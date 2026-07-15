@@ -1,0 +1,804 @@
+gold standard,generated
+,Which wines are classified as red? Which wines are classified as white and not sweet? Which wines are full-bodied? What type of wine is Sauternes? Is Riesling a sweet wine? Which wines are classified as dry red? What type of wine is IceWine? Which wines are produced in Bordeaux? Which wines are produced in Burgundy? Which wines are produced in the Loire Valley? Which wines are produced in Alsace? Which regions are adjacent to Bordeaux? Which wines are produced in California? Which wines are produced in Italy? Which wines are made from Cabernet Sauvignon? Which wines are made from Chardonnay? Which wines are made from Semillon? Which wines are made from Pinot Noir? Which wines are made from Gamay? Which wines are made from Sauvignon Blanc? Which wines have a full body? Which wines have high sugar content? Which wines have a vintage year of 2020? Which wines have a vintage from the early harvest? Which wines have a vintage from the late harvest? Which wines have a flavor of vanilla? Which wines have a color of red? Which wines are produced by a winery in Bordeaux? Which wines are made by a winery in Burgundy? Which wineries produce red wines? Which wineries produce white wines? Which wines are made by a winery in California? Which wines are classified as table wines? Which wines are classified as dessert wines? Which wines are made from grapes harvested in the Loire Valley? Which wines have a vintage year between 2010 and 2020? Which wines are made by wineries in Texas?
+,"```json
+{
+  ""clusters"": [
+    {
+      ""label"": ""Wine Classification by Region and Origin"",
+      ""rationale"": ""Questions about wine categorization based on geographic origin, regional classification, and country-specific wine types."",
+      ""questions"": [
+        {
+          ""id"": ""CQ1"",
+          ""question"": ""Which wines are classified as French wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Focuses on the :FrenchWine class and its subclasses.""
+        },
+        {
+          ""id"": ""CQ2"",
+          ""question"": ""Which wines are produced in Bordeaux?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines associated with the Bordeaux region (e.g., :Bordeaux, :Margaux, :Medoc, :Pauillac).""
+        },
+        {
+          ""id"": ""CQ3"",
+          ""question"": ""Which wines are classified as Burgundy wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Includes :RedBurgundy, :WhiteBurgundy, and :CotesDOr.""
+        },
+        {
+          ""id"": ""CQ4"",
+          ""question"": ""Which wines are produced in the Loire Valley?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Refers to wines like :Sancerre, :Muscadet, and :WhiteLoire.""
+        },
+        {
+          ""id"": ""CQ5"",
+          ""question"": ""Which wines are classified as Alsatian wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines like :DryRiesling, :SweetRiesling, and :PinotBlanc.""
+        },
+        {
+          ""id"": ""CQ6"",
+          ""question"": ""Which wines are produced in California?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Includes :CaliforniaWine and its grape-based subclasses.""
+        },
+        {
+          ""id"": ""CQ7"",
+          ""question"": ""Which wines are classified as Italian wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Focuses on :ItalianWine and its regional subclasses.""
+        },
+        {
+          ""id"": ""CQ8"",
+          ""question"": ""Which wines are produced in Texas?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines like :TexasWine.""
+        },
+        {
+          ""id"": ""CQ9"",
+          ""question"": ""Which wines are classified as American wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Includes :AmericanWine and its regional subclasses.""
+        },
+        {
+          ""id"": ""CQ10"",
+          ""question"": ""Which wines are produced in the Anjou region?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines like :Anjou.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Classification by Grape Variety"",
+      ""rationale"": ""Questions about wine categorization based on grape varieties used in production."",
+      ""questions"": [
+        {
+          ""id"": ""CQ11"",
+          ""question"": ""Which wines are made from Cabernet Sauvignon?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :CabernetSauvignon.""
+        },
+        {
+          ""id"": ""CQ12"",
+          ""question"": ""Which wines are made from Merlot?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :Merlot.""
+        },
+        {
+          ""id"": ""CQ13"",
+          ""question"": ""Which wines are made from Chardonnay?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :Chardonnay.""
+        },
+        {
+          ""id"": ""CQ14"",
+          ""question"": ""Which wines are made from Sauvignon Blanc?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :SauvignonBlanc.""
+        },
+        {
+          ""id"": ""CQ15"",
+          ""question"": ""Which wines are made from Semillon?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :Semillon.""
+        },
+        {
+          ""id"": ""CQ16"",
+          ""question"": ""Which wines are made from Pinot Noir?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :PinotNoir.""
+        },
+        {
+          ""id"": ""CQ17"",
+          ""question"": ""Which wines are made from Gamay?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :Gamay.""
+        },
+        {
+          ""id"": ""CQ18"",
+          ""question"": ""Which wines are made from Chenin Blanc?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :CheninBlanc.""
+        },
+        {
+          ""id"": ""CQ19"",
+          ""question"": ""Which wines are made from Zinfandel?"",
+          ""pattern"": ""Which wines are made from [class expression]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the :madeFromGrape property with :Zinfandel.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Classification by Color and Style"",
+      ""rationale"": ""Questions about wine categorization based on color, sweetness, body, and style."",
+      ""questions"": [
+        {
+          ""id"": ""CQ20"",
+          ""question"": ""Which wines are classified as red wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :RedWine and its subclasses.""
+        },
+        {
+          ""id"": ""CQ21"",
+          ""question"": ""Which wines are classified as white wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :WhiteWine and its subclasses.""
+        },
+        {
+          ""id"": ""CQ22"",
+          ""question"": ""Which wines are classified as dry wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :DryWine and its subclasses.""
+        },
+        {
+          ""id"": ""CQ23"",
+          ""question"": ""Which wines are classified as sweet wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :SweetWine and its subclasses.""
+        },
+        {
+          ""id"": ""CQ24"",
+          ""question"": ""Which wines are classified as full-bodied wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :FullBodiedWine.""
+        },
+        {
+          ""id"": ""CQ25"",
+          ""question"": ""Which wines are classified as dessert wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :DessertWine and its subclasses.""
+        },
+        {
+          ""id"": ""CQ26"",
+          ""question"": ""Which wines are classified as rose wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :RoseWine.""
+        },
+        {
+          ""id"": ""CQ27"",
+          ""question"": ""Which wines are classified as table wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :TableWine and its subclasses.""
+        },
+        {
+          ""id"": ""CQ28"",
+          ""question"": ""Which wines are classified as ice wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :IceWine.""
+        },
+        {
+          ""id"": ""CQ29"",
+          ""question"": ""Which wines are classified as early harvest wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :EarlyHarvest.""
+        },
+        {
+          ""id"": ""CQ30"",
+          ""question"": ""Which wines are classified as late harvest wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :LateHarvest.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Characteristics and Properties"",
+      ""rationale"": ""Questions about wine descriptors, flavors, tastes, and other attributes."",
+      ""questions"": [
+        {
+          ""id"": ""CQ31"",
+          ""question"": ""Which wines have a fruity flavor?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasFlavor with a flavor descriptor like 'fruity'.""
+        },
+        {
+          ""id"": ""CQ32"",
+          ""question"": ""Which wines have a high sugar content?"",
+          ""pattern"": ""Which [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasSugar with a high value.""
+        },
+        {
+          ""id"": ""CQ33"",
+          ""question"": ""Which wines have a full body?"",
+          ""pattern"": ""Which [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasBody with a descriptor like 'full'.""
+        },
+        {
+          ""id"": ""CQ34"",
+          ""question"": ""Which wines are associated with the flavor of vanilla?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasFlavor with 'vanilla'.""
+        },
+        {
+          ""id"": ""CQ35"",
+          ""question"": ""Which wines are associated with the taste of oak?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasTaste with 'oak'.""
+        },
+        {
+          ""id"": ""CQ36"",
+          ""question"": ""Which wines are classified as dry red wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :DryRedWine.""
+        },
+        {
+          ""id"": ""CQ37"",
+          ""question"": ""Which wines are classified as dry white wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :DryWhiteWine.""
+        },
+        {
+          ""id"": ""CQ38"",
+          ""question"": ""Which wines are classified as non-sweet white wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :WhiteNonSweetWine.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Production and Vintage"",
+      ""rationale"": ""Questions about wine production details, wineries, and vintages."",
+      ""questions"": [
+        {
+          ""id"": ""CQ39"",
+          ""question"": ""Which wineries produce wines from the Bordeaux region?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :producesWine with :Bordeaux or its subclasses.""
+        },
+        {
+          ""id"": ""CQ40"",
+          ""question"": ""Which wines were produced in the year 2015?"",
+          ""pattern"": ""Temporal"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasVintageYear with the value 2015.""
+        },
+        {
+          ""id"": ""CQ41"",
+          ""question"": ""Which wines are from the vintage 2020?"",
+          ""pattern"": ""Temporal"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasVintageYear with the value 2020.""
+        },
+        {
+          ""id"": ""CQ42"",
+          ""question"": ""Which wines are made by Château Margaux?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasMaker with Château Margaux.""
+        },
+        {
+          ""id"": ""CQ43"",
+          ""question"": ""Which wines are made by a winery located in the Loire Valley?"",
+          ""pattern"": ""Relational"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :hasMaker and :locatedIn with Loire.""
+        },
+        {
+          ""id"": ""CQ44"",
+          ""question"": ""Which wines are produced in regions adjacent to Bordeaux?"",
+          ""pattern"": ""Spatial"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses :adjacentRegion with Bordeaux.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Comparison and Aggregation"",
+      ""rationale"": ""Questions about comparing wines based on attributes, regions, or vintages."",
+      ""questions"": [
+        {
+          ""id"": ""CQ45"",
+          ""question"": ""Which wines have the lowest sugar content?"",
+          ""pattern"": ""What [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""min_max"",
+          ""notes"": ""Uses :hasSugar with a 'lowest' modifier.""
+        },
+        {
+          ""id"": ""CQ46"",
+          ""question"": ""Which wines have the highest body?"",
+          ""pattern"": ""What [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""min_max"",
+          ""notes"": ""Uses :hasBody with a 'highest' modifier.""
+        },
+        {
+          ""id"": ""CQ47"",
+          ""question"": ""Which wines are produced in the most regions?"",
+          ""pattern"": ""Aggregation"",
+          ""expected_answer_type"": ""count"",
+          ""notes"": ""Aggregates wines by :locatedIn property.""
+        },
+        {
+          ""id"": ""CQ48"",
+          ""question"": ""Which wines are made from the most common grape varieties?"",
+          ""pattern"": ""Aggregation"",
+          ""expected_answer_type"": ""count"",
+          ""notes"": ""Aggregates wines by :madeFromGrape property.""
+        },
+        {
+          ""id"": ""CQ49"",
+          ""question"": ""Which wines are produced in the earliest vintages?"",
+          ""pattern"": ""Temporal"",
+          ""expected_answer_type"": ""min_max"",
+          ""notes"": ""Uses :hasVintageYear with the earliest value.""
+        }
+      ]
+    }
+  ],
+  ""unassigned"": [
+    {
+      ""id"": ""CQ50"",
+      ""question"": ""Which wines are classified as Port?"",
+      ""pattern"": ""Which are [class expressions]?"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Targets :Port, a distinct category of wine.""
+    },
+    {
+      ""id"": ""CQ51"",
+      ""question"": ""Which wines are made from grapes harvested in the Sauternes region?"",
+      ""pattern"": ""Relational"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Uses :madeFromGrape and :locatedIn with Sauternes.""
+    },
+    {
+      ""id"": ""CQ52"",
+      ""question"": ""Which wines are associated with the flavor of berry?"",
+      ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Uses :hasFlavor with 'berry'.""
+    },
+    {
+      ""id"": ""CQ53"",
+      ""question"": ""Which wines are classified as Meritage?"",
+      ""pattern"": ""Which are [class expressions]?"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Targets :Meritage, a blend of Bordeaux varieties.""
+    },
+    {
+      ""id"": ""CQ54"",
+      ""question"": ""Which wines are produced in regions classified as AOC (Appellation d'Origine Contrôlée)?"",
+      ""pattern"":"
+,Which wines are classified as red? Which wines are classified as dry? Which wines are made from Cabernet Sauvignon grapes? Which wines are produced in Bordeaux? What type of wine is Margaux? Which wines are classified as full-bodied? Which wines are classified as white and non-sweet? Which wines are produced in the Loire region? What flavors are associated with Chardonnay? Which wines have a high body? Which wines have a sweetness level classified as 'sweet'? Which wines are associated with the flavor 'vanilla'? What type of wine has a body classified as 'light'? Which wines have a sugar content classified as 'dry'? Which wines are associated with the taste 'earthy'? Which wineries produce wines classified as Bordeaux? Which regions are adjacent to Bordeaux? Which wines are produced by wineries located in California? Which wines are produced in regions adjacent to Burgundy? Which wines are made by wineries located in Italy? Which wines have a vintage year classified as '2020'? Which wines are classified as 'early harvest'? Which wines have a vintage year classified as 'late harvest'? Which wines are associated with the vintage year '2018'? What is the earliest vintage year for wines classified as 'IceWine'? Which wines are made from the grape variety 'Pinot Noir'? Which wines are made from the grape variety 'Semillon'? Which wines are made from grapes classified as 'white'? Which wines are made from grapes classified as 'red'? Which grape varieties are used to produce wines classified as 'DessertWine'? Which wines are classified as both red and full-bodied? Which wines are produced in regions that are adjacent to both Bordeaux and Burgundy? Which wines have a vintage year that is earlier than 2010? Which wines are classified as 'Port' and have a sweetness level?
+,Which wines are classified as red wines? Which wines belong to the Bordeaux region? What type of wine is Margaux? Which wines are made from the Cabernet Sauvignon grape? Which wines are classified as dry wines? Which wines are produced in the Loire region? Are all wines from the Burgundy region red? Which wines are classified as dessert wines? Which wines are made from the Riesling grape? Which wines are classified as full-bodied wines? Which wines have a fruity flavor? How much sugar does a typical Sauternes wine have? Which wines are classified as sweet wines? Which wines have a light body? Which wines are red in color? What type of wine has the highest sugar content? Which wines are associated with the flavor of vanilla? Which wines are classified as dry white wines? Which wines have a high body? Are all white wines non-sweet? Which wines are produced by wineries located in California? Which regions are adjacent to the Bordeaux region? Which wines are made by wineries in the Alsace region? Which wines are produced in the Texas region? Which wines are made by wineries located in Italy? Which regions produce the most full-bodied red wines? Which wines are made from grapes grown in the Loire Valley? Which wines are produced by wineries in the Cotes d'Or region? Which wines are made from grapes grown in the Beaujolais region? Which wines have a vintage year of 2010? Which wines are classified as early harvest wines? Which wines are classified as late harvest wines? Which wines have a vintage year between 2015 and 2020? Which wines are associated with the vintage year 2005? Which wines are classified as ice wines? Which wines are made from grapes grown in regions adjacent to the Loire Valley? Which wines have a higher body than Chardonnay? Which wines are made from grapes that produce both red and white wines?
+,Which wines are classified as Bordeaux? Which wines are produced in the Burgundy region? What type of wine is Sauternes? Is Margaux a red wine? Which wines are classified as Loire Valley wines? Which wines are made from the Cabernet Sauvignon grape? Which wines are classified as American wines? Which wines are produced in the Anjou region? Which wines have a full body? Which wines are classified as dry wines? Which wines have a high sugar content? Which wines are classified as red wines? Which wines have a fruity flavor? Which wines are classified as white wines? Which wines have a high acidity level? Which wines are classified as dessert wines? Which wines were produced in the vintage year 2010? Which wines are made by a winery located in California? Which wines are made from the Gamay grape? Which wines are classified as early harvest wines? Which wines are made from the Riesling grape? Which wines are produced by wineries in the Bordeaux region? Which regions are adjacent to Bordeaux? Which regions are subregions of Burgundy? Which wines are produced in regions adjacent to the Loire Valley? Which wines were produced in the earliest vintage year? Which wines were produced in the latest harvest year? Which wines are classified as late harvest wines? Which wines were produced in the same vintage year as Sauternes? Which wines are classified as both red and full-bodied? Which wines are made from grapes produced in the same region? Which wines are classified as both white and non-sweet?
+,Which wines are produced in Bordeaux? Which wines are classified as Burgundy? Which wines are produced in the Loire region? Which wines are produced in Alsace? Which wines are produced in Texas? Which regions are adjacent to Bordeaux? Which wines are made from Cabernet Sauvignon? Which wines are made from Semillon? Which wines are made from Merlot? Which wines are made from Pinot Noir? Which wines are made from Gamay? Which wines are made from Chardonnay? Which wines are classified as red? Which wines are classified as white? Which wines are classified as rosé? Which wines are classified as dry? Which wines are classified as sweet? Which wines have high sugar content? Which wines are classified as full-bodied? Which wines have a light body? Which wines have a fruity flavor? Which wines have a floral taste? Which wines are associated with oak flavor? Which wines are from the vintage year 2020? Which wines are produced by a winery in California? Which wines are early harvest? Which wines are late harvest? Which wines are made by a winery located in Italy? Which wines are classified as dessert wines? Which wines are classified as table wines? Which wines are classified as port? Which wines are suitable for pairing with seafood? Which wines are suitable for aging? What is the most common wine grape used in Bordeaux? Which wines have the highest sugar content? Which wines are produced in regions adjacent to Burgundy? Which wines are made from grapes harvested in the early harvest period? Which wines are made by wineries located in regions adjacent to Bordeaux?
+,"```json
+{
+  ""clusters"": [
+    {
+      ""label"": ""Wine Classification by Type and Category"",
+      ""rationale"": ""Covers the hierarchical and categorical classification of wines based on color, body, sweetness, and regional descriptors."",
+      ""questions"": [
+        {
+          ""id"": ""CQ1"",
+          ""question"": ""Which wines are classified as red?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Focuses on the :RedWine class and its subclasses.""
+        },
+        {
+          ""id"": ""CQ2"",
+          ""question"": ""Which wines are classified as white and non-sweet?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :WhiteNonSweetWine, a subclass of :WhiteWine.""
+        },
+        {
+          ""id"": ""CQ3"",
+          ""question"": ""What type of wine is Sauternes?"",
+          ""pattern"": ""What type of [class expression] is [individual]?"",
+          ""expected_answer_type"": ""classification"",
+          ""notes"": ""Aligns with :SweetWine or :DessertWine classification.""
+        },
+        {
+          ""id"": ""CQ4"",
+          ""question"": ""Is Riesling a sweet wine?"",
+          ""pattern"": ""Is the [class expression 1][class expression 2]?"",
+          ""expected_answer_type"": ""boolean"",
+          ""notes"": ""Relates to :SweetRiesling or :DryRiesling subclasses.""
+        },
+        {
+          ""id"": ""CQ5"",
+          ""question"": ""Which wines are full-bodied?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :FullBodiedWine, often associated with red wines like :CabernetSauvignon.""
+        },
+        {
+          ""id"": ""CQ6"",
+          ""question"": ""What wines are classified as dry?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Covers :DryWine, :DryRedWine, and :DryWhiteWine.""
+        },
+        {
+          ""id"": ""CQ7"",
+          ""question"": ""Which wines are rose-colored?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :RoseWine, a distinct subclass.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Regional and Geographic Classification"",
+      ""rationale"": ""Focuses on wines categorized by geographic origin, region, and subregions."",
+      ""questions"": [
+        {
+          ""id"": ""CQ8"",
+          ""question"": ""Which wines are produced in Bordeaux?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :Bordeaux, :Medoc, :Pauillac, :StEmilion, and :WhiteBordeaux.""
+        },
+        {
+          ""id"": ""CQ9"",
+          ""question"": ""Which wines are produced in Burgundy?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :Burgundy, :CotesDOr, :RedBurgundy, :WhiteBurgundy, and :Meursault.""
+        },
+        {
+          ""id"": ""CQ10"",
+          ""question"": ""Which wines are produced in the Loire Valley?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :Loire, :Sancerre, :Muscadet, and :WhiteLoire.""
+        },
+        {
+          ""id"": ""CQ11"",
+          ""question"": ""Which wines are produced in Alsace?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :AlsatianWine, :DryRiesling, and :SweetRiesling.""
+        },
+        {
+          ""id"": ""CQ12"",
+          ""question"": ""Which wines are produced in Anjou?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :Anjou, a subregion of Loire.""
+        },
+        {
+          ""id"": ""CQ13"",
+          ""question"": ""Which wines are produced in California?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :CaliforniaWine, :Zinfandel, and :CabernetSauvignon.""
+        },
+        {
+          ""id"": ""CQ14"",
+          ""question"": ""Which wines are produced in Texas?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :TexasWine, a regional subclass.""
+        },
+        {
+          ""id"": ""CQ15"",
+          ""question"": ""Which wines are produced in Italy?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets :ItalianWine, :Chianti, and other Italian-specific wines.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Grape Varieties and Production"",
+      ""rationale"": ""Focuses on the grapes used in wine production and their relationship to wine types."",
+      ""questions"": [
+        {
+          ""id"": ""CQ16"",
+          ""question"": ""Which wines are made from Cabernet Sauvignon?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :CabernetSauvignon.""
+        },
+        {
+          ""id"": ""CQ17"",
+          ""question"": ""Which wines are made from Merlot?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :Merlot.""
+        },
+        {
+          ""id"": ""CQ18"",
+          ""question"": ""Which wines are made from Chardonnay?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :Chardonnay.""
+        },
+        {
+          ""id"": ""CQ19"",
+          ""question"": ""Which wines are made from Semillon or Sauvignon Blanc?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :SemillonOrSauvignonBlanc.""
+        },
+        {
+          ""id"": ""CQ20"",
+          ""question"": ""Which wines are made from Pinot Noir?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :PinotNoir.""
+        },
+        {
+          ""id"": ""CQ21"",
+          ""question"": ""Which wines are made from Gamay?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :Gamay.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Characteristics and Sensory Properties"",
+      ""rationale"": ""Focuses on sensory and descriptive attributes of wines, such as flavor, body, and sugar content."",
+      ""questions"": [
+        {
+          ""id"": ""CQ22"",
+          ""question"": ""Which wines have a full body?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasBody → :FullBodiedWine.""
+        },
+        {
+          ""id"": ""CQ23"",
+          ""question"": ""Which wines have a light body?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasBody → (not :FullBodiedWine).""
+        },
+        {
+          ""id"": ""CQ24"",
+          ""question"": ""Which wines have a high sugar content?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasSugar → (high value).""
+        },
+        {
+          ""id"": ""CQ25"",
+          ""question"": ""Which wines have a dry flavor?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasFlavor → (dry descriptors).""
+        },
+        {
+          ""id"": ""CQ26"",
+          ""question"": ""Which wines have a fruity flavor?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasFlavor → (fruity descriptors).""
+        },
+        {
+          ""id"": ""CQ27"",
+          ""question"": ""Which wines have a floral flavor?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasFlavor → (floral descriptors).""
+        },
+        {
+          ""id"": ""CQ28"",
+          ""question"": ""Which wines are made from grapes harvested in an early harvest?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :EarlyHarvest.""
+        },
+        {
+          ""id"": ""CQ29"",
+          ""question"": ""Which wines are made from grapes harvested in a late harvest?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :madeFromGrape → :LateHarvest.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Vintage and Year"",
+      ""rationale"": ""Focuses on the vintage year and its significance in wine classification."",
+      ""questions"": [
+        {
+          ""id"": ""CQ30"",
+          ""question"": ""Which wines have a vintage year of 2020?"",
+          ""pattern"": ""Which [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasVintageYear → 2020.""
+        },
+        {
+          ""id"": ""CQ31"",
+          ""question"": ""Which wines are from the earliest vintage year?"",
+          ""pattern"": ""What [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""min_max"",
+          ""notes"": ""Targets wines with the lowest :yearValue.""
+        },
+        {
+          ""id"": ""CQ32"",
+          ""question"": ""Which wines are from the latest vintage year?"",
+          ""pattern"": ""What [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""min_max"",
+          ""notes"": ""Targets wines with the highest :yearValue.""
+        },
+        {
+          ""id"": ""CQ33"",
+          ""question"": ""Which wines are vintage wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :VintageYear explicitly marked.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Producers and Winery Associations"",
+      ""rationale"": ""Focuses on the wineries and producers associated with specific wines."",
+      ""questions"": [
+        {
+          ""id"": ""CQ34"",
+          ""question"": ""Which wines are produced by a winery located in Bordeaux?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasMaker → :Winery located in :Bordeaux.""
+        },
+        {
+          ""id"": ""CQ35"",
+          ""question"": ""Which wines are produced by a winery located in Burgundy?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasMaker → :Winery located in :Burgundy.""
+        },
+        {
+          ""id"": ""CQ36"",
+          ""question"": ""Which wines are produced by a winery located in California?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasMaker → :Winery located in :CaliforniaWine.""
+        },
+        {
+          ""id"": ""CQ37"",
+          ""question"": ""Which wines are produced by a winery located in Italy?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasMaker → :Winery located in :ItalianWine.""
+        },
+        {
+          ""id"": ""CQ38"",
+          ""question"": ""Which wines are produced by a winery located in Germany?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasMaker → :Winery located in :GermanWine.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Descriptors and Qualitative Attributes"",
+      ""rationale"": ""Focuses on descriptive attributes and descriptors associated with wines."",
+      ""questions"": [
+        {
+          ""id"": ""CQ39"",
+          ""question"": ""Which wines have a descriptor indicating they are aged?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasWineDescriptor → (aging-related descriptors).""
+        },
+        {
+          ""id"": ""CQ40"",
+          ""question"": ""Which wines have a descriptor indicating they are oaked?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasWineDescriptor → (oaked descriptors).""
+        },
+        {
+          ""id"": ""CQ41"",
+          ""question"": ""Which wines have a descriptor indicating they are un-oaked?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasWineDescriptor → (un-oaked descriptors).""
+        },
+        {
+          ""id"": ""CQ42"",
+          ""question"": ""Which wines have a descriptor indicating they are table wines?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasWineDescriptor → :TableWine.""
+        },
+        {
+          ""id"": ""CQ43"",
+          ""question"": ""Which wines have a descriptor indicating they are dessert wines?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Targets wines with :hasWineDescriptor → :DessertWine.""
+        }
+      ]
+    }
+  ],
+  ""unassigned"": [
+    {
+      ""id"": ""CQ44"",
+      ""question"": ""Which wines are produced in regions adjacent to Bordeaux?"",
+      ""pattern"": ""Spatial"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Targets wines with :locatedIn → regions adjacent to :Bordeaux.""
+    },
+    {
+      ""id"": ""CQ45"",
+      ""question"": ""Which wines are produced in regions adjacent to Burgundy?"",
+      ""pattern"": ""Spatial"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Targets wines with :locatedIn → regions adjacent to :Burgundy.""
+    },
+    {
+      ""id"": ""CQ46"",
+      ""question"": ""Which wines are produced in regions adjacent to the Loire Valley?"",
+      ""pattern"": ""Spatial"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Targets wines with :locatedIn → regions adjacent to :Loire.""
+    },
+    {
+      ""id"": ""CQ47"",
+      ""question"": ""Which wines are produced in regions adjacent to Alsace?"",
+      ""pattern"": ""Spatial"",
+      ""expected_answer_type"": ""entity_list"",
+      ""notes"": ""Targets wines with :locatedIn → regions adjacent to :Alsace.""
+    },
+    {
+      ""id"": ""CQ48"",
+      ""question"": ""Which wines have the highest sugar content?"",
+      ""pattern"": ""Aggregation"",
+      ""expected_answer_type"": ""min_max"",
+      ""notes"":"

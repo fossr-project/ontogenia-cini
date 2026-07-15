@@ -3,9 +3,11 @@ import pandas as pd
 import openai
 import logging
 import json
+import re
 from io import StringIO, BytesIO
 import os
 import requests
+from typing import Optional
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 openai.api_key = os.getenv("OPENAI_API_KEY", "yourkey")
@@ -256,10 +258,23 @@ def build_dataset_profile(df: pd.DataFrame, max_categories: int = 5) -> str:
 # LLM call
 # ---------------------------------------------------------------------------
 
+def _temperature_supported(provider: str, model: str) -> bool:
+    """Does a model accept a custom ``temperature`` -- Reasoning / thinking-only models reject it"""
+    _OPENAI_NO_TEMP_PREFIXES = ("o1", "o3", "o4")
+    _CLAUDE_NO_TEMP_MARKERS = ("opus-4-7", "opus-4-8", "fable", "mythos")
+    m = (model or "").lower()
+    if any(seg.startswith(_OPENAI_NO_TEMP_PREFIXES) for seg in m.split("/")):
+        return False
+    if any(t in m for t in _CLAUDE_NO_TEMP_MARKERS):
+        return False
+    return True
+
+
 def generate_with_llm(
     messages: list,
     provider: str = "openai",
     model: str = None,
+    temperature: Optional[float] = None,
 ) -> str:
     """Call the specified LLM provider with a full messages list.
 
@@ -356,6 +371,51 @@ def generate_with_llm(
             logger.error(f"Ollama error: {e}")
             return f"Error generating CQ with Ollama: {e}"
 
+    elif provider in ("openrouter", "openrouter.ai"):
+        try:
+            api_key = os.getenv("OPENROUTER_API_KEY")
+            if not api_key:
+                return "Error generating CQ with OpenRouter: OPENROUTER_API_KEY is not set."
+            
+            from openai import OpenAI as _OAI
+            # OpenRouter is OpenAI-compatible - same call shape, different base URL.
+            client = _OAI(base_url="https://openrouter.ai/api/v1", api_key=api_key)
+            kwargs = dict(model=model or "openai/gpt-4o", messages=messages, max_tokens=4000)
+            
+            if _temperature_supported("openrouter", model or ""):
+                kwargs["temperature"] = 0 if temperature is None else temperature
+            elif temperature is not None:
+                logger.warning("Model %s does not accept temperature; ignoring %s", model, temperature)
+            
+            max_retries = 6
+            base_delay = 5 
+            for attempt in range(max_retries):
+                try:
+                    resp = client.chat.completions.create(**kwargs)
+                    content = resp.choices[0].message.content
+                
+                    if content is None:
+                        raise ValueError("Model returned empty content (NoneType)")
+                    return content.strip()
+                
+                except Exception as e:
+                    error_str = str(e)
+                    transient_errors = ["429", "rate-limited", "Expecting value", "NoneType", "502", "524"]
+
+                    if any(err in error_str for err in transient_errors):
+                        if attempt < max_retries - 1:
+                            sleep_time = base_delay * (2 ** (attempt))
+                            import time
+                            logger.warning(f"OpenRouter rate limit (429). Waiting {sleep_time}s before retry... attempt {attempt + 1}/{max_retries})")
+                            time.sleep(sleep_time)
+                            continue
+                    logger.error(f"OpenRouter error: {e}")
+                    return f"Error generating CQ with OpenRouter: {e}"
+        
+        except Exception as e:
+            logger.error(f"OpenRouter error: {e}")
+            return f"Error generating CQ with OpenRouter: {e}"
+
     else:
         return f"Unknown LLM provider: {provider}"
 
@@ -384,6 +444,9 @@ def extract_questions(raw: str) -> str:
                 questions.append(text if text.endswith("?") else text + "?")
         return " ".join(questions) if questions else raw
     except json.JSONDecodeError:
+        return raw
+    except Exception as e:
+        logger.warning("extract_questions fell back to raw text (%s: %s)", type(e).__name__, e)
         return raw
 
 # ---------------------------------------------------------------------------
@@ -414,7 +477,10 @@ async def generate_cqs_endpoint(
     file: UploadFile = File(...),
     llm_provider: str = Form("openai"),
     model: str = Form(None),
+    temperature: Optional[float] = Form(None),
 ):
+    logger.info("Model and provider used for generating cqs → Model: %s, Provider: %s", model, llm_provider)
+
     try:
         contents = await file.read()
         df = pd.read_csv(StringIO(contents.decode("utf-8")))
@@ -549,7 +615,7 @@ async def generate_cqs_endpoint(
         messages = _SYSTEM_MESSAGES + [{"role": "user", "content": user_content}]
         import time as _time
         t0 = _time.time()
-        raw = generate_with_llm(messages, provider=llm_provider, model=model)
+        raw = generate_with_llm(messages, provider=llm_provider, model=model, temperature=temperature)
         elapsed = _time.time() - t0
         generated = extract_questions(raw)
         n_cqs = len([q for q in generated.split("?") if q.strip()])

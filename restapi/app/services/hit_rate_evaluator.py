@@ -1,10 +1,13 @@
 import os
 import logging
+from typing import Optional
 import numpy as np
 import requests
 import openai
 
 from sentence_transformers import SentenceTransformer, util as sbert_util
+
+from app.utils.llm_clients import get_llm_client
 
 logger = logging.getLogger(__name__)
 
@@ -27,13 +30,30 @@ def sbert_similarity_matrix(cqs_a: list, cqs_b: list) -> np.ndarray:
     return sbert_util.cos_sim(emb_a, emb_b).cpu().numpy()
 
 
-def _call_llm(prompt: str, evaluator_llm: str) -> str:
+def _call_llm(prompt: str, evaluator_llm: str, provider: Optional[str] = None) -> str:
     """Route LLM call based on model identifier string.
 
-    - Identifiers starting with 'gpt' → OpenAI API (OPENAI_API_KEY)
-    - Identifiers containing 'claude' → Anthropic API (ANTHROPIC_API_KEY)
-    - Everything else → Together.ai (TOGETHER_API_KEY)
+    - If ``provider`` is given (e.g. ``"openrouter"``), route through the shared
+      ``get_llm_client`` factory — this is the path the ConsistencyEvaluator uses
+      so the judge LLM can be served by any provider (incl. OpenRouter).
+
+    - Otherwise fall back to original string-prefix routing:
+        - Identifiers starting with 'gpt' → OpenAI API (``OPENAI_API_KEY``)
+        - Identifiers containing 'claude' → Anthropic API (``ANTHROPIC_API_KEY``)
+        - Everything else → Together.ai (``TOGETHER_API_KEY``)
     """
+    if provider:
+        client = get_llm_client(provider)
+        return client.chat_completion(
+            messages=[
+                {"role": "system", "content": "You are an ontology engineering expert specialising in competency questions."},
+                {"role": "user", "content": prompt},
+            ],
+            model=evaluator_llm,
+            max_tokens=600,
+            temperature=0.7,
+        )
+
     if evaluator_llm.startswith("gpt"):
         openai.api_key = os.getenv("OPENAI_API_KEY", "")
         response = openai.chat.completions.create(
@@ -110,6 +130,7 @@ def _generate_gap_cqs(
     scenario_context: str,
     evaluator_llm: str,
     k: int,
+    provider: Optional[str] = None,
 ) -> list:
     """Ask the evaluator LLM to generate up to k CQs per missed benchmark CQ.
 
@@ -133,7 +154,7 @@ def _generate_gap_cqs(
     )
 
     try:
-        raw = _call_llm(prompt, evaluator_llm)
+        raw = _call_llm(prompt, evaluator_llm, provider=provider)
     except Exception as e:
         logger.error(f"Evaluator LLM call failed: {e}")
         return []
@@ -172,6 +193,7 @@ class HitRateEvaluator:
         scenario_context: str,
         evaluator_llm: str,
         tool_llm: str = None,
+        provider: Optional[str] = None,
     ) -> dict:
         if not bench_cqs:
             raise ValueError("bench_cqs cannot be empty.")
@@ -201,7 +223,7 @@ class HitRateEvaluator:
 
         if missed_bench_cqs:
             gap_cqs = _generate_gap_cqs(
-                missed_bench_cqs, covered_bench_cqs, scenario_context, evaluator_llm, self.k
+                missed_bench_cqs, covered_bench_cqs, scenario_context, evaluator_llm, self.k, provider=provider,
             )
 
             if gap_cqs:

@@ -164,10 +164,16 @@ def get_llm_client(provider: Optional[str] = None, **kwargs) -> BaseLLMClient:
         return GeminiAdapter()
     if provider in ("ollama",):
         return OllamaAdapter(base_url=kwargs.get("base_url") or os.getenv("OLLAMA_BASE_URL"))
+    if provider in ("openrouter", "openrouter.ai"):
+        # OpenRouter is OpenAI-compatible and reuses OpenAIAdapter with its base_url.
+        return OpenAIAdapter(
+            api_key=kwargs.get("api_key") or os.getenv("OPENROUTER_API_KEY"),
+            base_url="https://openrouter.ai/api/v1",
+        )
     if provider == "demo":
         return DemoAdapter()
 
     raise RuntimeError(
         f"LLM provider '{provider}' not supported. "
-        "Set LLM_PROVIDER to one of: openai, together, anthropic, gemini, ollama, demo."
+        "Set LLM_PROVIDER to one of: openai, together, anthropic, gemini, ollama, openrouter, demo."
     )

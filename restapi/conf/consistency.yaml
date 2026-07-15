@@ -1,0 +1,87 @@
+# Baseline ConsistencyEvaluator config — the reproducible setup.
+#
+# This file fully specifies a /consistency/ run so it reproduces across systems.
+# Single parameters can be overridden without editing the file, e.g.:
+#
+#   curl -X POST http://127.0.0.1:8000/consistency/ \
+#        -F "config_file=@conf/consistency.yaml" \
+#        -F "override=evaluation.n_runs=3" \
+#        -F "override=dataset.max_rows=5"
+#
+#   # or via the runner (same effect):
+#   python consistency_runner.py --submit --config conf/consistency.yaml \
+#        evaluation.n_runs=3 dataset.max_rows=5
+#
+# Shape mirrors the dotted-override namespaces (generation.* / evaluation.* / dataset.* / tests.*).
+# Missing keys fall back to built-in defaults (DEFAULT_BASE).
+
+generation:                     # how CQs are produced (the model varies per test axis)
+  provider: openrouter          # provider for the external CQ generator
+  temperature: null             # forwarded to the generator; None -> its default
+  service_url: http://127.0.0.1:8001/newapi/   # CQ generation service (mock or real)
+
+evaluation:                     # how each run is scored + the consistency controls
+  n_runs: 3                     # >= 3 (enforced)
+  validation_mode: all
+  validation_llm_provider: openrouter       # provider for the validation/judge LLMs
+  validation_model: mistralai/mistral-nemo
+  evaluator_llm: google/gemma-3-27b-it
+  tool_llm: null
+  output_dir: consistency_results
+  save_results: false
+  poll_interval: 10
+
+  max_generation_workers: 15
+  max_validation_workers: 1
+
+  # CoLLM Performance Drift (PD = (mean - r_Orig) / r_Orig) and qualitative pass/fail.
+  # Map the original study's reported score onto the Bench4KE metric(s) that represent it;
+  # a test passes if PD >= pass_threshold. Published scores below are authoritative per metric.
+  original_scores: null
+  # original_scores:
+  #   Average Cosine Similarity: 0.89
+  #   coverage_rate: 0.75
+  pass_threshold: -0.05   # arbitrary value, is task-related; paper's common -5% conclusion-holds threshold
+  # When a metric has no published score above, use the original model's repeatability mean
+  # as r_Orig so update_impact/replacement still report PD/pass-fail for every metric
+  # (each result tags r_orig_source: published | recomputed). false -> published metrics only.
+  recompute_baseline: true
+
+dataset:
+  gold_standard_path: null                  # null -> DEFAULT_DATASET
+  projects:                                 # null -> all projects
+    - Wine
+  max_rows: null                            # null -> all rows in the selected projects
+
+# Each test is judged against r_Orig via Performance Drift (see evaluation.original_scores /
+# recompute_baseline). The ORIGINAL model lives only in `repeatability`; update_impact and
+# replacement list ONLY the versions/alternatives under test (not the original) — so the
+# original model is generated exactly once.
+tests:
+  repeatability:                           # original model (LLM_Orig), n_runs times
+    enabled: true
+    models:
+      # # test 1
+      - mistralai/mistral-small-24b-instruct-2501
+      # # test 2
+      # - meta-llama/llama-3.1-8b-instruct
+  update_impact:                           
+    # updated version(s) of the original model
+    enabled: true
+    models:
+      # # test 1
+      - mistralai/mistral-small-3.2-24b-instruct
+      - mistralai/mistral-small-3.1-24b-instruct
+      # # test 2
+      # - meta-llama/llama-3-8b-instruct
+  replacement:                            
+    # alternative model(s) / different family
+    enabled: true
+    models:
+      # # test 1
+      - google/gemma-4-26b-a4b-it
+      - openai/gpt-oss-20b
+      # # test 2
+      # - mistralai/ministral-8b-2512
+      # - qwen/qwen3-8b
+

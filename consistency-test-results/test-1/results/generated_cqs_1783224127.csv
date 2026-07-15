@@ -1,0 +1,449 @@
+gold standard,generated
+,Error generating CQ with OpenRouter: Model returned empty content (NoneType)
+,"{
+  ""clusters"": [
+    {
+      ""label"": ""Grape Varieties and Production"",
+      ""rationale"": ""Questions about which wines are produced from specific grape varieties and regional grape cultivation."",
+      ""questions"": [
+        {
+          ""id"": ""CQ1"",
+          ""question"": ""Which wines are made from the grape variety Pinot Noir?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Uses the property that links wine to grape variety.""
+        },
+        {
+          ""id"": ""CQ2"",
+          ""question"": ""Which wines are made from the grape variety Riesling?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Illustrates grape variety to wine mapping.""
+        },
+        {
+          ""id"": ""CQ18"",
+          ""question"": ""Which wines are made from grapes grown in the Loire region?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list"",
+          ""notes"": ""Combines grape cultivation location with wine production.""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Attributes"",
+      ""rationale"": ""Questions that retrieve quantitative or qualitative characteristics of wines."",
+      ""questions"": [
+        {
+          ""id"": ""CQ3"",
+          ""question"": ""How much sugar does a Merlot wine have?"",
+          ""pattern"": ""How much does [class expression][datatype property]?"",
+          ""expected_answer_type"": ""value"",
+          ""notes"": ""Retrieves sugar content.""
+        },
+        {
+          ""id"": ""CQ4"",
+          ""question"": ""How much sugar does a Riesling wine have?"",
+          ""pattern"": ""How much does [class expression][datatype property]?"",
+          ""expected_answer"
+,"{
+  ""clusters"": [
+    {
+      ""label"": ""Wine Classification"",
+      ""rationale"": ""Questions that identify the type or category of wines."",
+      ""questions"": [
+        {
+          ""id"": ""CQ1"",
+          ""question"": ""What type of wine is a given wine?"",
+          ""pattern"": ""What type of [class expression] is [individual]?"",
+          ""expected_answer_type"": ""classification""
+        },
+        {
+          ""id"": ""CQ2"",
+          ""question"": ""Which wines are red?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ3"",
+          ""question"": ""Which wines are white?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ4"",
+          ""question"": ""Which wines are dry?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ5"",
+          ""question"": ""Which wines are sweet?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ6"",
+          ""question"": ""Which wines are dessert wines?"",
+          ""pattern"": ""Which are [class expressions]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ7"",
+          ""question"": ""Which wines are made from Pinot Noir?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Production"",
+      ""rationale"": ""Questions about wineries, their locations, and the wines they produce."",
+      ""questions"": [
+        {
+          ""id"": ""CQ8"",
+          ""question"": ""Which wineries produce red wine?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ9"",
+          ""question"": ""Which wineries are located in Bordeaux?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ10"",
+          ""question"": ""Which wineries produce wine from Riesling?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ11"",
+          ""question"": ""Which wineries produce dessert wine?"",
+          ""pattern"": ""Which [class expression 1][object property expression][class expression 2]?"",
+          ""expected_answer_type"": ""entity_list""
+        }
+      ]
+    },
+    {
+      ""label"": ""Wine Characteristics"",
+      ""rationale"": ""Questions about measurable attributes such as sugar, body, and flavor."",
+      ""questions"": [
+        {
+          ""id"": ""CQ12"",
+          ""question"": ""How much sugar does a wine have?"",
+          ""pattern"": ""How much does [class expression][datatype property]?"",
+          ""expected_answer_type"": ""value""
+        },
+        {
+          ""id"": ""CQ13"",
+          ""question"": ""What wine has the highest sugar content?"",
+          ""pattern"": ""What [class expression] has the [numeric modifier][datatype property]?"",
+          ""expected_answer_type"": ""entity_list""
+        },
+        {
+          ""id"": ""CQ14"","
+,"**Competency Questions for the Stanford University Wine Ontology**
+
+1. **Wine Production & Origin**  
+   - Which wines are produced by a given winery?  
+   - Which wineries produce wines from a specific grape variety?  
+   - Which wines are produced in a particular region?  
+   - Which wineries are located in a specified region?  
+   - Which wineries are adjacent to a given region?  
+
+2. **Grape & Variety Relationships**  
+   - Which wines are made from a particular grape variety?  
+   - Which grape varieties are used in a specific wine?  
+
+3. **Vintage & Year Information**  
+   - What is the vintage year of a given wine?  
+   - Which wines have a specific vintage year?  
+   - Which wines are associated with a particular year value?  
+
+4. **Sugar & Sweetness**  
+   - What is the sugar content of a particular wine?  
+   - Which wines have a specified sugar level (e.g., high, low, medium)?  
+   - Which wines are classified as sweet or dry based on their sugar content?  
+
+5. **Color & Visual Characteristics**  
+   - What color does a particular wine exhibit?  
+   - Which wines have a specific color (e.g., red, white, rose)?  
+
+6. **Body & Texture**  
+   - What body type does a given wine have (e.g., full-bodied, light-bodied)?  
+   - Which wines are classified as full-bodied or light-bodied?  
+
+7. **Flavor & Taste Profile**  
+   - What flavor descriptors are associated with a particular wine?  
+   - Which wines have a specific flavor profile (e.g., fruity, earthy, spicy)?  
+
+8. **Descriptors & Classifications**  
+   - Which wines are identified by a particular wine descriptor (e.g., early harvest, late harvest, ice wine)?  
+   - Which wines are categorized as dessert wines, table wines, or wine for specific occasions?  
+
+9. **Regional Relationships**  
+   - Which regions are adjacent to a specified region?  
+   - Which wines are produced in regions adjacent to a given region?  
+
+10. **Wine Types & Subclasses**  
+    - Which wines belong to the class *RedWine*, *WhiteWine*, *RoseWine*, *DessertWine*, etc.?  
+    - Which wines are instances of *Bordeaux*, *PinotNoir*, *Sauternes*, *Chianti*, etc.?  
+
+11. **Production Process**  
+    - Which wines are produced by a particular winery using a specific grape variety?  
+    - Which wines are produced by a winery located in a particular region?  
+
+12. **Quality & Characteristics**  
+    - Which wines are considered dry, sweet, or semi-sweet?  
+    - Which wines are considered early harvest or late harvest?  
+    - Which wines are considered ice wine?  
+
+13. **Wine & Maker Relationships**  
+    - Which wines are produced by a specific maker?  
+    - Which makers produce wines with a particular sugar level or flavor profile?  
+
+14. **Wine & Region Adjacentness**  
+    - Which wines are produced in regions adjacent to a given region?  
+
+15. **Wine & Body/Flavor Interactions**  
+    - Which wines have both a specific body type and a specific flavor descriptor?  
+    - Which wines combine a particular color with a particular body?  
+
+These questions capture the key conceptual and informational needs of the ontology, enabling queries that explore production, origin, composition, and classification of wines within the Stanford University Wine Ontology."
+,"**Competency Questions for the Stanford University Wine Ontology**
+
+1. Which wines are produced by a winery located in the Bordeaux region?  
+2. Which wines are produced by a winery located in the Burgundy region?  
+3. Which wines are produced by a winery located in the Loire region?  
+4. Which wines are produced by a winery located in the Côtes‑d’Or region?  
+5. Which wines are produced by a winery located in the Médoc region?  
+6. Which wines are produced by a winery located in the Saint‑Émilion region?  
+7. Which wines are produced by a winery located in the Margaux region?  
+8. Which wines are produced by a winery located in the Pauillac region?  
+9. Which wines are produced by a winery located in the Tours region?  
+10. Which wines are produced by a winery located in the Anjou region?  
+
+11. Which wines are made from the Pinot Noir grape variety?  
+12. Which wines are made from the Merlot grape variety?  
+13. Which wines are made from the Cabernet Franc grape variety?  
+14. Which wines are made from the Riesling grape variety?  
+15. Which wines are made from the Sauvignon Blanc grape variety?  
+
+16. Which wines have a vintage year of 2015?  
+17. Which wines have a vintage year between 2000 and 2010?  
+
+18. Which wines are classified as dry red wines?  
+19. Which wines are classified as sweet Riesling?  
+20. Which wines are classified as dessert wines?  
+21. Which wines are classified as white table wines?  
+22. Which wines are classified as red table wines?  
+23. Which wines are classified as white non‑sweet wines?  
+24. Which wines are classified as ice wines?  
+25. Which wines are classified as Meritage wines?  
+26. Which wines are classified as Sauternes wines?  
+
+27. Which wines are classified as full‑bodied?  
+28. Which wines are classified as light‑bodied?  
+29. Which wines are classified as medium‑bodied?  
+
+30. Which wines have the wine descriptor “early harvest”?  
+31. Which wines have the wine descriptor “late harvest”?  
+32. Which wines have the wine descriptor “full‑bodied”?  
+33. Which wines have the wine descriptor “light‑bodied”?  
+34. Which wines have the wine descriptor “medium‑bodied”?  
+35. Which wines have the wine descriptor “sweet”?  
+36. Which wines have the wine descriptor “dry”?  
+37. Which wines have the wine descriptor “dessert”?  
+38. Which wines have the wine descriptor “table”?  
+39. Which wines have the wine descriptor “white table”?  
+40. Which wines have the wine descriptor “red table”?  
+41. Which wines have the wine descriptor “white non‑sweet”?  
+42. Which wines have the wine descriptor “sweet Riesling”?  
+43. Which wines have the wine descriptor “ice wine”?  
+44. Which wines have the wine descriptor “Meritage”?  
+45. Which wines have the wine descriptor “Sauternes”?  
+46. Which wines have the wine descriptor “Bordeaux”?  
+47. Which wines have the wine descriptor “Burgundy”?  
+48. Which wines have the wine descriptor “French”?  
+49. Which wines have the wine descriptor “Italian”?  
+50. Which wines have the wine descriptor “German”?  
+51. Which wines have the wine descriptor “American”?  
+52. Which wines have the wine descriptor “Californian”?  
+53. Which wines have the wine descriptor “Texas”?  
+54. Which wines have the wine descriptor “Côtes‑d’Or”?  
+55. Which wines have the wine descriptor “Médoc”?  
+56. Which wines have the wine descriptor “Saint‑Émilion”?  
+57. Which wines have the wine descriptor “Margaux”?  
+58. Which wines have the wine descriptor “Pauillac”?  
+59. Which wines have the wine descriptor “Tours”?  
+60. Which wines have the wine descriptor “Anjou”?  
+61. Which wines have the wine descriptor “Loire”?  
+62. Which wines have the wine descriptor “White Loire”?  
+63. Which wines have the wine descriptor “White Bordeaux”?  
+64. Which wines have the wine descriptor “White Burgundy”?  
+65. Which wines have the wine descriptor “Red Bordeaux”?  
+66. Which wines have the wine descriptor “Red Burgundy”?  
+67. Which wines have the wine descriptor “Beaujolais”?  
+68. Which wines have the wine descriptor “Sancerre”?  
+69. Which wines have the wine descriptor “Meursault”?  
+
+70. Which regions are adjacent to the Bordeaux region?  
+71. Which regions are adjacent to the Burgundy region?  
+72. Which regions are adjacent to the Loire region?  
+73. Which regions are adjacent to the Côtes‑d’Or region?  
+74. Which regions are adjacent to the Médoc region?  
+75. Which regions are adjacent to the Saint‑Émilion region?  
+76. Which regions are adjacent to the Margaux region?  
+77. Which regions are adjacent to the Pauillac region?  
+78. Which regions are adjacent to the Tours region?  
+79. Which regions are adjacent to the Anjou region?  
+
+80. Which wines are produced in regions adjacent to the Bordeaux region?  
+81. Which wines are produced in regions adjacent to the Burgundy region?  
+82. Which wines are produced in regions adjacent to the Loire region?  
+83. Which wines are produced in regions adjacent to the Côtes‑d’Or region?  
+84. Which wines are produced in regions adjacent to the Médoc region?  
+85. Which wines are produced in regions adjacent to the Saint‑Émilion region?  
+86. Which wines are produced in regions adjacent to the Margaux region?  
+87. Which wines are produced in regions adjacent to the Pauillac region?  
+88. Which wines are produced in regions adjacent to the Tours region?  
+89. Which wines are produced in regions adjacent to the Anjou region?  
+
+These questions capture the key conceptual and informational needs of the ontology, covering production location, grape variety, vintage, taste profile, body, flavor, descriptors, and regional relationships."
+,"We need to produce a set of competency questions. The user gave a list of classes and properties. We need to generate questions that reflect conceptual and informational needs. We should not aim for a fixed number, but produce a set of meaningful questions. We should avoid repetition. Let's produce about 15-20 questions. They should cover various aspects: wine types, regions, grape varieties, vintage, sugar, body, flavor, etc. Also relationships: adjacency, location, etc. Let's produce them in natural language. Use ""Which"", ""What"", ""Does"", ""Is"". Let's produce them.**Competency Questions for the Stanford University Wine Ontology**
+
+1. **Wine–Region Relationships**  
+   - *Which wines are produced in the Bordeaux region?*  
+   - *Which wineries are located in the Loire region?*  
+   - *Which regions are adjacent to the Burgundy region?*  
+
+2. **Wine–Grape Relationships**  
+   - *Which wines are made from the Pinot Noir grape?*  
+   - *Which wines are made from the Chardonnay grape?*  
+   - *Which wines are made from the Riesling grape?*  
+
+3. **Wine–Vintage Information**  
+   - *What is the vintage year of the 2015 Château Margaux?*  
+   - *Which wines have a vintage year of 2018?*  
+   - *Which wines are classified as “Vintage” (i.e., have a specific vintage year)?*  
+
+4. **Wine–Sugar Content**  
+   - *Which wines have a sugar level classified as “SweetWine”?*  
+   - *Which wines have a sugar level classified as “DryWine”?*  
+   - *Which wines are produced from grapes harvested early (EarlyHarvest) and have a high sugar content?*  
+
+5. **Wine–Body and Flavor**  
+   - *Which wines are described as “FullBodiedWine”?*  
+   - *Which wines have a flavor profile of “Spicy” (or any specific flavor term in the ontology)?*  
+   - *Which wines are classified as “LightBodiedWine” (if such a class exists)?*  
+
+6. **Wine–Color and Type**  
+   - *Which wines are classified as “RedWine”?*  
+   - *Which wines are classified as “WhiteWine”?*  
+   - *Which wines are classified as “RoseWine”?*  
+
+7. **Wine–Descriptor and Taste**  
+   - *Which wines have the descriptor “EarlyHarvest”?*  
+   - *Which wines have the descriptor “LateHarvest”?*  
+   - *Which wines are described as “DessertWine”?*  
+
+8. **Wine–Maker and Winery**  
+   - *Which wines are produced by the winery “Château Lafite Rothschild”?*  
+   - *Which wineries produce a “Meritage” wine?*  
+   - *Which wineries are located in the Texas region and produce “Zinfandel” wines?*  
+
+9. **Wine–Adjacency and Geographic Context**  
+   - *Which wines are produced in a region adjacent to the CotesDOr region?*  
+   - *Which wineries are located in a region adjacent to the AlsatianWine region?*  
+
+10. **Wine–Production Process**  
+    - *Which wines are made from grapes that are harvested early and then fermented into a “DryRedWine”?*  
+    - *Which wines are made from grapes that are harvested late and then fermented into a “SweetRiesling”?*  
+
+11. **Wine–Specialty and Category**  
+    - *Which wines are classified as “Port” or “IceWine”?*  
+    - *Which wines are classified as “Sauternes” or “StEmilion”?*  
+
+12. **Wine–Year Value**  
+    - *What is the year value associated with the 2019 vintage of a given wine?*  
+    - *Which wines have a year value greater than 2015?*  
+
+13. **Wine–Flavor and Taste Combination**  
+    - *Which wines have both a “Sweet” flavor and a “FullBodied” body?*  
+    - *Which wines have a “Dry” taste and a “Light” body?*  
+
+14. **Wine–Regional Subclass Queries**  
+    - *Which wines belong to the subclass “WhiteBordeaux”?*  
+    - *Which wines belong to the subclass “RedBordeaux”?*  
+
+15. **Wine–Maker–Region Interaction**  
+    - *Which wineries located in the FrenchWine region produce “Merlot” wines?*  
+    - *Which wineries located in the AmericanWine region produce “CabernetSauvignon” wines?*  
+
+These questions capture the key conceptual and informational needs of the ontology, enabling users to retrieve detailed, structured information about wines, their characteristics, production contexts, and relationships within the wine domain."
+,"**Competency Questions for the Stanford University Wine Ontology**
+
+1. **Wine Classification & Hierarchy**
+   - Which wines belong to the class *Bordeaux*?  
+   - Which wines are instances of *RedBordeaux*?  
+   - Which wines are instances of *WhiteBordeaux*?  
+   - Which wines are instances of *FrenchWine*?  
+   - Which wines are instances of *ItalianWine*?  
+   - Which wines are instances of *GermanWine*?  
+   - Which wines are instances of *AmericanWine*?  
+
+2. **Wine Attributes**
+   - What is the *hasColor* of a given wine?  
+   - What is the *hasBody* of a given wine?  
+   - What is the *hasFlavor* of a given wine?  
+   - What is the *hasWineDescriptor* of a given wine?  
+   - What is the *hasSugar* content of a given wine?  
+   - What is the *hasVintageYear* of a given wine?  
+
+3. **Wine Production & Origin**
+   - Which wines are *madeFromGrape* a specified grape variety?  
+   - Which wines are *produced* by a specified winery?  
+   - Which wines are *locatedIn* a specified region?  
+   - Which wineries are *locatedIn* a specified region?  
+   - Which regions are *adjacentRegion* to a specified region?  
+
+4. **Wine Types & Sub‑Types**
+   - Is a given wine a *RedWine*?  
+   - Is a given wine a *WhiteWine*?  
+   - Is a given wine a *DryWine*?  
+   - Is a given wine a *SweetWine*?  
+   - Is a given wine a *DessertWine*?  
+   - Is a given wine a *TableWine*?  
+   - Is a given wine a *FullBodiedWine*?  
+
+5. **Vintage & Year Information**
+   - What is the *yearValue* of a given *Vintage*?  
+   - Which wines have a *hasVintageYear* equal to a specified year?  
+
+6. **Grape & Wine Relationships**
+   - Which wines are *madeIntoWine* from a specified grape?  
+   - Which wines are *madeFromGrape* a specified grape?  
+
+7. **Regional Relationships**
+   - Which wines are *locatedIn* the region *CotesDOr*?  
+   - Which wines are *locatedIn* the region *Muscadet*?  
+   - Which wines are *locatedIn* the region *Sauternes*?  
+   - Which wines are *locatedIn* the region *TexasWine*?  
+
+8. **Descriptor & Flavor Queries**
+   - Which wines have a *hasWineDescriptor* of “EarlyHarvest”?  
+   - Which wines have a *hasWineDescriptor* of “LateHarvest”?  
+   - Which wines have a *hasFlavor* of “SweetRiesling”?  
+   - Which wines have a *hasFlavor* of “DryRiesling”?  
+
+9. **Maker & Winery Information**
+   - Which wines have a *hasMaker* that is a specified winery?  
+   - Which wineries *produceWine* a specified wine?  
+
+10. **Cross‑Domain Queries**
+    - Which wines are both *RedWine* and *DryWine*?  
+    - Which wines are both *WhiteWine* and *SweetWine*?  
+    - Which wines are both *TableWine* and *FullBodiedWine*?  
+
+These questions capture the core conceptual and informational needs of the ontology, enabling retrieval of wine characteristics, production details, regional associations, and hierarchical classifications."

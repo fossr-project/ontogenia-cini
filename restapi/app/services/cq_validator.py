@@ -48,10 +48,11 @@ except Exception:
 
 
 class CQValidator:
-    def __init__(self, output_folder: str, model: str = "gpt-4", validation_mode: str = "all"):
+    def __init__(self, output_folder: str, model: str = "gpt-4", validation_mode: str = "all", provider: Optional[str] = None):
         self.output_folder = output_folder
         self.model = model
         self.validation_mode = validation_mode
+        self.provider = provider    # Optional LLM provider for the factory design pattern; 'None' preserves prior behavior
         self.sbert_model = SentenceTransformer('all-MiniLM-L6-v2')
         self._rouge = rouge_scorer.RougeScorer(['rougeLsum'], use_stemmer=True) if _ROUGE_AVAILABLE else None
         self._embedding_cache: dict = {}
@@ -123,7 +124,7 @@ class CQValidator:
             return None
 
     def generate_response(self, chosen_model: str, messages, max_tokens: int = 3000, temperature: float = 0) -> str:
-        client = get_llm_client()
+        client = get_llm_client(self.provider)
         return client.chat_completion(messages=messages, model=chosen_model, max_tokens=max_tokens, temperature=temperature)
 
     def aggregate_dataframe_metrics(self, df: pd.DataFrame, gold_col: str = None,
