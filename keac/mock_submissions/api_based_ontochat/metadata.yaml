@@ -15,7 +15,9 @@ submission_number: 2  # of 3
 
 challenge_task: Competency Question Generation
 task_identifier: N/A
-selected_track_or_input_modality: [persona, user story]
+selected_track_or_input_modality: [scenario]
+# "scenario" is the challenge-catalog term for user story / persona input,
+# and is the exact mode name keac_eval.py uses — kept in sync deliberately.
 # OntoChat's public API only exposes a scenario/user-story generator
 # (/cq_generator) — it has no dataset-profiling or ontology-file input mode,
 # so this submission only targets scenario-shaped benchmark groups.
@@ -104,7 +106,6 @@ reproduction_instructions:
     counting a group whose full input the system never actually used.
 
 results_summary:
-  matched_groups: "2/16 (within declared scope: scenario only)"
   by_mode:
     scenario: "2/16 groups covered, mean final_score 0.0015"
   overall_final_score:

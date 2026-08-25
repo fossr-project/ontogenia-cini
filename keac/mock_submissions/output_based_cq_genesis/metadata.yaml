@@ -14,7 +14,9 @@ submission_number: 1  # of 3
 
 challenge_task: Competency Question Generation
 task_identifier: N/A  # a real submission uses the w3id.org/keac/... identifier from the catalog
-selected_track_or_input_modality: [dataset, persona, user story]
+selected_track_or_input_modality: [dataset, scenario]
+# "scenario" is the challenge-catalog term for user story / persona input,
+# and is the exact mode name keac_eval.py uses — kept in sync deliberately.
 # CQ-Genesis's own README: "generating and refining Competency Questions from
 # structured datasets, user stories, or their combination" — no ontology-file
 # input mode exists, so scenario+ontology groups are outside its declared
@@ -92,7 +94,6 @@ reproduction_instructions:
     scenario+ontology; see dataset_or_benchmark_split_identifier above.
 
 results_summary:
-  matched_groups: "4/24 (within declared scope: dataset, scenario)"
   by_mode:
     dataset: "4/8 groups covered, mean final_score 0.0895"
     scenario: "0/16 (not attempted)"

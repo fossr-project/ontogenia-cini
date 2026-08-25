@@ -49,9 +49,11 @@ The PR template recognises three:
 
 ### 2. Declare your input modality honestly
 
-The gold benchmark has five kinds of groups: `dataset`, `scenario`
-(persona/user story), `ontology` (a Link to an ontology file), `pdf` (a Link
-to a reference paper), and combinations like `scenario+ontology`. Most
+The gold benchmark has five kinds of groups: `dataset`, `scenario` (what the
+challenge-catalog PR template calls "user story" — always spelled `scenario`
+in code and metadata; never `persona`), `ontology` (a Link to an ontology
+file), `pdf` (a Link to a reference paper), and combinations like
+`scenario+ontology`. Most
 systems only handle some of these — that's expected, not a defect. Use
 `--modes` to declare which ones you're attempting:
 
@@ -103,12 +105,11 @@ exact commands you ran (so the organisers can reproduce your numbers).
 | Submission mode | Output-based | API-based |
 | System | CQ-Genesis (pre-generated file) | OntoChat, called live via `gradio_client` |
 | Modes attempted | `dataset`, `scenario` | `scenario` only |
-| Groups matched | 4/24 (declared scope only) | 2/16 (declared scope only) |
 
 Both are genuinely worked examples, not fabricated numbers, and both hit the
 same lesson: **check what a system's input actually was before trusting the
 gold group's mode label.** Polifonia/Linka is a `scenario+ontology` gold group
-(it has both a persona text and a link to `musicmeta.owl`), but neither
+(it has both a scenario text and a link to `musicmeta.owl`), but neither
 CQ-Genesis's own README nor OntoChat's API expose any ontology-file input —
 both only ever received the scenario text. So Linka's output is kept in each
 `submission_output.csv` for transparency, but excluded from the scored/declared
