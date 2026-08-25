@@ -103,7 +103,6 @@ exact commands you ran (so the organisers can reproduce your numbers).
 | Submission mode | Output-based | API-based |
 | System | CQ-Genesis (pre-generated file) | OntoChat, called live via `gradio_client` |
 | Modes attempted | `dataset`, `scenario` | `scenario` only |
-| Groups matched | 4/24 (declared scope only) | 2/16 (declared scope only) |
 
 Both are genuinely worked examples, not fabricated numbers, and both hit the
 same lesson: **check what a system's input actually was before trusting the
