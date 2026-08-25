@@ -1,0 +1,107 @@
+# Mock KEAC submission — Output-based mode.
+# Fields follow the challenge-catalog PR template
+# (codeberg.org/ke-automation-challenge/challenge-catalog/.gitea/PULL_REQUEST_TEMPLATE.md).
+# This is a worked example for testing the local KEAC track end to end, not a
+# real submission to the challenge.
+
+submission_name: cq-genesis-gpt-mock
+team_or_group_name: bench4ke-internal-test
+team_members: [N/A]
+organisations: [N/A]
+contact_person: N/A
+contact_email: N/A
+submission_number: 1  # of 3
+
+challenge_task: Competency Question Generation
+task_identifier: N/A  # a real submission uses the w3id.org/keac/... identifier from the catalog
+selected_track_or_input_modality: [dataset, persona, user story]
+# CQ-Genesis's own README: "generating and refining Competency Questions from
+# structured datasets, user stories, or their combination" — no ontology-file
+# input mode exists, so scenario+ontology groups are outside its declared
+# modality even where its output happens to land in one (see below).
+
+submission_mode: Output-based
+# The generated results are provided directly as a file — no live system was
+# called for this submission, unlike api_based_ontochat/.
+
+files:
+  - path: submission_output.csv
+    purpose: Raw generated CQs, one row per question, for all attempted gold
+      groups including Polifonia/Linka (28 CQs), one row per question. Columns
+      match the input schema expected by keac/keac_eval.py (Project Name,
+      Name, Scenario, Dataset, Generated CQs). Only the WHOW dataset groups
+      are within this submission's declared scope — see results_summary.
+  - path: keac_results.csv
+    purpose: Per-group KEAC metrics produced by keac_eval.py, scored with
+      --modes dataset,scenario.
+  - path: metadata.yaml
+    purpose: This file.
+
+catalog_metadata:
+  submission_identifier: N/A
+  system_identifier: CQ-Genesis
+  result_file: submission_output.csv
+  metadata_file: metadata.yaml
+  dataset_or_benchmark_split_identifier: >
+    benchmarkdataset_full.csv, dataset+scenario subset (Linka/Music Meta
+    Ontology is a "scenario+ontology" gold group; CQ-Genesis's own docs
+    confirm it never takes an ontology file as input, so that group's output
+    is kept in submission_output.csv for transparency but excluded from the
+    scored/declared scope, same treatment as api_based_ontochat/Linka).
+  applicable_metric_identifiers:
+    - keac_coverage
+    - keac_prec_mms
+    - keac_acd
+    - keac_verbosity_penalty
+    - keac_final_score
+
+system_and_model_information:
+  system_name_and_version: CQ-Genesis (version unrecorded — fill in for a real submission)
+  system_description: >
+    Generates competency questions from structured datasets, user stories, or
+    their combination (per its own README). Does not take an ontology file as
+    input.
+  models_used: unknown-gpt-version  # fill in the exact model/version actually used
+  model_availability:
+    no_language_model_used: false
+    openly_available_and_within_size_restrictions: N/A  # depends on the actual model used
+  model_parameter_count: N/A
+  random_seed: N/A
+  software_version_or_commit: N/A
+  required_hardware: N/A
+  approximate_execution_time: N/A
+
+artifacts:
+  source_code_repository: N/A
+  release_tag_or_commit: N/A
+  api_endpoint_and_documentation: N/A
+  container_image_or_environment_definition: N/A
+  installation_and_execution_instructions: N/A
+  paper_or_technical_report: N/A
+  license: N/A
+
+reproduction_instructions:
+  commands: |
+    python keac/keac_eval.py keac/mock_submissions/output_based_cq_genesis/submission_output.csv \
+      --gold restapi/app/benchmarkdataset_full.csv \
+      --modes "dataset,scenario" \
+      --out keac/mock_submissions/output_based_cq_genesis/keac_results.csv
+  additional_configuration: >
+    None — no API key or environment variable is needed for the Output-based
+    mode, since scoring is pure SBERT (no LLM judge). --modes excludes
+    scenario+ontology; see dataset_or_benchmark_split_identifier above.
+
+results_summary:
+  matched_groups: "4/24 (within declared scope: dataset, scenario)"
+  by_mode:
+    dataset: "4/8 groups covered, mean final_score 0.0895"
+    scenario: "0/16 (not attempted)"
+  overall_final_score:
+    unweighted_mean: 0.0895
+    gold_size_weighted_mean: 0.1443
+  excluded_from_scope:
+    scenario+ontology: >
+      1 group (Polifonia/Linka, 28 gold CQs). CQ-Genesis produced output for
+      it (7 generated CQs, kept in submission_output.csv), but it's excluded
+      from this submission's scored/declared scope since CQ-Genesis has no
+      ontology-file input mode.

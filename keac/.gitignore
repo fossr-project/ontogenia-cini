@@ -1,5 +1,11 @@
 __pycache__/
 *.pyc
 .cache/
-*.csv
-*.json
+
+# Ad-hoc eval outputs directly in keac/ are scratch, not source.
+/*.csv
+/*.json
+
+# But mock_submissions/*/submission_output.csv and keac_results.csv are
+# committed worked examples, not scratch — keep them.
+!mock_submissions/**/*.csv

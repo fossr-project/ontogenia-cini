@@ -1,0 +1,5 @@
+project,mode,group_key,n_gold,n_generated,keac_coverage,keac_prec_mms,keac_acd,keac_verbosity_penalty,keac_final_score
+WHOW,dataset,"bacino_idrografico,""lago"",""corpo_idrico"",""provincia"",""comune"",""coord_x"",""coord_y",1,8,0.0,0.3783,0.6117,0.0,0.0
+WHOW,dataset,"codice_ente,ente_controllore,punto_prelievo,tipologia_punto_prelievo,indirizzo_p",8,8,0.125,0.5743,0.6219,1.0,0.2181
+WHOW,dataset,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULE,3,8,0.0,0.4909,0.6771,0.1108,0.0
+WHOW,dataset,https://raw.githubusercontent.com/whow-project/datasets/refs/heads/main/RML-RULE,3,6,0.3333,0.6379,0.6251,0.3012,0.1401

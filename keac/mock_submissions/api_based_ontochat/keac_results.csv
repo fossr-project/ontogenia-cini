@@ -1,0 +1,3 @@
+project,mode,group_key,n_gold,n_generated,keac_coverage,keac_prec_mms,keac_acd,keac_verbosity_penalty,keac_final_score
+Polifonia,scenario,Amy wants to assess the developments of organ builders. This research includes l,1,5,1.0,0.7531,0.3785,0.0033,0.003
+Polifonia,scenario,Paul is hired to plan and supervise the restoration of an organ in a church. The,5,5,0.0,0.5624,0.5504,1.0,0.0
